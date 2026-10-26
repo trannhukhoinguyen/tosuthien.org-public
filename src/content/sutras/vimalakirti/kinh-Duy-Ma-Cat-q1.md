@@ -1,12 +1,9 @@
 ---
 title: "DUY MA CẬT [KINH] - Quyển 1"
-meta_title: ""
 description: ""
-excerpt: ""
-categories:
-  - Kinh
+category: "Kinh"
 tags:
-  - HT THÍCH DUY LỰC
+  - HT. THÍCH DUY LỰC
   - KINH DUY MA CẬT
 image: /images/backgrounds/wide/zen-space.jpeg
 videoIds:
@@ -23,7 +20,7 @@ videoIds:
 
 **QUYỂN 1 HẾT**
 
-<hr class="blog-rule" />
+<hr class="blog-rule footer" />
 
 ## NGUỒN
 

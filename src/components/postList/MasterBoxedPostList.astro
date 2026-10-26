@@ -6,7 +6,7 @@ import PostImage from "../post/PostImage.astro";
 import Pagination from "../page/Pagination.astro";
 import MasterTableUi from "../ui/table/MasterTableUi.astro";
 import ABCLinkedTitleList from "@/components/postList/ABCLinkedTitleList.astro"
-import { getPostDetail } from "../../utils/helper";
+import { getPostDetail } from "@/utils/helper";
 
 const {
     collection = "masters",
@@ -88,17 +88,19 @@ const imgUrlDefault = "/images/unknown-zen-master.jpg";
     ) : <p>{noPost}</p>*/
 }
 
-<MasterTableUi />
-
 {
-    titleList?.length > 0 ? (
-
+  titleList?.length > 0 ? (
+  <div style="margin-bottom: 24px;">
     <ABCLinkedTitleList
-            collection={collection}
-            posts={posts}
-            titleList={titleList}
-            listTitle={`DANH SÁCH BÀI VIẾT VỀ ${categoryName}`}
+      showInputSearch={false}
+      collection={collection}
+      posts={posts}
+      titleList={titleList}
+      listTitle={`DANH SÁCH BÀI VIẾT VỀ ${categoryName}`}
     />
+  </div>
 
-        ) : <p>{noItem}</p>
-    }
+  ) : <p>{noItem}</p>
+}
+
+<MasterTableUi />

@@ -44,7 +44,7 @@ const CnLv31MasterDb = [
     name_ja: '',
     name_zh: '慈舟方念',
     name_vi: 'Từ Châu Phương Niệm',
-    other_name_vi: '',
+    other_name_vi: 'Từ Chu Phương Niệm',
     birth_death_time: ['-', '1594'],
     epoch: '',
     sect: ['Caodong'],

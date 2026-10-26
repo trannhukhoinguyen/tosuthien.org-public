@@ -3,9 +3,7 @@ import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL } from '../config.ts';
 
 interface Props {
     title: string;
-    meta_title?: string;
     description?: string;
-    excerpt?: string;
     showSidebar?: boolean;
     image?: string;
     type?: 'website' | 'article';
@@ -80,9 +78,7 @@ interface Props {
 
 const {
     title,
-    meta_title,
     description,
-    excerpt,
     image = '/images/backgrounds/Buddha-zen.avif',
     publishedTime,
     modifiedTime,
@@ -93,7 +89,7 @@ const {
 
 const canonicalURL = canonical || new URL(Astro.url.pathname, SITE_URL || Astro.site).toString();
 const imageURL = new URL(image, SITE_URL || Astro.site).toString();
-const metaDescription = description || excerpt || SITE_DESCRIPTION;
+const metaDescription = description || SITE_DESCRIPTION;
 
 //
 // 🌐 WEBSITE
@@ -187,7 +183,7 @@ const contentSchema = (() => {
         return {
             "@type": "Book",
             "@id": `${canonicalURL}#book`,
-            "name": meta_title || title,
+            "name": title,
             "description": metaDescription,
             ...(Astro.props.book?.author && {
                 "author": {
@@ -236,7 +232,7 @@ const contentSchema = (() => {
         return {
             "@type": "CreativeWork",
             "@id": `${canonicalURL}#koan`,
-            "name": meta_title || title,
+            "name": title,
             "description": metaDescription,
             "url": canonicalURL,
 
@@ -280,7 +276,7 @@ const contentSchema = (() => {
         return {
             "@type": "Article",
             "@id": `${canonicalURL}#article`,
-            "headline": meta_title || title,
+            "headline": title,
             "description": metaDescription,
             "image": [imageURL],
             "datePublished": publishedTime,
@@ -309,6 +305,7 @@ const contentSchema = (() => {
         return {
             "@type": "VideoObject",
             "@id": `${canonicalURL}#video`,
+            "hasPart": [{ "@id": `${canonicalURL}#video` }, { "@id": `${canonicalURL}#pdf` }],
             "name": Astro.props.video?.name || title,
             "description": Astro.props.video?.description || metaDescription,
             "thumbnailUrl": [
@@ -339,7 +336,7 @@ const contentSchema = (() => {
     return {
         "@type": "WebPage",
         "@id": canonicalURL,
-        "name": meta_title || title,
+        "name": title,
         "description": metaDescription,
         "isPartOf": {
             "@id": `${SITE_URL}#website`
@@ -380,25 +377,28 @@ const breadcrumbSchema = {
 // 🎬 VIDEO
 //
 const videoSchema = Astro.props.video && {
-    "@type": "VideoObject",
-    "@id": `${canonicalURL}#video`,
-    "name": Astro.props.video.name || title,
-    "thumbnailUrl": [Astro.props.video.thumbnailUrl || imageURL],
-    ...(Astro.props.video.uploadDate && {
-        "uploadDate": Astro.props.video.uploadDate
-    }),
-    ...(Astro.props.video.duration && {
-        "duration": Astro.props.video.duration
-    }),
-    ...(Astro.props.video.embedUrl && {
-        "embedUrl": Astro.props.video.embedUrl
-    }),
-    "publisher": {
-        "@id": `${SITE_URL}#organization`
-    },
+  "@type": "VideoObject",
+  "@id": `${canonicalURL}#video`,
+  "name": Astro.props.video.name || title,
+  "thumbnailUrl": [Astro.props.video.thumbnailUrl || imageURL],
+  ...(Astro.props.video.uploadDate && {
+      "uploadDate": Astro.props.video.uploadDate
+  }),
+  ...(Astro.props.video.duration && {
+      "duration": Astro.props.video.duration
+  }),
+  ...(Astro.props.video.embedUrl && {
+      "embedUrl": Astro.props.video.embedUrl
+  }),
+  "publisher": {
+      "@id": `${SITE_URL}#organization`
+  },
+  "isPartOf": {
+    "@id": contentSchema["@id"]
+  },
 
-    // 🔥 ontology
-    "additionalType": "https://tosuthien.org/schema/ZenTalk",
+  // 🔥 ontology
+  "additionalType": "https://tosuthien.org/schema/ZenTalk",
 
 
 };
@@ -419,27 +419,15 @@ const gallerySchema = {
 // 📂 PDF
 //
 const pdfSchema = Astro.props.pdf && {
-    "@type": "MediaObject",
-    "@id": `${canonicalURL}#pdf`,
-    "name": Astro.props.pdf.name || title,
-    "contentUrl": Astro.props.pdf.url,
-    "encodingFormat": "application/pdf",
-
-
+  "@type": "MediaObject",
+  "@id": `${canonicalURL}#pdf`,
+  "name": Astro.props.pdf.name || title,
+  "contentUrl": Astro.props.pdf.url,
+  "encodingFormat": "application/pdf",
+  "isPartOf": {
+    "@id": contentSchema["@id"]
+  }
 };
-
-if (videoSchema || pdfSchema) {
-    contentSchema.hasPart = [
-        ...(videoSchema ? [{ "@id": `${canonicalURL}#video` }] : []),
-        ...(pdfSchema ? [{ "@id": `${canonicalURL}#pdf` }] : [])
-    ];
-    videoSchema.isPartOf = {
-        "@id": contentSchema["@id"]
-    };
-    pdfSchema.isPartOf = {
-        "@id": contentSchema["@id"]
-    };
-}
 
 //
 // 🔥 FINAL GRAPH

@@ -1,33 +1,158 @@
 ---
 interface Props {
-  speaker: string;      // Tên người nói (ví dụ: "Phật", "Đại Huệ")
-  role?: 'speaker1' | 'speaker2'; // Phân biệt người hỏi / người đáp
+  icon: string;      // Tên người nói
+  speaker: string;      // Tên người nói
+  role?: 'ask' | 'reply' | 'self' | 'enlighten'; // Phân biệt người hỏi / người đáp / tự nói (ở giữa)
 }
 
-const { speaker, role = 'speaker1' } = Astro.props;
+const { speaker, role = 'enlighten' } = Astro.props;
 
-// Cấu hình màu sắc & vị trí theo vai trò (người hỏi hoặc người đáp)
-const isPrimary = role === 'speaker1';
+const isEnlighten = role === 'enlighten';
 
-const bubbleStyles = isPrimary
-  ? 'bg-amber-100 text-amber-950 border-amber-200 rounded-tl-none self-start mr-8 shadow-amber-900/5'
-  : 'bg-emerald-100 text-emerald-950 border-emerald-200 rounded-tr-none self-end ml-8 shadow-emerald-900/5';
+const isAsk = role === 'ask';
+const isReply = role === 'reply';
+const isSelf = role === 'self';
 
-const badgeStyles = isPrimary
-  ? 'bg-amber-700 text-amber-50'
-  : 'bg-emerald-700 text-emerald-50';
+const icon = isAsk ? '❔' : isReply ? '📣' : isSelf ? '💬' : '⚡️';
 ---
 
-<div class={`flex flex-col my-3 max-w-[85%] ${isPrimary ? 'items-start' : 'items-end ml-auto'}`}>
-  <!-- Tên người nói dạng Badge nhỏ phía trên -->
-  <span class={`text-xs font-semibold px-2.5 py-0.5 rounded-full mb-1 shadow-sm ${badgeStyles}`}>
+<div class={`chat-container ${isAsk ? 'ask' : isReply ? 'reply' : isSelf ? 'self' : 'enlighten'}`}>
+  <!-- Cụm tiêu đề người nói dạng Badge -->
+  <span class="chat-icon">
+    {icon}
+  </span>
+  <span class="chat-badge">
     {speaker}
   </span>
 
-  <!-- Đám mây bong bóng nổi bật -->
-  <div class={`relative px-4 py-3 rounded-2xl border shadow-lg backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 ${bubbleStyles}`}>
-    <div class="text-base leading-relaxed space-y-2">
+  <!-- Bong bóng lời nói -->
+  <div class="chat-bubble">
+    <div class="chat-content">
       <slot />
     </div>
   </div>
 </div>
+
+<style>
+  /* Wrapper chính */
+  .chat-container {
+    display: flex;
+    flex-direction: column;
+    margin-block: 1.5rem;
+    max-width: 85%;
+  }
+
+  .chat-container.ask {
+    align-items: flex-start;
+  }
+
+  .chat-container.reply {
+    align-items: flex-end;
+    margin-left: auto;
+  }
+
+  .chat-container.self, .chat-container.enlighten {
+    align-items: center;
+    max-width: 90%;
+
+    .chat-content p {
+      text-align: left;
+    }
+  }
+
+  /* Badge tên người nói */
+  .chat-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.125rem 0.625rem;
+    border-radius: 9999px;
+    margin-bottom: 0.25rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .chat-icon {
+    margin-right: 0.5rem;
+  }
+
+  .ask .chat-badge {
+    background-color: #b45309;
+    color: #fffbeb;
+  }
+
+  .reply .chat-badge {
+    background-color: #047857;
+    color: #ecfdf5;
+  }
+
+  .self .chat-badge {
+    background-color: #1f2835;
+    color: #f8fafc;
+  }
+
+  .enlighten .chat-badge {
+    background-color: var(--color-accent-darkgoldenrod);
+    color: #f8fafc;
+  }
+
+  /* Bong bóng lời nói */
+  .chat-bubble {
+    position: relative;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    border-width: 1px;
+    border-style: solid;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+  }
+
+  .chat-bubble:hover {
+    transform: translateY(-0.125rem);
+  }
+
+  .ask .chat-bubble {
+    background-color: #fef3c7;
+    color: #451a03;
+    border-color: #fde68a;
+    border-top-left-radius: 0;
+    align-self: flex-start;
+    margin-right: 2rem;
+    box-shadow: 0 10px 15px -3px rgba(120, 53, 15, 0.05);
+  }
+
+  .reply .chat-bubble {
+    background-color: #d1fae5;
+    color: #022c22;
+    border-color: #a7f3d0;
+    border-top-right-radius: 0;
+    align-self: flex-end;
+    margin-left: 2rem;
+    box-shadow: 0 10px 15px -3px rgba(6, 78, 59, 0.05);
+  }
+
+  .self .chat-bubble {
+    background-color: #f1f5f9;
+    color: var(--color-brand-gray-900);
+    border-color: var(--color-brand-gray-300);
+    text-align: center;
+    box-shadow: 0 10px 15px -3px rgba(51, 65, 85, 0.05);
+  }
+
+  .enlighten .chat-bubble {
+    background-color: #f1f5f9;
+    color: var(--color-accent-darkgoldenrod);
+    border-color: var(--color-accent-palegoldenrod);
+    text-align: center;
+    box-shadow: 0 10px 15px -3px rgba(51, 65, 85, 0.05);
+  }
+
+  /* Nội dung bên trong */
+  .chat-content {
+    font-size: 1rem;
+    line-height: 1.625;
+  }
+
+  .chat-content :global(> * + *) {
+    margin-top: 0.5rem;
+  }
+</style>

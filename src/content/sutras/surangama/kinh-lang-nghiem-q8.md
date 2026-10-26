@@ -1,18 +1,16 @@
 ---
 title: "LĂNG NGHIÊM [KINH] - Quyển 8"
-meta_title: ""
 description: ""
-excerpt: ""
-categories:
-  - Kinh
+category: "Kinh"
 tags:
   - KINH LĂNG NGHIÊM
-  - HT THÍCH DUY LỰC
+  - HT. THÍCH DUY LỰC
 image: /images/backgrounds/wide/zen-space.jpeg
 pdfUrls: 
   - /pdfs/sutras/kinh-lang-nghiem.pdf
   - /pdfs/sutras/chu-lang-nghiem-mobile.pdf
-videoId: "MeKCZ_DuSjk"
+videoIds: 
+  - "MeKCZ_DuSjk"
 videoStart: "20812"
 ---
 
@@ -409,7 +407,7 @@ Như ngươi hỏi về những quả báo ác nghiệp của Bửu Liên Hươn
 
 ## QUYỂN 8 HẾT
 
-<hr class="blog-rule" />
+<hr class="blog-rule footer" />
 
 ## NGUỒN
 

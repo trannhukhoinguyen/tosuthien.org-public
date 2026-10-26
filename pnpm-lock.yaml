@@ -29,9 +29,6 @@ importers:
       '@astrolib/seo':
         specifier: ^1.0.0-beta.8
         version: 1.0.0-beta.8(astro@5.18.2(@types/node@25.6.0)(@vercel/functions@3.4.4)(rollup@4.60.2)(typescript@5.9.3)(yaml@2.8.3))
-      '@fancyapps/ui':
-        specifier: ^6.0.32
-        version: 6.1.13
       '@fontsource/jetbrains-mono':
         specifier: ^5.0.0
         version: 5.2.8
@@ -724,9 +721,6 @@ packages:
   '@eslint/plugin-kit@0.4.1':
     resolution: {integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-
-  '@fancyapps/ui@6.1.13':
-    resolution: {integrity: sha512-C7EGAWxeTIRXZF2gznVUdMgFM3km6FUaz1S9IB+6+GWeKeIDk1tChwO60GfJE4Mi32OPfVynVIdx8wypNaK96A==}
 
   '@fontsource/jetbrains-mono@5.2.8':
     resolution: {integrity: sha512-6w8/SG4kqvIMu7xd7wt6x3idn1Qux3p9N62s6G3rfldOUYHpWcc2FKrqf+Vo44jRvqWj2oAtTHrZXEP23oSKwQ==}
@@ -4062,8 +4056,6 @@ snapshots:
     dependencies:
       '@eslint/core': 0.17.0
       levn: 0.4.1
-
-  '@fancyapps/ui@6.1.13': {}
 
   '@fontsource/jetbrains-mono@5.2.8': {}
 

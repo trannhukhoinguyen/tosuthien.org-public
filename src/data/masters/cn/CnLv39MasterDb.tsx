@@ -13,7 +13,6 @@ const CnLv39MasterDb = [
     country: '🇨🇳',
     place: '',
     teachers: ['Minxiu Fuyi'],
-    successors: ['Jizhou Chengyao'],
     disciples: ['Jizhou Chengyao'],
     image: '/images/buddha-zen-circle-with-unknown-zen-master.avif',
     reference: ['https://terebess.hu/zen/mesterek/shengyen.html'],

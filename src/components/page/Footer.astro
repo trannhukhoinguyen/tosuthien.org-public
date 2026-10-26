@@ -1,17 +1,21 @@
 ---
 import { config } from "@/config.ts";
+import { l } from "@/utils/constants.ts";
 import FacebookSVG from "../svg/FacebookSVG.astro";
 import YoutubeSVG from "../svg/YoutubeSVG.astro";
 import BookCaseSVG from "../svg/BookCaseSVG.astro";
 import SiteSVG from "../svg/SiteSVG.astro";
 import PersonSVG from "../svg/PersonSVG.astro";
+
+// Lấy param [lang] từ URL động của Astro (mặc định là 'vi' nếu không khớp)
+const { lang = 'vi' } = Astro.params;
 ---
 
 <footer class="site-footer">
   <div class="footer-content">
     <div class="footer-info">
       <p class="copyright">
-        ⚡️ {config.author.name}
+        ⚡️ {l("footer.title", lang)}
       </p>
     </div>
 

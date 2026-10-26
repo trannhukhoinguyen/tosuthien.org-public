@@ -15,10 +15,10 @@
     const btn = document.querySelector(".skip-to-bottom-btn");
     if (!btn) return;
 
+    btn.style.opacity = "1";
+
     if (window.scrollY > 300) {
       btn.style.opacity = "0";
-    } else {
-      btn.style.opacity = "1";
     }
   });
 </script>
@@ -114,6 +114,7 @@
         position: fixed;
         top: 5rem;
         right: 0;
+      z-index: 1000;
     }
 
 </style>

@@ -3,8 +3,7 @@ title: Kim Cang Kinh Tông Thông - Phần 1
 description: ☸ Trích lọc từ THÍCH NỮ TUỆ ĐĂNG & THÍCH NHUẬN CHÂU Việt dịch
 authors: 
   - Tăng Phụng Nghi
-categories:
-  - Luận
+category: "Luận"
 tags:
   - Kinh Kim Cang Tông Thông
   - Tông Thông
@@ -5124,7 +5123,7 @@ Vài lời của Bá Trượng như vậy, đủ để khái quát yếu chỉ c
 KIM CANG KINH TÔNG THÔNG CHUNG
 Tịnh Thất Từ Nghiêm Thích Nhuận Châu Dịch sang tiếng Việt Tháng 7. Bính Tuất Hạ an cư-pl.2550
 
-<hr class="blog-rule" />
+<hr class="blog-rule footer" />
 
 ## NGUỒN
 

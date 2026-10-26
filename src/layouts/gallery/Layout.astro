@@ -29,9 +29,7 @@ import HuaTouModalWithAudios from "@/components/ui/modal/HuaTouModalWithAudios.a
 
 export interface Props {
   title: string;
-  meta_title?: string;
   description?: string;
-  excerpt?: string;
   showSidebar?: boolean;
   image?: string;
   type?: 'website' | 'article';
@@ -55,9 +53,7 @@ export interface Props {
 
 const {
   title,
-  meta_title,
   description,
-  excerpt,
   showSidebar = true,
   image = '/images/backgrounds/Buddha-zen.avif',
   type,
@@ -93,8 +89,8 @@ const showGrain = true; /*config.backdropEffects.grain*/
     <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
 
     <SEO
-      title={meta_title || title}
-      description={description || excerpt}
+      title={title}
+      description={description}
       image={image}
       type={type}
       publishedTime={publishedTime}

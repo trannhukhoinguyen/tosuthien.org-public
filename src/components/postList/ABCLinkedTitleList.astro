@@ -1,7 +1,8 @@
 ---
 import type { PostTitleWithSlug } from "@/types.ts";
+import { l } from "@/utils/constants.ts";
 
-const { collection, posts, titleList, listTitle } = Astro.props;
+const { collection, posts, titleList, listTitle, showInputSearch = true } = Astro.props;
 
 /* Build O(1) lookup */
 const postPathMap = new Map<string, string>();
@@ -38,12 +39,18 @@ const letters = Object.keys(grouped).sort((a, b) =>
 );
 
 const initial = letters.includes("A") ? "A" : letters[0];
+
+// Lấy param [lang] từ URL động của Astro (mặc định là 'vi' nếu không khớp)
+const { lang = 'vi' } = Astro.params;
 ---
 
-<h2 style="text-align: center; margin-top: 1rem">
-  {listTitle}
-  <input type="text" id="searchInput" placeholder="Gõ chữ để Tìm...">
-</h2>
+{
+  showInputSearch && <h2 style="text-align: center; margin-top: 1rem">
+    {listTitle}
+    <input type="text" id="searchInput" placeholder={l("search.placeholder", lang)}>
+  </h2>
+}
+
 
 <div class="alphabet-container">
   <div class="alphabet">
@@ -61,10 +68,10 @@ const initial = letters.includes("A") ? "A" : letters[0];
     {letters.map(letter => (
       <ul data-group={letter} style={`display: ${letter === initial ? 'block' : 'none'};`}>
         {(grouped[letter] || []).map((k: any) => (
-            <li>
-              <a href={`/${collection}/${k.path}`} class="item-path" target="_blank">
-                {k.title?.toUpperCase()}
-              </a>
+          <li>
+            <a href={`/${collection}/${k.path}`} class="item-path" target="_blank">
+              {k.title?.toUpperCase()}
+            </a>
           </li>
         ))}
       </ul>
@@ -230,7 +237,7 @@ const initial = letters.includes("A") ? "A" : letters[0];
           top: 0;
           transition: all 0.3s;
           height: calc(100% - 2px);
-          //background-color: rgba(0, 0, 0, 0.4);
+          /*background-color: rgba(0, 0, 0, 0.4);*/
           z-index: -1;
           transform-origin: bottom left;
           transform: translate3d(8px, 2px, -1px) rotate(1deg);

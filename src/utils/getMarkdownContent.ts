@@ -2,8 +2,8 @@
 
 // ===== 1. Glob cố định cho từng collection =====
 const globMap = {
-  health: import.meta.glob("../content/health/**/*.{md,mdx}", { eager: true }),
   blogs: import.meta.glob("../content/blogs/**/*.{md,mdx}", { eager: true }),
+  merits: import.meta.glob("../content/merits/**/*.{md,mdx}", { eager: true }),
   symptoms: import.meta.glob("../content/symptoms/**/*.{md,mdx}", {
     eager: true,
   }),
@@ -26,58 +26,36 @@ const globMap = {
     eager: true,
   }),
   films: import.meta.glob("../content/films/**/*.{md,mdx}", { eager: true }),
-
-  buddhas: import.meta.glob("../content/buddhas/**/*.{md,mdx}", {
-    eager: true,
-  }),
-  bodhisattvas: import.meta.glob("../content/bodhisattvas/**/*.{md,mdx}", {
-    eager: true,
-  }),
-  masters: import.meta.glob("../content/masters/**/*.{md,mdx}", {
-    eager: true,
-  }),
-  layman: import.meta.glob("../content/layman/**/*.{md,mdx}", { eager: true }),
   kings: import.meta.glob("../content/kings/**/*.{md,mdx}", { eager: true }),
 
-  speeches: import.meta.glob("../content/speeches/**/*.{md,mdx}", {
-    eager: true,
-  }),
-  teachings: import.meta.glob("../content/teachings/**/*.{md,mdx}", {
-    eager: true,
-  }),
   faqs: import.meta.glob("../content/faqs/**/*.{md,mdx}", { eager: true }),
 };
-const globMapLazy = {
-  health: import.meta.glob("../content/health/**/*.{md,mdx}"),
-  blogs: import.meta.glob("../content/blogs/**/*.{md,mdx}"),
-  symptoms: import.meta.glob("../content/symptoms/**/*.{md,mdx}"),
 
-  eatery: import.meta.glob("../content/eatery/**/*.{md,mdx}"),
-  places: import.meta.glob("../content/places/**/*.{md,mdx}"),
-  pagodas: import.meta.glob("../content/pagodas/**/*.{md,mdx}"),
+/*const globMapLazy = {
+  blogs: import.meta.glob("../content/blogs/!**!/!*.{md,mdx}"),
+  merits: import.meta.glob("../content/merits/!**!/!*.{md,mdx}"),
+  symptoms: import.meta.glob("../content/symptoms/!**!/!*.{md,mdx}"),
 
-  textBooks: import.meta.glob("../content/textBooks/**/*.{md,mdx}"),
+  eatery: import.meta.glob("../content/eatery/!**!/!*.{md,mdx}"),
+  places: import.meta.glob("../content/places/!**!/!*.{md,mdx}"),
+  pagodas: import.meta.glob("../content/pagodas/!**!/!*.{md,mdx}"),
 
-  practices: import.meta.glob("../content/practices/**/*.{md,mdx}"),
-  sutras: import.meta.glob("../content/sutras/**/*.{md,mdx}"),
-  precepts: import.meta.glob("../content/precepts/**/*.{md,mdx}"),
-  films: import.meta.glob("../content/films/**/*.{md,mdx}"),
+  textBooks: import.meta.glob("../content/textBooks/!**!/!*.{md,mdx}"),
 
-  buddhas: import.meta.glob("../content/buddhas/**/*.{md,mdx}"),
-  bodhisattvas: import.meta.glob("../content/bodhisattvas/**/*.{md,mdx}"),
-  masters: import.meta.glob("../content/masters/**/*.{md,mdx}"),
-  layman: import.meta.glob("../content/layman/**/*.{md,mdx}"),
-  kings: import.meta.glob("../content/kings/**/*.{md,mdx}"),
+  practices: import.meta.glob("../content/practices/!**!/!*.{md,mdx}"),
+  sutras: import.meta.glob("../content/sutras/!**!/!*.{md,mdx}"),
+  precepts: import.meta.glob("../content/precepts/!**!/!*.{md,mdx}"),
+  films: import.meta.glob("../content/films/!**!/!*.{md,mdx}"),
 
-  speeches: import.meta.glob("../content/speeches/**/*.{md,mdx}"),
-  teachings: import.meta.glob("../content/teachings/**/*.{md,mdx}"),
-  faqs: import.meta.glob("../content/faqs/**/*.{md,mdx}"),
-};
+  kings: import.meta.glob("../content/kings/!**!/!*.{md,mdx}"),
+
+  faqs: import.meta.glob("../content/faqs/!**!/!*.{md,mdx}"),
+};*/
 
 // ===== 2. Mapping name → type =====
 const collections = {
-  health: "health",
   blogs: "blogs",
+  merits: "merits",
   symptoms: "symptoms",
 
   eatery: "eatery",
@@ -88,14 +66,8 @@ const collections = {
   precepts: "precepts",
   films: "films",
 
-  buddhas: "buddhas",
-  bodhisattvas: "bodhisattvas",
-  masters: "masters",
-  layman: "layman",
   kings: "kings",
 
-  speeches: "speeches",
-  teachings: "teachings",
   faqs: "faqs",
 
   sutras: "sutras",
@@ -119,9 +91,9 @@ function addDefaultType(posts: Post[], defaultType: string) {
 const allPosts: Post[] = Object.entries(collections).flatMap(([name, type]) =>
     addDefaultType(Object.values(globMap[name as CollectionName]), type)
 );
-const allPostsLazy: Post[] = Object.entries(collections).flatMap(([name, type]) =>
+/*const allPostsLazy: Post[] = Object.entries(collections).flatMap(([name, type]) =>
     addDefaultType(Object.values(globMapLazy[name as CollectionName]), type)
-);
+);*/
 
 // ===== 5. Helpers =====
 function getRecentPosts(posts: any[], limit = 5) {
@@ -166,24 +138,23 @@ const CONTENT_MAP: Record<
 
 // ===== 7. CATEGORY_MAP =====
 const CATEGORY_MAP: Record<
-    string,
-    { posts: Post[]; flatCategories: string[] }
+  string,
+  { posts: Post[]; flatCategories: string[] }
 > = {};
 
 allPosts.forEach((post) => {
-  const categories: string[] = post.frontmatter.categories || [];
-  categories.forEach((category) => {
-    if (!CATEGORY_MAP[category]) {
-      CATEGORY_MAP[category] = { posts: [], flatCategories: [] };
-    }
+  const category: string = post.frontmatter.category || "";
+  if (!CATEGORY_MAP[category]) {
+    CATEGORY_MAP[category] = { posts: [], flatCategories: [] };
+  } else {
     CATEGORY_MAP[category].posts.push(post);
-  });
+  }
 });
 
 // Sau khi gom xong → bổ sung flatCategories
 Object.keys(CATEGORY_MAP).forEach((cat) => {
   CATEGORY_MAP[cat].flatCategories = [...new Set(
-      CATEGORY_MAP[cat].posts.flatMap((p) => p.frontmatter.categories || [])
+      CATEGORY_MAP[cat].posts.flatMap((p) => p.frontmatter.category || "")
   )];
 });
 
@@ -213,7 +184,7 @@ Object.keys(TAG_MAP).forEach((tag) => {
 // ===== 9. Export =====
 export {
   allPosts,
-  allPostsLazy,
+  // allPostsLazy,
   getRecentPosts,
   getSortedPostsByType,
   getSortedTerms,
@@ -221,6 +192,6 @@ export {
   CATEGORY_MAP,
   TAG_MAP,
   globMap,
-  globMapLazy,
+  // globMapLazy,
   collections,
 };

@@ -1,17 +1,15 @@
 ---
 title: "LĂNG GIÀ [KINH] - Quyển 4"
-meta_title: ""
 description: ""
-excerpt: ""
-categories:
-  - Kinh
+category: "Kinh"
 tags:
   - KINH LĂNG GIÀ
-  - HT THÍCH DUY LỰC
+  - HT. THÍCH DUY LỰC
 image: /images/backgrounds/Lang-Gia-bien-tuong-do.avif
 pdfUrls: 
   - /pdfs/sutras/kinh-lang-gia.pdf
-videoId: vwOi8UCTCp0
+videoIds: 
+  - vwOi8UCTCp0
 videoStart: 14450
 ---
 
@@ -1204,7 +1202,7 @@ Như Lai Ứng Cúng Đẳng Chánh Giác còn chẳng ăn phi thời và tạp 
 
 **KINH LĂNG GIÀ HẾT**
 
-<hr class="blog-rule" />
+<hr class="blog-rule footer" />
 
 ## NGUỒN
 

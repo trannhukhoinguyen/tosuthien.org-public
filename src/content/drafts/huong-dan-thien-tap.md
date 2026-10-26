@@ -1,17 +1,13 @@
 ---
 title: "HƯỚNG DẪN THIỀN TẬP"
-meta_title: "HƯỚNG DẪN THIỀN TẬP"
 description: ""
-excerpt: "Tiếng Hán, ngồi thiền là “đả tọa”. Tọa là ngồi, còn đả nghĩa là đánh. Ngồi chịu đòn, chịu đánh. ...."
-categories: 
-  - Thực hành
+category: "Thực hành"
 tags:
   - HƯỚNG DẪN
   - THAM THIỀN
-  - HT TUYÊN HÓA
+  - HT. TUYÊN HÓA
 authors: 
   - HÒA THƯỢNG TUYÊN HÓA
-image: "/images/koans/great-wave.webp"
 ---
 
 ## SƠ CƠ TẬP THIỀN
@@ -1421,7 +1417,7 @@ Tham thiền khi tới trình độ tinh diệu, không những vọng tưởng 
 
 <hr class="blog-rule" />(Hòa Thượng Tuyên Hóa)<hr class="blog-rule" />
 
-<hr class="blog-rule" />
+<hr class="blog-rule footer" />
 
 ## NGUỒN
 

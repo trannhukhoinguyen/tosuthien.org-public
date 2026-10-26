@@ -14,7 +14,7 @@ const headings: Heading[] = filterHeadingsForTOC(allHeadings);
 {headings.length > 0 && (
   <nav class="table-of-contents">
     <h2 class="toc-title">{title}</h2>
-    <ol class="toc-list">
+    <ul class="toc-list">
       {headings.map(heading => (
         <li class={`toc-item toc-level-${heading.depth}`}>
           <a href={`#${heading.slug}`} class="toc-link">
@@ -22,7 +22,7 @@ const headings: Heading[] = filterHeadingsForTOC(allHeadings);
           </a>
         </li>
       ))}
-    </ol>
+    </ul>
   </nav>
 )}
 
@@ -58,17 +58,17 @@ const headings: Heading[] = filterHeadingsForTOC(allHeadings);
     margin: 0;
     padding: 0;
     list-style: none;
-    //counter-reset: toc-counter;
+    /*counter-reset: toc-counter;*/
   }
 
   .toc-item {
     margin-bottom: calc(var(--grid-unit));
-    counter-increment: toc-counter;
+    //counter-increment: toc-counter;
     position: relative;
   }
 
   .toc-item::before {
-    content: counter(toc-counter) ".";
+    //content: counter(toc-counter) ".";
     position: absolute;
     left: 0;
     font-family: var(--font-mono),serif;

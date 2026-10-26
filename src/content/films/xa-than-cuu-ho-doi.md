@@ -1,9 +1,7 @@
 ---
 title: Phật xả thân cứu đàn hổ đói
 description: ""
-excerpt: ''
-categories:
-  - Phim Phật Giáo
+category: "Phim Phật Giáo"
 tags:
   - Phim Phật Giáo
   - Phật xả thân cứu đàn hổ đói

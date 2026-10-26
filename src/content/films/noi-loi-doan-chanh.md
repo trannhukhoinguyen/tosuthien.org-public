@@ -1,9 +1,7 @@
 ---
 title: Nói lời đoan chánh
 description: ""
-excerpt: ''
-categories:
-  - Phim Phật Giáo
+category: "Phim Phật Giáo"
 tags:
   - Phim Phật Giáo
   - Nói lời đoan chánh

@@ -21,5 +21,17 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/about",
+      "destination": "/to-su-thien-la-gi",
+      "permanent": true
+    },
+    {
+      "source": "/gioi-thieu",
+      "destination": "/to-su-thien-la-gi",
+      "permanent": true
+    }
   ]
 }

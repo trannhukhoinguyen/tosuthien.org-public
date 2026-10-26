@@ -150,22 +150,27 @@
 </style>
 
 <script>
-    const input = document.querySelector(".theme-switch__input");
+  function syncThemeSwitcher() {
+    const input = document.querySelector(".theme-switch__input") as HTMLInputElement;
+    if (!input) return;
 
-    function setTheme(theme) {
-        document.documentElement.dataset.theme = theme;
-        localStorage.setItem("theme", theme);
-        // đồng bộ trạng thái checkbox
-        input.checked = theme === "dark";
-    }
+    // Ưu tiên lấy theme hiện tại đang active trên <html>, nếu chưa có thì lấy từ localStorage
+    const currentTheme = document.documentElement.dataset.theme || localStorage.getItem("theme") || "light";
 
-    // init theme từ localStorage hoặc system
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const saved = localStorage.getItem("theme");
-    setTheme(saved || (prefersDark ? "dark" : "light"));
+    // Đồng bộ trạng thái checked của checkbox
+    input.checked = currentTheme === "dark";
 
-    // lắng nghe sự kiện toggle
-    input.addEventListener("change", () => {
-        setTheme(input.checked ? "dark" : "light");
-    });
+    // Gán lại sự kiện change (dùng controller/removeEventListener hoặc gán trực tiếp)
+    input.onchange = () => {
+      const newTheme = input.checked ? "dark" : "light";
+      document.documentElement.dataset.theme = newTheme;
+      localStorage.setItem("theme", newTheme);
+    };
+  }
+
+  // Chạy ngay khi DOM sẵn sàng
+  syncThemeSwitcher();
+
+  // Chạy lại mỗi khi Astro hoàn tất chuyển trang (ClientRouter)
+  document.addEventListener("astro:page-load", syncThemeSwitcher);
 </script>

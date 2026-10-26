@@ -1,23 +1,21 @@
 ---
 title: "THAM THIỀN YẾU CHỈ"
 description: "THAM THIỀN YẾU CHỈ - Phương pháp tham thiền"
-excerpt: "Phương pháp tham thiền"
 showInHomepage: true
-categories:
-  - Thực hành
-  - Ngữ lục
+category: "Thực hành"
 tags:
   - HƯỚNG DẪN
   - THAM THIỀN
   - TS ĐỨC THANH DIỄN TRIỆT
   - TS HƯ VÂN DIỄN TRIỆT
-image: /images/koans/great-wave.webp
+  - Ngữ lục
 authors: 
   - "Thiền Sư HƯ VÂN"
 pdfUrls: 
   - /pdfs/practices/phuong-phap-tham-thien.pdf
   - /pdfs/practices/tham-thien-yeu-chi.pdf
-videoId: yJRqjjX2WIQ
+videoIds: 
+  - yJRqjjX2WIQ
 ---
 
 ## ĐIỀU KIỆN QUYẾT ĐỊNH ĐẦU TIÊN CỦA SỰ THAM THIỀN
@@ -330,7 +328,7 @@ Các bậc đại trượng phu nhận định đã thấu triệt, biết rõ m
 
 Hạng kế đó, cần phải phát khởi chí hướng, thống thiết nhớ việc chết sống, phát tâm hổ thẹn, khởi hạnh tinh tấn, hỏi đạo và cố gắng tham thiền; thường cầu thỉnh các bậc thiện tri thức chỉ dạy lối tắt, phân biệt thế nào là chánh, là tà; tha thiết giũa mài, lấy nước sông Hán mà rửa, đem ra mặt trời Thu mà phơi, dần dần càng được tinh thuần trắng sạch. Với hạng người này không thể không nói tu hành .Đã nói từ trước đến đây chẳng qua dời trên đổi dưới đều thuộc phương tiện tạm thời, người mắt sáng xem qua cốt nhận “vạch bùn lấy nước”. Song Tổ đình đã cuối thu, cách Phật ngày càng xa thẳm, vì ứng hợp căn cơ chúng sanh, bất đắc dĩ mới giảng giải thế này. Xét thật, giảng tu hành, giảng không tu hành đều là lời nói suông. Thẳng đó là vô sự, vốn không có một vật, đâu phiền mở miệng. Các Bồ-tát hội chăng?
 
-<hr class="blog-rule" />
+<hr class="blog-rule footer" />
 
 ## NGUỒN
 

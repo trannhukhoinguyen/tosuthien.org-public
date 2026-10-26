@@ -8,7 +8,7 @@ export async function GET(context) {
     return {
       title: post.frontmatter.title,
       pubDate: post.frontmatter.date,
-      description: post.frontmatter.excerpt || post.frontmatter.description,
+      description: post.frontmatter.description,
       link: `/blogs/${slug}/`,
     };
   });

@@ -4,11 +4,14 @@ import ThemeSwitcher from "@/components/ui/button/ThemeSwitcher.astro";
 import SearchMobile from "@/components/ui/search/SearchMobile.astro";
 import Search from "@/components/ui/search/Search.astro";
 import SearchPF from "@/components/ui/search/SearchPageFind.astro";
+import LanguageSwitcher from "@/components/page/LanguageSwitcher.astro";
 import SearchPFMobile from "@/components/ui/search/SearchPageFindMobile.astro";
 import Wordpress from "~/images/wordpress-logo.png";
 import IconReshare from "~/images/reshare-logo.png";
 import WorkBuddy from "~/icons/ai-agent.gif";
+import ZenMarrow from "~/images/website-logos/zenmarrow.com.png";
 import WallpaperPicker from '../ui/button/WallpaperPicker.astro';
+import { l } from "@/utils/constants.ts";
 
 const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: '' };
 ---
@@ -41,9 +44,6 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
               <li><a href={base + "galleries"} class="dropdown-nav-link"> GALLERY </a></li>
               <li><a href={base + "galleries/hoai-niem-an-su"} class="dropdown-nav-link"> HOÀI NIỆM ÂN SƯ </a></li>
               <li><a href={base + "galleries/hinh-anh-thien-duong"} class="dropdown-nav-link"> HÌNH ẢNH THIỀN ĐƯỜNG </a></li>
-              <li><a href={base + "tam-guong-bo-tat"} class="dropdown-nav-link"> Tấm gương Bồ tát </a></li>
-              <li><a href={base + "manh-doi-kho-khan"} class="dropdown-nav-link"> Mảnh đời khó khăn </a></li>
-              <li><a href={base + "thu-cung-toi-nghiep"} class="dropdown-nav-link"> Thú cưng tội nghiệp </a></li>
             </ul>
           </li>
 
@@ -52,40 +52,46 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
             <ul class="dropdown-menu">
               <li>
                 <a href={"https://tosuthien.net/"} target="_blank" class="dropdown-nav-link with-icon">
-                  <img src={WorkBuddy.src}  alt={"HỎI ĐÁP VỚI AI"} width="32" class="nav-icon" />
+                  <img src={WorkBuddy.src} alt={"HỎI ĐÁP VỚI AI"} width="32" class="nav-icon" />
                   HỎI ĐÁP VỚI AI
+                </a>
+              </li>
+              <li>
+                <a href={"https://zenmarrow.com/search"} target="_blank" class="dropdown-nav-link with-icon">
+                  <img src={ZenMarrow.src} alt={"Search Zen Words"} width="32" class="nav-icon" />
+                  Search Zen Words
                 </a>
               </li>
               <li><a href={base + "faqs"} class="dropdown-nav-link">🙋🏻‍♂️ HỎI ĐÁP</a></li>
               <li><a href={base + "symptoms/trieu-chung-tot-muc-luc"} class="dropdown-nav-link">✅ TRIỆU CHỨNG TỐT </a></li>
               <li><a href={base + "symptoms/thien-benh-muc-luc"} class="dropdown-nav-link">❌ THIỀN BỆNH</a></li>
               <li><a href={base + "practices"} title="Thực hành" class="dropdown-nav-link">🎈 HÀNH</a></li>
-              <li><a href={base + "docs"} class="dropdown-nav-link">📇 DOCS</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
             <a href={base + "sutras"} class="nav-link" title="KINH SÁCH"> 📚 </a>
             <ul class="dropdown-menu">
-              <li><a href={base + "sutras/kinh-Lang-Nghiem-gioi-thieu-va-muc-luc"} class="dropdown-nav-link"> ☀️ Lăng Nghiêm </a></li>
-              <li><a href={base + "sutras/kinh-Lang-Gia-gioi-thieu-va-muc-luc"} class="dropdown-nav-link"> ☀️ Lăng Già </a></li>
-              <li><a href={base + "sutras/kinh-Kim-Cang"} class="dropdown-nav-link"> ☀️ Kim Cang </a></li>
-              <li><a href={base + "sutras/kinh-Phap-Bao-Dan"} class="dropdown-nav-link"> ☀️ Pháp Bảo Đàn </a></li>
-              <li><a href={base + "sutras/kinh-Vien-Giac"} class="dropdown-nav-link"> ☀️ Viên Giác </a></li>
-              <li><a href={base + "sutras/kinh-Duy-Ma-Cat-gioi-thieu-va-muc-luc"} class="dropdown-nav-link"> ☀️ Duy Ma Cật </a></li>
-              <li><a href={base + "sutras/kinh-Phap-Hoa-gioi-thieu-va-muc-luc"} class="dropdown-nav-link"> ☀️ Pháp Hoa </a></li>
-              <li><a href={base + "sutras/kinh-Hoa-Nghiem-gioi-thieu-va-muc-luc"} class="dropdown-nav-link"> ☀️ Hoa Nghiêm </a></li>
-              <li><a href={base + "books"} title="Sách" class="dropdown-nav-link">📚 SÁCH</a></li>
+              <li><a href={base + "sutras/kinh-Lang-Nghiem-gioi-thieu-va-muc-luc"} class="dropdown-nav-link"> Lăng Nghiêm Kinh </a></li>
+              <li><a href={base + "sutras/kinh-Lang-Gia-gioi-thieu-va-muc-luc"} class="dropdown-nav-link"> Lăng Già Kinh </a></li>
+              <li><a href={base + "sutras/kinh-Kim-Cang"} class="dropdown-nav-link"> Kim Cang Kinh </a></li>
+              <li><a href={base + "sutras/kinh-Phap-Bao-Dan"} class="dropdown-nav-link"> Pháp Bảo Đàn Kinh </a></li>
+              <li><a href={base + "sutras/kinh-Vien-Giac"} class="dropdown-nav-link"> Viên Giác Kinh </a></li>
+              <li><a href={base + "sutras/kinh-Duy-Ma-Cat-gioi-thieu-va-muc-luc"} class="dropdown-nav-link"> Duy Ma Cật Kinh </a></li>
+              <li><a href={base + "sutras/kinh-Phap-Hoa-gioi-thieu-va-muc-luc"} class="dropdown-nav-link"> Pháp Hoa Kinh </a></li>
+              <li><a href={base + "sutras/kinh-Hoa-Nghiem-gioi-thieu-va-muc-luc"} class="dropdown-nav-link"> Hoa Nghiêm Kinh </a></li>
+              <!--<li><a href={base + "books"} title="Sách" class="dropdown-nav-link">📚 SÁCH</a></li>-->
+              <li><a href={base + "compendia"} title="Tóm tắt" class="dropdown-nav-link">📖 TÔNG THÔNG & BÚT KÝ</a></li>
+              <li><a href={base + "codices"} title="Dược điển" class="dropdown-nav-link">🌿️ DƯỢC ĐIỂN</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
             <a class="nav-link" title="THIỀN SƯ"> 🔆 </a>
             <ul class="dropdown-menu">
-              <li><a href={base + "masters"} class="dropdown-nav-link">🌟 Thiền sư</a></li>
-              <li><a href={base + "bodhisattvas"} class="dropdown-nav-link">☀️ Bồ tát</a></li>
-              <li><a href={base + "speeches"} class="dropdown-nav-link">🗣 Bài Giảng Khai Thị</a></li>
-              <li><a href={base + "teachings"} class="dropdown-nav-link">🗯 Đối Đáp Căn Cơ</a></li>
+              <li><a href={base + "enlighteners"} class="dropdown-nav-link" title="Giác giả">🌟 Giác giả</a></li>
+              <li><a href={base + "kings"} class="dropdown-nav-link" title="Vua">👑 VUA </a></li>
+              <li><a href={base + "koans"} title="Công án" class="dropdown-nav-link">🪨 CÔNG ÁN</a></li>
             </ul>
           </li>
 
@@ -93,6 +99,8 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
             <a class="nav-link" title="ĐỊA ĐIỂM"> 🗺 </a>
             <ul class="dropdown-menu">
               <li><a href={base + "pagodas"} class="dropdown-nav-link">⛩ Thiền đường</a></li>
+              <li><a href={base + "offering"} class="dropdown-nav-link" title="Cúng dường">🎁️</a></li>
+              <li><a href={base + "merits"} class="dropdown-nav-link" title="Tạo phước trợ duyên">🌈 TẠO PHƯỚC TRỢ DUYÊN</a></li>
               <li><a href={base + "places"} class="dropdown-nav-link">🧭 Địa danh</a></li>
               <li><a href={base + "eatery"} class="dropdown-nav-link">🥗 Quán chay</a></li>
             </ul>
@@ -107,7 +115,6 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
               </a></li>
               <li><a href={base + "about"} class="dropdown-nav-link">❓ Tổ sư thiền?</a></li>
               <li><a href={base + "blogs"} class="dropdown-nav-link">📜 Blog</a></li>
-              <li><a href={base + "poems"} class="dropdown-nav-link">🪭 Thơ</a></li>
               <li><a href={base + "youth"} title="Tổ Sư Thiền và Tuổi Trẻ" class="dropdown-nav-link">🧘🏻 Tổ Sư Thiền và Tuổi Trẻ</a></li>
               <li><a href={base + "authors"} class="dropdown-nav-link">✍️ Tác giả</a></li>
               <li><a href={base + "categories"} class="dropdown-nav-link">📦 Category</a></li>
@@ -115,13 +122,11 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
               <li><a href={base + "precepts"} class="dropdown-nav-link">🪷 Giới Luật</a></li>
               <li><a href={base + "films"} class="dropdown-nav-link">📺 Phim Phật Giáo</a></li>
               <li><a href={base + "health"} title="Thuốc nam">🌿️ Sức khoẻ</a></li>
-              <li><a href={base + "offering"} class="dropdown-nav-link">🎁️ Cúng dường</a></li>
               <li><a href={"https://tram.reshare.vn/"} class="dropdown-nav-link with-icon" target="_blank">
                 <img src={IconReshare.src} alt="tram.Reshare.vn" class="nav-icon" />
               </a></li>
             </ul>
           </li>
-          <li><a href={base + "offering"} class="nav-link" title="Cúng dường">🎁️</a></li>
         </ul>
       </nav>
 
@@ -132,6 +137,8 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
         <!--<WallpaperPicker />-->
         <SearchMobile />
         <!--<SearchPFMobile />-->
+
+        <!--<LanguageSwitcher />-->
       </div>
     </div>
   </div>
@@ -150,11 +157,11 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
     </a></li>
     <li><a href={base + "sutras"} class="mobile-nav-link" title="Kinh">📙 KINH</a></li>
     <li><a href={base + "practices"} class="mobile-nav-link" title="Thực hành">🎈 THỰC HÀNH</a></li>
-    <li><a href={base + "docs"}  class="mobile-nav-link" title="Documents">📇 DOCS</a></li>
-    <li><a href={base + "masters"} class="mobile-nav-link" title="Thiền sư">🌟 THIỀN SƯ</a></li>
-    <li><a href={base + "bodhisattvas"} class="mobile-nav-link" title="Bồ tát">☀️ BỒ TÁT </a></li>
-    <li><a href={base + "speeches"} class="mobile-nav-link" title="Bài Giảng Khai Thị">🗣 BÀI GIẢNG KHAI THỊ</a></li>
-    <li><a href={base + "teachings"} class="mobile-nav-link" title="Đối Đáp Căn Cơ">🗯 ĐỐI ĐÁP CĂN CƠ</a></li>
+    <li><a href={base + "merits"} title="Tạo phước trợ duyên" class="mobile-nav-link">🌈 TẠO PHƯỚC TRỢ DUYÊN</a></li>
+    <li><a href={base + "compendia"} class="mobile-nav-link">📖 TÔNG THÔNG & BÚT KÝ</a></li>
+    <li><a href={base + "koans"} title="Công án" class="mobile-nav-link">🪨 CÔNG ÁN</a></li>
+    <li><a href={base + "enlighteners"} class="mobile-nav-link">🌟 GIÁC GIẢ</a></li>
+    <li><a href={base + "kings"} class="mobile-nav-link" title="Vua">👑 VUA </a></li>
     <li><a href={base + "pagodas"} class="mobile-nav-link" title="Thiền đường">⛩ THIỀN ĐƯỜNG</a></li>
     <li><a href={base + "places"} class="mobile-nav-link" title="Địa danh">🧭 ĐỊA DANH</a></li>
     <li><a href={base + "eatery"} class="mobile-nav-link" title="Quán chay">🥗 QUÁN CHAY</a></li>
@@ -165,17 +172,23 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
         HỎI ĐÁP VỚI AI
       </a>
     </li>
+    <li>
+      <a href={"https://zenmarrow.com/search"} target="_blank" class="mobile-nav-link with-icon">
+        <img src={ZenMarrow.src} alt={"Search Zen Words"} width="32" style="border: none; margin-right: 4px" class="nav-icon" />
+        Search Zen Words
+      </a>
+    </li>
     <li><a href={base + "faqs"} class="mobile-nav-link">🙋🏻‍♂️ HỎI ĐÁP</a></li>
     <li><a href={base + "blogs"} class="mobile-nav-link" title="Blog">📜 BLOG</a></li>
-    <li><a href={base + "poems"} class="mobile-nav-link">🪭 THƠ</a></li>
     <li><a href={base + "youth"} class="mobile-nav-link" title="Tổ Sư Thiền và Tuổi Trẻ">🧘🏻 TỔ SƯ THIỀN VÀ TUỔI TRẺ</a></li>
-    <li><a href={base + "books"} class="mobile-nav-link">📚 SÁCH</a></li>
+    <!--<li><a href={base + "books"} class="mobile-nav-link">📚 SÁCH</a></li>-->
     <li><a href={base + "precepts"} class="mobile-nav-link">🪷 GIỚI LUẬT </a></li>
     <li><a href={base + "categories"} class="mobile-nav-link">📦 CATEGORY</a></li>
     <li><a href={base + "tags"} class="mobile-nav-link">🎏 TAG</a></li>
     <li><a href={base + "authors"} class="mobile-nav-link">🖋 TÁC GIẢ</a></li>
     <li><a href={base + "films"} class="mobile-nav-link">📺 PHIM PHẬT GIÁO</a></li>
     <li><a href={base + "health"} class="mobile-nav-link">🌿️ SỨC KHOẺ</a></li>
+    <li><a href={base + "codices"} class="mobile-nav-link">🌿️ DƯỢC ĐIỂN</a></li>
     <li><a href={base + "offering"} class="mobile-nav-link">🎁️ CÚNG DƯỜNG</a></li>
     <li><a href={"https://tram.reshare.vn/"} class="mobile-nav-link with-icon" target="_blank"><img src={IconReshare.src} alt="tram.Reshare.vn" style="height: 30px" class="nav-icon" /></a></li>
   </ul>
@@ -406,7 +419,7 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
     margin-bottom: calc(var(--grid-unit) * 4);
   }
 
-  .search-result-excerpt {
+  .search-result-description {
     color: var(--color-text-secondary);
     line-height: 1.8;
     margin-bottom: calc(var(--grid-unit) * 5);
@@ -735,7 +748,7 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
       margin-bottom: calc(var(--grid-unit) * 3);
     }
 
-    .search-result-excerpt {
+    .search-result-description {
       margin-bottom: calc(var(--grid-unit) * 4);
     }
 
@@ -928,15 +941,15 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
 
     const results = searchData.filter((post: any) =>
       post.title.toLowerCase().includes(query) ||
-      post.excerpt.toLowerCase().includes(query) ||
+      post.description.toLowerCase().includes(query) ||
       (post.authors && post.authors.some((author: string) => author.toLowerCase().includes(query))) ||
-      (post.categories && post.categories.some((cat: string) => cat.toLowerCase().includes(query))) ||
+      post.category.toLowerCase().includes(query) ||
       (post.tags && post.tags.some((tag: string) => tag.toLowerCase().includes(query)))
     ).slice(0, 10);
 
     // config fuse
     const fuse = new Fuse(results, {
-      keys: ["title", "excerpt", "authors", "categories", "tags"],
+      keys: ["title", "description", "authors", "category", "tags"],
       threshold: 0.3,
     });
     const fuseResults = fuse.search(query).map((r) => r.item);
@@ -961,7 +974,7 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
         <h3 class="search-result-title">
           <a href="${base}${post.url.startsWith('/') ? post.url.slice(1) : post.url}">${post.title}</a>
         </h3>
-        <time class="search-result-date" style="margin-bottom: 8px"><em style="color: var(--color-accent-burlywood)">${new Date(post.date).toLocaleDateString('en-US', {
+        <time class="search-result-date" style="margin-bottom: 8px"><em style="color: var(--color-accent-burlywood)">${new Date(post.date).toLocaleDateString('vi-VN', {
           year: 'numeric',
           month: 'long',
           day: 'numeric'
@@ -997,7 +1010,7 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
             </div>
           ` : ''
         }
-        ${post.excerpt ? `<p class="search-result-excerpt">${post.excerpt}</p>` : ''}
+        ${post.description ? `<p class="search-result-description">${post.description}</p>` : ''}
       </article>
     `).join('');
 

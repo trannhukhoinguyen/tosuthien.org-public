@@ -1,10 +1,15 @@
 ---
 import masterData from "../../../data/masters/AllMasterDb.tsx";
+import { l } from "@/utils/constants.ts";
+
 const { data, headRows } = Astro.props;
+
+// Lấy param [lang] từ URL động của Astro (mặc định là 'vi' nếu không khớp)
+const { lang = 'vi' } = Astro.params;
 ---
 
 <section class="table">
-  <input type="text" id="searchInput" placeholder="Search table...">
+  <input type="text" id="searchInput" placeholder={l("search.placeholder", lang)}>
   <table id="myTable">
     <thead>
       <tr>

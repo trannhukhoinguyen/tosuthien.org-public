@@ -1,18 +1,16 @@
 ---
 title: "LĂNG NGHIÊM [KINH] - Quyển 5"
-meta_title: ""
 description: ""
-excerpt: ""
-categories:
-  - Kinh
+category: "Kinh"
 tags:
   - KINH LĂNG NGHIÊM
-  - HT THÍCH DUY LỰC
+  - HT. THÍCH DUY LỰC
 image: /images/backgrounds/wide/zen-space.jpeg
 pdfUrls: 
   - /pdfs/sutras/kinh-lang-nghiem.pdf
   - /pdfs/sutras/chu-lang-nghiem-mobile.pdf
-videoId: "MeKCZ_DuSjk"
+videoIds: 
+  - "MeKCZ_DuSjk"
 videoStart: "13066"
 ---
 
@@ -370,7 +368,7 @@ Di Lặc Bồ Tát liền đứng dậy, đảnh lễ bạch Phật:
 
 ## QUYỂN 5 HẾT
 
-<hr class="blog-rule" />
+<hr class="blog-rule footer" />
 
 ## NGUỒN
 

@@ -21,7 +21,8 @@
   --linear-red: linear-gradient(90deg, red, #fbe7e7);
   --linear-gold: linear-gradient(90deg, gold, #fff4cc);
   --linear-pink: linear-gradient(90deg, pink, #ffdbea);
-  --linear-multi: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  --linear-buddha-glow: linear-gradient(120deg, #bf953f 0%, #ffd700 35%, #fff6db 50%, #ffd700 65%, #bf953f 100%);
+  --linear-multi: linear-gradient(-45deg, #ee7752, gold, #e73c7e, #23a6d5, darkkhaki, #23d5ab);
 
   /* Accent Color */
   --color-accent-mistyrose: mistyrose;
@@ -37,7 +38,7 @@
   --color-accent-mediumvioletred: mediumvioletred;
   --color-accent-deeppink: deeppink;
   --color-accent-linen: linen;
-  --color-accent-khaki: khaki;
+  --color-accent-khaki: #f8f8f5;
   --color-accent-darkkhaki: darkkhaki;
   --color-accent-olive: olive;
   --color-accent-darkolivegreen: darkolivegreen;
@@ -175,6 +176,25 @@
   --color-text-muted: var(--color-medium-gray);
   --color-border: var(--color-medium-gray);
   --color-huatou: var(--color-accent-goldenrod);
+
+  /* Light Theme (Mặc định: Giấy mộc, Son gạch, Mực tàu) */
+  --sgkb-primary: #b33919;           /* Son đỏ gạch trầm */
+  --sgkb-primary-hover: #8c2a10;     /* Son đậm khi hover */
+  --sgkb-primary-light: #d4af37;     /* Vàng son / Trà son */
+  --sgkb-primary-soft: #fbf4ee;      /* Nền tab active sáng nhẹ */
+  --sgkb-primary-border: #b33919;
+  --sgkb-bg-main: #fff;
+  --sgkb-bg-card: #fff;
+  --sgkb-bg-gray: #f7f5f0;           /* Nền giấy dó nhạt */
+  --sgkb-bg-hover: #eae5d9;          /* Hover rõ nét */
+  --sgkb-border: #d4c5b9;            /* Viền xám trà mộc */
+  --sgkb-border-strong: #8c7a6b;     /* Viền đậm hơn */
+  --sgkb-text-main: #1f1a17;         /* Nâu đen mực tàu */
+  --sgkb-text-muted: #65584d;        /* Xám vỏ trà */
+  --sgkb-text-inverse: #fff;
+  --sgkb-shadow-xs-soft: 0 1px 3px rgb(0 0 0 / 8%);
+  --sgkb-shadow-active: 0 3px 8px rgb(179 57 25 / 18%);
+  --sgkb-header-bg: linear-gradient(135deg, #2c221e 0%, #4a3528 100%);
 }
 
 :root,
@@ -184,6 +204,7 @@ html[data-theme="light"] {
   --gallery-accent: #1158d1;
   --gallery-muted: #bbc789;
   --gallery-border: #7cadff;
+  --color-text-secondary: white;
 }
 
 html[data-theme="dark"] {
@@ -195,9 +216,26 @@ html[data-theme="dark"] {
 }
 
 /* Color Variables */
+[data-theme="light"] {
+  /* Monotone Palette - Light Mode */
+  --color-background: #fff;
+  --color-text-title-accent: var(--color-accent);
+  --color-background-pagination: #ecf2f8;
+  --color-background-toc: var(--color-white);
+  --color-background-footer: var(--color-white);
+  --color-surface: #1a1a1a;
+  --color-text-primary: var(--color-black);
+  --color-text-title: gold;
+  --color-text-pagination: var(--color-black);
+  --color-text-toc: var(--color-black);
+  --color-text-footer: var(--color-black);
+  --color-text-secondary: #b8b8b8;
+  --color-text-muted: #888;
+  --color-border: #333;
+  --color-accent: var(--color-accent-gold); /* Slightly brighter red for dark mode */
+}
 
 /* Dark Mode Theme */
-
 [data-theme="dark"] {
   /* Monotone Palette - Dark Mode */
   --color-background: #0a0a0a;
@@ -207,7 +245,7 @@ html[data-theme="dark"] {
   --color-background-footer: var(--color-white);
   --color-surface: #1a1a1a;
   --color-text-primary: #f5f5f5;
-  --color-text-title: var(--color-accent-gold);
+  --color-text-title: gold;
   --color-text-pagination: #ecf2f8;
   --color-text-toc: var(--color-black);
   --color-text-footer: #ecf2f8;
@@ -215,4 +253,49 @@ html[data-theme="dark"] {
   --color-text-muted: #888;
   --color-border: #333;
   --color-accent: var(--color-accent-gold); /* Slightly brighter red for dark mode */
+}
+
+/* Dark Theme (Nền gỗ trầm, Đèn dầu, Mực chu sa) */
+[data-theme="dark"],
+.dark {
+  --sgkb-primary: #e56b43; /* Son đỏ cam sáng để tương phản trên nền tối */
+  --sgkb-primary-hover: #ff855f;
+  --sgkb-primary-light: #e6c865;
+  --sgkb-primary-soft: #2d211a; /* Nền tab active tối sâu */
+  --sgkb-primary-border: #e56b43;
+  --sgkb-bg-main: #141211;
+  --sgkb-bg-card: #1c1816;
+  --sgkb-bg-gray: #24201d;
+  --sgkb-bg-hover: #332c28;
+  --sgkb-border: #3d342f;
+  --sgkb-border-strong: #61534b;
+  --sgkb-text-main: #f0e6df; /* Chữ sáng màu ngà */
+  --sgkb-text-muted: #b0a195; /* Chữ phụ sáng rõ */
+  --sgkb-text-inverse: #141211;
+  --sgkb-shadow-xs-soft: 0 1px 3px rgb(0 0 0 / 40%);
+  --sgkb-shadow-active: 0 3px 10px rgb(229 107 67 / 25%);
+  --sgkb-header-bg: linear-gradient(135deg, #120e0c 0%, #221a15 100%);
+}
+
+/* Tự động kích hoạt Dark Mode theo OS nếu không set attribute */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --sgkb-primary: #e56b43;
+    --sgkb-primary-hover: #ff855f;
+    --sgkb-primary-light: #e6c865;
+    --sgkb-primary-soft: #2d211a;
+    --sgkb-primary-border: #e56b43;
+    --sgkb-bg-main: #141211;
+    --sgkb-bg-card: #1c1816;
+    --sgkb-bg-gray: #24201d;
+    --sgkb-bg-hover: #332c28;
+    --sgkb-border: #3d342f;
+    --sgkb-border-strong: #61534b;
+    --sgkb-text-main: #f0e6df;
+    --sgkb-text-muted: #b0a195;
+    --sgkb-text-inverse: #141211;
+    --sgkb-shadow-xs-soft: 0 1px 3px rgb(0 0 0 / 40%);
+    --sgkb-shadow-active: 0 3px 10px rgb(229 107 67 / 25%);
+    --sgkb-header-bg: linear-gradient(135deg, #120e0c 0%, #221a15 100%);
+  }
 }

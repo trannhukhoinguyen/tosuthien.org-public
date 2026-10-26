@@ -1,9 +1,7 @@
 ---
 title: Thân cận người Hiền Đức
 description: ""
-excerpt: ''
-categories:
-  - Phim Phật Giáo
+category: "Phim Phật Giáo"
 tags:
   - Phim Phật Giáo
   - Thân cận người Hiền Đức

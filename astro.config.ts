@@ -4,7 +4,24 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import AutoImport from "astro-auto-import";
 import vercel from "@astrojs/vercel";   // 🔥 Thêm adapter
-import alpinejs from '@astrojs/alpinejs'; // Thêm dòng này
+import alpinejs from '@astrojs/alpinejs';
+
+const redirectRules = [
+  {
+    sources: ["/about", "/gioi-thieu"],
+    destination: "/to-su-thien-la-gi",
+  },
+  {
+    sources: [
+      "/masters/[...slug]",
+      "/layman/[...slug]",
+      "/speeches/[...slug]",
+      "/teachings/[...slug]",
+      "/enlighteners/[...slug]",
+    ],
+    destination: "/enlighteners/[...slug]",
+  },
+];
 
 // Integration nhỏ để chống FOUC cho toàn bộ dự án
 function themeScriptIntegration() {
@@ -68,7 +85,7 @@ export default defineConfig({
         "@/components/post/SutraFieldset.astro",
         "@/components/post/DharmaFieldset.astro",
         "@/components/ui/DialogueBubble.astro",
-        // "@/components/post/VerseField.astro",
+        "@/components/ui/links/Link2Post.astro",
       ],
     }),
 
@@ -100,8 +117,21 @@ export default defineConfig({
     plugins: [],
   },
 
-  redirects: {
-    "/about": "/to-su-thien-la-gi",
-    "/gioi-thieu": "/to-su-thien-la-gi",
+  redirects: Object.fromEntries(
+    redirectRules.flatMap(({ sources, destination }) =>
+      sources.map((src) => [src, destination]),
+    ),
+  ),
+
+  i18n: {
+    defaultLocale: "vi", // Ngôn ngữ mặc định của tosuthien.org
+    locales: ["vi", "en", "ja", "zh"], // Danh sách các ngôn ngữ hỗ trợ
+    routing: {
+      prefixDefaultLocale: false, // Tiếng Việt (mặc định) sẽ nằm ở gốc `/`, các ngôn ngữ khác sẽ có tiền tố như `/en/`, `/ja/`, `/zh/`
+    },
+    fallback: {
+      zh: "vi",
+      ja: "vi",
+    },
   },
 });

@@ -1,5 +1,22 @@
 ---
-const { title, subtitle, description, actions, isShowModal = false } = Astro.props;
+interface Action {
+  href: string;
+  text?: string;
+  subText?: string;
+  className?: string;
+  isShowModal?: boolean | false;
+  target?: string | "_self" | "_blank";
+  imgUrl?: string;
+}
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  description?: string;
+  actions?: Action[];
+}
+
+const { title, subtitle, description, actions } = Astro.props;
 ---
 
 <!-- Hero Section -->
@@ -13,13 +30,16 @@ const { title, subtitle, description, actions, isShowModal = false } = Astro.pro
       {
         actions
         && actions?.length > 0
-        && actions?.map(({ href, text, className = "btn-secondary" }) => <a href={href} class={`btn ${className}`} @click={isShowModal}>{text}</a>)
+        && actions?.map(({ href, text, subText, className= "btn-secondary", isShowModal, target, imgUrl }) =>
+          <a href={href} class={`btn ${className}`} @click={isShowModal} target={target} title={subText || text}>
+          {imgUrl ? <img src={imgUrl} alt={subText || text} width="50" class="btn-image-icon" /> : text}
+        </a>)
       }
     </div>
   </div>
 </section>
 
-<style>
+<style scoped>
     .image-area {
         text-align: center;
         padding: calc(var(--grid-unit) * 1) 0 calc(var(--grid-unit) * 1);
@@ -79,25 +99,35 @@ const { title, subtitle, description, actions, isShowModal = false } = Astro.pro
     }
 
     .hero-actions {
+      display: flex;
+      gap: calc(var(--grid-unit) * 2);
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+
+      a {
         display: flex;
-        gap: calc(var(--grid-unit) * 2);
-        justify-content: center;
-        flex-wrap: wrap;
+        align-items: center;
+        max-width: 200px;
+      }
     }
 
+    /* All Buttons */
     .btn {
-        font-family: var(--font-heading-secondary),serif;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        padding: calc(var(--grid-unit) * 1.5) calc(var(--grid-unit) * 3);
-        border-radius: 4px;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 0.95rem;
+      font-family: var(--font-heading-secondary),serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: calc(var(--grid-unit) * 1.5) calc(var(--grid-unit) * 3);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 0.95rem;
+      background-color: transparent;
     }
 
+    /* PRIMARY Buttons */
     .btn-primary {
         background-color: var(--color-accent-goldenrod);
         color: white;
@@ -106,37 +136,84 @@ const { title, subtitle, description, actions, isShowModal = false } = Astro.pro
 
     .btn-primary:hover,
     .btn-primary:focus {
-        background-color: transparent;
-        color: var(--color-accent-gold);
-        transform: translateY(-2px);
+      color: var(--color-accent-gold);
+      transform: translateY(-2px);
     }
 
+    /* SECONDARY Buttons */
     .btn-secondary {
-        background-color: transparent;
-        color: var(--color-text-primary);
-        border: 2px solid var(--color-border);
+      color: var(--color-text-primary);
+      border: 2px solid var(--color-border);
     }
 
     .btn-secondary:hover,
     .btn-secondary:focus {
-        background-color: var(--color-text-primary);
-        color: var(--color-background);
-        transform: translateY(-2px);
+      background-color: var(--color-text-primary);
+      color: var(--color-background);
+      transform: translateY(-2px);
     }
 
+    /* THIRD Buttons */
     .btn-third {
-        background-color: transparent;
-        color: var(--color-accent-green-darkgreen);
-        border: 2px solid var(--color-border);
+      color: var(--color-accent-green-darkgreen);
+      border: 2px solid var(--color-border);
     }
 
     .btn-third:hover,
     .btn-third:focus {
-        background-color: var(--color-background-pagination);
-        color: var(--color-accent-green-darkgreen);
+      background-color: var(--color-background-pagination);
+      color: var(--color-accent-green-darkgreen);
+      transform: translateY(-2px);
+    }
+
+    /* IMAGE Buttons */
+    .btn-image {
+      border: none;
+      padding: 0;
+
+      .btn-image-icon {
+        border: none;
+      }
+    }
+
+    .ai-robot-btn .btn-image-icon {
+      position: relative;          /* Bắt buộc để neo dấu ? vào góc */
+      border: 2px dashed var(--color-accent-gold);  /* Viền đứt quãng (dashed) hoặc chấm (dotted) */
+      border-radius: 16px;         /* Bo tròn các góc */
+      padding: 8px;                /* Khoảng cách từ ảnh ra viền */
+      display: inline-block;
+
+      &:hover,
+      &:focus {
+        background: var(--linear-multi);      /* Màu nền của dấu hỏi */
+      }
+    }
+
+    /* Tạo dấu ? nhỏ ở góc border */
+    .question-mark::after {
+      content: "?";
+      position: absolute;
+      top: -8px;                   /* Đẩy lên mép trên góc */
+      right: -8px;                 /* Đẩy sang mép phải góc */
+      width: 20px;
+      height: 20px;
+      background-color: var(--color-background);      /* Màu nền của dấu hỏi */
+      color: var(--color-accent-gold);              /* Màu chữ dấu hỏi */
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 50%;          /* Biến nền thành hình tròn */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--linear-multi);   /* Viền quanh dấu hỏi cho nổi bật */
+    }
+
+    .btn-image:hover,
+    .btn-image:focus {
         transform: translateY(-2px);
     }
 
+    /* OTHER Buttons */
     .btn-guideline {
         background-color: transparent;
         color: var(--color-accent-red);
@@ -161,6 +238,7 @@ const { title, subtitle, description, actions, isShowModal = false } = Astro.pro
     :global([data-theme="dark"]) .btn-primary:focus {
         background-color: transparent;
         color: var(--color-accent-gold);
+        border-color: var(--color-accent-gold);
     }
 
     :global([data-theme="dark"]) .btn-secondary {
@@ -170,9 +248,9 @@ const { title, subtitle, description, actions, isShowModal = false } = Astro.pro
     }
 
     :global([data-theme="dark"]) .btn-secondary:hover,
-    :global([data-theme="dark"]) .btn-secondary:focus {
-        background-color: var(--color-accent-gold);
+    :global([data-theme="dark"]) .--color-accent-goldenrod:focus {
+        background-color: var(--color-accent-goldenrod);
         color: white;
-        border-color: var(--color-accent-gold);
+        border-color: var(--color-text-primary);
     }
 </style>

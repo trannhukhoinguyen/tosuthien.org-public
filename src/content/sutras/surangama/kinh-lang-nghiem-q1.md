@@ -1,18 +1,16 @@
 ---
 title: "LĂNG NGHIÊM [KINH] - Quyển 1"
-meta_title: ""
 description: ""
-excerpt: ""
-categories:
-  - Kinh
+category: "Kinh"
 tags: 
   - KINH LĂNG NGHIÊM
-  - HT THÍCH DUY LỰC
+  - HT. THÍCH DUY LỰC
 image: /images/backgrounds/wide/zen-space.jpeg
 pdfUrls: 
   - /pdfs/sutras/kinh-lang-nghiem.pdf
   - /pdfs/sutras/chu-lang-nghiem-mobile.pdf
-videoId: MeKCZ_DuSjk
+videoIds: 
+  - MeKCZ_DuSjk
 videoStart: "55"
 ---
 
@@ -486,7 +484,7 @@ Do đó, Phật bảo đại chúng rằng:
 
 [^5]: Theo đúng pháp môn thực hành, có tu có chứng, mới được gọi là tu hành.
 
-<hr class="blog-rule" />
+<hr class="blog-rule footer" />
 
 ## NGUỒN
 

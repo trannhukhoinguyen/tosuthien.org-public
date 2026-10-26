@@ -42,3 +42,23 @@ export function isPastDate(date) {
   
   return dateObj < new Date();
 }
+
+/**
+ * Get time is in the past
+ * @param {Date|string} date The date to check
+ * @returns time
+ */
+export function getTimeAgo(date) {
+  if (!date) return "Vừa cập nhật";
+
+  const now = new Date();
+  const diff = now.getTime() - date.getTime();
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  if (hours < 24) return `${hours} giờ trước`;
+  const days = Math.floor(hours / 24);
+  if (days < 7) return `${days} ngày trước`;
+  const weeks = Math.floor(days / 7);
+  if (weeks < 5) return `${weeks} tuần trước`;
+  const months = Math.floor(days / 30);
+  return `${months} tháng trước`;
+}

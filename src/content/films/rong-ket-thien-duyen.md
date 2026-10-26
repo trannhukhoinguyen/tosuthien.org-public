@@ -1,9 +1,7 @@
 ---
 title: Rộng kết thiện duyên
 description: ""
-excerpt: ''
-categories:
-  - Phim Phật Giáo
+category: "Phim Phật Giáo"
 tags:
   - Phim Phật Giáo
   - Rộng kết thiện duyên

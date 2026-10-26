@@ -34,7 +34,7 @@ export const ICONS_MAP: Record<CollectionType, Record<string, string>> = {
     categorized: "🪷",
   },
 
-  masters: {
+  enlighteners: {
     "Giới thiệu": "💫",
     "Chưa phân loại": "💫",
     categorized: "🌟",
@@ -88,6 +88,12 @@ export const ICONS_MAP: Record<CollectionType, Record<string, string>> = {
     categorized: "📑",
   },
 
+  merits: {
+    "Giới thiệu": "🌈",
+    "Chưa phân loại": "✋🏻",
+    categorized: "🙌",
+  },
+
   symptoms: {
     "Giới thiệu": "‍🌀",
     "Chưa phân loại": "🌀",
@@ -118,17 +124,5 @@ export const ICONS_MAP: Record<CollectionType, Record<string, string>> = {
     "Giới thiệu": "🎬",
     "Chưa phân loại": "🎬",
     categorized: "🎥",
-  },
-
-  poems: {
-    "Giới thiệu": "📜",
-    "Chưa phân loại": "📃",
-    categorized: "✏️",
-  },
-
-  facebook: {
-    "Giới thiệu": "📪",
-    "Chưa phân loại": "📫",
-    categorized: "📬",
   },
 };

@@ -1,9 +1,7 @@
 ---
 export interface Props {
     title?: string;
-    meta_title?: string;
     description?: string;
-    excerpt?: string;
     image?: string;
     logo?: string;
     type?: 'website' | 'article';
@@ -13,15 +11,13 @@ export interface Props {
     noindex?: boolean;     // cho phép tắt index nếu cần
 }
 
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../config';
+import { SITE_TITLE, SITE_DESCRIPTION, config } from '@/config';
 
 const {
     title = SITE_TITLE,
-    meta_title,
     description = SITE_DESCRIPTION,
-    excerpt,
-    image = '/images/backgrounds/Buddha-zen.avif',
-    logo = '/favicon-new.ico',
+    image = config.ogImage || "/images/og-image.jpg",
+    logo = config.logo,
     type = 'website',
     publishedTime,
     modifiedTime,
@@ -29,11 +25,10 @@ const {
     noindex = false,
 } = Astro.props;
 
-const seoTitle = meta_title || title;
 const pageTitle = title === SITE_TITLE ? title : `${title} | ${SITE_TITLE}`;
 const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site);
-const imageURL = new URL(image, Astro.site);
-const metaDescription = description || excerpt || SITE_DESCRIPTION;
+const imageURL = new URL(image, Astro.site || config.siteUrl).href;
+const metaDescription = description || SITE_DESCRIPTION;
 ---
 
 <title>{pageTitle}</title>

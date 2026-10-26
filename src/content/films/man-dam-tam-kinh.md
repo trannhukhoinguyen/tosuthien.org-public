@@ -1,9 +1,7 @@
 ---
 title: Mạn Đàm Tâm Kinh
 description: ""
-excerpt: ''
-categories:
-  - Phim Phật Giáo
+category: "Phim Phật Giáo"
 tags:
   - Phim Phật Giáo
   - Mạn Đàm Tâm Kinh

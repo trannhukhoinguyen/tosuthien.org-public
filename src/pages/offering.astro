@@ -1,70 +1,120 @@
 ---
-import { pagodaList } from '@/data/pagodaData';
-import FacebookPost from '@/components/ui/FacebookPost.astro'; // Đảm bảo import component của bạn
+import { zenHallList } from '@/data/ZenHallData';
+import FacebookPost from '@/components/ui/FacebookPost.astro';
 import GoogleMap from '@/components/ui/map/GoogleMap.astro';
-import Layout from "@/layouts/Layout.astro";       // Đảm bảo import component của bạn
+import Layout from "@/layouts/Layout.astro";
 
 const title = 'Cúng dường';
-const description = 'Cúng dường';
+const description = 'Thông tin nơi tiếp nhận cúng dường các Thiền Viện';
 
-// Hàm chuyển đổi tọa độ cục bộ sang tọa độ toàn cục
-function getGlobalPosition(region: string, localX: number, localY: number) {
-  // 1. Khai báo khung ranh giới (Bounding Box) của từng khu vực giống hệt CSS của bạn
+// 1. Phân loại Quốc gia
+const vnPagodas = zenHallList.filter(p => p.countryCode === 'VN');
+const usPagodas = zenHallList.filter(p => p.countryCode === 'US');
+
+// 2. Phân loại 3 Miền cho Việt Nam (Bắc - Trung - Nam)
+const vnBacPagodas = vnPagodas.filter(p => p.region === 'BAC');
+const vnTrungPagodas = vnPagodas.filter(p => p.region === 'TRUNG');
+const vnNamPagodas = vnPagodas.filter(p => p.region === 'NAM' || (!['BAC', 'TRUNG'].includes(p.region || '')));
+
+function getGlobalPosition(region: string, lat: number, lng: number, localX: number, localY: number) {
   const boxes = {
     vn: { top: 5, left: 5, width: 90, height: 40 },
     us: { top: 52, left: 5, width: 90, height: 40 }
   };
-
-  const box = boxes[region] || boxes.vn; // Mặc định là VN nếu rỗng
-
-  // 2. Tính toán % thực tế trên toàn bản đồ
-  // Công thức: Vị trí bắt đầu của hộp + (tọa độ cục bộ * kích thước hộp / 100)
-  const globalLeft = box.left + (localX * box.width) / 100;
-  const globalTop = box.top + (localY * box.height) / 100;
-
+  const box = boxes[region] || boxes.vn;
+  const globalLeft = box.left + ((lat || localX) * box.width) / 100;
+  const globalTop = box.top + ((lng || localY) * box.height) / 100;
   return `top: ${globalTop}%; left: ${globalLeft}%;`;
 }
 ---
 
-<Layout
-  schemaType="Article"
-  title={title}
-  description={description}
-  showSidebar={false}
->
-
+<Layout schemaType="Article" title={title} description={description} showSidebar={false}>
   <div class="map-layout">
-    <!-- BÊN TRÁI: BẢN ĐỒ MÔ PHỎNG -->
-    <div class="map-container">
-      <div class="map-bg">
-        <div class="region region-vn">Việt Nam</div>
-        <div class="region region-us">Mỹ (USA)</div>
 
-        <!-- Render các điểm ghim -->
-        {pagodaList.map((item, index) => (
-          <div
-            class={`pin ${index === 0 ? 'active' : ''}`}
-            data-id={item.id}
-            style={getGlobalPosition(item.region, item.localX, item.localY)}
-          >
-            <span class="pin-tooltip">{item.title}</span>
+    <!-- CỘT BÊN TRÁI: DANH SÁCH / BẢN ĐỒ -->
+    <div class="sidebar-left">
+      <!-- Thanh chuyển đổi Dạng xem -->
+      <div class="view-toggle">
+        <button class="toggle-btn active" data-view="list">
+          <span class="btn-icon">📋</span> Danh sách ({zenHallList.length})
+        </button>
+        <!--<button class="toggle-btn" data-view="map">Bản đồ</button>-->
+      </div>
+
+      <!-- VIEW DANH SÁCH (SIDEBAR LIST) -->
+      <div class="view-content view-list active">
+        <div class="pagoda-list-container">
+
+          <!-- Nhóm Việt Nam -->
+          <div class="list-group">
+            <div class="group-title">🇻🇳 VIỆT NAM ({vnPagodas.length})</div>
+
+            <!-- Miền Nam -->
+            {vnNamPagodas.length > 0 && (
+              <div class="sub-group">
+                <div class="sub-group-title">🟢 Miền Nam ({vnNamPagodas.length})</div>
+                {vnNamPagodas.map((item, index) => (
+                  <div class={`list-item trigger-item ${(vnBacPagodas.length === 0 && vnTrungPagodas.length === 0 && index === 0) ? 'active' : ''}`} data-id={item.id}>
+                    <div class="item-title">{item.templeName}</div>
+                    <div class="item-address">{item.placeAddress || item.address}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <!-- Miền Bắc -->
+            {vnBacPagodas.length > 0 && (
+              <div class="sub-group">
+                <div class="sub-group-title">🔴 Miền Bắc ({vnBacPagodas.length})</div>
+                {vnBacPagodas.map((item, index) => (
+                  <div class={`list-item trigger-item ${index === 0 ? 'active' : ''}`} data-id={item.id}>
+                    <div class="item-title">{item.templeName}</div>
+                    <div class="item-address">{item.placeAddress || item.address}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <!-- Miền Trung -->
+            {vnTrungPagodas.length > 0 && (
+              <div class="sub-group">
+                <div class="sub-group-title">🟡 Miền Trung ({vnTrungPagodas.length})</div>
+                {vnTrungPagodas.map((item) => (
+                  <div class="list-item trigger-item" data-id={item.id}>
+                    <div class="item-title">{item.templeName}</div>
+                    <div class="item-address">{item.placeAddress || item.address}</div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
-        ))}
+
+          <!-- Nhóm Mỹ -->
+          {usPagodas.length > 0 && (
+            <div class="list-group">
+              <div class="group-title">🇺🇸 HOA KỲ ({usPagodas.length})</div>
+              {usPagodas.map((item) => (
+                <div class="list-item trigger-item" data-id={item.id}>
+                  <div class="item-title">{item.templeName}</div>
+                  <div class="item-address">{item.placeAddress || item.address}</div>
+                </div>
+              ))}
+            </div>
+          )}
+
+        </div>
       </div>
     </div>
 
-    <!-- BÊN PHẢI: KHUNG THÔNG TIN -->
-    <div class="info-sidebar">
-      <!-- Lặp qua data để render sẵn tất cả các khung (chỉ khung đầu tiên được hiện) -->
-      {pagodaList.map((data, index) => (
+    <!-- CỘT BÊN PHẢI: KHUNG THÔNG TIN CÚNG DƯỜNG -->
+    <div class="info-sidebar" id="infoSidebar">
+      {zenHallList.map((data, index) => (
         <div class={`info-panel ${index === 0 ? 'active' : ''}`} id={`panel-${data.id}`}>
 
-          <!-- === CẤU TRÚC HTML BẠN CUNG CẤP === -->
           <div class="donation-receiving-info-area">
             <h3 class="donation-header-title">THÔNG TIN NƠI TIẾP NHẬN CÚNG DƯỜNG</h3>
-            <p class="donation-header-title">Các bạn có thể xem thông báo chính thức từ chùa tại bài đăng bên dưới.</p>
+            <p class="donation-header-subtitle">Các bạn có thể xem thông báo chính thức từ chùa tại bài đăng bên dưới.</p>
             <section class="donation-section">
-              <!-- Fallback Facebook Post -->
               {data.facebookPostUrl && (
                 <div id="fb-post" class="fb-fallback">
                   <h4 class="donation-header-title">THÔNG BÁO</h4>
@@ -72,7 +122,6 @@ function getGlobalPosition(region: string, localX: number, localY: number) {
                 </div>
               )}
 
-              <!-- Additional Pagoda Info -->
               {(data.announcement1 && data.announcement2) && (
                 <div class="qr-image-area">
                   <img class="w-250" src={data.announcement1} alt="Notification 1" width="300" />
@@ -80,7 +129,6 @@ function getGlobalPosition(region: string, localX: number, localY: number) {
                 </div>
               )}
 
-              <!-- Fallback Thanks -->
               {data.thanksFacebookCommentUrl && (
                 <div id="thanks-fb-comment" class="fb-fallback">
                   <h4 class="donation-header-title">LỜI NGỎ CẢM ƠN</h4>
@@ -117,164 +165,287 @@ function getGlobalPosition(region: string, localX: number, localY: number) {
 
             <h3 class="thank-you-message">XIN CHÂN THÀNH CẢM ƠN!</h3>
           </div>
-          <!-- === KẾT THÚC CẤU TRÚC HTML BẠN CUNG CẤP === -->
 
         </div>
       ))}
     </div>
   </div>
-
 </Layout>
 
 <style>
-  /* Cấu trúc chia cột */
-  .map-layout {
-    display: flex;
-    gap: 30px;
-    align-items: flex-start;
-  }
+    /* BỐ CỤC CHÍNH */
+    .map-layout {
+        display: flex;
+        gap: 24px;
+        align-items: flex-start;
+    }
 
-  /* --- CSS CHO BẢN ĐỒ BÊN TRÁI --- */
-  .map-container {
-    flex: 1;
-    position: relative;
-    height: 600px;
-    background: var(--color-background-overlay);
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    /* Đã xóa flex-direction: column vì không cần thiết */
-  }
+    /* CỘT BÊN TRÁI */
+    .sidebar-left {
+        width: 380px;
+        flex-shrink: 0;
+    }
 
-  /* Thêm CSS cho map-bg để phủ kín container */
-  .map-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--color-background-pagination);
-  }
+    /* 1. TAB CHUYỂN ĐỔI */
+    .view-toggle {
+        display: flex;
+        gap: 8px;
+        background: #f4f4f5;
+        padding: 5px;
+        border-radius: 8px;
+        border: 1px solid #e4e4e7;
+        margin-bottom: 12px;
+    }
 
-  /*Region */
-  .region {
-    position: absolute;
-    padding: 10px;
-    font-weight: bold;
-    color: var(--color-text-primary);
-    border: 2px dashed var(--color-border);
+    .toggle-btn {
+        flex: 1;
+        padding: 8px 12px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        border-radius: 6px;
+        font-weight: 600;
+        color: #52525b;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+    }
 
-    /* Cố định chiều rộng cho cả 2 khu vực chiếm gần hết bản đồ */
-    left: 5%;
-    width: 90%;
-  }
+    .toggle-btn.active {
+        background: #f59e0b;
+        color: #000000 !important;
+        box-shadow: 0 2px 6px rgba(245, 158, 11, 0.25);
+    }
 
-  /* Khu vực Việt Nam nằm ở nửa trên */
-  .region-vn {
-    top: 5%;
-    height: 40%;
-  }
+    /* 2. CONTAINER DANH SÁCH */
+    .pagoda-list-container {
+        height: 650px;
+        overflow-y: auto;
+        border: 1px solid #e4e4e7;
+        border-radius: 10px;
+        padding: 12px;
+        background: #fafafa;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
 
-  /* Khu vực Mỹ nằm ở nửa dưới */
-  .region-us {
-    top: 52%; /* Đẩy xuống nửa dưới */
-    height: 40%;
-  }
+    /* Tiêu đề nhóm Quốc gia (Cấp 1) */
+    .group-title {
+        font-size: 14px;
+        font-weight: 800;
+        color: #b45309;
+        margin-bottom: 10px;
+        padding-bottom: 6px;
+        border-bottom: 2px solid #fde68a;
+        letter-spacing: 0.5px;
+    }
 
-  /* Điểm ghim */
-  .pin {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: var(--color-accent-forestgreen);
-    border-radius: 50%;
-    border: 3px solid var(--color-text-primary);
-    cursor: pointer;
-    transform: translate(-50%, -50%);
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    z-index: 10;
-  }
-  .pin:hover, .pin.active {
-    transform: translate(-50%, -50%) scale(1.4);
-    background-color: var(--color-accent-goldenrod);
-    z-index: 20;
-  }
-  .pin-tooltip {
-    position: absolute;
-    top: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 1px solid var(--color-accent-goldenrod);
-    background: var(--color-accent-khaki);
-    color: var(--color-accent-goldenrod);
-    padding: 4px 8px;
-    font-size: 12px;
-    white-space: nowrap;
-    border-radius: 4px;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .pin:hover .pin-tooltip, .pin.active .pin-tooltip {
-    opacity: 1;
-  }
+    /* Nhóm 3 Miền (Cấp 2) */
+    .sub-group {
+        margin-bottom: 12px;
+        padding-left: 4px;
+    }
 
-  /* --- CSS CHO KHUNG THÔNG TIN BÊN PHẢI --- */
-  .info-sidebar {
-    width: 500px;
-    max-height: 800px;
-    overflow-y: auto;
-    background: var(--color-accent-antiquewhite);
-    border: 1px solid  var(--color-accent-azure);
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    color: var(--color-accent-chocolate);
-  }
+    .sub-group-title {
+        font-size: 12.5px;
+        font-weight: 700;
+        color: #71717a;
+        margin-bottom: 6px;
+        padding: 3px 8px;
+        background: #f4f4f5;
+        border-radius: 4px;
+        display: inline-block;
+    }
 
-  /* Quan trọng: Ẩn tất cả các panel, chỉ hiện panel có class active */
-  .info-panel {
-    display: none;
-    animation: fadeIn 0.4s ease;
-  }
-  .info-panel.active {
-    display: block;
-  }
+    /* Item thiền đường */
+    .list-item {
+        padding: 10px 12px;
+        background: #ffffff;
+        border: 1px solid #e4e4e7;
+        border-radius: 8px;
+        margin-bottom: 6px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+    .list-item:hover {
+        border-color: #d97706;
+        background: #fffbe2;
+        transform: translateX(3px);
+    }
 
-  /* CSS bổ sung cho template của bạn */
-  .donation-receiving-info-area { margin-bottom: 20px; }
-  .donation-header-title { color: #8b0000; margin-bottom: 10px; }
-  .qr-image-area { display: flex; gap: 10px; flex-wrap: wrap; }
-  .thank-you-message { text-align: center; color: #2e7d32; margin-top: 20px; }
+    .list-item.active {
+        border-color: #d97706;
+        background: #fef3c7 !important;
+        box-shadow: inset 4px 0 0 #d97706;
+    }
+
+    .item-title {
+        font-weight: 600;
+        font-size: 14px;
+        color: #18181b !important;
+        margin-bottom: 3px;
+    }
+
+    .list-item.active .item-title {
+        color: #92400e !important;
+    }
+
+    .item-address {
+        font-size: 12px;
+        color: #52525b !important;
+        line-height: 1.35;
+    }
+
+    .list-item.active .item-address {
+        color: #78350f !important;
+    }
+
+    /* CỘT BÊN PHẢI (PANEL) */
+
+    .info-sidebar {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        background: #ffffff;
+        border: 1px solid #e4e4e7;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .info-panel {
+        display: none;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .info-panel.active {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(6px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .donation-receiving-info-area {
+        margin-bottom: 20px;
+    }
+
+    .donation-header-title { color: #8b0000; margin-bottom: 8px; font-weight: 700; }
+    .donation-header-subtitle { color: #52525b; margin-bottom: 12px; font-size: 13.5px; }
+    .qr-image-area { display: flex; gap: 10px; flex-wrap: wrap; }
+    .thank-you-message { text-align: center; color: #2e7d32; margin-top: 20px; font-weight: 700; }
+
+    /* =========================================================
+       DARK THEME OVERRIDES
+       ========================================================= */
+    :global(.dark) .view-toggle { background: #18181b; border-color: #27272a; }
+    :global(.dark) .toggle-btn { color: #a1a1aa; }
+    :global(.dark) .pagoda-list-container { background: #09090b; border-color: #27272a; }
+    :global(.dark) .group-title { color: #f59e0b; border-bottom-color: #3f3f46; }
+    :global(.dark) .sub-group-title { background: #27272a; color: #d4d4d8; }
+    :global(.dark) .list-item { background: #18181b; border-color: #27272a; }
+    :global(.dark) .list-item:hover { background: #27272a; border-color: #f59e0b; }
+    :global(.dark) .list-item.active { background: rgba(245, 158, 11, 0.15) !important; border-color: #f59e0b; box-shadow: inset 4px 0 0 #f59e0b; }
+    :global(.dark) .item-title { color: #ffffff !important; }
+    :global(.dark) .list-item.active .item-title { color: #fbbf24 !important; }
+    :global(.dark) .item-address { color: #a1a1aa !important; }
+    :global(.dark) .list-item.active .item-address { color: #d4d4d8 !important; }
+    :global(.dark) .info-sidebar { background: #18181b; border-color: #27272a; }
+    :global(.dark) .donation-header-title { color: #f87171; }
+    :global(.dark) .donation-header-subtitle { color: #a1a1aa; }
+
+    /* =========================================================
+       RESPONSIVE CHO MOBILE & TABLET
+       ========================================================= */
+    @media (max-width: 900px) {
+        .map-layout {
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .sidebar-left {
+            width: 100%;
+        }
+
+        .pagoda-list-container {
+            height: auto;
+            max-height: 280px; /* Giảm chiều cao danh sách trên di động để nhường không gian cho nội dung chi tiết */
+        }
+
+        .info-sidebar {
+            width: 100%;
+            padding: 16px;
+        }
+
+        .qr-image-area img {
+            width: 100% !important;
+            max-width: 280px;
+        }
+    }
 </style>
 
-<!-- Script xử lý sự kiện hover (Chạy trực tiếp không cần module) -->
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
-    const pins = document.querySelectorAll('.pin');
+    // 1. Chuyển đổi Dạng xem
+    const toggleBtns = document.querySelectorAll('.toggle-btn');
+    const viewContents = document.querySelectorAll('.view-content');
+
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const view = btn.getAttribute('data-view');
+        toggleBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        viewContents.forEach(content => {
+          content.classList.remove('active');
+          if (content.classList.contains(`view-${view}`)) {
+            content.classList.add('active');
+          }
+        });
+      });
+    });
+
+    // 2. Kích hoạt Thiền viện & Tự động cuộn đến Nội dung trên Di động
+    const triggerItems = document.querySelectorAll('.trigger-item');
     const panels = document.querySelectorAll('.info-panel');
+    const infoSidebar = document.getElementById('infoSidebar');
 
-    pins.forEach(pin => {
-      // Dùng sự kiện mouseenter để xử lý khi Hover vào địa điểm
-      pin.addEventListener('mouseenter', () => {
-        const targetId = pin.getAttribute('data-id');
-
-        // 1. Đổi màu pin đang hover
-        pins.forEach(p => p.classList.remove('active'));
-        pin.classList.add('active');
-
-        // 2. Ẩn tất cả nội dung bên phải, chỉ hiện nội dung tương ứng
-        panels.forEach(panel => panel.classList.remove('active'));
-        const activePanel = document.getElementById(`panel-${targetId}`);
-        if (activePanel) {
-          activePanel.classList.add('active');
+    function activatePagoda(id, isClick = false) {
+      triggerItems.forEach(item => {
+        if (item.getAttribute('data-id') === id) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
         }
+      });
+
+      panels.forEach(panel => panel.classList.remove('active'));
+      const activePanel = document.getElementById(`panel-${id}`);
+      if (activePanel) {
+        activePanel.classList.add('active');
+      }
+
+      // Khi người dùng bấm trên Mobile (< 900px), tự động cuộn nhẹ xuống khung thông tin
+      if (isClick && window.innerWidth <= 900 && infoSidebar) {
+        infoSidebar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    triggerItems.forEach(item => {
+/*      item.addEventListener('mouseenter', () => {
+        const targetId = item.getAttribute('data-id');
+        activatePagoda(targetId, false);
+      });*/
+
+      item.addEventListener('click', () => {
+        const targetId = item.getAttribute('data-id');
+        activatePagoda(targetId, true);
       });
     });
   });

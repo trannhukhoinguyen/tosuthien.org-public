@@ -1,9 +1,7 @@
 ---
 title: Pháp sư CẦU NA BẠT ĐÀ LA
 description: ""
-excerpt: ''
-categories:
-  - Phim Phật Giáo
+category: "Phim Phật Giáo"
 tags:
   - Phim Phật Giáo
   - Pháp sư Cầu Na Bạt Đà La
@@ -60,7 +58,7 @@ Một Bà-la-môn ngoại đạo cao tuổi, là đệ tử cuối cùng của �
 
 [^1]: 📝 Xem thêm tại <a href="/sutras/lankavatara/kinh-lang-gia-gioi-thieu-va-muc-luc.mdx" target="_blank">KINH LĂNG GIÀ</a>
 
-<hr class="blog-rule" />
+<hr class="blog-rule footer" />
 
 ## NGUỒN
 

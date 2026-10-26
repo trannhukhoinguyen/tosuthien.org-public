@@ -1,17 +1,13 @@
 ---
 title: "ĐƯỜNG LỐI THỰC HÀNH THAM TỔ SƯ THIỀN"
-meta_title: "ĐƯỜNG LỐI THỰC HÀNH THAM TỔ SƯ THIỀN"
 description: ""
-excerpt: ""
 showInHomepage: true
-categories:
-  - Thực hành
+category: "Thực hành"
 tags:
   - HƯỚNG DẪN
   - THAM THIỀN
-  - HT THÍCH DUY LỰC
-author: "HT THÍCH DUY LỰC"
-image: /images/koans/great-wave.webp
+  - HT. THÍCH DUY LỰC
+author: "HT. THÍCH DUY LỰC"
 pdfUrls:
   - /pdfs/practices/duong-loi-thuc-hanh-tham-to-su-thien-original.pdf
   - /pdfs/practices/duong-loi-thuc-hanh-tham-to-su-thien.pdf
@@ -52,7 +48,7 @@ Cái sát na lìa ý thức đó gọi là Kiến tánh thành Phật, tức là
   - Lục Tổ ➡️ Thanh Nguyên Hành Tư (? - 740) ➡️ Thạch Đầu Hi Thiên (700 - 790) ➡️ Dược Sơn Duy Nghiễm (745  -  828)
   - ➡️ Vân nham Đàm Thạnh (782 - 814) ➡️ Động Sơn Lương Giới (807 - 869) ➡️ Tào Sơn Bổn tịch (890 - 901) là tổ tông Tào Động.
 
-<hr class="blog-rule" />
+<hr class="blog-rule footer" />
 
 ## NGUỒN
 

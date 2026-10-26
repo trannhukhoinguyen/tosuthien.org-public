@@ -1,10 +1,7 @@
 ---
 title: "HOA NGHIÊM [KINH] - Phần 6"
-meta_title: ""
 description: ""
-excerpt: ""
-categories:
-  - Kinh
+category: "Kinh"
 tags: 
   - KINH HOA NGHIÊM
   - TINH YẾU
@@ -28,7 +25,7 @@ videoPlaylists:
 
 **Phần 6 HẾT**
 
-<hr class="blog-rule" />
+<hr class="blog-rule footer" />
 
 ## NGUỒN
 

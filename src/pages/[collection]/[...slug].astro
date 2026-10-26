@@ -37,8 +37,8 @@ const { frontmatter, Content } = post as any;
 ---
 
 <Layout
-    title={frontmatter.meta_title || frontmatter.title}
-    description={frontmatter.description || frontmatter.excerpt}
+    title={frontmatter.title}
+    description={frontmatter.description}
     type="article"
     publishedTime={frontmatter.date ? new Date(frontmatter.date).toISOString() : undefined}
     collection={collection}
@@ -94,10 +94,10 @@ const { frontmatter, Content } = post as any;
 
 <style>
   .blog-rule {
-    height: 4px;
+    height: 2px;
     background-color: var(--color-accent-gold);
     border: none;
-    width: 120px;
+    width: 100%;
     margin: 0 auto;
   }
 </style>

@@ -21,10 +21,10 @@ import SEO from '@/components/page/SEO.astro';
 import schema from '@/data/schema.astro';
 
 import BackToTop from '@/components/ui/button/BackToTop.astro';
+import SkipToBottom from "@/components/ui/button/SkipToBottom.astro";
 import HuaTouModalWithAudios from "@/components/ui/modal/HuaTouModalWithAudios.astro";
 
 import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL } from '@/config.ts';
-import SkipToBottom from "@/components/ui/button/SkipToBottom.astro";
 
 import { ClientRouter } from 'astro:transitions';
 import ZenLoader from '@/components/ui/loading/ZenLoader.astro';
@@ -32,9 +32,7 @@ import SearchPagefind from "@/components/ui/search/SearchModal.astro";
 
 export interface Props {
   title: string;
-  meta_title?: string;
   description?: string;
-  excerpt?: string;
   showSidebar?: boolean;
   image?: string;
   type?: 'website' | 'article';
@@ -57,11 +55,9 @@ export interface Props {
 
 const {
   title,
-  meta_title,
   description,
-  excerpt,
   showSidebar = true,
-  image = '/images/backgrounds/Buddha-zen.avif',
+  image = '/images/backgrounds/Buddha-zen.jpg',
   type,
   publishedTime,
   modifiedTime,
@@ -91,21 +87,10 @@ const {
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-    <script is:inline>
-      document.addEventListener('astro:page-load', () => {
-        Swal.fire({
-          title: 'Tỉnh Giác',
-          text: 'Thế giới là mộng ảo, là do thức biến hiện.',
-          icon: 'info', // Hoặc 'warning', 'success'
-          confirmButtonText: 'Đã hiểu',
-          confirmButtonColor: '#d2a679' // Tùy chỉnh màu nút
-        });
-      });
-    </script>
 
     <SEO
-      title={meta_title || title}
-      description={description || excerpt}
+      title={title}
+      description={description}
       image={image}
       type={type}
       publishedTime={publishedTime}

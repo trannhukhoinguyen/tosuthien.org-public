@@ -10,15 +10,16 @@ export const GET: APIRoute = async () => {
   const normalized = enlighteners.map((enlightener) => ({
     url: getEnlightenerUrl(enlightener),
     title: enlightener.data.title,
-    excerpt:
-      enlightener.data.description ||
-      `Learn more about ${enlightener.data.title}.`,
-    category: enlightener.data.category || "General",
+    description: enlightener.data.description,
+    extraNames: enlightener.data.extraNames,
+    teachers: enlightener.data.teachers?.join(", "),
   }));
 
   const body = {
     generatedAt: new Date().toISOString(),
-    popular: normalized.slice(0, 8).map((item) => item.title),
+    popular: normalized
+      .slice(0, 8)
+      .map((item) => item.title || item.description || item.extraNames || item.teachers),
     enlighteners: normalized,
   };
 

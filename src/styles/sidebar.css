@@ -96,7 +96,7 @@
 .post-link {
     font-weight: 500;
     line-height: 1.3;
-    color: var(--color-text-primary);
+    color: var(--color-accent-brown);
 }
 
 .post-link:hover,

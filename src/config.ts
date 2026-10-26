@@ -1,6 +1,7 @@
 export interface SiteConfig {
   title: string;
   ogImage?: string;
+  logo?: string;
   dir?: string;
   backdropEffects?: { cursorGlow: Boolean; grain: Boolean };
   showBackButton?: Boolean;
@@ -54,7 +55,8 @@ export const config: SiteConfig = {
   // GALLERY
   showBackButton: true,
   showGalleries: true,
-  ogImage: "/images/backgrounds/Buddha-zen.avif",
+  ogImage: "/images/backgrounds/Buddha-zen.jpg",
+  logo: "/images/backgrounds/lightning.ico",
   backdropEffects: {
     cursorGlow: true, // cursor tracking with soft halo
     grain: true, // background visual noise layer
@@ -68,18 +70,14 @@ export const config: SiteConfig = {
   postsPerPage: 6,
 
   collections: [
-    "health",
-
     "blogs",
+    "merits",
     "symptoms",
 
-    "books",
     "textBooks",
-
 
     "precepts",
     "films",
-    "poems",
     "sutras",
 
     "eatery",
@@ -91,7 +89,6 @@ export const config: SiteConfig = {
     "buddhas",
     "bodhisattvas",
     "masters",
-    "layman",
     "kings",
 
     "speeches",
@@ -100,17 +97,15 @@ export const config: SiteConfig = {
   ],
 
   categoryNames: {
-    health: "Sức khỏe & Bài thuốc",
     blogs: "Bài viết",
+    merits: "Tạo phước trợ duyên",
     // koans: "Công án",
     symptoms: "Triệu chứng",
 
-    books: "Sách",
     textBooks: "Sách Giáo khoa",
 
     precepts: "Luật",
     films: "Phim Phật Giáo",
-    poems: "Thơ Phật Giáo",
 
     /*NHÓM KINH*/
     sutras: "Kinh",
@@ -124,29 +119,22 @@ export const config: SiteConfig = {
     pagodas: "Thiền đường",
     practices: "Thực hành",
 
-    buddhas: "Phật",
-    bodhisattvas: "Bồ tát",
     masters: "Thiền sư",
-    layman: "Cư sĩ",
     kings: "Vua",
 
-    speeches: "Bài Giảng Khai Thị",
-    teachings: "Đối Đáp Căn Cơ",
     faqs: "FAQ - Hỏi đáp",
   },
 
   categoryDescriptions: {
-    health: "Xem Bài viết về Sức khỏe & Bài thuốc",
     blogs: "Xem Bài viết về Phật Pháp",
+    merits: "Xem Bài viết về Tạo phước trợ duyên",
     // koans: "Xem Bài viết về Công án",
     symptoms: "Xem Bài viết về Triệu chứng",
 
-    books: "Xem Sách về Tổ Sư Thiền",
     textBooks: "Xem Sách Giáo khoa về Tổ Sư Thiền",
 
     precepts: "Xem Luật liên quan đến Tổ Sư Thiền",
     films: "Xem Phim Phật Giáo liên quan đến Tổ Sư Thiền",
-    poems: "Xem Thơ Phật Giáo liên quan đến Tổ Sư Thiền",
 
     sutras: "Xem Kinh liên quan đến Tổ Sư Thiền",
     lankavatara: "Xem KINH LĂNG GIÀ",
@@ -159,14 +147,9 @@ export const config: SiteConfig = {
     pagodas: "Xem các Thiền đường Tổ Sư Thiền",
     practices: "Xem các bài Thực hành Tổ Sư Thiền",
 
-    buddhas: "Xem Bài viết về Phật",
-    bodhisattvas: "Xem Bài viết về Bồ tát",
     masters: "Xem Bài viết về Thiền sư Tổ Sư Thiền",
-    layman: "Xem Bài viết về Cư sĩ Tổ Sư Thiền",
     kings: "Xem Bài viết về Vua liên quan đến Tổ Sư Thiền",
 
-    speeches: "Xem Bài Giảng Khai Thị Tổ Sư Thiền",
-    teachings: "Xem Đối Đáp Căn Cơ Tổ Sư Thiền",
     faqs: "Xem Hỏi đáp Tổ Sư Thiền",
   },
 

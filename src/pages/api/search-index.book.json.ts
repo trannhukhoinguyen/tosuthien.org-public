@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { books, getAllChapters } from "@/utils/book-shelf/books.ts";
+import { books, getAllChapters } from "@/utils/grid-items/books.ts";
 
 export const GET: APIRoute = () => {
   const entries = books.flatMap((book) => [

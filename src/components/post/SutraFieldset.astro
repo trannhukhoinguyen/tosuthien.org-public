@@ -1,19 +1,60 @@
 ---
 const {
-    iconTop,
-    iconBottom,
-    explainTitle
+  type="sutra",
+  iconTop,
+  iconBottom,
+  explainTitle,
+  buddhaIcon = "🪷" // Có thể truyền icon Phật qua props hoặc để mặc định
 } = Astro.props;
 ---
 
 <fieldset style="margin-block: 8px">
-    <legend><h4>{ iconTop } KINH</h4></legend>
-    <div style="color: var(--color-accent-darkorange)">
-        <slot />
+    <legend><h4>{ iconTop } <span class="buddha-icon" title={type === "sutra" ? "KINH" : type === "mantra" ? "CHÂN NGÔN" : ""}>
+      {type === "sutra" ? buddhaIcon : type === "mantra" ? "📿" : ""}
+    </span></h4></legend>
+    <div class="buddha-speech-container">
+        <div class="buddha-speech">
+            <slot />
+        </div>
     </div>
 </fieldset>
 {
   explainTitle ? <h5>{ iconBottom } { explainTitle }</h5> : null
-}
+  }
 
+<style scoped>
+    .buddha-speech-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      position: relative;
+    }
 
+    .buddha-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      line-height: 1.5;
+      user-select: none;
+    }
+
+    .buddha-speech {
+      position: relative;
+      /* Hiệu ứng dát vàng và lóa sáng quét qua đúng 1 lần rồi dừng */
+      background: var(--linear-buddha-glow);
+      background-size: 250% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: goldSweep 1.5s ease-out forwards;
+      font-weight: 800;
+    }
+
+    @keyframes goldSweep {
+        0% {
+            background-position: 100% 0;
+        }
+        100% {
+            background-position: 0% 0;
+        }
+    }
+</style>

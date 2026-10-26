@@ -1,15 +1,12 @@
 ---
 title: "THÔ TÂM DỤNG & MIÊN MẬT DỤNG"
 description: ""
-excerpt: "Như gói nhiều đậu nành trong bao, dù để ở đâu, bên trong ắt cũng lỏng lẻo, hễ mở bao ra thì đổ vãi đầy đất...."
 showInHomepage: true
-categories:
-  - Thực hành
-  - Ngữ lục
+category: "Thực hành"
 tags:
   - THAM THIỀN PHỔ THUYẾT
   - TS LAI QUẢ
-image: /images/koans/great-wave.webp
+  - Ngữ lục
 authors:
   - "Thiền Sư Lai Quả"
 videoIds:
@@ -58,7 +55,7 @@ Than ôi! Nếu có thể như con tằm nhả tơ, bắt đầu từ một sợ
 
 Bằng không, há người chẳng bằng vật ư!
 
-<hr class="blog-rule" />
+<hr class="blog-rule footer" />
 
 ## NGUỒN
 

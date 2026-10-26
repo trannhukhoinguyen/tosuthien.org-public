@@ -1,10 +1,7 @@
 ---
 title: "PHÁP HOA [KINH] - Quyển 1"
-meta_title: ""
 description: ""
-excerpt: ""
-categories:
-  - Kinh
+category: "Kinh"
 tags:
   - KINH PHÁP HOA
 image: /images/backgrounds/wide/zen-space.jpeg
@@ -20,7 +17,7 @@ image: /images/backgrounds/wide/zen-space.jpeg
 
 **QUYỂN 1 HẾT**
 
-<hr class="blog-rule" />
+<hr class="blog-rule footer" />
 
 ## NGUỒN
 

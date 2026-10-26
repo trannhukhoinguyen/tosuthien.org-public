@@ -76,23 +76,7 @@ const description = `${config.categoryDescriptions[collection as keyof typeof co
 <!-- Post List Section -->
     {posts.length > 0 ? (
         ICONS_MAP[collection]
-            ? collection === "masters"
-              ? <MasterBoxedPostList
-                  collection={collection}
-                  titleList={titleList}
-                  posts={posts}
-                  page={page}
-                  icons={ICONS_MAP[collection]}
-              />
-              :  collection === "wordpress"
-                ? <WordpressPostList
-                    collection={collection}
-                    titleList={titleList}
-                    posts={posts}
-                    page={page}
-                    icons={ICONS_MAP[collection]}
-                />
-                : <BoxedPostList
+            ? <BoxedPostList
                     collection={collection}
                     titleList={titleList}
                     posts={posts}

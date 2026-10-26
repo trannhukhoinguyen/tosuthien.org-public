@@ -42,10 +42,10 @@
 }
 
 .blog-rule {
-    height: 4px;
+    height: 2px;
     background-color: var(--color-accent-gold);
     border: none;
-    width: 120px;
+    width: 100%;
     margin: 0 auto;
 }
 

@@ -13,7 +13,6 @@ const CnLv16MasterDb = [
     country: '🇨🇳',
     place: '',
     teachers: ['Yuanwu Keqin'],
-    successors: ['Yingan Tanhua'],
     disciples: ['Yingan Tanhua'],
     image: '/images/buddha-zen-circle-with-unknown-zen-master.avif',
     reference: ['https://terebess.hu/zen/mesterek/HuqiuShaolong.html',],

@@ -1,10 +1,17 @@
+---
+import { l } from "@/utils/constants.ts";
+
+// Lấy param [lang] từ URL động của Astro (mặc định là 'vi' nếu không khớp)
+const { lang = 'vi' } = Astro.params;
+---
+
 <div id="search-book-modal-book" class="modal-book">
   <div class="modal-book-book-backdrop" id="search-book-backdrop"></div>
   <div class="modal-book-book-content">
     <input
       type="text"
       id="search-book-input"
-      placeholder="Tên sách hoặc tên chương..."
+      placeholder={l("search.placeholder", lang)}
       autocomplete="off"
     />
     <ul id="search-book-results"></ul>

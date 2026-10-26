@@ -1,9 +1,7 @@
 ---
 title: Phật Thuyết Kinh Kim Cang
 description: ""
-excerpt: ''
-categories:
-  - Phim Phật Giáo
+category: "Phim Phật Giáo"
 tags:
   - Phim Phật Giáo
   - Phật Thuyết Kinh Kim Cang

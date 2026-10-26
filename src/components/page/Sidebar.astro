@@ -39,7 +39,7 @@ const base = import.meta.env.BASE_URL;
         <ul class="badge-list">
           {flatCategories.map((category: any) => (
               <li class="badge-item">
-                <a href={`${base}categories/${category.toLowerCase()}`} class="badge-link">
+                <a href={`${base}categories/${category?.toLowerCase()}`} class="badge-link">
                   {category}
                 </a>
               </li>

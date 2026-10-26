@@ -1,18 +1,16 @@
 ---
 title: "LĂNG NGHIÊM [KINH] - Quyển 4"
-meta_title: ""
 description: ""
-excerpt: ""
-categories:
-  - Kinh
+category: "Kinh"
 tags:
   - KINH LĂNG NGHIÊM
-  - HT THÍCH DUY LỰC
+  - HT. THÍCH DUY LỰC
 image: /images/backgrounds/wide/zen-space.jpeg
 pdfUrls: 
   - /pdfs/sutras/kinh-lang-nghiem.pdf
   - /pdfs/sutras/chu-lang-nghiem-mobile.pdf
-videoId: "MeKCZ_DuSjk"
+videoIds: 
+  - "MeKCZ_DuSjk"
 videoStart: "9319"
 ---
 
@@ -416,7 +414,7 @@ Như người đang ngủ mê trên giường, trong nhà có người giã gạ
 
 ## QUYỂN 4 HẾT
 
-<hr class="blog-rule" />
+<hr class="blog-rule footer" />
 
 ## NGUỒN
 

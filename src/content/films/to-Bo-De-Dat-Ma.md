@@ -1,9 +1,7 @@
 ---
 title: Tổ Bồ Đề Đạt Ma
 description: ""
-excerpt: ''
-categories:
-  - Phim Phật Giáo
+category: "Phim Phật Giáo"
 tags:
   - Phim Phật Giáo
   - TỔ BỒ ĐỀ ĐẠT MA

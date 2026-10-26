@@ -1,6 +1,7 @@
 ---
-import masterData from "../../../data/masters/AllMasterDb.tsx";
-import { toSlug } from "../../../utils/helper";
+import masterData from "@/data/masters/AllMasterDb.tsx";
+import { toSlug } from "@/utils/helper.ts";
+import { l } from "@/utils/constants.ts";
 
 const masterPosts = import.meta.glob('/src/content/masters/**/*.{md,mdx}', { eager: true });
 const masterSlugSet = new Set(
@@ -9,13 +10,16 @@ const masterSlugSet = new Set(
       return filename.replace(/\.(md|mdx)$/, '');
     })
 );
+
+// Lấy param [lang] từ URL động của Astro (mặc định là 'vi' nếu không khớp)
+const { lang = 'vi' } = Astro.params;
 ---
 
 <section class="table">
   <h2 class="title-accent-centered">BẢNG DANH SÁCH THIỀN SƯ</h2>
 
   <div class="toolbox"                                                                                                                  >
-    <input type="text" id="inpValue" placeholder="Tìm kiếm" />
+    <input type="text" id="inpValue" placeholder={l("search.placeholder", lang)} />
     <button id="btnClear">Clear (hoặc click ESC)</button>
 
 <!--    <div class="control-panel">

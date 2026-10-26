@@ -1,9 +1,7 @@
 ---
 title: Video Khoa Học - Duy Thức - Phật Pháp
 description: ""
-excerpt: ''
-categories:
-  - Phim Phật Giáo
+category: "Phim Phật Giáo"
 tags:
   - Video Khoa Học
 videoPlaylist: PLA7qBSMZgp0wzdyePf5E4gXbQCL8QaZef
@@ -103,7 +101,7 @@ videoPlaylist: PLA7qBSMZgp0wzdyePf5E4gXbQCL8QaZef
 
 📺 The Holographic Universe - Vũ Trụ Toàn Ảnh 2 - Phụ đề Việt ngữ
 
-<hr class="blog-rule" />
+<hr class="blog-rule footer" />
 
 ## NGUỒN
 

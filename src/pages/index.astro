@@ -1,19 +1,22 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import PostTags from "../components/post/PostTags.astro";
-import PostImage from "../components/post/PostImage.astro";
+import Layout from '@/layouts/Layout.astro';
+import PostTags from "@/components/post/PostTags.astro";
+import PostImage from "@/components/post/PostImage.astro";
 import { CONTENT_MAP } from "@/utils/getMarkdownContent.ts";
 import { toKebabCase } from "@/utils/helper.ts";
-import Hero from "../components/ui/Hero.astro";
-import BioWithImage from "../components/ui/BioWithImage.astro";
-import HtmlBlocks from "../components/ui/HtmlBlocks.astro";
-import HTTDL from "../components/htmlData/HTTDL.astro";
+import Hero from "@/components/ui/Hero.astro";
+import BioWithImage from "@/components/ui/BioWithImage.astro";
+import HtmlBlocks from "@/components/ui/HtmlBlocks.astro";
+import HTTDL from "@/components/htmlData/HTTDL.astro";
 import LANKA_SUTRA_IMPORTANCE from "../components/htmlData/LANKA_SUTRA_IMPORTANCE.astro";
-import InstallPWA from "../components/ui/InstallPWA.astro";
-import PWAPopup from "../components/ui/PWAPopup.astro";
-import YouTubePlaylist from "../components/ui/media/YouTubePlaylist.astro";
+import InstallPWA from "@/components/ui/InstallPWA.astro";
+import PWAPopup from "@/components/ui/PWAPopup.astro";
+import YouTubePlaylist from "@/components/ui/media/YouTubePlaylist.astro";
 import SeeAllBtn from '@/components/ui/button/SeeAllBtn.astro';
-import Calendar from '@/components/ui/calendar/Calendar.astro';
+import WorkBuddy from "~/icons/ai-agent.gif";
+// import Calendar from '@/components/ui/calendar/Calendar.astro';
+// import StorySliderList from '@/components/ui/story/StorySliderList.astro';
+// import stories from '@/data/stories/all-stories.ts';
 
 import {
   AI_ENHANCED_YTB_VIDS,
@@ -22,9 +25,10 @@ import {
 } from "../data/videos/khai_thi_phap_mon_to_su_thien.ts";
 import {
   VIDEO_SCIENCE_VIDS,
-} from "../data/videos/video_khoa_hoc.ts";
+} from "@/data/videos/video_khoa_hoc.ts";
 import rules from '@/data/notices/rules.ts';
 import principles from '@/data/notices/principles.ts';
+import { l } from "@/utils/constants.ts";
 
 const maxQuantity = 6;
 const tagLine0 = "Chẳng cùng muôn pháp làm bạn là người gì?";
@@ -59,6 +63,9 @@ const practicePosts = CONTENT_MAP['practices'].posts
 
 const title = "Trang chủ";
 const description = "Xem " + title;
+
+// Lấy param [lang] từ URL động của Astro (mặc định là 'vi' nếu không khớp)
+const { lang = 'vi' } = Astro.params;
 ---
 
 <Layout
@@ -70,24 +77,33 @@ const description = "Xem " + title;
 
     <!-- Hero Section -->
     <Hero
-      title="TỔ SƯ THIỀN"
-      subTitle="Tham Thoại Đầu - Khởi Nghi Tình"
+      title={l("home.heroTitle", lang)}
+      subtitle="Tham Thoại Đầu - Khởi Nghi Tình"
       description="Kiến tánh thành Phật"
       actions={[
         {
+          href: "https://tosuthien.net/",
+          text: "Hỏi & Đáp với AI",
+          className: "btn-image ai-robot-btn question-mark",
+          target: "_blank",
+          isShowModal: true,
+          imgUrl: WorkBuddy.src,
+        },
+        {
           href: "/faqs",
-          text: "Hỏi Đáp với Hòa thượng Thích Duy Lực",
-          class: "btn-secondary",
+          text: "Hỏi & Đáp",
+          subText: "Hỏi & Đáp với HT. Thích Duy Lực",
+          className: "btn-primary question-mark",
         },
         {
           href: "/practices",
           text: "Thực Hành",
-          class: "btn-third",
         },
         {
           href: "#rules",
-          text: "Chú Ý",
-          class: "btn-primary",
+          text: "Chú ý",
+          subText: "Chú ý & Tâm niệm khi thực hành",
+          className: "btn-primary",
         },
       ]}
     />
@@ -96,6 +112,12 @@ const description = "Xem " + title;
     <section class="image-area">
       <PostImage imageUrl={'/images/backgrounds/Buddha-zen.avif'} imageAlt={'Thiền định của Phật - Tổ Sư Thiền'} />
       <p class="tag-line-accent">{tagLine0}</p>
+    </section>
+
+<!-- Image Section -->
+    <section class="image-area">
+      <PostImage imageUrl={'/images/books/covers/Thang-Man-phu-nhan-phat-nguyen.jpg'} imageAlt={'Thiền định của Phật - Tổ Sư Thiền'} />
+      <p class="tag-line-accent">{tagLine5}</p>
     </section>
 
     <hr class="blog-rule" />
@@ -262,6 +284,17 @@ const description = "Xem " + title;
         <SeeAllBtn />
       </div>
     </section>
+
+    <!-- STORY -->
+<!--    <section class="typography-showcase">
+      <div class="container">
+        <StorySliderList
+          stories={stories}
+          title="Chuyện Kể Thấu Cảm & Từ Bi"
+          subtitle="Nhấp vào từng câu chuyện để xem bộ tranh minh họa tự động chạy slider"
+        />
+      </div>
+    </section>-->
 
     <!-- CALENDAR -->
 <!--    <section class="typography-showcase">
@@ -434,7 +467,7 @@ const description = "Xem " + title;
 
   .rules-grid {
     display: grid;
-    //grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    /*grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));*/
     gap: calc(var(--grid-unit) * 4);
     grid-template-columns: 1fr;
   }
@@ -550,7 +583,7 @@ const description = "Xem " + title;
   .type-meta {
     font-family: var(--font-mono),serif;
     font-size: 0.85rem;
-    color: var(--color-text-muted);
+    color: var(--color-text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin: 0;
@@ -574,7 +607,7 @@ const description = "Xem " + title;
 
   .blog-posts {
     display: grid;
-    //grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    /*grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));*/
     gap: calc(var(--grid-unit) * 4);
     margin-bottom: calc(var(--grid-unit) * 6);
   }

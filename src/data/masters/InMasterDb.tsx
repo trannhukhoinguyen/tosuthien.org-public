@@ -17,7 +17,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Shakyamuni Buddha"],
     disciples: ["Ananda"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -36,7 +35,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Mahakasyapa"],
     disciples: ["Sanakavasa"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -55,7 +53,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Ananda"],
     disciples: ["Upagupta"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -72,7 +69,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Sanakavasa 5"],
     disciples: ["Dhrtaka"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -89,7 +85,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Upagupta"],
     disciples: ["Miccaka"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -106,7 +101,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Dhrtaka"],
     disciples: ["Vasumitra"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -125,7 +119,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Miccaka"],
     disciples: ["Buddhanandi"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -142,7 +135,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Vasumitra"],
     disciples: ["Buddhamitra"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -159,7 +151,6 @@ const InMasterDb: MasterInfo[] = [
     place: " mountain",
     teachers: ["Buddhanandi"],
     disciples: ["Parsvika"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -181,7 +172,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Buddhamitra"],
     disciples: ["Punyayasas"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -198,7 +188,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Parsvika"],
     disciples: ["Asvaghosha"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -217,7 +206,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Punyayasas"],
     disciples: ["Kapimala"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -235,7 +223,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Asvaghosha"],
     disciples: ["Nagarjuna"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -252,7 +239,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Kapimala"],
     disciples: ["Kanadeva"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -269,7 +255,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Nagarjuna"],
     disciples: ["Rahulata"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -286,7 +271,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Kanadeva"],
     disciples: ["Sanghanandi"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -303,7 +287,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Rahulata"],
     disciples: ["Gayasata"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -320,7 +303,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Sanghanandi"],
     disciples: ["Kumarata"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -338,7 +320,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Gayasata"],
     disciples: ["Jayata"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -355,7 +336,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Kumarata"],
     disciples: ["Vasubandhu"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -371,7 +351,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Jayata"],
     disciples: ["Manorhita"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -387,7 +366,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Vasubandhu"],
     disciples: ["Haklena"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -404,7 +382,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Manorhita"],
     disciples: ["Aryasimha"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -422,8 +399,7 @@ const InMasterDb: MasterInfo[] = [
     country: "🇮🇳",
     place: "",
     teachers: ["Haklena"],
-    disciples: ["Basiasita", "Đạt Ma Đạt"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
+    disciples: ["Basiasita", "Dharmadatta"],
     reference: [""],
   },
   {
@@ -441,7 +417,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Aryasimha/Simhabodhi"],
     disciples: ["Punyamitra"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -457,7 +432,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Aryasimha"],
     disciples: ["Indra / Indrala", "Kṛṣṇagarbha / Kulagiri"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -475,7 +449,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Basiasita"],
     disciples: ["Prajnatara"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -496,7 +469,6 @@ const InMasterDb: MasterInfo[] = [
       "Prabhūtaratna",
       "Parapati",
     ],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -512,7 +484,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Đạt Ma Đạt"],
     disciples: ["Paramārtha", "Saṅgharākṣa"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -529,7 +500,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Punyamitra"],
     disciples: ["Bodhidharma", "Buddhabhadra"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -545,7 +515,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Indra / Indrala"],
     disciples: ["Maitrībhadra", "Āryavarman"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -561,7 +530,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Indra / Indrala"],
     disciples: ["Vasubandhu", "Dharmaghāta", "Candradatta"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -577,7 +545,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Indra / Indrala"],
     disciples: [""],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -593,7 +560,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Indra / Indrala"],
     disciples: [""],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -609,7 +575,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Kṛṣṇagarbha / Kulagiri"],
     disciples: ["Nārāyaṇa", "Bandhudhara", "Bhāvapāla"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -631,7 +596,6 @@ const InMasterDb: MasterInfo[] = [
       "Upacandra",
       "Bhānanda",
     ],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -691,7 +655,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Dharmasrī / Dharmashrī"],
     disciples: [""],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -708,7 +671,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Dharmasrī / Dharmashrī"],
     disciples: [""],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -724,7 +686,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Prabhūtaratna"],
     disciples: [""],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -740,7 +701,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Prabhūtaratna"],
     disciples: [""],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -756,7 +716,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Prabhūtaratna"],
     disciples: [""],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -773,7 +732,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Paramārtha"],
     disciples: [""],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -789,7 +747,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Paramārtha"],
     disciples: [""],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -806,7 +763,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Paramārtha"],
     disciples: [""],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -822,7 +778,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Saṅgharākṣa"],
     disciples: [""],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -838,7 +793,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Saṅgharākṣa"],
     disciples: [""],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -855,7 +809,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Saṅgharākṣa"],
     disciples: [""],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -872,7 +825,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Saṅgharākṣa"],
     disciples: [""],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -889,7 +841,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Saṅgharākṣa"],
     disciples: [""],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -910,23 +861,29 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Jianzhi Sengcan"],
     disciples: ["Zhongshan Faxian"],
-    image: "/",
     reference: [""],
   },
   {
     id: "34.1.7",
     name_en: "Tây Ấn Quật Đa Tam Tạng",
-    name_sk: "",
+    name_sk: "Jñānagupta",
     name_ja: "",
     name_zh: "西域崛多三藏",
     name_vi: "Tây Ấn Quật Đa Tam Tạng",
+    other_name_vi: "Xà-na Quật Đa",
     birth_death_time: ["?", "?"],
     sect: [],
     country: "🇮🇳",
     place: "",
     teachers: ["Dajian Huineng"],
     disciples: [],
-    reference: [""],
+    reference: [
+      "https://quangduc.com/a72133/quyen-05-luc-to-hue-nang-va-phap-he",
+      "https://ngulucthien.com/tam-tang-quat-da/",
+      "https://vietbuddhism.com/Books/ThanTangThienTruc/6ThanTangThienTruc.php#Topic2",
+      "https://phapthihoi.org/kinh/Ebooks/Thuyet-Phap/Danh-Tang/Tuc-Cao-Tang-Truyen-DS-Dao-Tuyen.pdf",
+      "https://phapthihoi.org/kinh/Ebooks/Thuyet-Phap/Bo-Tat/Than-Tang-Thien-Truc-TK-Thich-Hang-Dat.pdf",
+    ],
   },
 ];
 export default InMasterDb;

@@ -2,7 +2,7 @@
 const { url } = Astro.props;
 ---
 
-<div class="fb-post" data-href={url} data-width="500"></div>
+<div class="fb-post" data-href={url} data-width="100%" style="overflow-x: scroll"></div>
 
 <script async defer crossorigin="anonymous"
         src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0"></script>

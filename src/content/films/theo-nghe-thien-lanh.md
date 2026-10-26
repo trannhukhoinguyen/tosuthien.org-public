@@ -1,9 +1,7 @@
 ---
 title: Theo nghề thiện lành
 description: ""
-excerpt: ''
-categories:
-  - Phim Phật Giáo
+category: "Phim Phật Giáo"
 tags:
   - Phim Phật Giáo
   - Theo nghề thiện lành

@@ -3,7 +3,7 @@ const { frontmatter } = Astro.props;
 ---
 
 {
-    frontmatter.excerpt
-    && frontmatter.excerpt !== ""
-    && ( <p class="post-excerpt">{frontmatter.excerpt}</p> )
+    frontmatter.description
+    && frontmatter.description !== ""
+    && ( <p class="description">{frontmatter.description}</p> )
   }
