@@ -1,0 +1,420 @@
+---
+import Layout from "./Layout.astro";
+import Sidebar from "../../components/wiki-type/codex/SidebarCodex.astro";
+import TableOfContents from "@/components/wiki-type/TableOfContents.astro";
+import { config } from "@/config.ts";
+import schema from "@/data/schema.astro";
+import SEO from "@/components/page/SEO.astro";
+import { l } from "@/utils/constants.ts";
+
+interface Props {
+    title: string;
+    description?: string;
+    category?: string;
+    currentSlug?: string;
+    headings?: {
+        depth: number;
+        slug: string;
+        text: string;
+    }[];
+    articleData?: {
+        publishedTime?: string;
+        modifiedTime?: string;
+        author?: string;
+        tags?: string[];
+        readTimeMinutes?: number;
+    };
+    navigationData?: {
+        previous?: { title: string; href: string };
+        next?: { title: string; href: string };
+    };
+    relatedArticles?: {
+        title: string;
+        description: string;
+        href: string;
+    }[];
+    videoIds?: any;
+}
+
+const {
+    title,
+    description,
+    category,
+    currentSlug,
+    headings = [],
+    articleData,
+    navigationData,
+    relatedArticles = [],
+    videoIds = null,
+} = Astro.props;
+
+const breadcrumbItems: { label: string; href?: string }[] = [
+    { label: "Home", href: "/" },
+    { label: "Dược điển", href: "/codices" },
+];
+
+if (category) {
+    breadcrumbItems.push({
+        label: category,
+        href: `/codices/category/${category?.toLowerCase().replace(/\s+/g, "-")}`,
+    });
+}
+
+breadcrumbItems.push({ label: title });
+
+const lastUpdatedLabel = articleData?.modifiedTime
+    ? new Intl.DateTimeFormat("vi-VN", {
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+      }).format(new Date(articleData.modifiedTime))
+    : null;
+
+const defaultImage = "/images/backgrounds/Buddha-zen.avif";
+
+// Lấy param [lang] từ URL động của Astro (mặc định là 'vi' nếu không khớp)
+const { lang = 'vi' } = Astro.params;
+---
+
+<Layout title={title} description={description} articleData={articleData}>
+  <header class="article-header">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon-new.ico" sizes="48x48" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon-new.ico" sizes="48x48" type="image/x-icon">
+
+    <!--PWA manifest-->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#d4af37" />
+
+    <script is:inline src="/theme-init.js"></script>
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+
+    <SEO
+      title={title}
+      description={description}
+      image={defaultImage}
+      type={"article"}
+      publishedTime={new Date().toISOString()}
+      canonical={new URL(Astro.url.pathname, config.siteUrl).href}
+    />
+
+    <div class="article-header-overlay"></div>
+
+    <div class="container-wide header-content">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          {
+            breadcrumbItems.map((item, index) => (
+              <li class="breadcrumb-item">
+                {index > 0 && <span class="breadcrumb-separator">/</span>}
+                {item.href ? (
+                  <a href={item.href} class="breadcrumb-link">
+                    {item.label}
+                  </a>
+                ) : (
+                  <span class="breadcrumb-current">{item.label}</span>
+                )}
+              </li>
+            ))
+          }
+        </ol>
+      </nav>
+      <h1 class="article-title">
+        {title}
+      </h1>
+      <div class="article-meta">
+        <div class="meta-item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="meta-icon"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20 21a8 8 0 1 0-16 0M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"
+            ></path>
+          </svg>
+          <span>{articleData?.author || config.author}</span>
+        </div>
+        {
+          articleData?.modifiedTime && (
+            <>
+              🔹
+              <div class="meta-item">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="meta-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                <span>
+                    {new Date(articleData.modifiedTime).toLocaleDateString("vi-VN", {
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                    })}
+                </span>
+              </div>
+            </>
+          )
+        }
+        🔹
+        <div class="meta-item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="meta-icon"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+          <span>
+              {articleData?.readTimeMinutes || 3} {l("min.read", lang)}
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div
+    class="container-wide main-wrapper"
+    x-data="{ sidebarOpen: false }"
+  >
+    <!-- Mobile Sidebar Backdrop -->
+    <div
+      x-show="sidebarOpen"
+      x-transition:enter="transition ease-out duration-300"
+      x-transition:enter-start="opacity-0"
+      x-transition:enter-end="opacity-100"
+      x-transition:leave="transition ease-in duration-200"
+      x-transition:leave-start="opacity-100"
+      x-transition:leave-end="opacity-0"
+      @click="sidebarOpen = false"
+      class="mobile-backdrop"
+      style="display: none;"
+    >
+    </div>
+
+    <!-- Mobile Sidebar Content -->
+    <div
+      x-show="sidebarOpen"
+      x-transition:enter="transition ease-out duration-300"
+      x-transition:enter-start="-translate-x-full"
+      x-transition:enter-end="translate-x-0"
+      x-transition:leave="transition ease-in duration-200"
+      x-transition:leave-start="translate-x-0"
+      x-transition:leave-end="-translate-x-full"
+      class="mobile-sidebar"
+      style="display: none;"
+    >
+      <div class="mobile-sidebar-header">
+        <span class="mobile-sidebar-title">Navigation</span>
+        <button
+          type="button"
+          @click="sidebarOpen = false"
+          class="mobile-sidebar-close"
+          aria-label="Close navigation panel"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ><path d="M18 6 6 18"></path><path d="m6 6 12 12"
+          ></path></svg
+          >
+        </button>
+      </div>
+      <Sidebar currentSlug={currentSlug} />
+    </div>
+
+    <div class="layout-grid">
+      <!-- Mobile Sidebar Toggle -->
+      <div class="mobile-toggle-wrapper">
+        <button
+          type="button"
+          @click="sidebarOpen = true"
+          class="mobile-toggle-btn"
+          aria-label="Open documentation navigation"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ><rect width="18" height="18" x="3" y="3" rx="2"
+          ></rect><path d="M9 3v18"></path></svg
+          >
+          Menu Tài liệu
+        </button>
+      </div>
+
+      <!-- Left Sidebar -->
+      <aside class="desktop-sidebar-left">
+        <div class="sticky-wrapper">
+          <Sidebar currentSlug={currentSlug} />
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="main-content">
+        <article
+          class="prose prose-lg prose-sg"
+          data-pagefind-body
+          data-pagefind-filter="category:Sách"
+        >
+          <slot />
+        </article>
+
+        <!-- Feedback Section -->
+        <div class="article-footer">
+          {
+            lastUpdatedLabel && (
+              <div class="last-updated">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="m12 3 2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 16.7 6.7 19.1l1-5.8L3.5 9.2l5.9-.9L12 3Z"></path>
+                </svg>
+                <span>Cập nhật lần cuối lúc <b>{lastUpdatedLabel}</b></span>
+              </div>
+            )
+          }
+        </div>
+
+        {
+          (navigationData?.previous || navigationData?.next) && (
+            <nav
+              class="pagination-nav"
+              aria-label="Article Pagination"
+            >
+              {navigationData?.previous ? (
+                <a
+                  href={navigationData.previous.href}
+                  class="pagination-card pagination-prev"
+                >
+                                    <span class="pagination-label">
+                                        <span class="pagination-arrow">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                                <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            </svg>
+                                        </span>
+                                        {l("article.previous", lang)}
+                                    </span>
+                  <p class="pagination-title">
+                    {navigationData.previous.title}
+                  </p>
+                </a>
+              ) : (
+                <div class="pagination-placeholder" aria-hidden="true"></div>
+              )}
+
+              {navigationData?.next && (
+                <a
+                  href={navigationData.next.href}
+                  class="pagination-card pagination-next"
+                >
+                                    <span class="pagination-label">
+                                        {l("article.next", lang)}
+                                        <span class="pagination-arrow">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                                <path d="M5 12H19M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            </svg>
+                                        </span>
+                                    </span>
+                  <p class="pagination-title">
+                    {navigationData.next.title}
+                  </p>
+                </a>
+              )}
+            </nav>
+          )
+        }
+
+      </main>
+
+      <!-- Right Sidebar (ToC) -->
+      {
+        headings.length > 0 && (
+          <aside class="desktop-sidebar-right">
+            <div class="sticky-wrapper">
+              <TableOfContents headings={headings} />
+            </div>
+          </aside>
+        )
+      }
+    </div>
+
+  </div>
+
+  {
+    relatedArticles.length > 0 && (
+      <section class="related-section">
+        <div class="container-wide">
+          <h3 class="related-title">
+            Các bài viết liên quan
+          </h3>
+          <div class="related-grid">
+            {relatedArticles.map((article) => (
+              <article class="related-card">
+                <a href={article.href} class="related-card-link">
+                  <h4 class="related-card-title">
+                    {article.title}
+                  </h4>
+                  <p class="related-card-desc">
+                    {article.description}
+                  </p>
+                  <span class="related-card-action">
+                                        Đọc thêm
+                                        <span class="related-card-arrow">
+                                            &rarr;
+                                        </span>
+                                    </span>
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+</Layout>

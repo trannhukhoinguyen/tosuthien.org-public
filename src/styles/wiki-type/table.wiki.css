@@ -1,0 +1,26 @@
+    /* Định hình bảng và xử lý tràn chữ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    table-layout: auto;
+}
+
+/* Tạo khoảng cách chữ và đường viền */
+th, td {
+    border: 1px solid #cbd5e1;
+    padding: 10px 14px;
+    text-align: left;
+    word-break: break-word;
+}
+
+/* Tạo kiểu cho hàng tiêu đề */
+th {
+    background-color: #f1f5f9;
+    font-weight: 600;
+}
+
+/* Xe kẽ màu giữa các hàng */
+tr:nth-child(even) {
+    background-color: #f8fafc;
+}

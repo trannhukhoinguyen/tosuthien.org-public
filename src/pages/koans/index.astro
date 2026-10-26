@@ -1,0 +1,431 @@
+---
+import "@/styles/wiki-type/index.wiki.css"
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/wiki-type/Layout.astro";
+import SearchHero from "../../components/wiki-type/koan/SearchHeroKoan.astro";
+import CategoryCard from "@/components/wiki-type/CategoryCard.astro";
+import FeaturedCard from "@/components/wiki-type/FeaturedCard.astro";
+import { getKoanUrl } from "@/utils/koan.ts";
+import { getTimeAgo } from "@/utils/dateUtils";
+
+export const prerender = false;
+
+const allKoans = await getCollection("koans");
+
+// Hàm chuẩn hóa category: loại bỏ khoảng trắng thừa ở đầu/cuối
+const getNormalizedCategory = (item: any) => {
+  const cat = item.data.category;
+  return cat ? cat.trim() : "Chưa phân loại";
+};
+
+/*  Category */
+const categoriesMap = allKoans.reduce(
+  (acc, koan) => {
+    const category = getNormalizedCategory(koan);
+    if (!acc[category]) {
+      acc[category] = {
+        title: category,
+        description: `Các hướng dẫn và bài chỉ dẫn toàn diện ${category}.`,
+        icon:
+          koan.data.category === "Tutorials"
+            ? '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>'
+            : '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>',
+        count: 0,
+        href: `/koans/category/${category?.toLowerCase().replace(/\s+/g, "-")}`,
+        articles: [],
+      };
+    }
+    acc[category].count++;
+    if (acc[category].articles.length < 5) {
+      acc[category].articles.push({
+        title: koan.data.title,
+        href: getKoanUrl(koan),
+      });
+    }
+    return acc;
+  },
+  {} as Record<string, any>,
+);
+
+interface Category {
+  title: string;
+  description: string;
+  icon: string;
+  count: number;
+  href: string;
+  articles: { title: string; href: string }[];
+}
+
+const allCategories = Object.values(categoriesMap) as Category[];
+const categoryOrder = [
+  "Công án",
+  "Chưa phân loại",
+];
+const sortedCategories = [...allCategories].sort((a, b) => {
+  const ai = categoryOrder.indexOf(a.title);
+  const bi = categoryOrder.indexOf(b.title);
+  const an = ai === -1 ? Number.MAX_SAFE_INTEGER : ai;
+  const bn = bi === -1 ? Number.MAX_SAFE_INTEGER : bi;
+  if (an === bn) return a.title.localeCompare(b.title);
+  return an - bn;
+});
+const firstCategoryHref =
+  sortedCategories[0]?.href ||
+  `/koans/category/${allCategories[0]?.title?.toLowerCase().replace(/\s+/g, "-")}`;
+
+/* Tag */
+const tagsMap = allKoans.reduce(
+  (acc, koan) => {
+    const tags = koan.data.tags || [];
+    tags.map(tag => {
+      if (!acc[tag]) {
+        acc[tag] = {
+          title: tag,
+          description: `Các hướng dẫn và bài chỉ dẫn toàn diện ${tag}.`,
+          icon:
+            koan.data.tags?.includes("Tutorials")
+              ? '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>'
+              : '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>',
+          count: 0,
+          href: `/koans/tag/${tag?.toLowerCase().replace(/\s+/g, "-")}`,
+          articles: [],
+        };
+      }
+      acc[tag].count++;
+      if (acc[tag].articles.length < 5) {
+        acc[tag].articles.push({
+          title: koan.data.title,
+          href: getKoanUrl(koan),
+        });
+      }
+    })
+
+    return acc;
+  },
+  {} as Record<string, any>,
+);
+
+interface Tag {
+  title: string;
+  description: string;
+  icon: string;
+  count: number;
+  href: string;
+  articles: { title: string; href: string }[];
+}
+
+const allTags = Object.values(tagsMap) as Tag[];
+const tagOrder = [
+  "Giới thiệu",
+];
+const sortedTags = [...allTags].sort((a, b) => {
+  const ai = tagOrder.indexOf(a.title);
+  const bi = tagOrder.indexOf(b.title);
+  const an = ai === -1 ? Number.MAX_SAFE_INTEGER : ai;
+  const bn = bi === -1 ? Number.MAX_SAFE_INTEGER : bi;
+  if (an === bn) return a.title.localeCompare(b.title);
+  return an - bn;
+});
+const firstTagHref =
+  sortedTags[0]?.href ||
+  `/koans/tag/${allTags[0]?.title?.toLowerCase().replace(/\s+/g, "-")}`;
+
+interface FeaturedArticle {
+  title: string;
+  category: string;
+  date: string;
+  href: string;
+  description: string;
+}
+
+const featuredArticles = allKoans
+  .sort(
+    (a, b) =>
+      (b.data.lastUpdated?.getTime() || 0) -
+      (a.data.lastUpdated?.getTime() || 0),
+  )
+  .slice(0, 3)
+  .map((koan) => ({
+    title: koan.data.title,
+    category: koan.data.category,
+    date: koan.data.lastUpdated
+      ? new Intl.DateTimeFormat("vi-VN", {
+          month: "short",
+          day: "2-digit",
+          year: "numeric",
+        }).format(koan.data.lastUpdated)
+      : "Được cập nhật gần đây",
+    href: getKoanUrl(koan),
+    description:
+      koan.data.description ||
+      `Tìm hiểu thêm về ${koan.data.title}.`,
+  })) as FeaturedArticle[];
+
+const recentlyUpdated = allKoans
+  .sort(
+    (a, b) =>
+      (b.data.lastUpdated?.getTime() || 0) -
+      (a.data.lastUpdated?.getTime() || 0),
+  )
+  .slice(0, 3)
+  .map((koan) => ({
+    title: koan.data.title,
+    category: koan.data.category || "General",
+    date: koan.data.lastUpdated
+      ? new Intl.DateTimeFormat("vi-VN", {
+          month: "short",
+          day: "2-digit",
+          year: "numeric",
+        }).format(koan.data.lastUpdated)
+      : "Được cập nhật gần đây",
+    href: getKoanUrl(koan),
+    description:
+      koan.data.description ||
+      `Tìm hiểu thêm về ${koan.data.title}.`,
+    timeAgo: koan.data.lastUpdated
+      ? getTimeAgo(koan.data.lastUpdated)
+      : "gần đây",
+  }));
+
+const popularArticles = allKoans.slice(0, 5).map((doc) => ({
+  title: doc.data.title,
+  href: getKoanUrl(doc),
+  category: doc.data.category || "Chưa phân loại",
+}));
+---
+
+<Layout title="Tổ Sư Thiền">
+  <SearchHero
+    articleCount={allKoans.length}
+    categoryCount={allCategories.length}
+    lastUpdatedLabel={recentlyUpdated[0]?.timeAgo || "recently"}
+  />
+
+  <section class="main-section">
+    <div class="container-wide">
+      <div class="layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+          <div class="sidebar__content">
+            <!-- Quick Navigation Card -->
+            <div class="card card--sidebar">
+              <h4 class="card__title">
+                <svg
+                  class="icon icon--primary"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M8 2.5V13.5M2.5 8H13.5"
+                    stroke="currentColor"
+                    stroke-width="1.75"
+                    stroke-linecap="round"
+                  ></path>
+                </svg>
+                Điều hướng nhanh
+              </h4>
+              <nav class="nav-list-wiki">
+                {allCategories.map((cat) => (
+                  <a href={cat.href} class="nav-item group">
+                    <span class="nav-item__main">
+                      <span class="nav-item__dot"></span>
+                      <span class="nav-item__text">{cat.title}</span>
+                    </span>
+                    <span class="nav-item__badge">{cat.count}</span>
+                  </a>
+                ))}
+              </nav>
+            </div>
+
+            <!-- Popular Articles Card -->
+            <div class="card card--sidebar">
+              <h4 class="card__title">
+                <svg
+                  class="icon icon--primary"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 3.5L14.76 9.09L21 10L16.5 14.38L17.56 20.5L12 17.58L6.44 20.5L7.5 14.38L3 10L9.24 9.09L12 3.5Z"
+                    stroke="currentColor"
+                    stroke-width="1.75"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+                Các bài viết phổ biến
+              </h4>
+              <div class="popular-list">
+                {popularArticles.map((article) => (
+                  <a href={article.href} class="popular-item group">
+                    <svg
+                      class="popular-item__icon"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <rect
+                        x="4.25"
+                        y="4.25"
+                        width="11.5"
+                        height="11.5"
+                        rx="1.5"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      />
+                      <circle cx="10" cy="10" r="1.25" fill="currentColor" />
+                    </svg>
+                    <span class="popular-item__content">
+                      <span class="popular-item__title line-clamp-3">
+                        {article.title}
+                      </span>
+                      <span class="popular-item__category">
+                        {article.category}
+                      </span>
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <!-- Quick Navigation Card -->
+            <div class="card card--sidebar">
+              <h4 class="card__title">
+                <svg
+                  class="icon icon--primary"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M8 2.5V13.5M2.5 8H13.5"
+                    stroke="currentColor"
+                    stroke-width="1.75"
+                    stroke-linecap="round"
+                  ></path>
+                </svg>
+                Điều hướng nhanh
+              </h4>
+              <nav class="nav-list-wiki">
+                {allTags.map((tag) => (
+                  <a href={tag.href} class="nav-item group">
+                    <span class="nav-item__main">
+                      <span class="nav-item__dot"></span>
+                      <span class="nav-item__text">{tag.title}</span>
+                    </span>
+                    <span class="nav-item__badge">{tag.count}</span>
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+          <!-- Featured Topics -->
+          <div class="section-block">
+            <div class="section-header">
+              <h2 class="section-header__title">Các chủ đề nổi bật</h2>
+              <a href={firstCategoryHref} class="section-header__link">
+                Xem tất cả &rarr;
+              </a>
+            </div>
+            <div class="grid grid--3-cols">
+              {featuredArticles.map((article) => <FeaturedCard {...article} />)}
+            </div>
+          </div>
+
+          <!-- Browse by Category -->
+          <div class="section-block">
+            <div class="section-header section-header--simple">
+              <h2 class="section-header__title">Duyệt theo danh mục</h2>
+            </div>
+            <div class="grid grid--2-cols">
+              {allCategories.map((cat) => (
+                <CategoryCard
+                  title={cat.title}
+                  description={
+                    cat.description
+                  }
+                  icon={cat.icon}
+                  count={cat.count}
+                  href={cat.href}
+                  articles={cat.articles}
+                />
+              ))}
+            </div>
+          </div>
+
+          <!-- Recently Updated -->
+          <div>
+            <div class="section-header section-header--simple">
+              <h2 class="section-header__title">Được cập nhật gần đây</h2>
+            </div>
+            <div class="article-list">
+              {recentlyUpdated.map((article) => (
+                <div class="article-card">
+                  <h3 class="article-card__title">
+                    <a href={article.href} class="article-card__link">
+                      {article.title}
+                    </a>
+                  </h3>
+                  <div class="article-card__meta">
+                    <span class="article-card__meta-item">
+                      <svg
+                        class="icon icon--light"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="9"
+                          stroke="currentColor"
+                          stroke-width="1.7"
+                        />
+                        <path
+                          d="M12 7.5V12L15 14"
+                          stroke="currentColor"
+                          stroke-width="1.7"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      {article.timeAgo}
+                    </span>
+                    {
+                      article.category
+                      && (<span class="article-card__divider">·</span>
+                        <span class="article-card__meta-item">
+                        <svg
+                          class="icon icon--light"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M8 7h8M8 12h8M8 17h4"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                          />
+                        </svg>
+                          {article.category}
+                      </span>)
+                    }
+                  </div>
+                  <p class="article-card__desc line-clamp-2">
+                    {article.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+</Layout>

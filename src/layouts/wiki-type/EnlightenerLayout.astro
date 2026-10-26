@@ -1,0 +1,588 @@
+---
+import "@/styles/wiki-type/layout.wiki.css"
+import Layout from "./Layout.astro";
+import Sidebar from "../../components/wiki-type/enlightener/SidebarEnlightener.astro";
+import TableOfContents from "@/components/wiki-type/TableOfContents.astro";
+import { config } from "@/config.ts";
+import schema from "@/data/schema.astro";
+import SEO from "@/components/page/SEO.astro";
+import { l } from "@/utils/constants.ts";
+
+interface Props {
+  title: string;
+  description?: string;
+  category?: string;
+  currentSlug?: string;
+  headings?: {
+      depth: number;
+      slug: string;
+      text: string;
+  }[];
+  articleData?: {
+    publishedTime?: string;
+    modifiedTime?: string;
+    tags?: string[];
+    readTimeMinutes?: number;
+    birthDeath?: string;
+    extraNames?: string;
+    zenSchool?: string[];
+    teachers?: string[];
+    places?: string[];
+  };
+  navigationData?: {
+      previous?: { title: string; href: string };
+      next?: { title: string; href: string };
+  };
+  relatedArticles?: {
+    title: string;
+    description: string;
+    href: string;
+  }[];
+  tabLabels?: string[] | [];
+  videoIds?: string[] | [];
+  activeTab?: string;
+}
+
+const {
+  title,
+  description,
+  category,
+  currentSlug,
+  headings = [],
+  articleData,
+  navigationData,
+  relatedArticles = [],
+  tabLabels = [],
+  videoIds = [],
+  activeTab = 'main', // <--- Lấy giá trị activeTab truyền vào (mặc định là 'main')
+} = Astro.props;
+
+const breadcrumbItems: { label: string; href?: string }[] = [
+    { label: "Home", href: "/" },
+    { label: "Giác giả", href: "/enlighteners" },
+];
+
+if (category) {
+    breadcrumbItems.push({
+        label: category,
+        href: `/enlighteners/category/${category?.toLowerCase().replace(/\s+/g, "-")}`,
+    });
+}
+
+breadcrumbItems.push({ label: title });
+
+const lastUpdatedLabel = articleData?.modifiedTime
+    ? new Intl.DateTimeFormat("vi-VN", {
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+      }).format(new Date(articleData.modifiedTime))
+    : null;
+
+const defaultImage = "/images/backgrounds/Buddha-zen.avif";
+
+// Lấy param [lang] từ URL động của Astro (mặc định là 'vi' nếu không khớp)
+const { lang = 'vi' } = Astro.params;
+---
+
+<Layout title={title} description={description} articleData={articleData}>
+  <header class="article-header">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon-new.ico" sizes="48x48" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon-new.ico" sizes="48x48" type="image/x-icon">
+
+    <!--PWA manifest-->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#d4af37" />
+
+    <script is:inline src="/theme-init.js"></script>
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+
+    <SEO
+      title={title}
+      description={description}
+      image={defaultImage}
+      type={"article"}
+      publishedTime={new Date().toISOString()}
+      canonical={new URL(Astro.url.pathname, config.siteUrl).href}
+    />
+
+
+    <div class="article-header-overlay"></div>
+
+    <div class="container-wide header-content">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          {
+            breadcrumbItems.map((item, index) => (
+              <li class="breadcrumb-item">
+                {index > 0 && <span class="breadcrumb-separator">/</span>}
+                {item.href ? (
+                  <a href={item.href} class="breadcrumb-link">
+                    {item.label}
+                  </a>
+                ) : (
+                  <span class="breadcrumb-current">{item.label}</span>
+                )}
+              </li>
+            ))
+          }
+        </ol>
+      </nav>
+      <h1 class="article-title">
+        {title}
+      </h1>
+      <div class="article-meta">
+        {
+          articleData?.birthDeath
+            ? (<div class="meta-item" title="Năm Sinh - Năm Mất"><span class="meta-sub-item">📆</span><span>{articleData?.birthDeath}</span></div>)
+            : ''
+        }
+        {
+          articleData?.extraNames
+            ? (<div class="meta-item" title="Tên Pinyin - Tên Trung - Tên Nhật"><span class="meta-sub-item">📛</span><span>{articleData?.extraNames}</span></div>)
+            : ''
+        }
+        {
+          articleData?.zenSchool?.length
+            ? (<div class="meta-item"><span class="meta-sub-item">🪔</span><a href={`/blogs/cac-tong-phai-thien-tong`} target="_blank">{articleData?.zenSchool?.join(', ')}</a></div>)
+            : ''
+        }
+        {
+          articleData?.places?.length
+            ? (<div class="meta-item"><span class="meta-sub-item">🧭</span><span>{articleData?.places?.join(', ')}</span></div>)
+            : ''
+        }
+        {
+          articleData?.teachers?.length
+            ? (<div class="meta-item" title="Sư phụ">{
+              articleData?.teachers?.map(teacher => (<span class="meta-sub-item">👤</span><a href={`/enlighteners?keyword=${teacher}`} target="_blank">{teacher}</a>))
+            }</div>)
+            : ''
+        }
+
+        {
+          articleData?.modifiedTime && (
+            <>
+              <div class="meta-item">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="meta-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                <span>
+                                    {new Date(articleData.modifiedTime).toLocaleDateString("vi-VN", {
+                                      month: "long",
+                                      day: "numeric",
+                                      year: "numeric",
+                                    })}
+                                </span>
+              </div>
+            </>
+          )
+        }
+
+        <div class="meta-item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="meta-icon"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+          <span>
+              {articleData?.readTimeMinutes || 3} {l("min.read", lang)}
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div
+    class="container-wide main-wrapper"
+    x-data="{ sidebarOpen: false }"
+  >
+    <!-- Mobile Sidebar Backdrop -->
+    <div
+      x-show="sidebarOpen"
+      x-transition:enter="transition ease-out duration-300"
+      x-transition:enter-start="opacity-0"
+      x-transition:enter-end="opacity-100"
+      x-transition:leave="transition ease-in duration-200"
+      x-transition:leave-start="opacity-100"
+      x-transition:leave-end="opacity-0"
+      @click="sidebarOpen = false"
+      class="mobile-backdrop"
+      style="display: none;"
+    >
+    </div>
+
+    <!-- Mobile Sidebar Content -->
+    <div
+      x-show="sidebarOpen"
+      x-transition:enter="transition ease-out duration-300"
+      x-transition:enter-start="-translate-x-full"
+      x-transition:enter-end="translate-x-0"
+      x-transition:leave="transition ease-in duration-200"
+      x-transition:leave-start="translate-x-0"
+      x-transition:leave-end="-translate-x-full"
+      class="mobile-sidebar"
+      style="display: none;"
+    >
+      <div class="mobile-sidebar-header">
+        <span class="mobile-sidebar-title">Navigation</span>
+        <button
+          type="button"
+          @click="sidebarOpen = false"
+          class="mobile-sidebar-close"
+          aria-label="Close navigation panel"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ><path d="M18 6 6 18"></path><path d="m6 6 12 12"
+          ></path></svg
+          >
+        </button>
+      </div>
+      <Sidebar currentSlug={currentSlug} />
+    </div>
+
+    <div class="layout-grid">
+      <!-- Mobile Sidebar Toggle -->
+      <div class="mobile-toggle-wrapper">
+        <button
+          type="button"
+          @click="sidebarOpen = true"
+          class="mobile-toggle-btn"
+          aria-label="Open documentation navigation"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ><rect width="18" height="18" x="3" y="3" rx="2"
+          ></rect><path d="M9 3v18"></path></svg
+          >
+          Menu Tài liệu
+        </button>
+      </div>
+
+      <!-- Left Sidebar -->
+      <aside class="desktop-sidebar-left">
+        <div class="sticky-wrapper">
+          <Sidebar currentSlug={currentSlug} />
+        </div>
+      </aside>
+
+      <!-- Main Content Area with Dynamic Tabs & Anchor URL Sync -->
+      <main
+        class="main-content"
+        x-data={`{
+          activeTab: '${activeTab}',
+          init() {
+            const article = this.$el.querySelector('article');
+            if (article) {
+              // 1. Kiểm tra xem phần Nguồn / Ghi chú có chứa thẻ a với href hợp lệ không
+              let hasValidLink = false;
+              article.querySelectorAll('a').forEach(a => {
+                const href = a.getAttribute('href');
+                if (href && href.trim() !== '' && href.trim() !== '#') {
+                  hasValidLink = true;
+                }
+              });
+    
+              if (hasValidLink) {
+                article.classList.add('has-footer-content');
+              } else {
+                article.classList.remove('has-footer-content');
+              }
+            }
+          }
+        }`}
+      >
+        <!-- Navigation Tabs -->
+        <div class="wiki-type-tabs-wrapper">
+          <nav class="wiki-type-tabs" aria-label="Tiêu đề Nội dung">
+            <!-- Nút Tab Chính -->
+            <a
+              href={`/enlighteners/${currentSlug}`}
+              class="zen-tab-btn"
+              class:list={{ 'active': activeTab === 'main' }}
+            >
+              📖
+              <span>Tiểu Sử & Tổng Quan</span>
+            </a>
+
+            {
+              tabLabels.map((label) => {
+                const lowerLabel = label.toLowerCase().trim();
+                const tabSlug = lowerLabel.replace(/\s+/g, "-");
+                let icon = "💬";
+                let longLabel = "Đối Thoại Căn Cơ";
+
+                if (lowerLabel.includes("dialogue")) {
+                  icon = "💬";
+                  longLabel = "Đối Thoại Căn Cơ";
+                } else if (lowerLabel.includes("sermon")) {
+                  icon = "💡";
+                  longLabel = "Bài Giảng Khai Thị";
+                } else if (lowerLabel.includes("mantra")) {
+                  icon = "📿";
+                  longLabel = "Chân Ngôn";
+                } else if (lowerLabel.includes("story")) {
+                  icon = "📝";
+                  longLabel = "Kể Chuyện";
+                }
+
+                return (
+                  <a
+                    href={`/enlighteners/${currentSlug}/${tabSlug}`}
+                    class="zen-tab-btn"
+                    class:list={{ 'active': activeTab === tabSlug }}
+                  >
+                    {icon}
+                    <span title={longLabel}>{label.toUpperCase()}</span>
+                  </a>
+                );
+              })
+            }
+          </nav>
+        </div>
+
+        <!-- Content Container -->
+        <div class="tab-panels-wrapper" :data-active-tab="activeTab" id="tab-content">
+          <article
+            class={"prose prose-lg prose-sg"}
+            data-pagefind-body
+            data-pagefind-filter={`category:${category}`}
+          >
+            <!-- Nội dung chính (Tab 1) -->
+            <slot />
+          </article>
+        </div>
+
+        <!-- Feedback Section -->
+        <div class="article-footer">
+          {
+            lastUpdatedLabel && (
+              <div class="last-updated">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="m12 3 2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 16.7 6.7 19.1l1-5.8L3.5 9.2l5.9-.9L12 3Z"></path>
+                </svg>
+                <span>Cập nhật lần cuối lúc <b>{lastUpdatedLabel}</b></span>
+              </div>
+            )
+          }
+        </div>
+
+        {
+          (navigationData?.previous || navigationData?.next) && (
+            <nav
+              class="pagination-nav"
+              aria-label="Article Pagination"
+            >
+              {navigationData?.previous ? (
+                <a
+                  href={navigationData.previous.href}
+                  class="pagination-card pagination-prev"
+                >
+                  <span class="pagination-label">
+                    <span class="pagination-arrow">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </span>
+                    {l("article.previous", lang)}
+                  </span>
+                  <p class="pagination-title">
+                    {navigationData.previous.title}
+                  </p>
+                </a>
+              ) : (
+                <div class="pagination-placeholder" aria-hidden="true"></div>
+              )}
+
+              {navigationData?.next && (
+                <a
+                  href={navigationData.next.href}
+                  class="pagination-card pagination-next"
+                >
+                  <span class="pagination-label">
+                    {l("article.next", lang)}
+                    <span class="pagination-arrow">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12H19M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </span>
+                  </span>
+                  <p class="pagination-title">
+                    {navigationData.next.title}
+                  </p>
+                </a>
+              )}
+            </nav>
+          )
+        }
+      </main>
+
+      <!-- Right Sidebar (ToC) -->
+      {
+        headings.length > 0 && (
+          <aside class="desktop-sidebar-right">
+            <div class="sticky-wrapper">
+              <TableOfContents headings={headings} />
+            </div>
+          </aside>
+        )
+      }
+    </div>
+
+  </div>
+
+  {
+    relatedArticles.length > 0 && (
+      <section class="related-section">
+        <div class="container-wide">
+          <h3 class="related-title">
+            Các bài viết liên quan
+          </h3>
+          <div class="related-grid">
+            {relatedArticles.map((article) => (
+              <article class="related-card">
+                <a href={article.href} class="related-card-link">
+                  <h4 class="related-card-title">
+                    {article.title}
+                  </h4>
+                  <p class="related-card-desc">
+                    {article.description}
+                  </p>
+                  <span class="related-card-action">
+                                        Đọc thêm
+                                        <span class="related-card-arrow">
+                                            &rarr;
+                                        </span>
+                                    </span>
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+</Layout>
+
+<script>
+  document.querySelectorAll('.zen-tab-btn, .tab-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      // Cuộn tab được click vào chính giữa container ngang của nó
+      e.currentTarget?.scrollIntoView({
+        behavior: 'smooth',
+        inline: 'center',
+        block: 'nearest'
+      });
+    });
+  });
+
+  /*Bắt sự kiện khi người dùng bấm vào nút mũi tên quay lại của footnote*/
+  document.addEventListener('click', (e) => {
+    // Kiểm tra xem người dùng có click vào nút backlink của footnote (thường có class hoặc href chứa #fnref)
+    const target = e.target.closest('a[href^="#fnref"], a.footnote-backref, a[data-footnote-backref]');
+    if (!target) return;
+
+    const href = target.getAttribute('href');
+    if (!href) return;
+
+    const refElement = document.querySelector(href);
+    if (!refElement) return;
+
+    // Tìm xem thẻ sup/ref này đang nằm ở tab nào
+    const parentTabContent = refElement.closest('.tab-mantra, .tab-story, .tab-dialogue, .tab-sermon');
+    let targetTab = 'main';
+
+    if (parentTabContent) {
+      if (parentTabContent.classList.contains('tab-dialogue')) {
+        targetTab = 'dialogue';
+      } else if (parentTabContent.classList.contains('tab-sermon')) {
+        targetTab = 'sermon';
+      } else if (parentTabContent.classList.contains('tab-mantra')) {
+        targetTab = 'mantra';
+      } else if (parentTabContent.classList.contains('tab-story')) {
+        targetTab = 'story';
+      }
+    }
+
+    // other tabs
+    const otherTabContent = refElement.closest('.part-1, .part-2, .part-3, .part-4, .part-5, .part-6, .part-7, .part-8, .part-9, .part-10');
+
+    if (otherTabContent) {
+      let i;
+      switch (parentTabContent.classList.contains(`part-${i}`)) {
+        case parentTabContent.classList.contains(`part-${i}`):
+          targetTab = `part-${i}`;
+          break;
+      }
+    }
+
+    // Lấy Alpine component instance của main content
+    const mainEl = document.querySelector('main.main-content');
+    if (mainEl && window.Alpine) {
+      const alpineData = window.Alpine.$data(mainEl);
+      if (alpineData && typeof alpineData.switchTab === 'function') {
+        e.preventDefault(); // Ngăn trình duyệt nhảy thô
+
+        // Chuyển tab về đúng tab chứa footnote ref
+        alpineData.switchTab(targetTab);
+
+        // Đợi DOM render hiển thị tab xong thì cuộn mượt về đúng vị trí
+        setTimeout(() => {
+          refElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          history.replaceState(null, '', `#${targetTab}`);
+        }, 50);
+      }
+    }
+  });
+</script>

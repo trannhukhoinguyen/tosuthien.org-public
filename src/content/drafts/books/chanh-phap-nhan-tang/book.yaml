@@ -1,0 +1,205 @@
+title: CHÁNH PHÁP NHÃN TẠNG
+author: TS. Đạo Nguyên Hy Huyền
+translator: CS. Đỗ Đình Đồng
+category: Sách
+tags:
+  - Ngữ Lục
+  - Thiền tông
+  - Tổ Sư Thiền
+parts:
+  - title: Chánh Pháp Nhãn Tạng
+    chapters:
+      - slug: 1-noi-chuyen-tu-dao
+        title: Biện đạo thoại
+      - slug: 2-tri-lon-den-bo-ben-kia
+        title: Ma-ha Bát-nhã Ba-la-mật-đa
+      - slug: 3-hien-thanh-cong-an
+        title: Hiện thành công án
+      - slug: 4-mot-vien-ngoc-sang
+        title: Nhất cá minh châu
+      - slug: 5-nhung-dieu-le-cua-trong-van-duong
+        title: Trọng Vân Đường Thức
+      - slug: 6-tam-tuc-la-phat
+        title: Tức tâm thị Phật
+      - slug: 7-rua-sach
+        title: Tẩy tịnh
+      - slug: 8-rua-mat
+        title: Tẩy diện
+      - slug: 9-le-bai-duoc-tuy
+        title: Lễ bái đắc tủy
+      - slug: 10-tieng-khe-sac-nui
+        title: Khê thanh sơn sắc
+      - slug: 11-khong-lam-dieu-ac
+        title: Chư ác mạt tác
+      - slug: 12-huu-thoi
+        title: Hữu thời
+      - slug: 13-cong-duc-ao-ca-sa
+        title: Cà-sa công đức
+      - slug: 14-truyen-ao-ca-sa
+        title: Truyền y
+      - slug: 15-kinh-nui-va-nuoc
+        title: Sơn Thủy kinh
+      - slug: 16-phat-to
+        title: Phật tổ
+      - slug: 17-chung-thu-thua-tu
+        title: Tự thư
+      - slug: 18-phap-hoa-chuyen-phap-hoa
+        title: Pháp hoa chuyển pháp hoa
+      - slug: 19-tam-bat-kha-dac
+        title: Tâm bất khả đắc
+      - slug: 20-tam-bat-kha-dac-phan-sau
+        title: Hậu Tâm bất khả đắc
+      - slug: 21-guong-xua
+        title: Cổ kính
+      - slug: 22-xem-kinh
+        title: Khán kinh
+      - slug: 23-tanh-phat
+        title: Phật tánh
+      - slug: 24-oai-nghi-cua-cac-phat-hanh-tri
+        title: Hạnh phật oai nghi
+      - slug: 25-giao-ly-cua-cac-phat
+        title: Phật giáo
+      - slug: 26-than-thong
+        title: Thần thông
+      - slug: 27-dai-ngo
+        title: Đại ngộ
+      - slug: 28-bai-cham-ngoi-thien
+        title: Tọa thiền châm
+      - slug: 29-phat-huong-thuong-su
+        title: Phật hướng thượng sự
+      - slug: 30-nhu-the
+        title: Nhẫm ma
+      - slug: hanh-tri-phan-mot
+        title: Hành trì, thượng
+      - slug: hanh-tri-phan-hai
+        title: Hành trì, hạ
+      - slug: hai-an-tam-muoi
+        title: Hải ấn tam-muội
+      - slug: tho-ky
+        title: Thọ ký
+      - slug: quan-am
+        title: Quan Âm
+      - slug: a-la-han
+        title: A-la-hán
+      - slug: cay-bach
+        title: Bách thọ tử
+      - slug: quang-minh
+        title: Quang minh
+      - slug: than-tam-hoc-dao
+        title: Thân tâm học đạo
+      - slug: trong-mong-noi-mong
+        title: Mộng trung thuyết mộng
+      - slug: noi-duoc
+        title: Đạo đắc
+      - slug: banh-ho-ve
+        title: Họa bính
+      - slug: toan-co
+        title: Toàn cơ
+      - slug: mat-trang
+        title: Đô ky, Nguyệt
+      - slug: hoa-hu-khong
+        title: Không hoa
+      - slug: tam-co-phat
+        title: Cổ phật tâm
+      - slug: bon-nhiep-phap-cua-bo-tat
+        title: Bồ-đề-tát-đỏa tứ nhiếp pháp
+      - slug: san-bim
+        title: Cát đằng
+      - slug: ba-gioi-khong-lia-tam
+        title: Tam giới duy tâm
+      - slug: noi-tam-noi-tanh
+        title: Thuyết tâm thuyết tánh
+      - slug: dao-cua-cac-phat
+        title: Phật đạo
+      - slug: thuc-tuong-cua-tat-ca-cac-phap
+        title: Chư pháp thực tướng
+      - slug: mat-ngu
+        title: Mật ngữ
+      - slug: kinh-phat
+        title: Phật kinh
+      - slug: vo-tinh-thuyet-phap
+        title: Vô tình thuyết pháp
+      - slug: ban-tanh-cua-cac-phap
+        title: Pháp tánh
+      - slug: da-la-ni
+        title: Đa-la-ni
+      - slug: doi-dien-tho-nhan
+        title: Diện thọ
+      - slug: nghi-thuc-ngoi-thien
+        title: Tọa thiền nghi
+      - slug: hoa-mai
+        title: Mai hoa
+      - slug: muoi-phong
+        title: Thập phương
+      - slug: thay-phat
+        title: Kiến phật
+      - slug: tham-hoc-tat-ca
+        title: Biến tham
+      - slug: trong-mat
+        title: Nhãn tình
+      - slug: nep-nha
+        title: Gia thường
+      - slug: rong-ngam
+        title: Long ngâm
+      - slug: xuan-thu
+        title: Xuân thu
+      - slug: y-to-su-tu-tay-den
+        title: Tổ sư Tây lai ý
+      - slug: hoa-uu-dam
+        title: Ưu đàm hoa
+      - slug: phat-tam-vo-thuong
+        title: Phát vô thượng tâm
+      - slug: phat-tam-bo-de
+        title: Phát bồ-đề tâm
+      - slug: toan-than-nhu-lai
+        title: Như Lai toàn thân
+      - slug: vua-tam-muoi
+        title: Tam-muội Vương tam-muội
+      - slug: ba-muoi-bay-pham-bo-de-phan-phap
+        title: Tam thập thất phẩm bồ-đề phần pháp
+      - slug: chuyen-banh-xe-phap
+        title: Chuyển pháp luân
+      - slug: tu-chung-tam-muoi
+        title: Tự chứng tam muội
+      - slug: dai-tu-hanh
+        title: Đại tu hành
+      - slug: hu-khong
+        title: Hư không
+      - slug: cai-bat-an
+        title: Bát vu
+      - slug: an-cu
+        title: An cư
+      - slug: thay-tam-nguoi-khac
+        title: Tha tâm thông
+      - slug: vua-muon-tien-da-ba
+        title: Vương sách tiên-đà-bà
+      - slug: van-day-lam-viec-nha-bep
+        title: Thị khố viện văn
+      - slug: xuat-gia
+        title: Xuất gia
+      - slug: tam-dieu-tinh-giac-cua-bac-dai-nhan
+        title: Bát đại nhân giác
+      - slug: nghiep-trong-ba-thoi
+        title: Tam thời nghiệp
+      - slug: bon-loai-ngua
+        title: Tứ mã
+      - slug: cong-duc-xuat-gia
+        title: Xuất gia công đức
+      - slug: cung-duong-cac-phat
+        title: Cúng dường chư Phật
+      - slug: qui-y-phat-phap-tang
+        title: Qui y Phật Pháp Tăng
+      - slug: tin-sau-nhan-qua
+        title: Thâm tín nhân quả
+      - slug: ty-kheo-cua-thien-thu-tu
+        title: Tứ thiền Tỳ-kheo
+      - slug: chi-phat-voi-phat
+        title: Duy Phật dữ Phật
+      - slug: sinh-tu
+        title: Sinh tử
+      - slug: tam-dao
+        title: Đạo tâm
+      - slug: tho-gioi
+        title: Thọ giới
+      - slug: mot-tram-le-tam-cua-chung-ngo-phap
+        title: Nhất bách bát pháp minh môn

@@ -1,0 +1,736 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/wiki-type/Layout.astro";
+import SearchHero from "../../components/wiki-type/compendium/SearchHeroCompendium.astro";
+import CategoryCard from "@/components/wiki-type/CategoryCard.astro";
+import FeaturedCard from "@/components/wiki-type/FeaturedCard.astro";
+import { getCompendiumUrl } from "@/utils/compendia.ts";
+import { getTimeAgo } from "@/utils/dateUtils";
+
+const allCompendia = await getCollection("compendia");
+
+const categoriesMap = allCompendia.reduce(
+  (acc, compendium) => {
+    const category = compendium.data.category || "Chưa phân loại";
+    if (!acc[category]) {
+      acc[category] = {
+        title: category,
+        description: `Các hướng dẫn và bài chỉ dẫn toàn diện ${category}.`,
+        icon:
+          compendium.data.category === "Tutorials"
+            ? '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>'
+            : '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>',
+        count: 0,
+        href: `/compendia/category/${category?.toLowerCase().replace(/\s+/g, "-")}`,
+        articles: [],
+      };
+    }
+    acc[category].count++;
+    if (acc[category].articles.length < 5) {
+      acc[category].articles.push({
+        title: compendium.data.title,
+        href: getCompendiumUrl(compendium),
+      });
+    }
+    return acc;
+  },
+  {} as Record<string, any>,
+);
+
+interface Category {
+  title: string;
+  description: string;
+  icon: string;
+  count: number;
+  href: string;
+  articles: { title: string; href: string }[];
+}
+
+const allCategories = Object.values(categoriesMap) as Category[];
+const categoryOrder = [
+  "Cẩm nang",
+];
+const sortedCategories = [...allCategories].sort((a, b) => {
+  const ai = categoryOrder.indexOf(a.title);
+  const bi = categoryOrder.indexOf(b.title);
+  const an = ai === -1 ? Number.MAX_SAFE_INTEGER : ai;
+  const bn = bi === -1 ? Number.MAX_SAFE_INTEGER : bi;
+  if (an === bn) return a.title.localeCompare(b.title);
+  return an - bn;
+});
+const firstCategoryHref =
+  sortedCategories[0]?.href ||
+  `/compendia/category/${allCategories[0]?.title?.toLowerCase().replace(/\s+/g, "-")}`;
+
+interface FeaturedArticle {
+  title: string;
+  category: string;
+  date: string;
+  href: string;
+  description: string;
+}
+
+const featuredArticles = allCompendia
+  .sort(
+    (a, b) =>
+      (b.data.lastUpdated?.getTime() || 0) -
+      (a.data.lastUpdated?.getTime() || 0),
+  )
+  .slice(0, 3)
+  .map((compendium) => ({
+    title: compendium.data.title,
+    category: compendium.data.category,
+    date: compendium.data.lastUpdated
+      ? new Intl.DateTimeFormat("vi-VN", {
+          month: "short",
+          day: "2-digit",
+          year: "numeric",
+        }).format(compendium.data.lastUpdated)
+      : "Được cập nhật gần đây",
+    href: getCompendiumUrl(compendium),
+    description:
+      compendium.data.description ||
+      `Tìm hiểu thêm về ${compendium.data.title}.`,
+  })) as FeaturedArticle[];
+
+const recentlyUpdated = allCompendia
+  .sort(
+    (a, b) =>
+      (b.data.lastUpdated?.getTime() || 0) -
+      (a.data.lastUpdated?.getTime() || 0),
+  )
+  .slice(0, 3)
+  .map((compendium) => ({
+    title: compendium.data.title,
+    category: compendium.data.category || "General",
+    date: compendium.data.lastUpdated
+      ? new Intl.DateTimeFormat("vi-VN", {
+          month: "short",
+          day: "2-digit",
+          year: "numeric",
+        }).format(compendium.data.lastUpdated)
+      : "Được cập nhật gần đây",
+    href: getCompendiumUrl(compendium),
+    description:
+      compendium.data.description ||
+      `Tìm hiểu thêm về ${compendium.data.title}.`,
+    timeAgo: compendium.data.lastUpdated
+      ? getTimeAgo(compendium.data.lastUpdated)
+      : "gần đây",
+  }));
+
+const popularArticles = allCompendia.slice(0, 5).map((compendium) => ({
+  title: compendium.data.title,
+  href: getCompendiumUrl(compendium),
+  category: compendium.data.category || "Basic",
+}));
+---
+
+<Layout title="Tổ Sư Thiền">
+  <SearchHero
+    articleCount={allCompendia.length}
+    categoryCount={allCategories.length}
+    lastUpdatedLabel={recentlyUpdated[0]?.timeAgo || "recently"}
+  />
+
+  <section class="main-section">
+    <div class="container-wide">
+      <div class="layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+          <div class="sidebar__content">
+            <!-- Quick Navigation Card -->
+            <div class="card card--sidebar">
+              <h4 class="card__title">
+                <svg
+                  class="icon icon--primary"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M8 2.5V13.5M2.5 8H13.5"
+                    stroke="currentColor"
+                    stroke-width="1.75"
+                    stroke-linecap="round"
+                  ></path>
+                </svg>
+                Điều hướng nhanh
+              </h4>
+              <nav class="nav-list-wiki">
+                {allCategories.map((cat) => (
+                  <a href={cat.href} class="nav-item group">
+                    <span class="nav-item__main">
+                      <span class="nav-item__dot"></span>
+                      <span class="nav-item__text">{cat.title}</span>
+                    </span>
+                    <span class="nav-item__badge">{cat.count}</span>
+                  </a>
+                ))}
+              </nav>
+            </div>
+
+            <!-- Popular Articles Card -->
+            <div class="card card--sidebar">
+              <h4 class="card__title">
+                <svg
+                  class="icon icon--primary"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 3.5L14.76 9.09L21 10L16.5 14.38L17.56 20.5L12 17.58L6.44 20.5L7.5 14.38L3 10L9.24 9.09L12 3.5Z"
+                    stroke="currentColor"
+                    stroke-width="1.75"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+                Các bài viết phổ biến
+              </h4>
+              <div class="popular-list">
+                {popularArticles.map((article) => (
+                  <a href={article.href} class="popular-item group">
+                    <svg
+                      class="popular-item__icon"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <rect
+                        x="4.25"
+                        y="4.25"
+                        width="11.5"
+                        height="11.5"
+                        rx="1.5"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      />
+                      <circle cx="10" cy="10" r="1.25" fill="currentColor" />
+                    </svg>
+                    <span class="popular-item__content">
+                      <span class="popular-item__title line-clamp-3">
+                        {article.title}
+                      </span>
+                      <span class="popular-item__category">
+                        {article.category}
+                      </span>
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+          <!-- Featured Topics -->
+          <div class="section-block">
+            <div class="section-header">
+              <h2 class="section-header__title">Các chủ đề nổi bật</h2>
+              <a href={firstCategoryHref} class="section-header__link">
+                Xem tất cả &rarr;
+              </a>
+            </div>
+            <div class="grid grid--3-cols">
+              {featuredArticles.map((article) => <FeaturedCard {...article} />)}
+            </div>
+          </div>
+
+          <!-- Browse by Category -->
+          <div class="section-block">
+            <div class="section-header section-header--simple">
+              <h2 class="section-header__title">Duyệt theo danh mục</h2>
+            </div>
+            <div class="grid grid--2-cols">
+              {allCategories.map((cat) => (
+                <CategoryCard
+                  title={cat.title}
+                  description={
+                    cat.description
+                  }
+                  icon={cat.icon}
+                  count={cat.count}
+                  href={cat.href}
+                  articles={cat.articles}
+                />
+              ))}
+            </div>
+          </div>
+
+          <!-- Recently Updated -->
+          <div>
+            <div class="section-header section-header--simple">
+              <h2 class="section-header__title">Được cập nhật gần đây</h2>
+            </div>
+            <div class="article-list">
+              {recentlyUpdated.map((article) => (
+                <div class="article-card">
+                  <h3 class="article-card__title">
+                    <a href={article.href} class="article-card__link">
+                      {article.title}
+                    </a>
+                  </h3>
+                  <div class="article-card__meta">
+                    <span class="article-card__meta-item">
+                      <svg
+                        class="icon icon--light"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="9"
+                          stroke="currentColor"
+                          stroke-width="1.7"
+                        />
+                        <path
+                          d="M12 7.5V12L15 14"
+                          stroke="currentColor"
+                          stroke-width="1.7"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      {article.timeAgo}
+                    </span>
+                    <span class="article-card__divider">·</span>
+                    <span class="article-card__meta-item">
+                      <svg
+                        class="icon icon--light"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M8 7h8M8 12h8M8 17h4"
+                          stroke="currentColor"
+                          stroke-width="1.7"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                      {article.category}
+                    </span>
+                  </div>
+                  <p class="article-card__desc line-clamp-2">
+                    {article.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* ==========================================================================
+     CSS Variables & Design Tokens
+     ========================================================================== */
+  :root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --brand-gray-200: #e5e7eb;
+    --brand-gray-300: #d1d5db;
+    --brand-gray-400: #9ca3af;
+    --brand-gray-500: #6b7280;
+    --brand-gray-600: #4b5563;
+    --brand-gray-900: #111827;
+
+    --sgkb-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --sgkb-shadow-soft-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+    --sgkb-icon-muted: #9ca3af;
+    --sgkb-icon-light: #9ca3af;
+    --sgkb-text-subtle: #4b5563;
+    --sgkb-text-primary: #111827;
+    --sgkb-border-soft: #f3f4f6;
+    --sgkb-divider-muted: #d1d5db;
+
+    --transition-speed: 0.2s;
+    --transition-ease: ease;
+  }
+
+  /* ==========================================================================
+     Layout Base & Utilities
+     ========================================================================== */
+  .container-wide {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .main-section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+    background-color: #ffffff;
+  }
+
+  .layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .layout {
+      flex-direction: row;
+      gap: 3rem;
+    }
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Icons */
+  .icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+
+  .icon--primary {
+    color: var(--primary);
+  }
+
+  .icon--light {
+    color: var(--sgkb-icon-light);
+  }
+
+  /* ==========================================================================
+     Sidebar Component
+     ========================================================================== */
+  .sidebar {
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 1024px) {
+    .sidebar {
+      width: 286px;
+      padding-right: 1.5rem;
+      margin-right: 0.25rem;
+      border-right: 1px solid var(--brand-gray-300);
+      overflow-y: auto;
+      position: sticky;
+      top: 6rem;
+      max-height: calc(100vh - 7rem);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .sidebar {
+      width: 300px;
+    }
+  }
+
+  .sidebar__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  /* Cards */
+  .card {
+    background-color: #ffffff;
+    border-radius: 18px;
+    border: 1px solid var(--brand-gray-200);
+    box-shadow: var(--sgkb-shadow-xs);
+  }
+
+  .card--sidebar {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .card__title {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--brand-gray-900);
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Sidebar Quick Navigation */
+  .nav-list-wiki {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    font-size: 0.875rem;
+    line-height: 1.75rem;
+    color: var(--brand-gray-500);
+    text-decoration: none;
+    transition: all var(--transition-speed) var(--transition-ease);
+  }
+
+  .nav-item:hover {
+    color: var(--brand-gray-900);
+    transform: translateX(3px);
+  }
+
+  .nav-item__main {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 0;
+  }
+
+  .nav-item__dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 9999px;
+    background-color: var(--primary);
+    flex-shrink: 0;
+  }
+
+  .nav-item__text {
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nav-item__badge {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--brand-gray-400);
+    flex-shrink: 0;
+    transition: color var(--transition-speed) var(--transition-ease);
+  }
+
+  .nav-item:hover .nav-item__badge {
+    color: var(--brand-gray-900);
+  }
+
+  /* Sidebar Popular Articles */
+  .popular-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .popular-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    color: var(--brand-gray-600);
+    text-decoration: none;
+    transition: color var(--transition-speed) var(--transition-ease);
+  }
+
+  .popular-item:hover {
+    color: var(--brand-gray-900);
+  }
+
+  .popular-item__icon {
+    width: 15px;
+    height: 15px;
+    color: var(--sgkb-icon-muted);
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+  }
+
+  .popular-item__content {
+    min-width: 0;
+  }
+
+  .popular-item__title {
+    display: block;
+    font-size: 14px;
+    line-height: 1.45;
+    font-weight: 500;
+    color: var(--sgkb-text-subtle);
+    transition: color var(--transition-speed) var(--transition-ease);
+  }
+
+  .popular-item:hover .popular-item__title,
+  .popular-item:hover .popular-item__category {
+    color: var(--brand-gray-900);
+  }
+
+  .popular-item__category {
+    display: block;
+    margin-top: 0.125rem;
+    font-size: 12px;
+    color: var(--sgkb-icon-muted);
+    transition: color var(--transition-speed) var(--transition-ease);
+  }
+
+  /* ==========================================================================
+     Main Content Area
+     ========================================================================== */
+  .main-content {
+    flex-grow: 1;
+    min-width: 0;
+  }
+
+  .section-block {
+    margin-bottom: 3.5rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--brand-gray-200);
+    padding-bottom: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-header--simple {
+    display: block;
+  }
+
+  .section-header__title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+    color: var(--sgkb-text-primary);
+    margin: 0;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  .section-header__link {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary);
+    text-decoration: none;
+    transition: color var(--transition-speed) var(--transition-ease);
+  }
+
+  .section-header__link:hover {
+    color: var(--primary-dark);
+  }
+
+  /* Grid System */
+  .grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .grid--2-cols {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    .grid--2-cols {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .grid--3-cols {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    .grid--3-cols {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid--3-cols {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* ==========================================================================
+     Recently Updated Article Cards
+     ========================================================================== */
+  .article-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .article-card {
+    display: block;
+    border-radius: 1rem;
+    border: 1px solid var(--sgkb-border-soft);
+    background-color: #ffffff;
+    padding: 1.75rem 1.5rem;
+    transition: all var(--transition-speed) var(--transition-ease);
+  }
+
+  .article-card:hover {
+    border-color: var(--primary);
+    box-shadow: var(--sgkb-shadow-soft-lg);
+  }
+
+  .article-card__title {
+    font-size: 20px;
+    line-height: 1.35;
+    font-weight: 600;
+    color: var(--brand-gray-900);
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-card__link {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-speed) var(--transition-ease);
+  }
+
+  .article-card__link:hover {
+    color: var(--primary);
+  }
+
+  .article-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--brand-gray-400);
+    margin-bottom: 1rem;
+  }
+
+  .article-card__meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+  }
+
+  .article-card__divider {
+    color: var(--sgkb-divider-muted);
+  }
+
+  .article-card__desc {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--brand-gray-500);
+    margin: 0;
+  }
+</style>
+

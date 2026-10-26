@@ -1,0 +1,111 @@
+---
+// src/components/CompassionStory.astro
+
+interface Slide {
+  title: string;
+  img: string;
+  desc: string;
+}
+interface Props {
+  story: {
+    title: string;
+    description: string;
+    thumbnail: string;
+    subtitle: string;
+    slides: Slide[];
+  }
+}
+
+const { story } = Astro.props;
+---
+
+<section class="story-section">
+  <h2 class="story-title">{story.title}</h2>
+  <div class="story-grid">
+    {story.slides.map(slide => (
+      <div class="story-card">
+        <img src={slide.img} alt={slide.title} class="card-image" />
+        <div class="card-body">
+          <h3 class="card-title">{slide.title}</h3>
+          <p class="card-desc">{slide.desc}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  /* --- Container chính (<section>) --- */
+  .story-section {
+    max-width: 56rem;          /* max-w-4xl (896px) */
+    margin-left: auto;         /* mx-auto */
+    margin-right: auto;        /* mx-auto */
+    /* py-12 (48px) */
+    /* py-12 (48px) */
+    /* px-4 (16px) */
+    /* px-4 (16px) */
+    padding: 3rem 1rem;
+  }
+
+  /* --- Tiêu đề chính (<h2>) --- */
+  .story-title {
+    font-size: 1.875rem;       /* text-3xl (30px) */
+    line-height: 2.25rem;
+    font-weight: 700;          /* font-bold */
+    text-align: center;        /* text-center */
+    margin-bottom: 2rem;       /* mb-8 (32px) */
+  }
+
+  /* --- Lưới hiển thị (<div> grid) --- */
+  .story-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)); /* grid-cols-1 */
+    gap: 2rem;                 /* gap-8 (32px) */
+  }
+
+  /* --- Thẻ Card (<div> lặp) --- */
+  .story-card {
+    background-color: #1e293b; /* bg-slate-800 */
+    color: #ffffff;            /* text-white */
+    border-radius: 0.5rem;     /* rounded-lg (8px) */
+    overflow: hidden;          /* overflow-hidden (Cắt phần thừa của ảnh) */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1); /* shadow-lg */
+    border: 1px solid #334155; /* border border-slate-700 */
+  }
+
+  /* --- Ảnh trong Card (<img>) --- */
+  .card-image {
+    width: 100%;               /* w-full */
+    height: 16rem;             /* h-64 (256px) */
+    object-fit: cover;         /* object-cover */
+  }
+
+  /* --- Nội dung dưới ảnh (<div> p-4) --- */
+  .card-body {
+    padding: 1rem;             /* p-4 (16px) */
+  }
+
+  /* --- Tiêu đề Card (<h3>) --- */
+  .card-title {
+    font-size: 1.25rem;        /* text-xl (20px) */
+    line-height: 1.75rem;
+    font-weight: 600;          /* font-semibold */
+    margin-bottom: 0.5rem;     /* mb-2 (8px) */
+  }
+
+  /* --- Mô tả Card (<p>) --- */
+  .card-desc {
+    color: #cbd5e1;            /* text-slate-300 */
+    font-size: 0.875rem;       /* text-sm (14px) */
+    line-height: 1.25rem;
+  }
+
+  /* --- RESPONSIVE: Màn hình từ Máy tính bảng trở lên (md: ~768px) --- */
+  @media (min-width: 768px) {
+    .story-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)); /* md:grid-cols-2 */
+    }
+  }
+
+</style>

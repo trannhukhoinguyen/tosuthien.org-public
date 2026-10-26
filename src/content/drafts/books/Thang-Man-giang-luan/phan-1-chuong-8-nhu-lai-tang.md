@@ -1,0 +1,344 @@
+---
+sections:
+  - "PHẦN 1 - CHƯƠNG 8. NHƯ LAI TẠNG"
+  - "TIẾT 1: NGUỒN TƯ TƯỞNG"
+  - "TIẾT 2: KINH ĐIỂN ĐẠI THỪA LIÊN HỆ"
+  - "TIẾT 3: TỪ NGHĨA LUẬN"
+  - "TIẾT 4: TÂM LÝ LUẬN"
+---
+
+## TIẾT 1: NGUỒN TƯ TƯỞNG
+
+Vào một lúc nọ, một tỳ-kheo [^191] đến xin phép Phật quay trở lại đời sống thế tục, không tu nữa, lý do: «Thế Tôn đã không trình bày về khởi nguyên của thế giới.» [^192]
+
+Phật trả lời: «Khởi nguyên của thế giới được trình bày hay không được trình bày, pháp mà Ta giảng thuyết có mục đích hướng dẫn người thực hành đi đến chỗ hoàn toàn diệt tận đau khổ.» [^193]
+
+Đây không phải là trường hợp có một không hai khi một đệ tử Phật công nhiên thách thức Phật với vấn đề như vậy.
+
+«Thế giới thường hằng hay không thường hằng? hữu hạn hay vô hạn?…» Những câu hỏi như vậy không ngớt được nêu lên, được tư duy, chiêm nghiệm để tìm giải đáp, xuất hiện ngay trong thời bình minh của tư tưởng nhân loại. Cho đến ngày nay, vẫn là những câu hỏi chưa có giải đáp dứt khoát. Dù cho chúng ta hiện nay biết khá rõ, và không hẳn là tuyệt đối chính xác, do đâu và bằng mà có trái đất này, nhưng bản chất của vấn đề vẫn tồn tại như trinh nguyên.
+
+Các đệ tử Phật đã dám công khai thách thức Phật [^194] với những câu hỏi như vậy cho thấy ngôi nhà kính tư tưởng tôn giáo và triết học đương thời đang bị hâm nóng như thế nào. Tần số xuất hiện của chúng trong các pháp thoại của Phật lại càng cho thấy nhu cầu cấp bách một giải đáp thích đáng. Nhưng điều cũng gây nhiều người – kể cả một số đệ tử Phật thời đức Phật – cảm thấy thất vọng. Nhiều giải thích và nhiều kết luận khác nhau, thường là cực kỳ mâu thuẫn nhau, về «sự im lặng» mang nhiều tính huyền bí này của đức Phật.
+
+Thực sự, phải chăng đức Phật «hoàn toàn im lặng», thủy chung không hề cung cấp bất cứ giải đáp nào?
+
+Truyền thuyết Luật tạng [^195] kể rằng Xá-lợi-phất tức thì «sạch bợn, sạch cáu bẩn, có con mắt pháp» ngay sau khi nghe hai dòng kệ của A-thuyết-thị, [^196] một trong năm tỳ-kheo đầu tiên được Phật giảng pháp tại vườn nai:
+
+Những pháp nào xuất hiện do bởi nguyên nhân,
+
+Như Lai nói về nguyên nhân của những pháp đó.
+
+Và Ngài cũng nói về sự diệt mất của chúng.
+
+Đó là thuyết giáo của vị Đại Sa-môn. [^197]
+
+Bài kệ hứa hẹn sẽ cung cấp câu trả lời thích đáng về nguyên nhân của những gì đang tồn tại ở đây. Nhưng sẽ cung cấp bằng cách nào? Trong trường hợp Xá-lợi-phất, và hầu như trong tất cả mọi trường hợp xảy ra cho đệ tử Phật, chính người hỏi tự tìm thấy giải đáp. Vì một trong các tính chất của Pháp Phật là «Hãy đến đây để tự mình nhìn thấy.» [^198]
+
+Mỗi cá nhân có cách đặt câu hỏi và giải đáp riêng của mình. Mỗi thời đại cũng có vấn đề và giải đáp riêng của nó. Cho nên, trước các Thần linh mà các tôn giáo nêu lên cho giải đáp về khởi nguyên của thế giới, Long Thọ trả lời dứt khoát: «Hoàn toàn không các sự hữu nào xuất hiện bất cứ ở đâu và bất cứ lúc nào.» [^199] Nếu tất cả vốn không tồn tại, hay không hiện thực, thì các câu hỏi về nguyên khởi hay tận cùng đều trở thành vô nghĩa.
+
+Nhưng Thắng Man lại có cách đặt vấn đề khác. Và do vậy, thuyết Như Lai tạng xuất hiện.
+
+Như Lai tạng là gì?
+
+Một vài giải thích theo ngữ nguyên Trung hoa hiểu chữ «tạng» ở đây cũng như trong danh từ «tạng thức.» Vậy thì, «Như Lai tạng» ở đây có nghĩa là «kho tàng Như Lai.» Đại sư Cát Tạng [^200] cũng có dẫn lời Tam tạng Chân Đế rằng Như Lai tạng «cũng nói là Như Lai thai.» Nhưng Đại sư không bình giải gì đặc biệt cho ý nghĩa của từ Hán dịch mới này.
+
+Nếu muốn lần tìm về nguồn gốc vi tế, ẩn mật của từ ngữ này, chúng ta có thể tìm thấy khá nhiều điển hình trong kinh điển A-hàm (Hán tạng) hay Pāli.
+
+Trung A-hàm, kinh số 105 «Hoàng lô viên» [^201] chép mẫu đối thoại giữa đức Phật và một người bà-là-môn 120 tuổi có tên là Bệ-lan-nhã.
+
+Bà-la-môn nói:
+
+«Sa-môn Cù-đàm không đầu thai.» [^202]
+
+Phật trả lời:
+
+«Có sự kiện để Ta không nhập thai, nhưng không phải như lời ông nói. Nếu có Sa-môn, Bà-la-môn nào, đối với thai sàng tương lai mà nhận thức toàn diện, tuyệt diệt nó, bứt rễ nó, không để cho tái sinh trở lại; Ta nói người ấy không nhập thai. Như Lai đối với thai sàng tương lai đã nhận thức toàn diện, tuyệt diệt nó, bứt rễ nó, không để cho tái sinh trở lại. Đó gọi là sự kiện để Như Lai không nhập thai.»
+
+Rồi Phật giảng tiếp:
+
+«Này Bà-la-môn, đối với chúng sinh này, đến từ vô minh, yêu thích vô minh, bị vô minh che phủ, bị bọc trong vỏ trứng vô minh; Ta là người đầu tiên nhìn thấy Pháp. Cho nên, đối với chúng sinh ấy Ta là tối tôn, bậc nhất. Cũng như một con gà mái sinh 10 hoặc 12 trứng. Nó thường xuyên nghĩ nhớ đến; thường xuyên che phủ, thường ấp cho ấm, thường xuyên gìn giữ. Một thời gian sau, giả sử con gà mái bỏ lơ, và trong đó có gà con đã có thể dùng mỏ, hoặc móng chân, mổ vỡ trứng mà tự mình thoát ra một cách an ổn. Con gà con đó là bậc nhất…»
+
+Không có bài kinh nào trong kho tàng Nguyên thủy nói về ý nghĩa Như Lai tạng nhiều hơn thế, và rõ ràng như thế. Theo đó, thì kiểu nói rằng, Như Lai là Phật tính có sẵn trong mỗi chúng sinh. Tự tính bản lai thanh tịnh ấy bị bao bọc trong vỏ trứng vô minh; đó là điều mà các nhà chú giải học thuyết Như Lai tạng nói là quan điểm «Như Lai tại triền» tức Như Lai đang bị quấn chặt. Nhiếp Đại thừa luận thích [^203] liệt kê 10 trường hợp thành tựu viên mãn của Bồ tát bước vào Sơ địa, trong đó trường hợp thứ mười được nói là «Đã thoát khỏi tình trạng trứng thối»; nghĩa là cái lòng đỏ bồ-đề tâm được thụ giống trải qua vô số kiếp nay phát triển thành gà con, chờ ngày chui ra khỏi trứng; không còn sợ tình trạng trứng thối hay trứng lộn nữa. Tất nhiên, cách nói tuy khác, nhưng nội dung không khác.
+
+Thêm nữa, thí dụ «vỏ trứng vô minh» là hình ảnh để có thể hiểu dễ dàng và khá đầy đủ về bản chất và công năng của vô minh trụ địa. Trong cảnh tối tăm như thế, làm sao phân biệt đông hay tây để có thể nói «đâu là khởi thủy? đâu là tận cùng?» Chân lý nhận thức được trong bóng tối của «vỏ trứng vô minh» như vậy với ảo giác của vọng tưởng phân biệt thì nó là vô hạn nhưng thực tế thì nó được gọi là «hữu hạn» để tương đối với tầm nhìn bao la khi gà con chui ra khỏi trứng, bấy giờ được gọi là «vô biên Thánh đế.»
+
+Nói tóm lại, câu chuyện trong Hoàng lô viên chứng tỏ Như Lai tạng không phải là một học thuyết do các nhà Đại thừa về sau thêm thắt vào.
+
+## TIẾT 2: KINH ĐIỂN ĐẠI THỪA LIÊN HỆ
+
+Trong các kinh điển Đại thừa được nói là thuộc hệ tư tưởng Như Lai tạng, hiện còn trong Hán tạng, bản dịch sớm nhất có lẽ là Đại phương quảng Như Lai tạng kinh, do Phật-đà-bạt-đà-la. [^204] Cho đến đời Đường, Bất Không [^205] dịch lại, cùng tên gọi.
+
+Kinh bắt đầu bằng biến cố bất thường. Sau bữa ăn trưa, Phật khiến cho từ đại lâu các Chiên-đàn tạng hiện ra hàng vạn ức đóa hoa sen, phủ kín cả hư không. Trên mỗi đóa sen có một đức Như Lai ngồi kết già. Đột nhiên, tất cả hoa sen này héo úa, màu sắc cực kỳ xấu xa, có mùi rất hôi hám. Nhưng các Như Lai trên các hoa sen vẫn phóng quang, thị hiện các quốc độ; tất cả thảy đều tráng lệ.
+
+Phật giải thích:
+
+«Như Lai bằng ánh sáng trí tuệ của chính Phật nhìn thấy trong những dục vọng, sân hận, si mê, tham trước, vô minh, phiền não của hết thảy chúng sinh, trong các thiện nam tử, thiện nữ nhân đang bị nhận chìm bởi phiền não, trong thai tạng, thảy đều có hằng trăm nghìn vạn ức chư Phật, thảy đều như Ta. Bằng con mắt trí tuệ của Như Lai mà quán sát, các vị ấy đều có tự thể Phật pháp, ngồi kết già, tịch nhiên bất động…»
+
+Tiếp theo đó, kinh nêu lên một loạt tám thí dụ, để giải thích ý nghĩa của một khái niệm quan trọng trong học thuyết Như Lai tạng là «Như Lai tại triền.»
+
+Trước bản dịch của Bất Không, vào đời Nguyên Ngụy Bồ-đề-lưu-chi cho xuất hiện bản dịch Phật thuyết Bất tăng bất giảm kinh. [^206] Kinh mở đầu với câu hỏi của Xá-lợi-phất về số lượng tăng hay giảm của chúng sinh trong dòng sinh tử. Phật giải thích, trong Nhất pháp giới, không có sự tăng giảm. Từ ý nghĩa Nhất pháp giới, các khái niệm tương tự được giới thiệu: «Thậm thâm nghĩa là Đệ nhất nghĩa đế, …là chúng sinh giới, … là Như Lai tạng, … là Pháp thân.»
+
+Trong đó, chúng sinh giới bao hàm ba ý niệm.
+
+1. Pháp thanh tịnh và tự thể tương ưng với bản tế của Như Lai tạng. Đây chỉ Như Lai tạng là tự tính thanh tịnh tâm. Bản tế tức khởi điểm hay nguyên khởi, chỉ vô tận quá khứ.
+
+2. Pháp không thanh tịnh bị quấn chặt trong phiền não, và tự thể không tương ưng với bản tế của Như Lai tạng. Đây chỉ vọng thức, tức là Như Lai tạng bị bao bọc bởi khách trần phiền não tuy vậy không hề bị ô nhiễm.
+
+3. Pháp hằng hữu bình đẳng suốt vị lai tế của Như Lai tạng. Đây chỉ khả năng thoát ly của Như Lai tạng. Suốt cho đến vô tận vị lai, cho đến khi thành Phật, Như Lai tạng vẫn hằng hữu.
+
+Cuối cùng, phải kể đến bản kinh quan trọng trong hệ tư tưởng này, mặc dù đứng sau Thắng Man về mặt ảnh hưởng. Đó là Phật thuyết Vô thượng y kinh, bản Hán dịch của Chân Đế. [^207] Về hình thức, kinh này dài hơn Thắng Man một chút, nhưng không bao quát nhiều vấn đề như Thắng Man phu nhân.
+
+Như đề kinh cho thấy, xu hướng của kinh là muốn thiết lập một sở y thường hằng bất biến, làm nơi nương tựa chân thật cho chúng sinh. Điểm này trong Thắng Man cũng được đề cập dưới tên gọi là «Nhất y»; ý muốn nói, trong ba quy y thì quy y Phật là chân thật quy y. Quy y Phật ở đây chính là quy y Pháp thân thường trụ của Phật. Pháp thân ấy cũng chính là Như Lai tạng.
+
+Vô thượng y mở đầu bằng sự so sánh công đức của người bố thí và một người khác thờ xá-1ợi. Điểm này tất có ý nghĩa lịch sử của nó. Nhưng ở đây chúng ta không xét đến. Điều cần lưu ý là từ giới [^208] trong các từ «chúng sinh giới» hay «pháp giới», «hư không giới» v.v., ngoài ý nghĩa thường gặp, còn có nghĩa «tháp thờ xá-lợi cúngPhật» hay chỉ cho xá-lợi hay di cốt của Phật. Chính trong ý nghĩa này, «Như Lai giới» hàm cả hai nghĩa, vừa siêu hình vừa hiện thực.
+
+Trong hiện thực, Như Lai giới là di cốt của Phật là cơ sở cho chúng sinh thờ phụng, tu phước. Trong ý nghĩa siêu hình, Như Lai giới chính là Pháp thân thường trụ, và đó chính là Vô thượng y. Ở đây, không chỉ là sở y, là nơi nương tựa như hòn đảo an toàn cho chúng sinh mệt mỏi, sợ hãi. Đó còn là nguyên lý duy trì và xuất sinh mọi hiện tượng. Nói cách khác, Như Lai giới là sở y cho tất cả chúng sinh giới. Chúng sinh giới là Như Lai tạng đang bị bọc trong vỏ phiền não.
+
+Điểm tập trung của kinh là ý nghĩa và tự tính của Bồ-đề. [^209] Trong này, có ba từ được hiểu như gần đồng nghĩa: Bồ-đề, Như Lai tạng, và chuyển y. Chuyển y [^210] cũng là một từ khóa trong hệ tư tưởng Duy thức. Đó là kết quả của quá trình chuyển hóa từ thức ô nhiễm thành trí thanh tịnh. Cũng giống như độ tươi sáng đạt được của ngọc qua những công đoạn lau chùi, mài dũa.
+
+Bồ-đề này có bốn đặc tính: [^211] 1. Là điều kiện cho sự sinh khởi, làm phát sinh dòng tương tục của Như Lai qua suốt vô tận thời gian; 2. Là điều kiện cho sự diệt tận của tất cả phiền não căn bản. 3. Là quả sở tri đã được tư duy thành thục. Sở tri tức đối tượng nhận thức ở đây là pháp chân như; 4. Là tự thể của pháp giới vô cùng thanh tịnh.
+
+Liên hệ với Như Lai tạng là Pháp thân. Có bốn đức của Pháp thân: thường ba-la-mật, lạc ba-la-mật, ngã ba-la-mật, tịnh ba-la-mật. Điều này cũng được đề cập trong Thắng Man.
+
+Ngoài ra, kinh giới thiệu các công đức hay phẩm tính siêu việt của Phật thường gặp trong các kinh điển Đại thừa như mười lực, bốn vô ngại trí, bốn vô sở uý…
+
+Đồng thời với bản dịch của kinh này, Tam Tạng Chân Đế còn phiên dịch một tác phẩm quan trọng khác của Thế Thân. [^212] Vì những vấn đề được trình bày trong tác phẩm này có tính hoàn chỉnh của một hệ thống tư tưởng nên chúng ta sẽ đề cập cũng trong phần tiếp theo của chương này.
+
+Cuối cùng, cũng không thể không nhắc đến hai tác phẩm khác của Kiên Tuệ. [^213] Trong đó Cứu cánh nhất thừa Bảo tính luận quan trọng gần như ngang tầm với Phật tính luận. Xu hướng chủ yếu của tác phẩm này, cũng giống như của Phật tính luận, giải thích Phật tính chính là Như Lai tạng. Vì tính cách hệ thống của tác phẩm, nên chúng ta cũng sẽ đề cập đến trong phần tiếp theo. Tác phẩm thứ hai là Đại thừa pháp giới vô sai biệt luận, trong đó giải thích 12 ý nghĩa Bồ-đề tâm mà dẫn kinh chủ yếu là các đoạn trong Thắng Man.
+
+## TIẾT 3: TỪ NGHĨA LUẬN [^214]
+
+### I. TỪ NGUYÊN
+
+Do nhận định các về từ nguyên khác nhau nên Phật tính luận [^215] nêu lên ba ý nghĩa của «tạng.»
+
+1. Tạng tức sở nhiếp, là cái được nắm giữ, được duy trì. Nói một cách cụ thể, đó là cái lòng đỏ trong quả trứng, là phôi thai trong bào thai, là hạt nhân, là mầm giống để nảy sinh ra Như Lai sau này. Theo ý nghĩa này, tất cả chúng sinh đều là Như Lai tạng, là phôi cái bào thai của Như Lai. Nhưng, Như Lai tính vốn thanh tịnh. Để cái phôi thai ô nhiễm ấy mà có thể phát triển thành Phật Như Lai sau này, thì trước hết cần phải giải quyết cặp mâu thuẫn đối nghịch nhiễm và tịnh. Chúng sinh tính là nhiễm. Như Lai tính là tịnh. Cặp mâu thuẫn này không thể giải quyết bằng lý luận. Về sau, Lăng-già đề ra ý niệm chuyển y; [^216] và Duy thức đã xây dựng quá trình chuyển y rất hoàn chỉnh. Nhưng Thắng Man cũng đặt nền tảng cho sự chuyển y ấy bằng Không tính. Thắng Man nói: «Trí của Như Lai tạng là trí của Như Lai về Không tính.» Nói cho gọn theo Bát-nhã, «tướng Không của các pháp ấy vốn không sinh, không diệt; không dơ, không sạch; không tăng, không giảm.» [^217]
+
+Khi nhận thức quan hệ hai mặt nhiễm-tịnh như thế, thì «Như» trong từ Như Lai được hiểu là Chân như hay Như như, nhận thức đối tượng như vậy đúng như vậy. Và «lai» tức là đến, đi đến nơi, hay đạt đến mục đích. Vậy thì, «Như Lai tạng» ở đây có nghĩa là «cái phôi đang phát triển để trở thành Như Vậy, hay Như Như.»
+
+Như vậy, về mặt ý nghĩa «tạng tức sở nhiếp» thì tất cả chúng sinh đều là cái phôi được chứa đựng bên trong trí tuệ của Như Lai. Trong ý nghĩa này, Phật tính luận [^218] nêu ba loại «tạng.» Một, chính cảnh vô tỷ, tối thượng về cảnh giới, vì ngoài cảnh giới như như, không tồn tại cảnh giới nào khác. Hai, chính hành vô tỷ, tối thượng về hành, vì ngoài trí này ra không còn trí nào cao hơn nữa. Ba, chính quả vô tỷ, tối thượng về quả chứng, vì quả ấy nhiếp tàng hết thảy chúng sinh. Nói rõ hơn, chúng sinh tức là Như Lai tạng, nên ba loại «tạng» vừa dẫn chính là ba giai đoạn trong quá trình chuyển y của Như Lai tạng, từ ô nhiễm trở thành thanh tịnh. Ba giai đoạn đó là, chúng sinh, Bồ tát và Phật.
+
+2. Tạng tức ẩn phú, nghĩa là bao phủ, che dấu. Nói là bị che dấu, vì vẫn thường hằng hiện hữu ở đó theo nghĩa «chưa từng đến và cũng chưa từng bỏ đi», nhưng phàm phu thì hoàn toàn không có chút ấn tượng gì về sự hiện diện ấy. Hàng Nhị thừa thì không hay biết, và cũng không tin là có. Hàng Bồ tát, tùy theo trình độ tu chứng mà tin nhiều hay tin ít. Cho đến hàng địa thượng Bồ tát mới hoàn toàn tin là có. Tất nhiên, tin chứ không phải thấy. Vì nghe theo lời Phật nói, và bằng theo sự quán sát của mình, cho nên tin.
+
+Nhưng, ở đây nói, «tạng tức ẩn phú» nghĩa là «che dấu»; vậy, đích thực, nó là «cái bị che dấu» hay «cái che dấu»? Nó là «phôi» hay «phôi bào»? Phật tính luận [^219] nói, chính Như Lai tự ẩn không hiện nên nói là «tạng.» [^220] Đây là điều mà Thắng Man gọi là «Không nghĩa ẩn phú chân thật.» Không nghĩa tức Không tính. Không tính tức Như Lai tính. Như Lai cũng là một từ có thể được dùng để chỉ yếu tính của tồn tại. Vì Như Lai cũng đồng nghĩa với Chân như; cũng đồng nghĩa với pháp bất sinh; đồng nghĩa với pháp đoạn diệt, với pháp tuyệt đối không sinh khởi. [^221] Trong ý nghĩa liên hệ này, thì «như» về mặt nhận thức là «chân thật không điên đảo.» Về mặt tự thể, «như» là tồn tại hiện tiền thường hằng bất biến. Tổng hợp mà nói, «Như Lai tạng» ở đây tức là lý tính duyên khởi, là Không tính, [^222] quy luật mà từ đó các pháp tồn tại và được nhận thức, tùy theo trình độ nhận thức. [^223] Vì là lý tính, cho nên luôn luôn tàng ẩn. Và vì là lý tính của tồn tại nên nó thường hằng tồn tại.
+
+Nói tóm lại, Như Lai tính thường hằng hiện hữu ngay hiện tiền, trong mọi tồn tại, nhưng Như Lai tính ấy bị màng phiền não che khuất nên chúng sinh không thấy.
+
+3. Tạng tức năng nhiếp. Ý nghĩa này chỉ địa vị quả chứng, tức Vô thượng Bồ-đề hay Phật. Tức là điều mà Thắng Man nói: «Như Lai tạng vốn không lìa ngoài tướng hữu vi. Như Lai tạng vốn thường trụ, không hủy hoại. Cho nên, Như Lai tạng là cái duy trì, là cái thiết lập.» Trong ý nghĩa này, về mặt từ nguyên, từ «tạng» trong tiếng Phạn có nghĩa đen là «tử cung.» Như vậy thì, chính các đức Như Lai, chư Phật Thế Tôn là đấng hộ vệ thế gian này, cưu mang trong đại bi tâm vô lượng của các Ngài tất cả phẩm tính siêu việt, không phải chỉ riêng là những phẩm tính siêu việt của Như Lai, mà của tất cả mọi chúng sinh. Khi chúng sinh nào nhận thức được Như Lai tính, Phật tính hay Pháp thân Phật thường trụ nơi tự tính của mình, lúc bấy giờ chúng sinh ấy được gọi là «con ruột» của Phật. Vì người ấy hằng ở trong lòng của Phật. [^224]
+
+### II. NỘI HÀM
+
+Thắng Man phu nhân nói:
+
+«Bạch Thế Tôn, Như Lai tạng là Pháp giới tạng, là Pháp thân tạng, là Xuất thế gian thượng thượng tạng, là Tự tính thanh tịnh tạng.» [^225]
+
+Điều mà Thắng Man nói là Pháp giới tạng, [^226] Phật tính luận nói là Chánh pháp tạng, và Luận này giải thích: [^227] «Nhân, đó là nghĩa của tạng. Bởi vì, hết thảy Thánh nhân, hết thảy Chánh pháp, bốn niệm xứ, v.v…., đều lấy đây làm cảnh giới, khiến cho những gì chưa sinh thì được sinh; đã sinh thì được phát triển trọn vẹn.» Cát Tạng [^228] hội thông sự khác biệt giữa hai dụng ngữ, dựa trên giải thích vừa dẫn: «Giới trong Pháp giới tạng chỉ cho cảnh giới.» Thực ra, khi Phật tính luận nói «tạng» cũng có nghĩa là «nhân», thì trong ý đó cũng bao hàm ý niệm về «giới» rồi. [^229] Như Lai tạng là Pháp giới tạng, vì đó là nơi cưu mang tất cả Như Lai, và vì Như Lai là nguồn của tất cả Chánh pháp, của hết thảy Ba thừa. Tất cả Pháp giới xuất sinh từ đó, và cũng tồn tại trong đó. Nhưng nếu «tạng» lấy từ gốc là «câu-xá», thì Pháp giới tạng có ngĩa là «kho tàng Pháp giới.» Như vậy, Như Lai tạng là Pháp giới tạng, vì là kho chứa tất cả chủng loại pháp, tất cả thành tố và mầm giống của hết thảy các pháp. Thêm nữa, từ «câu-xá» còn có nghĩa là «vỏ kén» (của tằm), hay «vỏ trứng.» Vậy, Như Lai tạng là Pháp giới tạng, vì là tự thể của Pháp giới đang bị bọc kín trong vỏ cứng phiền não.
+
+Về Như Lai tạng là Pháp thân tạng, Phật tính luận [^230] nói «tạng ở đây có nghĩa là đi đến nơi.» [^231] Pháp thân trong Thắng Man được nhận thức với bốn đức tính hay bốn ba-la-mật thường, lạc, ngã và tịnh. Như Lai, tức Pháp thân, là nơi nương tựa, là chỗ thường trụ quy y của hết thảy thế gian. Nhưng chỉ các Thánh nhân, là A-la-hán, Bích-chi-Phật và Đại lực Bồ tát mới có khả năng tin và hiểu tự thể và yếu tính của Pháp thân, do vậy mà nhiệt thành tin tưởng và nhiệt thành tu tập để đạt được Pháp thân ấy. Vậy, Như Lai tạng, hay «Như Lai thai», là Thánh thai của tất cả Thánh nhân, của hàng địa thượng Bồ tát.
+
+Về ý nghĩa Xuất thế tạng, Phật tính luận [^232] nói: «Tạng ở đây có nghĩa là chân thật.» Luận giải thích. Thế gian có ba khuyết điểm. Thứ nhất, về mặt đối trị, nó có thể bị làm cho diệt tận. Tức có chân lý về thế gian diệt, và cũng có chân lý về thế gian diệt đạo. Nói cách khác, đối trị chỉ có ý nghĩa đối với bịnh nhân. Với một cơ thể không bịnh hoạn thì không hề có khái niệm đối trị. Cũng vậy, Như Lai tạng không liên hệ đến bất cứ ý niệm đối trị nào, do đó được nói là «tạng xuất thế gian thượng thượng.» Bởi vì tạng ấy chỉ có thể được tin và hiểu bởi ba Đại Thánh nhân của ba thừa, cho nên thêm các từ «thượng thượng» để phân biệt. Thứ hai, thế gian có nghĩa là không ổn định. Thứ ba, có đảo kiến, tức nhận thức trái ngược; với những gì là vô thường thì được nhận thức là thường; những gì là khổ thì được nhận thức là lạc.
+
+Cuối cùng, Như Lai tạng tính là Tự thanh tịnh tạng. Thắng Man phu nhân nói: «Bạch Thế Tôn, nhưng có phiền não, có tâm bị phiền não nhiễm ô. Tự tính thanh tịnh tâm mà có ô nhiễm, thật là khó thấu triệt.»
+
+Theo ý nghĩa đó, tạng ở đây được hiểu là bí mật. [^233]
+
+## TIẾT 4: TÂM LÝ LUẬN
+
+### I. KHÁI THUYẾT
+
+Tâm lý luận là xu hướng phát triển tất nhiên của Phật học. Trong ba môn học, môn định học nằm ở vị trí trung chuyển. Nó vừa là yếu tố duy trì đời sống đạo đức cá nhân và cũng là tác nhân chính cho sự phát triển của nhận thức. Nó là phương pháp giúp cá nhân sống an lạc. Vì vậy, đại bộ phận tác phẩm kinh điển Phật học đều tập trung quanh chủ đề thiền định. Phân tích thiền, là phân tích các trạng thái tâm lý biến chuyển trong các giai đoạn tọa thiền. Khoa tâm lý luận Phật giáo không lấy dữ liệu từ những thống kê xã hội hay từ những hồ sơ bịnh án. Tất cả nhận thức về tâm lý luận Phật học hoàn toàn dựa trên kinh nghiệm thiền định chủ quan của mỗi cá nhân.. Cho nên, nói về tâm lý luận Phật giáo, có chỗ dễ hiểu, mà cũng có chỗ khó hiểu. Khó dễ tùy người.
+
+Sự phát triển tư tưởng Thắng Man mang những dấu ấn thời đại lịch sử đặc biệt, do đó không hoàn toàn là phát triển chủ yếu chỉ dựa trên các khảo sát tâm lý luận. Trong Thắng Man, yếu tố xã hội và tín ngưỡng đi trước yếu tố tâm lý và triết học. Nhưng không một hệ phái tư tưởng Phật học nào khi đã trở thành một hệ thống hoàn thiện lại thiếu mất cơ sở tâm lý luận. Bởi vì, về mặt thực tiễn ứng dụng, mỗi hệ phái tư tưởng Phật học đều có riêng những phương pháp đối trị tâm bịnh. Thắng Man cũng không ngoài thông lệ ấy. Do vậy, tâm lý luận trong Thắng Man cũng phản ánh khá nhiều yếu tố thần bí và siêu hình.
+
+Như Lai tạng trước hết là một khái niệm thần bí của tín ngưỡng tôn giáo. Đức Phật dứt khoát bác bỏ sự hiện diện một Thượng đế có quyền năng tuyệt đối trong vũ trụ. Các luận sư của cả hai thừa đều tích cực bác bỏ. Nhưng tín ngưỡng bình dân không bác bỏ được. Quần chúng bình dân cần sự hiện diện của một đấng Tối cao để che chở, để phân xử công bằng. Quan trọng nhất, Ngài phải là nguồn sinh sản bất tận cho sự thịnh vượng của thế giới, mà trước hết là thế giới vật chất. Vì Phật là đấng Chí Tôn đối với quần chúng Phật tử, cho nên chính Ngài là nguồn sinh sản bất tận ấy. Chúng ta biết rằng các luận sư Đại thừa đã vận dụng ý nghĩa của từ «thai» trong «Như Lai thai» một cách không mấy hăng hái. Nếu có thể, các Ngài né tránh tìm một từ khác, như từ «tàng» hay «tạng.» Nhưng chính Phật giáo Mật tông đã bảo lưu từ này, và phát triển một cơ sở tín ngưỡng hoàn thiện dựa trên ý niệm nội hàm của từ này. Đó là «Thai tạng giới.» [^234] Hán dịch vừa «thai» và vừa «tạng» để cố khai thác tất cả ý nghĩa tiềm ẩn của từ ngữ này.
+
+### II. CHỦ THỂ TÂM LÝ
+
+Trong Thắng Man, không đề cập rõ rệt đến một hay nhiều chủ thể nhận thức. Kinh có đề cập đến tái sinh, đến dòng tương tục của sinh tử, nhưng cũng không minh họa ý nghĩa chủ thể trong dòng sinh tử ấy. Chủ thể tâm lý thường nghiệm lại càng khó tìm thấy hơn nữa.
+
+Thực sự, vì trung thành với giáo lý vô ngã, các xu hướng tư tưởng Phật học thường cố tránh né đề cập đến một chủ thể tâm lý như là chủ nhân ông của mọi hành động. Do đó, nếu hiểu chủ thể như một nhân cách có ngôi vị phân biệt ta và cái khác ta, thì chủ thể ấy cũng rất khó tìm trong hầu hết các tông phái Phật giáo. Tuy không thừa nhận sự tồn tại của một chủ thể nhân cách như vậy, nhưng một câu hỏi thúc bách qua mọi thời đại cần phải có trả lời dứt khoát: Phật dạy không có tự ngã, vậy cái gì luân hồi?
+
+Thắng Man nói: «Sinh tử nương trên Như Lai tạng.» Ý nāy về sau được giải thích và được phát triển bởi Lăng-già: [^235] «Như Lai tạng hoạt động như là nhân của thiện và bất thiện, là cái tạo ra định hướng của tất cả sinh loại.» Đó là xác nhận chủ thể hành động. Nhưng không phải là chủ thể tâm lý thường nghiệm. Lăng già cảnh cáo không nên liên hệ hoạt động của Như Lai tạng như vậy với sự tồn tại của một tự ngã như là tác giả, mà các triết gia ngoại đạo thường có xu hướng làm. Bồ tát Đại Tuệ hỏi Phật: [^236]
+
+«Bạch Thế Tôn, trong nhiều đoạn kinh Như Lai tạng được Thế Tôn mô tả như là có bản chất ngời sáng, bản lai thanh tịnh, thường hằng thanh tịnh, đủ 32 tướng tốt, thường tồn tại trong thân chúng sinh. Như hạt minh châu vô giá bị bọc trong tấm vải bẩn; (Như Lai tạng) tuy bị quấn chặt bởi chiếc áo uẩn, xứ giới, bị cáu bẩn bởi chất bẩn tham dục, thù hận, ngu si, hư vọng phân biệt các thứ, vẫn được Thế Tôn mô tả là thường hằng, trường cửu, tịch tĩnh, bất biến. Phải chăng thuyết Như Lai tạng của Thế Tôn không đồng với thuyết tự ngã của Ngoại đạo? Bạch Thế Tôn, Ngoại đạo cũng chủ trương tự ngã, rằng Ngã là tác giả, thường hằng, biến tại, không lệ thuộc yếu tố cấu thành.»
+
+Phật đáp:
+
+«… Các đức Như Lai sau khi giảng thuyết Như Lai tạng bằng các cú nghĩa tính không, thật tế, niết-bàn, bất sinh, vô tướng, vô nguyện; với mục đích khiến cho những kẻ phàm ngu dẹp bỏ nỗi kinh hoàng về vô ngã. Các Như Lai, A-la-hán, Chánh đẳng giác lại giảng thuyết Như Lai tạng như là vô phân biệt, vô ảnh tượng.»
+
+Vô ngã, ý tưởng «ta không hiện hữu», gây nên nỗi sợ hãi siêu hình nào đó, tạo thành ám ảnh kinh hoàng về hư vô. Phật giảng Như Lai tạng để chúng sinh khống chế nỗi sợ hãi ấy. Về điểm này, Thắng Man phu nhân nói:
+
+«Bạch Thế Tôn, Như Lai tạng không phải là ngã, không phải là chúng sinh, không phải là linh hồn, không phải là chủ thể có ngôi vị.
+
+«Bạch Thế Tôn, Như Lai tạng không phải là cảnh giới cho chúng sinh rơi vào thân kiến, chúng sinh điên đảo, chúng sinh loạn ý chấp không.»
+
+Để có thể quan sát được chủ thể giả định ấy trong sinh hoạt thường nghiệm, và để khỏi nhầm với ý niệm về một tự ngã thường hằng, Lăng-già đề nghị thay Như Lai tạng bằng A-lại-da thức, như vậy, có thể giải thích dễ dàng hơn bản chất và hoạt động của các quan năng nhận thức thường nghiệm. Lăng-già [^237] nói: «Nếu thức A-lại-da, được biểu thị bởi từ Như Lai tạng, mà không hoạt động, thì bảy chuyển thức biến mất.»
+
+Ý niệm về bảy chuyển thức hoạt động trên mặt nổi của Như Lai tạng cũng được đề cập một cách sơ lược trong Thắng Man. Đó là các yếu tố mà kinh nói là «sáu thức và tâm pháp trí; bảy pháp này không đình trú trong từng sát na.»
+
+Chuyển thức là các chủ thể tâm lý thường nghiệm hoạt động như những con sóng trên đại dương mà nước chính là thức A-lại-da.
+
+Bởi vì Như Lai tạng không thể là đối tượng của nhận thức thường nghiệm, do đó hoạt động của bảy yếu tố tâm thức sinh diệt liên tục trong từng sát-na tạo thành hình ảnh một dòng sông chảy xiết. Hình ảnh đó, trong nhận thức của tục thức, là chủ thể của sinh mạng và nhận thức.
+
+### III. HOẠT ĐỘNG CỦA TÂM THỨC
+
+Khi đã chuyển Như Lai tạng, nguyên lý siêu hình vốn là bản thể sáng tạo của mọi tồn tại, thành hình ảnh của một chủ thể tâm lý thường nghiệm, với cái tên gọi mới là A-lại-da, truyền thống Duy thức, hay nói một cách chung chung là truyền thống duy tâm Phật giáo, đã cho phép thiết lập một hệ tâm lý học rất hoàn chỉnh, không chỉ để giải thích ý nghĩa sinh tồn của chúng sinh, mà còn có thể mô tả những xung động tâm lý thường nhật, những hoan lạc và đau khổ, v.v. Nhưng đó là những vấn đề của Duy thức tông về sau này. Ở đây, trong Thắng Man, chưa xuất hiện một cách rõ rệt ý tưởng về một thức A-lại-da thay thế cho Như Lai tạng. Cho nên, để có thể hiểu các hoạt động của tâm thức, không thể không lấy Như Lai tạng làm căn cứ. Dù thế nào, ý niệm về Như Lai tạng thủy chung vẫn là ý niệm về một tâm thể thường hằng, thanh tịnh; trong khi các hoạt động tâm thức thường nghiệm hoàn toàn bị thúc đẩy và chi phối bởi các động lực vô minh và tham ái. Đó là một nạn đề lớn. Và Phật đã ghi nhận điều đó trong Thắng Man : «Có hai pháp khó thấu triệt. Đó là tự tính thanh tịnh tâm, và tâm ấy bị ô nhiễm.»
+
+Sự tồn tại của một pháp như vậy đương nhiên không thể được nhận thức một cách dễ dàng. Tuy nhiên, các yếu tố tâm lý, dù khi chúng hoạt động như là chủ thể của nhận thức, cũng không phải có thể được nhận thức một cách đơn giản. Sự tồn tại của chúng có thể được nhận thức bằng trực giác, tức điều mà Lăng-già nói là hiện lượng của tự tâm. Nhưng từ nhận thức bằng tự tâm hiện lượng ấy mà vẽ lên hình ảnh xác định của từng chủ thể nhận thức, thì quả là điều không thể. Chính vì vậy mà các hoạt động tâm thức thường bị hiểu nhầm. Sự hiểu nhầm ấy đưa đến hai hậu quả, hình thành hai quan điễm mâu thuẫn nhau về yếu tính tồn tại của bản ngã và thế giới. Đó là thường kiến và đoạn kiến. Cả hai quan điểm cực đoan này được gọi chung là biên kiến. Thắng Man nói:
+
+'Biên kiến, là phàm phu đối với năm thủ uẩn mà thấy là ngã, vọng tưởng chấp trước, sinh ra hai kiến chấp; đó gọi là biên kiến; tức thường kiến và đoạn kiến. Thấy rằng các hành là vô thường; ấy là đoạn kiến chứ không phải chính kiến. Thấy rằng Niết-bàn là thường; ấy là thường kiến chứ không phải chính kiến.»
+
+Cả hai quan điểm cực đoan đều không nhận ra hoạt động của tâm thức như là những con sóng của dòng sông chảy xiết. Đó gọi là dòng tương tục. Có hai dòng tương tục hoạt động như là hai dòng tồn tại tại khác nhau, nhưng trong thực tính chỉ là một dòng duy nhất. Thứ nhất, Thắng Man gọi là dòng tương tục của sự hữu hay của hữu phần. [^238] Dòng tương tục này chảy liên tục suốt qua các đời sống khác nhau theo các định hướng tái sinh khác nhau. Nó là dòng sinh mạng chỉ được nhận thức là chủ thể tồn tại trong một khoảng thời gian nào đó, nói theo thời gian tuyến tính. Khởi điểm hoạt động của nó là sát-na đầu tiên của sự thọ sinh, khi mầm sống vừa được gieo. Đó chính khởi điểm hình thành các quan năng nhận thức cũng như sinh dục cho đời sống hiện tại. Khi các quan năng này chìm xuống để cho dòng tương tục của hữu phần trở lại trạng thái của dòng sông không gợn sóng, đó là điểm chấm dứt hoạt động, gọi là sự chết. Nếu chỉ có thể nhận thức hoạt động của dòng tương tục hữu phần này trong một phần hạn thời gian như thế, thì không có quan niệm về đời trước và đời sau. Chết là hết. Đó là đoạn diệt luận.
+
+Thế nhưng, chết là gì? Thắng Man nói: chết là khi các quan năng tri giác chìm xuống và các quan năng không tri giác tiếp nối khởi lên. Điều này muốn nói đến ý hướng hoạt động của tâm thức. Đặc tính hoạt động của các thức, tức quan năng tri giác, luôn luôn hướng đến một đối tượng bên ngoài nó, hay được giả định là bên ngoài nó. Nguyên lý sinh khởi và hoạt động của thức là cần phải có sự hiện diện của yếu tố làm sở duyên, tức là đối tượng tương ứng mà thức có thể vin vào để đứng dậy. Yếu tố ấy là ngoại cảnh. Chúng tồn tại trong liên hệ với thức, nhưng không bị chi phối hay điều động bởi thức. Nghĩa là, thức không thể sáng tạo chúng theo ý thích hay tưởng tượng một cách tự do tự tại. Quan hệ giữa thức và đối tượng của nó đã được hình thành từ các hoạt động quá khứ. Mối quan hệ này tồn tại như là tập quán di truyền của quá khứ, được gọi là tập khí. Hay nói theo Thắng Man, là các trụ địa, «mảnh đất được xông ướp.» Những trụ địa này là động lực, là những xung động tâm lý, kích thích hoạt động của tâm thức trong hiện tại, đồng thời các hoạt động ấy cũng làm dày thêm, «nặng mùi thêm» mảnh đất được xông ướp. Và như vậy là chúng hình thành định hướng mới cho tái sinh..
+
+Hết đợt sóng này đến lượt sóng khác, dòng tương tục hữu phần không ngừng biến động, không ngớt bị quấy động. Khởi lên rồi chìm xuống. Lại tiếp tục khởi lên. Cái véc-tơ sự sống ấy quay liên tục vô số chu kỳ, tạo thành ảo giác về một dòng tương tục uốn lượn theo dạng sóng hình sin với hai pha âm-dương, sống-chết, tiếp nối nhau cho đến vô tận trên trục thời gian tuyến tính.
+
+Thắng Man phu nhân nói:
+
+«Bạch Thế Tôn, sinh và tử, hai pháp này tức là Như Lai tạng. Do ngôn thuyết của thế gian nên nói là có sinh có tử. Tử là căn (cũ) hủy hoại. Sinh là căn mới khởi lên. Chứ không phải rằng Như Lai tạng có sinh có tử.»
+
+Đó là đoạn kiến, là nhận thức sai lầm về tồn tại của dòng tương tục hữu phần.
+
+Thứ hai là thường kiến, là nhận thức sai lầm về sự tồn tại của dòng tương tục của tâm thức. Thắng Man nói: «Đối với dòng tương tục của tâm mà ngu tối, không tỏ rõ, không biết cảnh giới của ý thức có gián đoạn trong từng sát-na, nên khởi thường kiến. Vì do vọng tưởng kiến chấp vậy.»
+
+Sự hình thành về quan điểm thường hằng của bản ngã và thế giới cũng được tác động theo một quy luật chung của hoạt động của tâm thức. Tất cả hoạt động của tâm thức đều hướng đến phục vụ một bản ngã. Bản ngã đó có thể tồn tại hay không tồn sau khi chết. Nhưng trong hiện tại nếu không tồn tại một bản ngã, sẽ không có hoạt động của tâm thức. Tất nhiên, khi nói về sự sống, thì ý niệm cần và đủ trước hết phải là ý niệm về một chủ thể của sự sống. Khi nói đến nhận thức cũng thế. Chủ thể ấy là bản ngã. Bản ngã ấy có thể được nhận thức từ những sinh hoạt thường nghiệm của tâm thức. Nó cũng có thể được nhận thức bằng những suy luận siêu hình, và điều này thường dẫn đến các tranh chấp tư tưởng về ý nghĩa tồn tại của nó. Tuy nhiên, bản ngã được nhận thức như là chủ thể của sinh hoạt thường nghiệm thì không thể phủ nhận. Đó gọi là chấp ngã, chỉ có thể được đoạn trừ khi chứng quả A-la-hán.
+
+Dòng chảy liên tục của tâm, sinh rồi diệt trong từng sát-na không gián đoạn, là ý nghĩa mà nhận thức thường nghiệm không nắm bắt được. Tâm thức thường nghiệm rung động theo tần số dao động của tồn tại ngoại giới, hay cụ thể, tồn tại của thế giới như là nguồn dinh dưỡng hay nguồn năng lượng chính yếu cho nó tồn tại và hoạt động; tần số ấy thường ghi lại trên tâm thức với dấu ấn của những chu kỳ chậm, kéo dài. Chậm và kéo dài đủ cho bộ máy tâm thức thực hiện trọn vẹn quá trình xử lý các hình ảnh bắt được. Nói theo ngôn ngữ cổ điển của kinh: từ sát-na đầu tiên với sự giao tiếp của căn, cảnh và thức, gọi là ba hòa hiệp xúc, kích phát hoạt động của cảm thọ. Từ cảm thọ, kích phát sự tiếp thu các ảnh tượng. Từ sự tiếp thu này, hình thành xung động tâm lý, và vào sát-na cuối cùng tâm thức như là chủ thể nhận thức hiện tại quyết định sẽ làm gì sau khi hoàn tất quá trình xử lý đối tượng nắm bắt được. Đó là thứ tự hoạt động của năm uẩn. Trong nhận thức thường nghiệm, quá trình như vậy được giả thiết là diễn ra ít nhất trong 5 sát-na. Mỗi sát-na là khoảng thời gian cực ngắn, vừa lớn đủ cho thức sinh và diệt không gián đoạn. Trong quá trình ấy, thức này sinh rồi diệt ngay, làm điều kiện tiếp nối cho thức kế tiếp. Diễn tiến hoạt động tâm thức như vậy nếu không tồn tại một chủ thể tồn tại suốt từ đầu đến cuối, thì quá trình không thể xảy ra trọn vẹn. Chủ thể ấy là tác giả, và cũng là thọ giả, là tác nhân sáng tạo ra quá trình và cũng là chủ nhân hưởng thụ kết quả của quá trình. Từ đó hình thành ý niệm về một bản ngã thường nghiệm. Quá trình được lặp lại nhiều lần, bản ngã càng trở nên to lớn. Nhưng lớn cho đến độ khi được khuếch trương theo trục thời gian thì nó trở thành linh hồn vĩnh cửu bất diệt; bấy giờ gọi quan điểm về sự tồn tại vĩnh hằng ấy là thường kiến.
+
+Đoạn kiến hay thường kiến đều là hai thái độ, hai cách nhìn khác nhau, từ hai vị trí khác nhau, đối với dòng tương tục của hữu phần và của tâm thức. Nói cách khác, thường kiền và đoạn kiến là những cái nhìn sai lạc bị thúc ép bởi nỗi sợ hãi về sự chết.
+
+Sợ hãi, đó là xung lực chính của các hoạt động tâm thức. Thắng Man nói, «các chúng ba thừa có sợ hãi mà quy y Như Lai, cầu mong xuất ly, tu học, hướng Vô thượng Chánh đẳng chánh giác.»
+
+Đối với phàm phu, sợ hãi phản ánh ý hướng níu lại và giữ gìn những gì mà các biến cố vô thường trong dòng tương tục của sinh tử phần đoạn luôn luôn đe dọa cướp đi. Đối các các Đại Thánh nhân, các A-la-hán, Bích-chi-Phật và Đại lực Bồ tát, nỗi sợ hãi vẫn còn ám ảnh, vì sinh tử biến dịch bất tư nghị chưa được thoát ly.
+
+Từ sợ hãi, tâm thức triển khai các hoạt động để trấn áp và để hưởng thụ các lạc thú do ý tưởng bình an được mang lại từ đó.
+
+Nhưng Thắng Man không triển khai các hoạt động này thành một hệ tâm lý luận hoàn chỉnh như Duy thức tông sau này. Hệ đơn giản nhất của Thắng Man chỉ gồm năm yếu tố, gọi là ngũ trụ địa hoặc.
+
+Thắng Man nói:
+
+«Phiền não có hai loại… trụ địa phiền não và khởi phiền não. Trụ địa phiền não có bốn… kiến nhất xứ trụ địa, dục ái trụ trụ địa, sắc ái trụ địa và hữu ái trụ địa. Bốn trụ địa này sinh ra hết thảy khởi phiền não. Khởi tức là sát-na tương ưng sát-na tâm… Vô minh trụ địa vô thủy không tương ưng với tâm.»
+
+Trong đó, khởi phiền não chỉ những yếu tố hành hoạt động của tâm thức. Chúng là những hạt giống được gieo trên các mảnh đất đã được xông ướp, hay phân bón. Khi nảy mầm, chúng hoạt động để tìm cách thỏa mãn những khát vọng của thức. Khi thế lực hiện hành hoạt động dứt, chúng rơi vào trạng thái tiềm phục, làm điều kiện cho các mầm giống hoạt động tương lai. Cứ như thế, mảnh đất tâm thức càng lúc càng được xông ướp nặng mùi thêm.
+
+Kiến nhất xứ trụ địa là tập hợp tất cả yếu tố hoạt động dưới sự chỉ đạo của tri kiến. Giống như một y sỹ nếu nhận định sai các triệu chứng bịnh và có chẩn đoán sai về nguyên nhân gây bịnh, phương thức điều trị bấy giờ thường đe dọa gây nhiều nguy hiểm cho bịnh nhân. Nhưng do mầm giống nảy từ mảnh đất vô minh, nên những nhận thức của chúng sinh về hiện thực đều sai lầm, do đó hậu quả luôn luôn là đau khổ. Một khi thấy được sự thực, kiến đế, những yếu tố này đồng loạt bị tiêu diệt. Bởi vì chúng quanh ta có vô vàn tác nhân gây nhiễu nhận thức, cho nên phiền não thuộc kiến nhất xứ trụ địa cũng nhiều vô số kể.
+
+Dục ái trụ địa, là mảnh đất cho những khát vọng tính dục trên đó các hạt giống đã nảy mầm hoạt động theo chiều hướng tìm kiếm những nguồn dinh dưỡng hay năng lượng thỏa mãn các xúc cảm vật chất. Sắc ái trụ địa là mảnh đất cho sự phát triển các lạc thú mang đến do thiền định. Hữu ái hay vô sắc ái, là những khát vọng tồn tại siêu việt thế giới vật chất.
+
+Vô minh trụ địa là tầng sâu thẳm nhất nằm bên dưới tận cùng, mà độ dày của các tầng trên tùy thuộc vào nó. Duy vô minh vẫn còn là một khái niệm huyền bí. Vì, như Thắng Man nói, chỉ A-la-hán, Bích-chi-Phật và Đại lực Bồ tát mới trực nghiệm được xung lực hoạt động này mà thôi. Tuy vậy, nó cần phải được nhận diện, vì nếu không, khi các Thánh giả A-la-hán, Bích-chi-Phật, Đại lực Bồ tát diệt trừ triệt để tất cả các phiền não trụ địa, các Ngài nhất định phải nhập Niết-bàn, vì không mảnh đất nào tồn tại nữa.
+
+Các trụ địa, là các mảnh đất tâm thức được xông ướp. Nhưng ngoài mảnh đất tâm ấy, không có tự thể tâm thức nào khác. Khi mê, gọi là thức. Khi ngộ, gọi là trí. Mảnh đất tâm nếu được cải tạo tốt, được chăm bón cẩn thận, sẽ sản xuất những thứ hoa trái tốt, không độc hại. Chuyển mê thành ngộ, chuyển thức thành trí, đó là công phu tu tập cho quá trình chuyển y được minh giải rất chi tiết trong Duy thức học về sau này.
+
+### IV. KẾT LUẬN
+
+Từ trước đến nay, qua suốt các chương đã được trình bày, chúng ta nhìn tư tưởng Thắng Man như là một triết lý hành động của Bồ tát đạo. Thì ở đây cũng thế, chúng ta đã nhìn tư tưởng Như Lai tạng của Thắng Man trong liên hệ đó, coi nó như là cơ sở của triết lý hành động ấy.
+
+Nói một cách vắn tắt, triết lý hành động của Thắng Man khởi đi từ cái nhìn về thiên chức làm mẹ của Bồ tát. Quá trình tu dưỡng của Bồ tát là quá trình nuôi lớn Thánh thai, là mở rộng tâm lượng của mình cho đến bao la vô tận, ôm trọn cả thế giới vào trong lòng. Do thế, nếu thấu suốt được Như Lai tạng, chứng nghiệm được Như Lai tạng, là có thể thấy rõ giới hạn tối sơ của mọi sự sống, hiểu biết tường tận tất cả sự sanh thành và hủy diệt của thế giới.
+
+Sự chứng nghiệm vô biên Thánh đế cũng là sự diệt trừ toàn diện vô minh trụ địa, đập vỡ cái vỏ trứng che cách bản thân và thế giới, và do đó thấu triệt tất cả căn nguyên của thế giới. Căn nguyên ấy là Như Lai tạng. Như Lai tạng là nguồn xuất sinh của tất cả giáo pháp của ba thừa bao gồm hai trình độ sai biệt nhận thức về bốn Thánh đế, do đó, theo trình tự tu chứng, trước hết Thắng Man phu nhân giới thiệu bốn Thánh đế hữu tác với mặt hạn chế của chúng trong ý nghĩa đối trị các trụ địa phiền não, tiếp theo giới thiệu bốn Thánh đế vô tác, và từ đó giới thiệu Như Lai tạng.
+
+Thắng Man phu nhân nói:
+
+«Thánh đế, đó là nói nghĩa sâu xa, vi tế, khó biết; không phải là cảnh giới tư lương. Đó là sở tri của bậc Trí; là điều mà hết thảy thế gian không thể tin. Vì sao? Đây là nói tạng sâu thẳm của Như Lai. Như Lai tạng là cảnh giới của Như Lai; không phải là điều mà hết thảy Thanh văn, Duyên giác có thể biết. Ở nơi cảnh vực Như Lai tạng mà nói ý nghĩa Thánh đế. Cảnh vực Như Lai tạng sâu thẳm, cho nên Thánh đế cũng sâu thẳm, vi tế, khó biết, không phải là cảnh giới tư lương…»
+
+Như vậy, Như Lai tạng được biết đến, được giới thiệu từ sự chứng nghiệm thực tế, từ sự triển khai những khía cạnh của thực tiễn hành động để nó trở thành cơ sở của triết lý hành động của Bồ tát đạo theo Thắng Man.
+
+<hr class="blog-rule" />
+
+## GHI CHÚ
+
+[^191] Pāṭika-sutta, D.iii.1ff, tỳ-kheo Sunakkhatta, người Licchavi. Trường «15 A-nậu-di kinh», tỳ-kheo tên Thiện Tú; Đại 1, tr. 66ff.
+
+[^192] Pāṭika, D.iiitr. 4: na hi pana me bhante Bhagavā aggaññaṃ paññāpetīti.
+
+[^193] Pāṭika, đã dẫn trên: paññatte vā aggaññe apaññatte vā aggaññe yass' atthāya mayā dhammo desito so niyyāti takkarassa sammā-dukkha-kkhayāya.
+
+[^194] Ngoài trường hợp Thiện Tú (Pāli Sunakkatta), trường hợp rất nổi tiếng khác, Man Đồng tử (Pāli Māluṅkyaputta) với ví dụ về mũi tên; xem Cūla-Māluṅkya-sutta, M.i. tr. , 426ff; Trung «221. Tiễn dụ kinh», Đại 1, tr. 804ff.
+
+[^195] Ngũ phần, quyển 16, Đại 22, tr. 110; Tứ phần, quyển 33, Đại 16, tr. 798cff.; Mahāvagga, Bihar, tr. 39.
+
+[^196] Skt. Aśvajit; Hán: An-bệ, A-thuyết-thị, A-thấp-bà, Mã Thắng.
+
+[^197] Pāli: ye dhammā hetuppabhavā hetuṃ tathāgato āha/ tesaṃ yo nirodho evaṃ vādī mahāsamaṇo.
+
+[^198] Pāli: svākkhato Bhagavatā dhammo… ehipassiko.
+
+[^199] Madhy, kārikā 3 (nửa sau): utpannā jātu vidyante bhāvāḥ kvacana kecana.
+
+[^200] Bảo khốt, tr. 67b.
+
+[^201] Đại 1, tr. 679. Pāli tương đương, Verañja-sutta, A.iv. tr. 172ff.
+
+[^202] Pāli: apagabbho bhavaṃ Gotamo. Câu này thực ra là một là câu rủa.
+
+[^203] Bản Chân Đế, Đại 31, tr. 226a 6.
+
+[^204] Phật-đà-bạt-đà-la (Skt. Buddhabhadra, Hán dịch: Giác Hiền); bản dịch được thực hiện dưới triều Đông Tấn, niên hiệu Nguyên hy thứ 2 (A, D.420); Skt. Tathāgatagarbha-sūtra; hoặc Ārya-tathāgatagarbha nāma mahāyānasūtra.
+
+[^205] Bản dịch được thực hiện trong khoảng Thiên bảo 5 và Đại lịch 9 (A.D. 746-774). Tam tạng Bất Không hay nói đủ là Bất Không Kim Cang (Skt. Amoghavajra), dịch giả lớn của kinh điển hệ Mật giáo, truyền thừa dòng Thai tạng giới (Garbha-dhātu) tại Trung hoa.
+
+[^206] Bản dịch thực hiện vào niên hiệu Chính quang, Nguyên Ngụy (A.D, 525), trước thời gian Bồ-đề-lưu-chi tập đại thành Đại bảo tích kinh (niên hiệu Trường thọ 2, A.D. 693) mà «Thắng Man Phu nhân hội» là một hội trong đó.
+
+[^207] Bản dịch được thực hiện dưới triều Lương, niên hiệu Thiệu thái (A.D. 557). Tam tạng Chân Đế (Paramārtha) là dịch giả lớn, người đã dọn nền móng cho Duy thức tông Trung Hoa.
+
+[^208] Dhātu trong cụm từ dhātu-garbha-kumbha, «bình đựng di cốt» (wogihara, Honwadaijiten), hoặc trong (buddhānāṇāṃ) dhātustūpāḥ SP.7.3, «tháp thờ di cốt của chư Phật.» (Fr. Edgerton, Buddhist Hybrid Sanskrit Grammar and Dictionary).
+
+[^209] Vô thượng y, tr. 470c20: «Cái gì là tự tính của Bồ-đề? Mười địa, mười ba-la-mật, như lý và như lượng mà tu tập con đường xuất ly; sự minh tịnh, tịch tĩnh, đạt được do chuyển y… được gọi là tự tính của Bồ-đề.»
+
+[^210] Chuyển y (Skt. āśraya-parivṛtti, hoặc āśraya-parāvṛtti). Nhiếp luận thích (Huyền) 9, tr. 369a27: «Chuyển y là gì? Khi phát sinh sự đối trị đối với tự tính ấy, xả bỏ phần ô nhiễm mà được phần thanh tịnh thì nói là chuyển y.»
+
+[^211] Vô thượng y, tr. 470c24.
+
+[^212] Phật tính luận. 4 quyển, Thiên Thân Bồ Tát tạo; Trần, Thiên trúc Tam tạng Chân Đế dịch, đời Trần trong khoảng niên hiệu Vĩnh định 2 - Thái kiến 1 (A.D. 558-569). Đại 31, tr. 794-812.
+
+[^213] Kiên Tuệ (Skt. Sāramati), người Trung Ấn độ, xuất hiện sau Thế Thân (Vasubandhu), được tôn sùng là bậc Bồ Tát địa thượng. 1. Cứu cánh nhất thừa bảo tính luận (Skt. Mahāyā­nottaratantra-śātra), 4 quyển, Lặc-na-ma-đề (Ratnamati: Bảo Ý) dịch, Hậu Ngụy, niên hiệu Chính thủy 5 (A.D.508-); Đại 31, tr. 813ff.- 2. Đại thừa pháp giới vô sai biệt luận, cũng gọi là Như Lai tạng luận, Đề-vân Bát-nhã (Devaprajñā) dịch, Đường niên hiệu Thiên thụ 2 (A.D.692); Đại 31, tr. 894ff.
+
+[^214] Phật tính luận (Đại 31, tr. 796b1) phân thành 10 tiết mục để luận về Như Lai tạng: 1. Tự thể tướng; 2. Nhân tướng; 3. Quả tướng; 4. Sự năng tướng; 5. Tổng nhiếp tướng; 6. Phân biệt tướng; 7. Giai vị tướng; 8. Biến mãn tướng; 9. Vô biến dị tướng; 10. Vô sai biệt tướng.
+
+[^215] Đại 31, tr. 795c23.
+
+[^216] Xem cht. 209 trên.
+
+[^217] Bát nhã Tâm kinh. Hṛdaya: …sarvadharmāḥ śūnyatā lakṣaṇā anutpannā aniruddhā amalā na vimalā nonā na paripūrṇāḥ. Xem thêm dẫn và giải thích của Vô sai biệt, Đại 31, tr. 893b19.
+
+[^218] Đại 31, tr. 796a15.
+
+[^219] Đại 31, tr. 796a.
+
+[^220] Trong các trường hợp này, phát âm Hán Việt đúng phải là «tàng» như trong từ «tàng ẩn.» Nhưng theo thói quen, nên đây vẫn phát âm là «tạng».
+
+[^221] Vajra. tr. 74.12: tathāgata iti subhūte bhūtatathatāyā etad adhiva­canam/ tathā­gata… anutpādadharmatāyā etad adhivacanam/ …dharmocchedasyaitad adhivacanam/ …atyān­tānutpannasyatad adhivacanam, «Này Tu-bồ-đề, Như Lai là từ đồng nghĩa với Chân như, với vô sinh pháp tính, pháp đoạn diệt, cứu cánh không sinh khởi».
+
+[^222] Madhy., kārikā 22.16: tathāgato yat svabhāvas tat svabhāvam idaṃ jagat/ tathāgato niḥ­svabhavo niḥsvabhāvam idaṃ jagat, Như Lai có tự thể cho nên thế gian này có tự thể. Như Lai không có tự thể, thế gian này cũng không có tự thể.
+
+[^223] Madhy, Kārikā 24.14: sarvaṃ ca yujyate tasya śūnyatā yasya yujyate/ sarvaṃ na yujyate tasya śūnyaṃ yasya na yujyate, «tất cả thích ứng vì nó thích ứng với Không tính. Tất cả không thích ứng vì nó không thích ứng với cái Không».
+
+[^224] «Con ruột của Phật» (Tathāgata-putra, hay Tathāgata-suta?) chưa xác định được Skt. Có lẽ: Tathāgata-bhūta-suta/putra (Skt. bhūta, có nghĩa là chân thật, cũng có nghĩa là con đích thực; V. Sh. Apte, The Practical Sanskrit-English Dictionary). Các bản Hán dịch của Thắng Man đều nói là «Như Lai chân tử.» Trong Phật tính luận (Đại 31, tr. 798b26), Chân Đế dịch là «Như Lai hung tử» nghĩa là «Người con trong lòng Như Lai» và luận giải thích sở dĩ nói thế vì luôn luôn ở trong lòng (tâm hung) của Phật.
+
+[^225] Dẫn bởi Phật tính luận (Đại 31, tr. 796b26).
+
+[^226] Đại nhật kinh sớ, quyển 14: «Pháp giới tạng, tiếng Phạn ở đây có âm là Câu-xá. Nó có nghĩa là ‹bao kiếm›». Theo đó Pháp giới tạng ở đây Skt. là Dharmadhātu-kośa (thay vì là Dharmadhātu-garbha) cũng như trong Abhidharma-kośa (A-tỳ-đạt-ma Câu-xá ).
+
+[^227] Đại 31, tr. 796b 10.
+
+[^228] Bảo khốt, Đại 34, tr. 85b23.
+
+[^229] Đại thừa A-tỳ-đạt-ma tạp tập luận (An Tuệ), Đại 31, tr. 704b25: «Nghĩa của giới là gì? Nghĩa là, hạt giống của hết thảy pháp. Tức là, căn cứ hạt giống của các pháp trong A-lại-da thức mà nói là giới. Vì giới có nghĩa là nhân vậy.»
+
+[^230] Đại 31, tr. 796b12.
+
+[^231] Hán: chí đắc. Mochiyuki đọc là chí đức, theo âm Nhật đều là shitoku.
+
+[^232] Đại 31, tr. 796b16.
+
+[^233] Phật tính luận, Đại 31, tr. 796b21.
+
+[^234] Skt. Garbhadhātu. Giải thích của Đại nhật kinh sớ 3 : «Hành giả khi vùa phát tâm mong cầu Nhất thiết trí, giống như bắt đầu gieo hạt giống của thức vào trong thai do nhân duyên hòa hiệp của cha mẹ…»
+
+[^235] Laṅkā, tr. 90.7: tathagatagarbho mahāmate kuśalākuśala-hetukaḥ sarvagatikartā pravartate. Cf. Lăng-già 5, Đại 16, tr. 619c1.
+
+[^236] Laṅkā, tr. 33.10. Cf. Lăng-già 11, Đại 16, tr. 599b9.
+
+[^237] Laṅkā, tr. 90.18: aparāvṛtte ca tathāgatagarbhaśabda-saṃśabdite ālaya-vijñāne nāsti saptānāṃ pravṛttivijñānānāṃ nirodhaḥ. Cf. Đại thừa nhập Lăng-già 5, Đại 16, tr. 619c13.
+
+[^238] Hữu tương tục (Skt. bhavāṅga-santati).

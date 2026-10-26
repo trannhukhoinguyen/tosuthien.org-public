@@ -1,0 +1,242 @@
+---
+import "@/styles/wiki-type/tag.wiki.css"
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/wiki-type/Layout.astro";
+import Search from "../../../components/wiki-type/enlightener/SearchEnlightener.astro";
+import { getEnlightenerUrl } from "@/utils/enlighteners.ts";
+import { getTimeAgo } from "@/utils/dateUtils";
+
+export async function getStaticPaths() {
+    const allEnlighteners = await getCollection("enlighteners");
+
+// Lọc bỏ các giá trị undefined, null hoặc trùng lặp
+  const tags = [
+    ...new Set(allEnlighteners.map((enlightener) => enlightener.data.tags)?.flat()),
+  ].filter((tag): tag is string => Boolean(tag && tag.trim() !== ""));
+
+    const tagCounts = tags.reduce(
+        (acc, tag) => {
+          if (tag) {
+            acc[tag] = allEnlighteners.filter((enlightener) => tag && enlightener.data.tags?.includes(tag)).length
+          }
+          return acc;
+        },
+        {} as Record<string, number>,
+    );
+
+    return tags.map((tag) => {
+        const slug = tag && tag?.toLowerCase().replace(/\s+/g, "-");
+        const tagEnlighteners = allEnlighteners.filter(
+            (enlightener) => tag && enlightener.data.tags?.includes(tag),
+        );
+        return {
+            params: { tag: slug },
+            props: {
+                tag,
+                enlighteners: tagEnlighteners,
+                allEnlighteners,
+                allTags: tags,
+                tagCounts,
+            },
+        };
+    });
+}
+
+const { tag, enlighteners: enlightenersToDisplay, allEnlighteners, allTags, tagCounts } = Astro.props;
+
+const catDescription = `Khám phá các hướng dẫn và bài viết chi tiết về`;
+
+// Sort enlighteners by date or title
+const sortedEnlighteners = enlightenersToDisplay.sort((a, b) =>
+    b.data.title.localeCompare(a.data.title),
+);
+
+// Get other tags for the sidebar
+const tagsWithCounts = allTags.map((t) => {
+    return {
+        name: t,
+        slug: t?.toLowerCase().replace(/\s+/g, "-"),
+        count: t && tagCounts?.[t] || 0,
+    };
+});
+---
+
+<Layout title={`${tag} - Tổ Sư Thiền`}>
+  <header class="page-header">
+    <div class="page-header__overlay"></div>
+    <div class="container-wide page-header__container">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <ol class="breadcrumb__list">
+          <li class="breadcrumb__item">
+            <a href="/" class="breadcrumb__link">Home</a>
+          </li>
+          <li class="breadcrumb__item">
+            <span class="breadcrumb__separator">/</span>
+            <a href="/enlighteners" class="breadcrumb__link">Giác giả</a>
+          </li>
+          <li class="breadcrumb__item">
+            <span class="breadcrumb__separator">/</span>
+            <span class="breadcrumb__current">{tag}</span>
+          </li>
+        </ol>
+      </nav>
+
+      <h1 class="page-header__title">{tag}</h1>
+      <p class="page-header__desc">
+        {`${catDescription}  ${tag}.`}
+      </p>
+      <div class="page-header__meta">{enlightenersToDisplay.length} bài viết</div>
+
+      <div class="page-header__search">
+        <Search />
+      </div>
+    </div>
+  </header>
+
+  <div class="content-section">
+    <div class="container-wide">
+      <div class="content-layout">
+        <!-- Sidebar:  -->
+        <aside class="sidebar">
+          <div class="sidebar-card">
+            <h4 class="sidebar-card__title">Các danh mục liên quan</h4>
+            <nav class="tag-nav">
+              {tagsWithCounts.map((cat) => (
+                <a
+                  href={`/enlighteners/tag/${cat.slug}`}
+                  class:list={[
+                    "tag-nav__item",
+                    cat.name === tag && "tag-nav__item--active"
+                  ]}
+                >
+                  <span class="tag-nav__main">
+                    <span class="tag-nav__dot"></span>
+                    <span class="tag-nav__text">{cat.name}</span>
+                  </span>
+                  <span class="tag-nav__badge">{cat.count}</span>
+                </a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <!-- Article List -->
+        <main
+          class="article-main"
+          x-data={`{
+            currentPage: 1,
+            perPage: 10,
+            totalItems: ${sortedEnlighteners.length},
+            get totalPages() { return Math.max(1, Math.ceil(this.totalItems / this.perPage)); },
+            get startIndex() { return (this.currentPage - 1) * this.perPage + 1; },
+            get endIndex() { return Math.min(this.currentPage * this.perPage, this.totalItems); },
+            goToPage(page) { this.currentPage = Math.min(Math.max(page, 1), this.totalPages); },
+            isVisible(index) {
+              const start = (this.currentPage - 1) * this.perPage;
+              const end = this.currentPage * this.perPage;
+              return index >= start && index < end;
+            }
+          }`}
+        >
+          <div class="article-header">
+            <h3 class="article-header__title">Bài viết</h3>
+            <span
+              class="article-header__count"
+              x-text="`Hiển thị ${startIndex}-${endIndex} của ${totalItems} bài viết`"
+            ></span>
+          </div>
+
+          <div class="article-list">
+            {sortedEnlighteners.map((enlightener, index) => (
+              <article
+                x-show={`isVisible(${index})`}
+                class="article-card"
+                data-pagefind-body
+                data-pagefind-filter={`category:${tag}`}
+              >
+                <div class="article-card__header">
+                  <h4 class="article-card__title">
+                    <a href={getEnlightenerUrl(enlightener)} class="article-card__link">
+                      {enlightener.data.title}
+                    </a>
+                    <span class="article-card__extra">{enlightener.data.category}</span>
+                  </h4>
+                  <span class="article-card__date">
+                    {enlightener.data.lastUpdated && getTimeAgo(enlightener.data.lastUpdated)}
+                  </span>
+                </div>
+                <p class="article-card__desc">
+                  {enlightener.data.description || "..."}
+                </p>
+                <div class="featured-card__badge-list">
+                  {enlightener.data.tags?.map((tag, index) => (<span class="featured-card__badge">{tag}</span>))}
+                </div>
+                <a href={getEnlightenerUrl(enlightener)} class="article-card__cta">
+                  Đọc bài viết
+                  <span class="article-card__cta-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </span>
+                </a>
+              </article>
+            ))}
+          </div>
+
+          <!-- Simple Pagination -->
+          <div class="pagination" x-show="totalPages > 1">
+            <button
+              type="button"
+              @click="goToPage(currentPage - 1)"
+              :disabled="currentPage === 1"
+              class="pagination__btn"
+              aria-label="Previous page"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </button>
+
+            <template x-for="page in totalPages" :key="page">
+              <button
+                type="button"
+                @click="goToPage(page)"
+                :class="currentPage === page ? 'pagination__page--active' : 'pagination__page--inactive'"
+                class="pagination__btn pagination__page"
+                x-text="page"
+              ></button>
+            </template>
+
+            <button
+              type="button"
+              @click="goToPage(currentPage + 1)"
+              :disabled="currentPage === totalPages"
+              class="pagination__btn"
+              aria-label="Next page"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12H19M19 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </button>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .featured-card__badge_list {
+    display: inline-flex;
+    justify-content: end;
+    align-items: center;
+    float: right;
+  }
+  .featured-card__badge {
+    float: right;
+    margin-right: 1rem;
+    padding: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 9999px;
+    color: white;
+    background-color: var(--color-accent-teal);
+  }
+</style>
+

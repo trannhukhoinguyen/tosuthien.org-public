@@ -1,0 +1,36 @@
+title: CẨM NANG TU ĐẠO
+author: HT. Quảng Khâm
+category: Sách
+tags:
+  - Ngữ Lục
+videoIds:
+  - TqlspAdHm9o
+parts:
+  - title: Mở đầu
+    chapters:
+      - slug: dan-nhap
+        title: Dẫn Nhập
+      - slug: tieu-su-hoa-thuong-quang-kham
+        title: Tiểu Sử Hòa Thượng Quảng Khâm
+  - title: Nội dung
+    chapters:
+      - slug: tu-hanh
+        title: Tu Hành
+      - slug: kho-hanh
+        title: Khổ Hạnh
+      - slug: ro-nghia
+        title: Rõ Nghĩa
+      - slug: viec-lam-ba-la-mat
+        title: Việc Làm Ba-La-Mật
+      - slug: hanh-xuat-gia
+        title: Hạnh Xuất Gia
+      - slug: xuat-gia-va-tai-gia
+        title: Xuất Gia Và Tại Gia
+      - slug: canh-gioi-cua-chung-sinh
+        title: Cảnh Giới Của Chúng Sinh
+      - slug: nhan-qua-va-sam-hoi
+        title: Nhân Quả Và Sám Hối
+      - slug: loi-cuoi
+        title: Lời Cuối
+      - slug: may-loi-tam-huyet
+        title: Mấy Lời Tâm Huyết

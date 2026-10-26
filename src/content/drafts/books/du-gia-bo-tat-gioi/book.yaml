@@ -1,0 +1,35 @@
+title: DU GIÀ BỒ TÁT GIỚI
+author: HT. Tuệ Sỹ
+category: Sách
+tags:
+  - HT. Tuệ Sỹ
+  - Giới Luật
+parts:
+  - title: DẪN NHẬP
+    chapters:
+      - slug: dan-nhap
+        title: DẪN NHẬP
+  - title: PHẦN GIẢNG GIẢI. GIỚI PHẨM BỒ TÁT
+    chapters:
+      - slug: chuong-i-tu-tanh-gioi
+        title: Chương I. Tự Tánh Giới (Bản chất của Giới)
+      - slug: chuong-ii-nhat-thiet-gioi
+        title: Chương II. Nhất Thiết Giới (Tất cả các loại Giới)
+      - slug: chuong-iii-nan-hanh-gioi
+        title: Chương III. Nan Hành Giới (Những giới khó thực hành)
+      - slug: chuong-iv-nhat-huong-gioi
+        title: Chương IV. Nhất Hướng Môn Giới (Phương pháp thực hành giới)
+      - slug: chuong-v-thien-nhan-gioi
+        title: Chương V. Thiện Nhân Giới (Giới của bậc thiện trí thức)
+      - slug: chuong-vi-nhat-thiet-mon-gioi
+        title: Chương VI. Nhất Thiết Môn Giới (Các phương diện hành trì giới)
+      - slug: chuong-vii-tang-thuong-luc-gioi
+        title: Chương VII. Tăng Thượng Lực Giới (Năng lực tăng thượng của Giới)
+      - slug: chuong-viii-nhap-tam-gioi
+        title: Chương VIII. Nhập Tâm Giới (Giới thâm nhập tâm thức)
+      - slug: chuong-ix-tu-thap-cuu-thua-gioi
+        title: Chương IX. Tứ Thập Cửu Thừa Giới (49 điều giới cụ thể)
+  - title: PHẦN PHỤ LỤC
+    chapters:
+      - slug: phu-luc
+        title: PHỤ LỤC

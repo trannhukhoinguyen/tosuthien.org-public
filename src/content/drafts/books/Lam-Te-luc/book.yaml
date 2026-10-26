@@ -1,0 +1,27 @@
+title: LÂM TẾ LỤC
+author: TS. Lâm Tế Nghĩa Huyền
+translator: CS. Dương Đình Hỷ
+category: Sách
+tags:
+  - Ngữ Lục
+  - CS. Dương Đình Hỷ
+  - Thiền tông
+  - Tổ Sư Thiền
+parts:
+  - title: PHẦN I - THƯỢNG ĐƯỜNG
+    chapters:
+      - slug: phan-i-thuong-duong
+        title: THƯỢNG ĐƯỜNG
+  - title: PHẦN II - THỊ CHÚNG
+    chapters:
+      - slug: phan-ii-thi-chung
+        title: THỊ CHÚNG
+  - title: PHẦN III - KHAM BIỆN
+    chapters:
+      - slug: phan-iii-kham-bien
+        title: KHAM BIỆN
+  - title: PHẦN IV - HÀNH LỤC
+    chapters:
+      - slug: phan-iv-hanh-luc
+        title: HÀNH LỤC
+

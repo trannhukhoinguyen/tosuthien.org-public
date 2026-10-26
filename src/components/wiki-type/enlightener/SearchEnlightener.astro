@@ -1,0 +1,333 @@
+---
+import { l } from "src/utils/constants.ts";
+import "src/styles/wiki-type/search.wiki.css"
+
+// Lấy trực tiếp từ URL query param, ưu tiên hơn Astro.props (nếu có)
+const keyword = Astro.url.searchParams.get('keyword') || "";
+
+// Lấy param [lang] từ URL động của Astro (mặc định là 'vi' nếu không khớp)
+const { lang = 'vi' } = Astro.params;
+---
+
+<div
+    x-data="{
+        open: false,
+        focused: false,
+        query: '',
+        loading: false,
+        results: [],
+        popular: [],
+        fallbackIndex: [],
+        fallbackLoadState: 'idle',
+        fallbackPromise: null,
+        pagefindStatus: 'unknown',
+        searchRequestId: 0,
+        fallbackReported: false,
+        init() {
+            // Lấy giá trị từ data-enlightener được truyền từ Astro sang
+            this.query = this.$el.dataset.enlightener || '';
+
+            this.ensureFallbackData();
+            if (this.query.trim()) {
+                this.search();
+            }
+
+            // 1. Lấy giá trị query từ URL ngay khi vào trang
+          const urlParams = new URLSearchParams(window.location.search);
+          const urlQuery = urlParams.get('keyword');
+
+          if (urlQuery) {
+              this.query = urlQuery;
+
+              // 2. Dùng $nextTick để đảm bảo DOM đã render xong kết quả tương ứng với query
+              this.$nextTick(() => {
+                  const firstItem = document.querySelector('.search-dropdown-item'); // Selector đến item kết quả đầu tiên của bạn
+
+                  if (firstItem) {
+                      // Lựa chọn 1: Gọi lệnh click giả lập vào phần tử đầu tiên
+                      firstItem.click();
+
+                      // Lựa chọn 2: Nếu đó là thẻ link và bạn muốn chuyển hướng trang ngay lập tức
+                      // if (firstItem.href) {
+                      //     window.location.href = firstItem.href;
+                      // }
+                  }
+              });
+          }
+        },
+        async ensureFallbackData() {
+            if (this.fallbackLoadState === 'ready') return true;
+            if (this.fallbackLoadState === 'loading' && this.fallbackPromise) {
+                await this.fallbackPromise;
+                return this.fallbackLoadState === 'ready';
+            }
+
+            this.fallbackLoadState = 'loading';
+            this.fallbackPromise = fetch('/search-index.enlightener.json')
+                .then((res) => {
+                    if (!res.ok) {
+                        throw new Error(`Fallback index request failed (${res.status})`);
+                    }
+                    return res.json();
+                })
+                .then((payload) => {
+                    this.fallbackIndex = Array.isArray(payload?.enlighteners) ? payload.enlighteners : [];
+                    this.popular = Array.isArray(payload?.popular) ? payload.popular : [];
+                    this.fallbackLoadState = 'ready';
+                })
+                .catch((error) => {
+                    console.error('Fallback search index failed to load:', error);
+                    this.fallbackLoadState = 'error';
+                    this.fallbackIndex = [];
+                    this.popular = [];
+                });
+
+            await this.fallbackPromise;
+            return this.fallbackLoadState === 'ready';
+        },
+        scoreFallbackItem(item, q, tokens) {
+            const title = (item.title || '').toLowerCase();
+            const description = (item.description || '').toLowerCase();
+            const category = (item.category || '').toLowerCase();
+
+            let score = 0;
+            if (title === q) score += 300;
+            if (title.startsWith(q)) score += 180;
+            if (title.includes(q)) score += 120;
+            if (category.includes(q)) score += 50;
+            if (description.includes(q)) score += 35;
+
+            for (const token of tokens) {
+                if (title.startsWith(token)) score += 50;
+                else if (title.includes(token)) score += 30;
+                if (category.includes(token)) score += 10;
+                if (description.includes(token)) score += 8;
+            }
+
+            return score;
+        },
+        fallbackSearch(term) {
+            const q = term.trim().toLowerCase();
+            if (!q) return [];
+            const tokens = q.split(/\s+/).filter(Boolean);
+
+            return this.fallbackIndex
+                .map((item) => ({
+                    item,
+                    score: this.scoreFallbackItem(item, q, tokens),
+                }))
+                .filter((entry) => entry.score > 0)
+                .sort((a, b) => {
+                    if (b.score !== a.score) return b.score - a.score;
+                    return a.item.title.localeCompare(b.item.title);
+                })
+                .slice(0, 8)
+                .map(({ item }) => ({
+                    url: item.url,
+                    title: item.title,
+                    description: item.description,
+                }));
+        },
+        reportFallback(reason) {
+            if (this.fallbackReported) return;
+            this.fallbackReported = true;
+            window.dispatchEvent(
+                new CustomEvent('sgkb:search:fallback', {
+                    detail: { reason },
+                }),
+            );
+            console.info('Search fallback enabled:', reason);
+        },
+        async ensurePagefind() {
+            if (this.pagefindStatus === 'ready') return true;
+            if (this.pagefindStatus === 'unavailable') return false;
+            if (typeof window.pagefind !== 'undefined') {
+                this.pagefindStatus = 'ready';
+                return true;
+            }
+            try {
+                window.pagefind = await import('/pagefind/pagefind.js');
+                await window.pagefind.init();
+                this.pagefindStatus = 'ready';
+                return true;
+            } catch {
+                this.pagefindStatus = 'unavailable';
+                return false;
+            }
+        },
+        async runFallbackSearch(query, reason, requestId) {
+            const hasIndex = await this.ensureFallbackData();
+            if (requestId !== this.searchRequestId) return;
+            if (!hasIndex) {
+                this.results = [];
+                this.loading = false;
+                return;
+            }
+            this.reportFallback(reason);
+            this.results = this.fallbackSearch(query);
+            this.loading = false;
+        },
+        async search() {
+            const requestId = ++this.searchRequestId;
+            this.open = true;
+
+            const query = this.query.trim();
+            if (!query) {
+                this.results = [];
+                this.loading = false;
+                return;
+            }
+
+            this.loading = true;
+            const pagefindReady = await this.ensurePagefind();
+            if (requestId !== this.searchRequestId) return;
+
+            if (!pagefindReady) {
+                await this.runFallbackSearch(query, 'pagefind-unavailable', requestId);
+                return;
+            }
+
+            try {
+                const found = await window.pagefind.search(query);
+                if (requestId !== this.searchRequestId) return;
+
+                const pagefindResults = await Promise.all(
+                    found.results.slice(0, 8).map((r) => r.data()),
+                );
+                if (requestId !== this.searchRequestId) return;
+
+                this.results = pagefindResults.map((result) => ({
+                    url: result.url,
+                    title: result.meta?.title || 'Untitled',
+                    descriptionText: result.meta?.description?.replace(/<[^>]*>/g, '') || '',
+                    extraNames: result.meta?.extraNames?.replace(/<[^>]*>/g, '') || '',
+                    teachers: result.meta?.teachers?.join(', ') || [],
+                }));
+                this.loading = false;
+            } catch {
+                await this.runFallbackSearch(query, 'pagefind-search-error', requestId);
+            }
+        },
+        async searchFromButton() {
+            this.open = true;
+            await this.search();
+            this.$refs.searchInput?.focus();
+        },
+        async usePopular(term) {
+            this.query = term;
+            await this.search();
+        }
+    }"
+    x-init="init()"
+    data-enlightener={keyword}
+    @click.outside="open = false"
+    @keydown.escape="open = false"
+    class="search-container"
+>
+  <div
+    class="search-box"
+    :class="{ 'is-focused': focused }"
+  >
+    <input
+      x-ref="searchInput"
+      type="text"
+      x-model="query"
+      @focus="focused = true; open = true; ensureFallbackData()"
+      @blur="focused = false"
+      @click="open = true"
+      @input="loading = query.trim().length > 0"
+      @input.debounce.250ms="search()"
+      @keydown.enter.prevent="searchFromButton()"
+      placeholder={l("search.placeholder", lang)}
+      class="search-input"
+    />
+    <button
+      type="button"
+      @click="searchFromButton()"
+      class="search-button"
+      aria-label="Search"
+    >
+        <span class="search-icon-wrapper">
+            <svg
+              x-show="!loading"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+            </svg>
+            <span
+              x-show="loading"
+              class="search-spinner"
+              style="display: none;"
+            ></span>
+        </span>
+    </button>
+  </div>
+
+  <div
+    x-show="open"
+    x-transition
+    class="search-dropdown"
+    style="display:none;"
+  >
+    <div class="search-dropdown-header">
+      <span x-text="query.trim() ? 'Kết quả tìm kiếm' : 'Các từ khóa tìm kiếm phổ biến'"></span>
+    </div>
+
+    <div class="search-dropdown-body">
+      <div x-show="loading" class="search-status-text">Đang tìm kiếm...</div>
+
+      <template x-if="!loading && !query.trim()">
+        <ul class="search-list">
+          <template x-for="term in popular" :key="term">
+            <li>
+              <button
+                type="button"
+                @click="usePopular(term)"
+                class="search-popular-btn"
+              >
+                            <span class="search-popular-label">
+                                <span class="search-popular-dot"></span>
+                                <span x-text="term"></span>
+                            </span>
+              </button>
+            </li>
+          </template>
+        </ul>
+      </template>
+
+      <template x-if="!loading && query.trim() && results.length > 0">
+        <ul class="search-list">
+          <template x-for="result in results" :key="result.url">
+            <li>
+              <a
+                :href="result.url"
+                class="search-result-item"
+              >
+                <p class="search-result-title" x-text="result.title"></p>
+                <p class="search-result-description" x-text="result.descriptionText"></p>
+                <p class="search-result-extraNames" x-text="result.extraNames"></p>
+                <p class="search-result-teachers" x-text="result.teachers?.join(', ')"></p>
+              </a>
+            </li>
+          </template>
+        </ul>
+      </template>
+
+      <div
+        x-show="!loading && query.trim() && results.length === 0"
+        class="search-status-text text-muted"
+      >
+        Không tìm thấy kết quả nào.
+      </div>
+    </div>
+  </div>
+</div>

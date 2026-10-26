@@ -1,0 +1,73 @@
+---
+
+---
+
+<div class="wood-panel">
+  <article class="carved-poem">
+    <slot />
+  </article>
+</div>
+
+<style scoped>
+  /* Container providing the wood texture */
+  .wood-panel {
+    background-color: #966036; /* Fallback rich wood color */
+    /* Replace with a high-quality seamless wood texture image if available */
+    background-image: url('https://unsplash.com');
+    background-size: cover;
+    background-position: center;
+    padding: 1rem;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 #2d211a  /* Vignette for depth */
+  }
+
+  /* The Poem Styling */
+  .carved-poem {
+    font-family: 'Georgia', serif;
+    text-align: center;
+    line-height: 1.8;
+    letter-spacing: 1px;
+    max-width: 300px;
+
+    /* 1. BLEND: Allows the text color to blend into the wood grains naturally */
+    color: rgb(50 27 11 / 0.85);
+    mix-blend-mode: multiply;
+
+    /* 2. THE CARVING EFFECT: Crafted using layers of text-shadow */
+    /* Top shadow (Dark/Inset): Simulates the deep shadow cast inside the cut */
+    /* Bottom highlight (Light): Simulates light catching the bottom edge of the cut */
+    text-shadow:
+      -1px -1px 1px rgb(26 26 26 / 0.7),   /* Sharp inner dark corner */
+      0 -2px 4px rgb(21 21 21 / 0.5),    /* Soft inner shadow overhead */
+      1px 2px 2px rgb(241 240 240 / 0.25), /* Light highlight on bottom-right lip */
+      0 1px 0 rgb(224 222 222 / 0.15);  /* Subtle bottom shine */
+  }
+
+  .carved-poem h3 {
+    color: var(--color-accent-darkolivegreen);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    font-weight: normal;
+    border-bottom: 1px dashed rgba(56, 31, 13, 0.3);
+    padding-bottom: 10px;
+  }
+
+  .carved-poem p {
+    color: var(--color-accent-darkturquoise);
+    font-size: 1.3rem;
+    margin: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    .wood-panel {
+      .carved-poem p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+</style>

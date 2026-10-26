@@ -1,0 +1,18 @@
+@import url('@/styles/color.css');
+
+.site-body {
+    background-color: var(--color-brand-gray-50, #f9fafb);
+    color: var(--color-brand-gray-900, #111827);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.site-main {
+    flex-grow: 1;
+    background-color: var(--sgkb-bg-main);
+    color: var(--sgkb-text-main);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}

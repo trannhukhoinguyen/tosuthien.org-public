@@ -1,0 +1,110 @@
+---
+import "@/styles/global.css";
+import "@/styles/docs.css";
+import "@/styles/wiki-type/layout.general.css"
+
+import Header from "@/components/page/Header.astro";
+import schema from "@/data/schema.astro";
+import SEO from "@/components/page/SEO.astro";
+import { config } from "@/config.ts";
+
+import BackToTop from '@/components/ui/button/BackToTop.astro';
+import SkipToBottom from "@/components/ui/button/SkipToBottom.astro";
+
+interface Props {
+	title: string;
+	description?: string;
+	image?: string;
+	articleData?: {
+		publishedTime?: string;
+		modifiedTime?: string;
+		author?: string;
+		tags?: string[];
+	};
+}
+
+const { title, description, image, articleData } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon-new.ico" sizes="48x48" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon-new.ico" sizes="48x48" type="image/x-icon">
+
+    <!--PWA manifest-->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#d4af37" />
+
+    <script is:inline src="/theme-init.js"></script>
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+
+    <SEO
+      title={title}
+      description={description}
+      image={image}
+      type={"article"}
+      publishedTime={new Date().toISOString()}
+      canonical={new URL(Astro.url.pathname, config.siteUrl).href}
+    />
+
+
+		<link rel="icon" href="/favicon180x180.png" />
+		<link rel="icon" type="image/png" href="/favicon180x180.png" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/apple-touch-icon.png"
+		/>
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+		<style>
+			:root {
+				--primary: var(--color-secondary);
+				--primary-dark: var(--sgkb-secondary-dark);
+			}
+
+			html {
+				font-family: "Poppins", system-ui, sans-serif;
+				scroll-behavior: smooth;
+			}
+
+			/* Custom scrollbar */
+			::-webkit-scrollbar {
+				width: 8px;
+			}
+			::-webkit-scrollbar-track {
+				background: var(--sgkb-scrollbar-track);
+			}
+			::-webkit-scrollbar-thumb {
+				background: var(--sgkb-scrollbar-thumb);
+				border-radius: 4px;
+			}
+			::-webkit-scrollbar-thumb:hover {
+				background: var(--sgkb-scrollbar-thumb-hover);
+			}
+		</style>
+	</head>
+
+  <body class="site-body">
+  <Header />
+
+  <div id="top"></div>
+
+  <main class="site-main" data-pagefind-body>
+    <SkipToBottom />
+
+    <slot />
+
+    <BackToTop />
+
+  </main>
+
+  <div id="bottom"></div>
+  </body>
+</html>

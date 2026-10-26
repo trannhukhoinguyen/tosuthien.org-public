@@ -1,0 +1,276 @@
+---
+import availableLangs from '@/data/language.json';
+
+const { lang = 'vi' } = Astro.params;
+
+// Làm sạch đường dẫn hiện tại bằng cách loại bỏ tiền tố ngôn ngữ (en, ja, zh, vi) ở đầu
+const currentPath = Astro.url.pathname;
+const pathWithoutLang = currentPath.replace(/^\/(en|ja|zh|vi)(\/|$)/, '/');
+
+// Nếu chỉ có 1 hoặc 0 ngôn ngữ thì không render picker
+const showPicker = availableLangs.length > 1;
+---
+
+{showPicker && (
+<div class="language-picker">
+  <button
+    id="language-toggle"
+    class="language-toggle"
+    aria-label={`Select Language (${lang.toUpperCase()})`}
+    aria-expanded="false"
+    aria-haspopup="menu"
+    aria-controls="language-menu"
+  >
+    <span class="zen-icon">🌐</span>
+    <span class="lang-code">{lang}</span>
+    <span class="zen-arrow">▾</span>
+  </button>
+  <div id="language-menu" class="language-menu">
+    <div class="zen-menu-inner">
+      <ul class="language-list">
+        {availableLangs.map((item) => {
+          // Xây dựng href chuẩn xác, tránh lỗi double slash (//) gây block
+            let href = '';
+          if (item.languageCode === 'vi') {
+            href = pathWithoutLang;
+          } else {
+            href = pathWithoutLang === '/' ? `/${item.languageCode}` : `/${item.languageCode}${pathWithoutLang}`;
+          }
+
+          const isActive = lang === item.languageCode;
+
+          return (
+            <li>
+              <a
+                href={href}
+                class={`language-link ${isActive ? 'active' : ''}`}
+              >
+                <span class="item-name">{item.languageName}</span>
+                {isActive && <span class="zen-seal"></span>}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </div>
+</div>
+  )}
+
+<style>
+  .language-picker {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Nút bấm toggle mang phong cách Wabi-sabi / Thiền cổ */
+  .language-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-family: var(--font-heading-secondary, serif);
+    font-weight: 600;
+    color: var(--color-text-primary, #2c2c2c);
+    background: var(--color-surface, #fcfaf2);
+    border: 1px solid var(--color-border, #e6dfd3);
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  }
+
+  .language-toggle:hover {
+    border-color: #d97706;
+    background: var(--color-background, #fffef9);
+  }
+
+  .zen-icon {
+    font-size: 0.95rem;
+    opacity: 0.85;
+  }
+
+  .lang-code {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .zen-arrow {
+    font-size: 0.7rem;
+    opacity: 0.6;
+    transition: transform 0.2s ease;
+  }
+
+  .language-toggle[aria-expanded="true"] .zen-arrow {
+    transform: rotate(180deg);
+  }
+
+  /* Menu thả xuống phong cách giấy xuyến chỉ / mực tàu */
+  .language-menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 6px);
+    width: 11rem;
+    background-color: var(--color-surface, #fcfaf2);
+    border: 1px solid var(--color-border, #e6dfd3);
+    border-radius: 8px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+    overflow: hidden;
+  }
+
+  /* Hiển thị menu khi hover hoặc toggle qua JS */
+  .language-picker:hover .language-menu,
+  .language-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .zen-menu-inner {
+    padding: 0.35rem 0;
+    position: relative;
+  }
+
+  /* Viền khung bên trong mô phỏng nét thư pháp cổ */
+  .zen-menu-inner::before {
+    content: "";
+    position: absolute;
+    top: 4px; left: 4px; right: 4px; bottom: 4px;
+    border: 1px solid rgba(180, 83, 9, 0.08);
+    pointer-events: none;
+    border-radius: 6px;
+  }
+
+  .language-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .language-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.55rem 1rem;
+    font-size: 0.875rem;
+    font-family: var(--font-body, serif);
+    color: var(--color-text-secondary, #4b5563);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .language-link:hover {
+    background-color: rgba(217, 119, 6, 0.08);
+    color: #b45309;
+  }
+
+  .language-link.active {
+    color: #b45309;
+    font-weight: 700;
+    background-color: rgba(217, 119, 6, 0.12);
+  }
+
+  /* Con dấu chu sa đỏ biểu thị ngôn ngữ đang chọn */
+  .zen-seal {
+    width: 6px;
+    height: 6px;
+    background-color: #a62b2b;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(166, 43, 43, 0.2);
+  }
+
+  /* =========================================================
+     DARK THEME SUPPORT (Hỗ trợ cả .dark và [data-theme="dark"])
+     ========================================================= */
+  :global(.dark) .language-toggle,
+  :global([data-theme="dark"]) .language-toggle {
+    background: #18181b;
+    border-color: #27272a;
+    color: #f4f4f5;
+    box-shadow: none;
+  }
+
+  :global(.dark) .language-toggle:hover,
+  :global([data-theme="dark"]) .language-toggle:hover {
+    border-color: #f59e0b;
+    background: #27272a;
+  }
+
+  :global(.dark) .language-menu,
+  :global([data-theme="dark"]) .language-menu {
+    background-color: #18181b;
+    border-color: #27272a;
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.5);
+  }
+
+  :global(.dark) .zen-menu-inner::before,
+  :global([data-theme="dark"]) .zen-menu-inner::before {
+    border-color: rgba(245, 158, 11, 0.12);
+  }
+
+  :global(.dark) .language-link,
+  :global([data-theme="dark"]) .language-link {
+    color: #d4d4d8;
+  }
+
+  :global(.dark) .language-link:hover,
+  :global([data-theme="dark"]) .language-link:hover {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+  }
+
+  :global(.dark) .language-link.active,
+  :global([data-theme="dark"]) .language-link.active {
+    color: #fbbf24;
+    background-color: rgba(245, 158, 11, 0.2);
+  }
+
+  :global(.dark) .zen-seal,
+  :global([data-theme="dark"]) .zen-seal {
+    background-color: #ef4444;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3);
+  }
+</style>
+
+<script>
+  function setupLanguagePicker() {
+    const toggle = document.getElementById('language-toggle');
+    const menu = document.getElementById('language-menu');
+    const container = document.querySelector('.language-picker');
+    if (!toggle || !menu || !container) return;
+
+    const closeMenu = () => {
+      menu.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    };
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', (!isExpanded).toString());
+      menu.classList.toggle('is-open');
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!container.contains(e.target as Node)) closeMenu();
+    });
+
+    container.addEventListener('focusout', (e: Event) => {
+      if (!container.contains((e as FocusEvent).relatedTarget as Node)) closeMenu();
+    });
+  }
+
+  setupLanguagePicker();
+  document.addEventListener('astro:page-load', setupLanguagePicker);
+</script>

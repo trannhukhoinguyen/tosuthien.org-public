@@ -1,0 +1,729 @@
+@import url('@/styles/color.css');
+
+/* ==========================================
+   2. Header Section
+   ========================================== */
+.article-header {
+    background: var(--sgkb-header-bg);
+    padding-top: 60px;
+    padding-bottom: 2.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.article-header-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 0%, rgb(255 255 255 / 8%), transparent 60%);
+}
+
+.header-content {
+    position: relative;
+    z-index: 10;
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb-nav {
+    margin-bottom: 1.5rem;
+}
+
+.breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgb(255 255 255 / 80%);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumb-item {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 0.75rem;
+}
+
+.breadcrumb-separator {
+    color: rgb(255 255 255 / 40%);
+}
+
+.breadcrumb-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.breadcrumb-link:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.breadcrumb-current {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Title & Metadata */
+.article-title {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 1.25rem;
+    line-height: 1.25;
+    max-width: 64rem;
+    font-family: var(--font-serif, "Lora", "Merriweather", Georgia, serif);
+}
+
+.article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.25rem;
+    font-size: 0.875rem;
+    color: rgb(255 255 255 / 85%);
+    font-weight: 500;
+}
+
+.meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+
+    .meta-sub-item {
+        margin-right: 0;
+    }
+}
+
+.meta-icon {
+    width: 1rem;
+    height: 1rem;
+    opacity: 0.85;
+}
+
+.meta-dot {
+    color: rgb(255 255 255 / 40%);
+}
+
+
+/* ==========================================
+   3. Layout & Sidebar Containers
+   ========================================== */
+.main-wrapper {
+    margin-top: 2.5rem;
+    margin-bottom: 5rem;
+    position: relative;
+    z-index: 20;
+}
+
+.layout-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+@media (width >= 1024px) {
+    .layout-grid {
+        flex-direction: row;
+        gap: 2.5rem;
+    }
+}
+
+/* Main Content Wrapper */
+.main-content {
+    flex-grow: 1;
+    min-width: 0;
+    background-color: var(--sgkb-bg-card);
+    color: var(--sgkb-text-main);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: var(--sgkb-shadow-xs-soft);
+    border: 1px solid var(--sgkb-border);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+@media (width >= 768px) {
+    .main-content {
+        padding: 2.25rem;
+    }
+}
+
+.prose-sg {
+    max-width: none;
+    color: var(--sgkb-text-main);
+}
+
+
+/* Mobile Navigation Components */
+.mobile-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgb(0 0 0 / 65%);
+    backdrop-filter: blur(4px);
+    z-index: 60;
+}
+
+@media (width >= 1024px) {
+    .mobile-backdrop,
+    .mobile-sidebar,
+    .mobile-toggle-wrapper {
+        display: none !important;
+    }
+}
+
+.mobile-sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: 20rem;
+    max-width: 80vw;
+    background-color: var(--sgkb-bg-card);
+    border-right: 1px solid var(--sgkb-border);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 30%);
+    z-index: 70;
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+.mobile-sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.mobile-sidebar-title {
+    font-size: 0.875rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--sgkb-text-muted);
+}
+
+.mobile-sidebar-close {
+    padding: 0.5rem;
+    margin-right: -0.5rem;
+    color: var(--sgkb-text-muted);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-sidebar-close:hover {
+    color: var(--sgkb-text-main);
+}
+
+.mobile-toggle-wrapper {
+    margin-bottom: 1rem;
+}
+
+.mobile-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.25rem;
+    background-color: var(--sgkb-bg-card);
+    border: 1px solid var(--sgkb-border);
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--sgkb-text-main);
+    box-shadow: var(--sgkb-shadow-xs-soft);
+    transition: transform 0.15s ease, background-color 0.15s ease;
+    width: 100%;
+    cursor: pointer;
+}
+
+.mobile-toggle-btn:active {
+    transform: scale(0.98);
+}
+
+.desktop-sidebar-left,
+.desktop-sidebar-right {
+    display: none;
+    width: 17.5rem;
+    flex-shrink: 0;
+}
+
+@media (width >= 1024px) {
+    .desktop-sidebar-left { display: block; }
+}
+
+@media (width >= 1280px) {
+    .desktop-sidebar-right { display: block; }
+}
+
+.sticky-wrapper {
+    position: sticky;
+    top: 5rem;
+}
+
+
+/* ==========================================
+   4. High Contrast & High Visibility Zen Tabs
+   ========================================== */
+.wiki-type-tabs-wrapper {
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--sgkb-border);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    scroll-behavior: smooth; /* Thêm smooth scrolling */
+}
+
+.wiki-type-tabs-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.wiki-type-tabs {
+    display: flex;
+    gap: 0.625rem;
+    min-width: max-content;
+    padding-bottom: 0.5rem;
+    font-family: var(--font-serif, "Lora", "Merriweather", Georgia, serif);
+}
+
+/* Nút Tab: Tương phản rõ ràng cho người mắt kém */
+.zen-tab-btn,
+.tab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.625rem 1.125rem;
+    font-size: 0.975rem;
+    font-weight: 600;
+    color: var(--sgkb-text-muted);
+    background-color: var(--sgkb-bg-gray);
+    border: 1.5px solid var(--sgkb-border);
+    border-radius: 0.625rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    outline-offset: 3px;
+}
+
+/* Icon trong Tab */
+.zen-tab-icon,
+.tab-btn svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    stroke-width: 2.2; /* Nét icon dày hơn dễ nhìn */
+    opacity: 0.75;
+    transition: transform 0.2s ease, opacity 0.2s ease, stroke 0.2s ease;
+}
+
+/* HOVER EFFECT: Viền đậm, đổi màu nền, trượt nhẹ icon */
+.zen-tab-btn:hover,
+.tab-btn:hover {
+    color: var(--sgkb-text-main);
+    background-color: var(--sgkb-bg-hover);
+    border-color: var(--sgkb-border-strong);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgb(0 0 0 / 8%);
+}
+
+.zen-tab-btn:hover .zen-tab-icon,
+.tab-btn:hover svg {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* ACTIVE / CLICKED EFFECT: Nổi bật tuyệt đối */
+.zen-tab-btn.active,
+.tab-btn.active {
+    color: var(--sgkb-primary);
+    background-color: var(--sgkb-primary-soft);
+    border-color: var(--sgkb-primary-border);
+    border-width: 2px;
+    font-weight: 700;
+    box-shadow: var(--sgkb-shadow-active);
+    transform: translateY(-1px);
+}
+
+.zen-tab-btn.active .zen-tab-icon,
+.tab-btn.active svg {
+    opacity: 1;
+    color: var(--sgkb-primary);
+    stroke: var(--sgkb-primary);
+    transform: scale(1.15);
+}
+
+/* Thanh chỉ báo phía dưới tab active tăng nhận diện */
+.zen-tab-btn.active::after,
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -0.625rem;
+    left: 15%;
+    width: 70%;
+    height: 3px;
+    background-color: var(--sgkb-primary);
+    border-radius: 3px 3px 0 0;
+}
+
+/* Focus State cho bàn phím / Accessibility */
+.zen-tab-btn:focus-visible,
+.tab-btn:focus-visible {
+    outline: 3px solid var(--sgkb-primary);
+}
+
+
+/* ==========================================
+   5. Content Tab Switcher & Empty Notice
+   ========================================== */
+.tab-fade-enter {
+    animation: tabFadeIn 0.25s ease-out forwards;
+}
+
+@keyframes tabFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.empty-tab-notice {
+    padding: 3rem 1.5rem;
+    text-align: center;
+    color: var(--sgkb-text-muted);
+    background-color: var(--sgkb-bg-gray);
+    border: 2px dashed var(--sgkb-border);
+    border-radius: 0.75rem;
+    font-style: italic;
+    font-size: 1rem;
+}
+
+/* Tab Panels Logic */
+.tab-panels-wrapper[data-active-tab="main"] .tab-dialogue,
+.tab-panels-wrapper[data-active-tab="main"] .tab-sermon {
+    display: none !important;
+}
+
+/* Khi chọn Tab Dialogue: Chỉ hiển thị Tab Dialogue, bỏ qua các thành phần chân trang chung */
+.tab-panels-wrapper[data-active-tab="dialogue"] article > *:not(.tab-dialogue, .footnotes, .blog-rule, h2) {
+    display: none !important;
+}
+
+.tab-panels-wrapper[data-active-tab="dialogue"] article > .tab-dialogue {
+    display: block !important;
+}
+
+/* Khi chọn Tab Sermon: Chỉ hiển thị Tab Sermon, bỏ qua các thành phần chân trang chung */
+.tab-panels-wrapper[data-active-tab="sermon"] article > *:not(.tab-sermon, .footnotes, .blog-rule, h2) {
+    display: none !important;
+}
+
+.tab-panels-wrapper[data-active-tab="sermon"] article > .tab-sermon {
+    display: block !important;
+}
+
+
+/* ==========================================
+   6. Footer, Pagination & Related Cards
+   ========================================== */
+.article-footer {
+    margin-top: 3.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--sgkb-border);
+}
+
+.last-updated {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--sgkb-text-muted);
+}
+
+/* Pagination Navigation */
+.pagination-nav {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--sgkb-border);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (width >= 768px) {
+    .pagination-nav {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+}
+
+.pagination-card {
+    display: block;
+    border: 1px solid var(--sgkb-border);
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+    background-color: var(--sgkb-bg-card);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.pagination-card:hover {
+    border-color: var(--sgkb-primary);
+    background-color: var(--sgkb-bg-gray);
+    box-shadow: var(--sgkb-shadow-xs-soft);
+    transform: translateY(-2px);
+}
+
+.pagination-next { text-align: left; }
+
+@media (width >= 768px) {
+    .pagination-next { text-align: right; }
+}
+
+.pagination-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    color: var(--sgkb-text-muted);
+    margin-bottom: 0.375rem;
+}
+
+@media (width >= 768px) {
+    .pagination-next .pagination-label {
+        justify-content: flex-end;
+        width: 100%;
+    }
+}
+
+.pagination-arrow { transition: transform 0.15s ease; }
+.pagination-prev:hover .pagination-arrow { transform: translateX(-3px); }
+.pagination-next:hover .pagination-arrow { transform: translateX(3px); }
+
+.pagination-title {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--sgkb-text-main);
+    font-weight: 600;
+}
+
+.pagination-placeholder { display: none; }
+
+@media (width >= 768px) {
+    .pagination-placeholder { display: block; }
+}
+
+/* Related Section */
+.related-section {
+    margin-top: 3rem;
+    border-top: 1px solid var(--sgkb-border);
+    background-color: var(--sgkb-bg-main);
+    padding: 3.5rem 0;
+}
+
+.related-title {
+    margin: 0 0 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--sgkb-text-main);
+    font-family: var(--font-serif, "Lora", "Merriweather", Georgia, serif);
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+
+.related-card {
+    border-radius: 0.75rem;
+    border: 1px solid var(--sgkb-border);
+    background-color: var(--sgkb-bg-card);
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.related-card:hover {
+    border-color: var(--sgkb-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgb(0 0 0 / 12%);
+}
+
+.related-card-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.25rem;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.related-card-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.125rem;
+    line-height: 1.35;
+    font-weight: 600;
+    color: var(--sgkb-text-main);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.related-card-desc {
+    margin: 0 0 1rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--sgkb-text-muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.related-card-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--sgkb-primary);
+    margin-top: auto;
+}
+
+.related-card-arrow { transition: transform 0.15s ease; }
+.related-card:hover .related-card-arrow { transform: translateX(4px); }
+
+/* Mobile Responsive Adjustments */
+@media (width <= 640px) {
+    .zen-tab-btn,
+    .tab-btn {
+        padding: 0.5rem 0.875rem;
+        font-size: 0.875rem;
+    }
+
+    .zen-tab-icon,
+    .tab-btn svg {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    .related-card-link { padding: 1rem; }
+}
+
+/* Đảm bảo toàn bộ khung chứa và các phần tử 2 bên nhận biến màu nền chuẩn theo theme */
+body,
+.content-section,
+.main-wrapper,
+.layout-grid,
+.main-content {
+    background-color: var(--sgkb-bg-main);
+    color: var(--sgkb-text-main);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Các sidebar hai bên và card chính */
+.desktop-sidebar-left,
+.desktop-sidebar-right,
+.main-content,
+.sidebar-card {
+    background-color: var(--sgkb-bg-card);
+    border-color: var(--sgkb-border);
+    color: var(--sgkb-text-main);
+}
+
+/* Tối ưu scroll target cho Footnote */
+.footnotes,
+[id^="user-content-fn-"],
+[id^="fn-"] {
+    scroll-margin-top: 6rem; /* Khoảng cách né Header khi cuộn tới */
+}
+
+/* Kiểu dáng chân trang Footnotes chuẩn nét */
+.footnotes {
+    display: block !important;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--sgkb-border);
+    color: var(--sgkb-text-muted);
+    font-size: 0.9rem;
+}
+
+/* --- Logic hiển thị Tab Động & Chân trang (Chuẩn xác tuyệt đối) --- */
+
+/* 1. Mặc định ẩn tất cả các khối div tab con */
+.tab-panels-wrapper article > div[class^="tab-"] {
+    display: none !important;
+}
+
+/* 2. Khi đang ở tab 'main': Ẩn toàn bộ các khối tab con */
+.tab-panels-wrapper[data-active-tab="main"] div[class^="tab-"] {
+    display: none !important;
+}
+
+/* 3. Khi đang ở các tab phụ: Ẩn phần nội dung tiểu sử phía trên,
+   nhưng BẮT BUỘC GIỮ LẠI toàn bộ từ thẻ .blog-rule.footer trở xuống (Nguồn & Ghi chú) */
+.tab-panels-wrapper:not([data-active-tab="main"]) article > p:not(.blog-rule ~ p),
+.tab-panels-wrapper:not([data-active-tab="main"]) article > ul:not(.blog-rule ~ ul),
+.tab-panels-wrapper:not([data-active-tab="main"]) article > ol:not(.blog-rule ~ ol),
+.tab-panels-wrapper:not([data-active-tab="main"]) article > fieldset:not(.blog-rule ~ fieldset) {
+    display: none !important;
+}
+
+/* Ngoại lệ quan trọng: Bất cứ thứ gì nằm từ .blog-rule.footer trở xuống LUÔN LUÔN được hiển thị */
+.tab-panels-wrapper:not([data-active-tab="main"]) article > .blog-rule.footer ~ * {
+    display: block !important;
+}
+
+/* 4. TỰ ĐỘNG HIỂN THỊ khối tab con tương ứng với giá trị của data-active-tab */
+.tab-panels-wrapper[data-active-tab="mantra"] article > .tab-mantra,
+.tab-panels-wrapper[data-active-tab="story"] article > .tab-story,
+.tab-panels-wrapper[data-active-tab="dialogue"] article > .tab-dialogue,
+.tab-panels-wrapper[data-active-tab="sermon"] article > .tab-sermon {
+    display: block !important;
+}
+
+/* 5. Điều khiển ẩn/hiện chân trang dựa trên việc có link hợp lệ hay không */
+article:not(.has-footer-content) .blog-rule.footer,
+article:not(.has-footer-content) .blog-rule.footer ~ * {
+    display: none !important;
+}
+
+/* --- Bảo vệ Footnotes hoạt động ở tất cả các tab con --- */
+.tab-panels-wrapper:not([data-active-tab="main"]) article .footnotes,
+.tab-panels-wrapper:not([data-active-tab="main"]) article [id^="user-content-fn-"],
+.tab-panels-wrapper:not([data-active-tab="main"]) article [id^="fn-"],
+.tab-panels-wrapper:not([data-active-tab="main"]) article sup[id^="fnref-"] {
+    display: block !important;
+}
+
+/* Đảm bảo các liên kết điều hướng footnote không bị ẩn */
+.tab-panels-wrapper:not([data-active-tab="main"]) article .footnotes a,
+.tab-panels-wrapper:not([data-active-tab="main"]) article sup a {
+    display: inline !important;
+}
+
+/* Article extra data */
+.badge-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+}
+
+.badge-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-accent-gold);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

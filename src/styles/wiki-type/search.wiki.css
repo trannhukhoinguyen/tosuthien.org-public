@@ -1,0 +1,203 @@
+.search-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Khung tìm kiếm */
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 6px;
+    transition: all 0.2s ease;
+}
+
+.search-box.is-focused,
+.search-box:focus-within {
+    box-shadow: var(--sgkb-search-focus-shadow);
+    transform: translateY(-2px);
+}
+
+/* Ô nhập liệu */
+.search-input {
+    width: 100%;
+    background-color: transparent;
+    padding: 0.75rem 1.25rem;
+    color: var(--sgkb-text-tertiary);
+    font-family: Poppins, sans-serif;
+    font-size: var(--text-muted);
+    line-height: 1.6;
+    font-weight: 400;
+    outline: none;
+    border: none;
+}
+
+.search-input::placeholder {
+    color: var(--sgkb-text-tertiary);
+    font-weight: 400;
+    opacity: 1;
+}
+
+/* Nút tìm kiếm */
+.search-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+    background-color: var(--sgkb-primary-new);
+    border-radius: 9999px;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition-smooth);
+}
+
+.search-icon-wrapper {
+    position: relative;
+    display: inline-flex;
+    width: 1.25rem;
+    height: 1.25rem;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Icon Loading Spinner */
+.search-spinner {
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 9999px;
+    border: 2px solid rgb(255 255 255 / 40%);
+    border-top-color: #fff;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Dropdown Kết Quả */
+.search-dropdown {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: 0.5rem;
+    background-color: #fff;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-brand-gray-200, #e5e7eb);
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 25%);
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.search-dropdown-header {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--color-brand-gray-100, #f3f4f6);
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--color-brand-gray-400, #9ca3af);
+    text-transform: uppercase;
+    z-index: 9999;
+}
+
+.search-dropdown-body {
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 9999;
+}
+
+.search-status-text {
+    padding: 1.5rem 1rem;
+    font-size: 0.875rem;
+    color: var(--color-brand-gray-400, #9ca3af);
+}
+
+.search-status-text.text-muted {
+    color: var(--color-brand-gray-500, #6b7280);
+}
+
+/* Danh sách kết quả & từ khóa phổ biến */
+.search-list {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+    text-align: left;
+}
+
+.search-popular-btn {
+    width: 100%;
+    text-align: left;
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    color: var(--color-brand-gray-600, #4b5563);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.search-popular-btn:hover {
+    background-color: var(--color-brand-gray-50, #f9fafb);
+}
+
+.search-popular-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.search-popular-dot {
+    display: inline-block;
+    width: 0.375rem;
+    height: 0.375rem;
+    border-radius: 9999px;
+    background-color: var(--color-brand-gray-300, #d1d5db);
+}
+
+.search-result-item {
+    display: block;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    text-align: left;
+    transition: background-color 0.15s ease;
+}
+
+.search-result-item:hover {
+    background-color: var(--color-brand-gray-50, #f9fafb);
+}
+
+.search-result-title {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-brand-gray-900, #111827);
+    text-align: left;
+}
+
+.search-result-description {
+    margin: 0.25rem 0 0;
+    font-size: 0.75rem;
+    color: var(--color-brand-gray-500, #6b7280);
+    text-align: left;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

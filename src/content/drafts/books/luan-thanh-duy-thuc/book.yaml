@@ -1,0 +1,34 @@
+title: LUẬN THÀNH DUY THỨC
+author: PS HUYỀN TRANG
+category: Sách
+tags:
+  - HT. Tuệ Sỹ
+  - DUY THỨC HỌC
+  - Luận
+parts:
+  - title: DẪN NHẬP
+    chapters:
+      - slug: dan-nhap
+        title: DẪN NHẬP
+      - slug: dan-vao-duy-thuc-hoc
+        title: Dẫn vào Duy Thức Học
+      - slug: tua-quy-kinh
+        title: Tựa quy kỉnh
+  - title: CHƯƠNG I. BIỂU HIỆN CỦA THỨC (NGÃ VÀ PHÁP)
+    chapters:
+      - slug: nga-va-phap
+        title: NGÃ VÀ PHÁP
+      - slug: cac-quan-diem-ve-nga
+        title: Các quan điểm về Ngã
+      - slug: cac-quan-diem-ve-phap
+        title: Các quan điểm về Pháp
+      - slug: tong-ket
+        title: Tổng kết
+  - title: CHƯƠNG I. BIỂU HIỆN CỦA THỨC (NGÃ VÀ PHÁP)
+    chapters:
+      - slug: cac-quan-diem-ve-nga
+        title: Tiết 1. Các quan điểm về Ngã
+      - slug: cac-quan-diem-ve-phap
+        title: Tiết 2. Các quan điểm về Pháp
+      - slug: tong-ket
+        title: Tiết 3. Tổng kết

@@ -1,0 +1,53 @@
+title: TỔNG QUAN VỀ NGHIỆP
+author: HT. TUỆ SỸ
+category: Sách
+tags:
+  - HT. TUỆ SỸ
+  - NGHIỆP
+parts:
+  - title: TỰA
+    chapters:
+      - slug: tua
+        title: TỰA
+  - title: PHẦN MỘT. NGHIỆP LUẬN NGOÀI PHẬT GIÁO
+    chapters:
+      - slug: chuong-1-nghiep-pho-thong-nghiep-khoa-hoc
+        title: CHƯƠNG I. NGHIỆP PHỔ THÔNG – NGHIỆP KHOA HỌC
+      - slug: chuong-2-nghiep-trong-triet-hoc-ton-giao-an-do
+        title: CHƯƠNG II. NGHIỆP TRONG TRIẾT HỌC-TÔN GIÁO ẤN ĐỘ
+  - title: PHẦN HAI. NGHIỆP LUẬN PHẬT GIÁO
+    chapters:
+      - slug: chuong-3-can-ban-giao-nghia-va-bo-phai
+        title: CHƯƠNG III. CĂN BẢN GIÁO NGHĨA VÀ BỘ PHÁI
+  - title: PHẦN BA. NGHIỆP LUẬN A-TÌ-ĐẠT-MA
+    chapters:
+      - slug: chuong-4-the-tinh-cua-nghiep
+        title: CHƯƠNG IV. THỂ TÍNH CỦA NGHIỆP
+      - slug: chuong-5-luat-nghi-va-nghiep-dao
+        title: CHƯƠNG V. LUẬT NGHI VÀ NGHIỆP ĐẠO
+      - slug: chapter-6-nghiep-va-nghiep-qua
+        title: CHƯƠNG VI. NGHIỆP VÀ NGHIỆP QUẢ
+  - title: PHỤ LUẬN
+    chapters:
+      - slug: phu-luan-1-ky-uc-va-nghiep
+        title: PHỤ LUẬN I. KÝ ỨC VÀ NGHIỆP
+      - slug: phu-luan-2-gioi-thieu-dai-thua-thanh-nghiep-luan
+        title: PHỤ LUẬN II. GIỚI THIỆU “ĐẠI THỪA THÀNH NGHIỆP LUẬN”
+  - title: PHỤ LỤC VĂN BẢN
+    chapters:
+      - slug: tiet-1-tong-thuyet
+        title: TIẾT I. TỔNG THUYẾT
+      - slug: tiet-2-bieu
+        title: TIẾT II. BIỂU
+      - slug: tiet-3-vo-bieu
+        title: TIẾT III. VÔ BIỂU
+      - slug: tiet-4-nghiep-qua-trong-ba-thoi
+        title: TIẾT IV. NGHIỆP QUẢ TRONG BA THỜI
+      - slug: tiet-5-phap-bat-that
+        title: TIẾT V. PHÁP BẤT THẤT
+      - slug: tiet-6-ket-sanh-tuong-toc
+        title: TIẾT VI. KẾT SANH TƯƠNG TỤC
+      - slug: tiet-7-sinh-tu-luu-chuyen
+        title: TIẾT VII. SINH TỬ LƯU CHUYỂN
+      - slug: tiet-8-ba-nghiep
+        title: TIẾT VIII. BA NGHIỆP

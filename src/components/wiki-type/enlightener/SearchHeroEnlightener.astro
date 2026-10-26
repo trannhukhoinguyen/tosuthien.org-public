@@ -1,0 +1,245 @@
+﻿---
+import Search from "./SearchEnlightener.astro";
+
+interface Props {
+  articleCount?: number;
+  categoryCount?: number;
+  lastUpdatedLabel?: string;
+}
+
+const {
+  articleCount = 0,
+  categoryCount = 0,
+  lastUpdatedLabel = "recently",
+} = Astro.props;
+---
+
+<section class="hero-section">
+  <div class="container-wide hero-section__container">
+    <h1 class="hero-section__title">
+      Chúng tôi có thể giúp gì cho bạn?
+    </h1>
+    <p class="hero-section__description">
+      Tìm kiếm trong cơ sở kiến thức hoặc xem các danh mục bên dưới
+    </p>
+
+    <div class="hero-section__search">
+      <Search />
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stats__card">
+        <div class="hero-stats__value">
+          {articleCount}
+        </div>
+        <div class="hero-stats__label">
+          Bài viết
+        </div>
+      </div>
+
+      <div class="hero-stats__card">
+        <div class="hero-stats__value">
+          {categoryCount}
+        </div>
+        <div class="hero-stats__label">
+          Danh mục
+        </div>
+      </div>
+
+      <div class="hero-stats__card hero-stats__card--wide">
+        <div class="hero-stats__value">
+          {lastUpdatedLabel}
+        </div>
+        <div class="hero-stats__label">
+          Cập nhật lần cuối
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ==========================================================================
+   Design Tokens & Variables
+   ========================================================================== */
+  :root {
+    --sgkb-hero-from: #2563eb;
+    --sgkb-hero-to: #1d4ed8;
+    --font-poppins: 'Poppins', sans-serif;
+  }
+
+  /* ==========================================================================
+     Layout Base Components
+     ========================================================================== */
+  .container-wide {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ==========================================================================
+     Hero Section
+     ========================================================================== */
+  .hero-section {
+    position: relative;
+    overflow: visible;
+    background: linear-gradient(135deg, var(--sgkb-hero-from), var(--sgkb-hero-to));
+  }
+
+  .hero-section__container {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: #ffffff;
+    padding: 3rem 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .hero-section__container {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .hero-section__title {
+    font-family: var(--font-poppins);
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .hero-section__title {
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+  }
+
+  .hero-section__description {
+    font-family: var(--font-poppins);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .hero-section__description {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .hero-section__search {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .hero-section__search {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  /* ==========================================================================
+     Hero Stats Components (Glassmorphism)
+     ========================================================================== */
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  @media (min-width: 640px) {
+    .hero-stats {
+      gap: 1.5rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .hero-stats__card {
+    flex: 1;
+    min-width: 90px;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem; /* rounded-xl */
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  @media (min-width: 640px) {
+    .hero-stats__card {
+      flex: none;
+      min-width: 110px;
+      padding: 14px 1.5rem;
+    }
+  }
+
+  .hero-stats__card--wide {
+    flex-basis: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .hero-stats__card--wide {
+      flex-basis: auto;
+      min-width: 180px;
+    }
+  }
+
+  .hero-stats__value {
+    font-family: var(--font-poppins);
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+
+  @media (min-width: 640px) {
+    .hero-stats__value {
+      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    }
+  }
+
+  .hero-stats__label {
+    font-family: var(--font-poppins);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .hero-stats__label {
+      font-size: 11px;
+    }
+  }
+</style>

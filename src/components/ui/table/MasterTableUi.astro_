@@ -1,0 +1,536 @@
+---
+// Import dữ liệu từ file của bạn
+import AllMasters from '@/data/masters/AllMasterDb.tsx';
+import { toKebabCase, toCapitalKebabCase } from "@/utils/helper.ts";
+import { l } from "@/utils/constants.ts";
+
+import { getCollection } from 'astro:content';
+
+// 1.a. Lấy tất cả bài viết từ thư mục content/masters
+// const allMasterPosts = await getCollection('masters');
+
+// 1.b. Lấy tất cả bài viết từ thư mục content/enlighteners
+const allEnlightenerPosts = await getCollection('enlighteners');
+
+const collectionSlugKey = 'enlighteners';
+
+// 2. Tạo một Set chứa các slug để tìm kiếm nhanh (O(1))
+const existingSlugs = new Set(allEnlightenerPosts.map(post => {
+  // Lấy phần sau dấu / cuối cùng
+  const fileNameWithExtension = post.id.split('/').pop();
+  // Loại bỏ phần mở rộng (ví dụ: .md hoặc .mdx) để lấy slug
+  return fileNameWithExtension.replace(/\.[^/.]+$/, "");
+}));
+
+// Thống kê tông phái (Sects) cho bộ lọc
+const sects = [...new Set(AllMasters?.flatMap(m => m.sect).filter(Boolean))];
+const totalMasters = AllMasters?.length;
+
+// Lấy param [lang] từ URL động của Astro (mặc định là 'vi' nếu không khớp)
+const { lang = 'vi' } = Astro.params;
+---
+
+<section class="zen-container">
+  <header class="controls">
+    <div class="filter-bar">
+      <!-- Ô tìm kiếm đa năng -->
+      <div class="input-wrapper">
+        <input
+            type="text"
+            id="combinedSearch"
+            placeholder={l("search.placeholder", lang)}
+        />
+      </div>
+
+      <!-- Bộ lọc tông phái -->
+      <select id="sectFilter">
+        <option value="">Tất cả tông phái</option>
+        {sects?.map(sect => <option value={sect}>{sect}</option>)}
+      </select>
+    </div>
+
+    <div class="stats">
+      Đang hiển thị: <span id="count" class="highlight">{totalMasters}</span> / {totalMasters} vị thiền sư
+    </div>
+  </header>
+
+  <main class="master-grid" id="masterGrid">
+    {AllMasters?.map((m) => {
+      const hasPost = existingSlugs.has(toKebabCase(m?.name_en));
+
+      return (
+        <article
+          class="master-card"
+          data-search={(`${m?.name_en} ${m?.name_vi} ${m?.name_zh} ${m?.name_pinyin || ''}`).toLowerCase()}
+          data-sect={m?.sect?.join(',').toLowerCase()}
+          data-master={JSON.stringify(m)}
+        >
+          <div class="card-header">
+            <!-- Ảnh đại diện -->
+            <img src={m?.image || '/placeholder-monk.jpg'} alt={m?.name_vi} class="avatar" />
+            <div class="name-group">
+              <h2 class="name-en" title={m?.name_vi}>{m?.name_en}</h2>
+              <p class="name-zh-pinyin" title={m?.name_vi}>
+                <span class="zh">{m?.name_zh}</span>
+                {m?.name_pinyin && <span class="pinyin">({m?.name_pinyin})</span>}
+              </p>
+            </div>
+            {
+              hasPost ? (
+                <a
+                  href={`/${collectionSlugKey}/${toCapitalKebabCase(m?.name_en)}`}
+                  target="_blank"
+                  title="Xem bài viết chi tiết"
+                  style="text-decoration: none;"
+                  onmouseover="this.style.fontWeight='bold'"
+                  onmouseout="this.style.fontWeight='normal'"
+                >👁‍🗨</a>
+              ) : ''
+            }
+          </div>
+
+          <div class="card-body">
+            <div class="info-row">
+              <span class="label">🎗 Tông:</span>
+              <div class="tags">
+                {m?.sect?.map(s => <span class="tag teacher-tag">{s || '(Chưa rõ)'}</span>)}
+              </div>
+            </div>
+            <div class="info-row">
+              <span class="label">🗣 Thầy:</span>
+              <div class="tags">
+                {m?.teachers?.map(t => <span class="tag teacher-tag" title={t}>{t || '(Đang cập nhật)'}</span>)}
+              </div>
+            </div>
+          </div>
+        </article>
+      )
+    })}
+  </main>
+
+  <!-- Phân trang -->
+  <div class="pagination-controls" id="pagination">
+    <button id="prevBtn" class="page-btn">Trang trước</button>
+    <span id="pageInfo">Trang 1 / 10</span>
+    <button id="nextBtn" class="page-btn">Trang sau</button>
+  </div>
+
+  <!-- Modal hiển thị chi tiết khi click -->
+  <div id="masterModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  :root {
+    --card-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  }
+
+  .zen-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--color-background-pagination);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .controls {
+    background: var(--color-background-pagination);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 2rem;
+    position: sticky;
+    top: 1rem;
+    z-index: 10;
+  }
+
+  .filter-bar {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  input, select {
+    padding: 0.8rem;
+    border: 1px solid var(--color-accent-indigo);
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+
+  input { flex: 2; }
+  select { flex: 1; cursor: pointer; }
+
+  .master-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .master-card {
+    background: var(--color-background-pagination);
+    border-radius: 12px;
+    padding: 1.2rem;
+    border-left: 5px solid black;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: var(--card-shadow);
+  }
+
+  .master-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  }
+
+  .card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+
+  .avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+    //border: 2px solid cadetblue;
+    border: none
+  }
+
+  .name-en { color: darkgoldenrod; font-size: 1.25rem; margin: 0; }
+  .name-vi { color: black; font-size: 1.25rem; margin: 0; }
+  .name-zh-pinyin { color: var(--color-accent-indigo); font-size: 0.9rem; margin: 0; }
+  .pinyin { font-style: italic; color: var(--color-accent-indigo); margin-left: 5px; }
+
+  .info-row { margin-top: 0.5rem; font-size: 0.9rem; }
+  .label { font-weight: bold; color: cadetblue; margin-right: 5px; }
+
+  .tags { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+  .tag {
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    background: mediumvioletred;
+  }
+
+  /* Modal Styles[cite: 2] */
+  .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--color-background-overlay);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+  }
+
+  .modal-content {
+    background: var(--color-background-pagination);
+    color: black;
+    margin: 5% auto;
+    padding: 2.5rem;
+    width: 90%;
+    max-width: 550px;
+    border-radius: 16px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  }
+
+  .close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: darkgoldenrod;
+  }
+
+/* Pagination */
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding-bottom: 2rem;
+  }
+
+  .page-btn {
+    padding: 0.6rem 1.2rem;
+    background: var(--color-background-pagination);
+    border: 1px solid darkgoldenrod;
+    color: darkgoldenrod;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+
+  .page-btn:hover:not(:disabled) {
+    background: var(--color-background-pagination);
+    color: darkgoldenrod;
+  }
+
+  .page-btn:disabled {
+    border-color: darkgoldenrod;
+    color: darkgoldenrod;
+    cursor: not-allowed;
+  }
+
+  #pageInfo {
+    font-weight: bold;
+    color: darkgoldenrod;
+  }
+
+/* Responsive cho Mobile và Tablet */
+@media (max-width: 768px) {
+  .zen-container {
+    padding: 1rem; [span_0](start_span)[span_1](start_span)/* Giảm padding tổng thể[span_0](end_span)[span_1](end_span) */
+  }
+
+  .title {
+    font-size: 1.5rem; [span_2](start_span)[span_3](start_span)/* Thu nhỏ tiêu đề[span_2](end_span)[span_3](end_span) */
+    text-align: center;
+  }
+
+  .controls {
+    padding: 1rem;
+    top: 0.5rem; [span_4](start_span)/* Đẩy header sticky lên sát mép hơn[span_4](end_span) */
+  }
+
+  .filter-bar {
+    flex-direction: column; [span_5](start_span)/* Chuyển bộ lọc từ hàng ngang sang hàng dọc[span_5](end_span) */
+    gap: 0.8rem;
+  }
+
+  input, select {
+    width: 100%; [span_6](start_span)/* Chiếm hết chiều ngang màn hình[span_6](end_span) */
+    font-size: 16px; /* Tránh tình trạng iOS tự động zoom khi focus vào input */
+  }
+
+  .master-grid {
+    grid-template-columns: 1fr; [span_7](start_span)[span_8](start_span)/* Hiển thị 1 cột duy nhất trên mobile[span_7](end_span)[span_8](end_span) */
+    gap: 1rem;
+  }
+
+  .master-card {
+    padding: 1rem; [span_9](start_span)[span_10](start_span)/* Giảm padding bên trong thẻ[span_9](end_span)[span_10](end_span) */
+  }
+
+  .avatar {
+    width: 50px; [span_11](start_span)/* Thu nhỏ ảnh đại diện một chút[span_11](end_span) */
+    height: 50px;
+  }
+
+  .name-vi {
+    font-size: 1.1rem;
+  }
+
+  /* Điều chỉnh Modal cho Mobile */
+  .modal-content {
+    width: 95%;
+    margin: 10% auto;
+    padding: 1.5rem;
+    max-height: 90vh; [span_12](start_span)/* Giới hạn chiều cao modal trên mobile[span_12](end_span) */
+  }
+}
+
+/* Responsive cho màn hình cực nhỏ (iPhone SE, v.v.) */
+@media (max-width: 480px) {
+  .stats {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .card-header {
+    flex-direction: column; /* Chuyển avatar và tên thành hàng dọc nếu cần */
+    align-items: flex-start;
+  }
+}
+
+</style>
+
+<script>
+  // Chạy logic sau khi DOM load để tránh lỗi Search/Filter[cite: 1, 2]
+
+  // Old initZenUI
+  /*function initZenUI() {
+    const searchInput = document.getElementById('combinedSearch');
+    const sectFilter = document.getElementById('sectFilter');
+    const cards = document.querySelectorAll('.master-card');
+    const countEl = document.getElementById('count');
+    const modal = document.getElementById('masterModal');
+    const modalBody = document.getElementById('modalBody');
+    const closeBtn = document.querySelector('.close-btn');
+
+    function filterMasters() {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      const selectedSect = sectFilter.value.toLowerCase();
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const searchData = card.getAttribute('data-search') || '';
+        const sectData = card.getAttribute('data-sect') || '';
+
+        const matchesSearch = searchData.includes(searchTerm);
+        const matchesSect = selectedSect === "" || sectData.includes(selectedSect);
+
+        if (matchesSearch && matchesSect) {
+          card.style.display = "block";
+          visibleCount++;
+        } else {
+          card.style.display = "none";
+        }
+      });
+      if (countEl) countEl.textContent = visibleCount;
+    }
+
+    // Gán sự kiện
+    searchInput?.addEventListener('input', filterMasters);
+    sectFilter?.addEventListener('change', filterMasters);
+
+    // Logic Modal chi tiết
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const data = JSON.parse(card.getAttribute('data-master'));
+
+        modalBody.innerHTML = `
+          <div style="text-align: center; margin-bottom: 1.5rem;">
+            <img src="${data.image || '/placeholder-monk.jpg'}" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #8b4513;">
+            <h2 style="color: #8b4513; margin-top: 1rem;" title="${data?.name_vi}">
+              ${data.name_en}
+            </h2>
+            <p title="${data?.name_vi}">${data.name_zh} ${data.name_pinyin ? `(${data.name_pinyin})` : ''}</p>
+          </div>
+          <hr>
+          <div style="margin-top: 1rem; line-height: 1.6;">
+            <p><strong>🎗 Tông phái:</strong> ${data.sect?.join(', ') || 'Chưa rõ'}</p>
+            <p><strong>🗣 Sư phụ:</strong> ${data.teachers?.join(', ') || 'Đang cập nhật'}</p>
+            <p><strong>🌐 Nơi ở:</strong> ${data.place || 'Đang cập nhật'}</p>
+            <p><strong>📝 Mô tả:</strong> ${data.description || 'Thông tin chi tiết về thiền sư đang được số hóa...'}</p>
+          </div>
+        `;
+        modal.style.display = "block";
+      });
+    });
+
+    closeBtn.onclick = () => modal.style.display = "none";
+    window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+  }*/
+
+  // New initZenUI
+  function initZenUI() {
+    const searchInput = document.getElementById('combinedSearch');
+    const sectFilter = document.getElementById('sectFilter');
+    const cards = Array.from(document.querySelectorAll('.master-card'));
+    const countEl = document.getElementById('count');
+    const modal = document.getElementById('masterModal');
+    const modalBody = document.getElementById('modalBody');
+    const closeBtn = document.querySelector('.close-btn');
+
+    // Khai báo biến phân trang
+    let currentPage = 1;
+    const itemsPerPage = 12; // Bạn có thể chỉnh số này (ví dụ 12, 16, 24)
+    let filteredCards = [];
+
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const pageInfo = document.getElementById('pageInfo');
+
+    function updateDisplay() {
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+
+      // Ẩn tất cả các card trước
+      cards.forEach(card => card.style.display = "none");
+
+      // Chỉ hiển thị các card thuộc trang hiện tại trong danh sách đã lọc
+      const pageItems = filteredCards.slice(startIndex, endIndex);
+      pageItems.forEach(card => card.style.display = "block");
+
+      // Cập nhật thông tin trang
+      const totalPages = Math.ceil(filteredCards.length / itemsPerPage) || 1;
+      pageInfo.textContent = `Trang ${currentPage} / ${totalPages}`;
+
+      // Trạng thái nút bấm
+      prevBtn.disabled = currentPage === 1;
+      nextBtn.disabled = currentPage === totalPages;
+
+      if (countEl) countEl.textContent = filteredCards.length;
+    }
+
+    function filterMasters() {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      const selectedSect = sectFilter.value.toLowerCase();
+
+      // Bước 1: Lọc dữ liệu dựa trên Search và Select
+      filteredCards = cards.filter(card => {
+        const searchData = card.getAttribute('data-search') || '';
+        const sectData = card.getAttribute('data-sect') || '';
+        return searchData.includes(searchTerm) && (selectedSect === "" || sectData.includes(selectedSect));
+      });
+
+      // Bước 2: Reset về trang 1 khi lọc
+      currentPage = 1;
+      updateDisplay();
+    }
+
+    // Sự kiện nút bấm
+    prevBtn.addEventListener('click', () => {
+      if (currentPage > 1) {
+        currentPage--;
+        updateDisplay();
+        window.scrollTo({ top: 0, behavior: 'smooth' }); // Cuộn lên đầu khi sang trang
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      const totalPages = Math.ceil(filteredCards.length / itemsPerPage);
+      if (currentPage < totalPages) {
+        currentPage++;
+        updateDisplay();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+
+    // Sự kiện input
+    searchInput?.addEventListener('input', filterMasters);
+    sectFilter?.addEventListener('change', filterMasters);
+
+    // Chạy lần đầu
+    filterMasters();
+
+    // Logic Modal chi tiết
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const data = JSON.parse(card.getAttribute('data-master'));
+
+        modalBody.innerHTML = `
+          <div style="text-align: center; margin-bottom: 1.5rem;">
+            <img src="${data.image || '/placeholder-monk.jpg'}" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: none;">
+            <h2 style="color: darkgoldenrod; margin-top: 1rem;">
+              ${data.name_en}
+            </h2>
+            <p title={m?.name_vi}>${data.name_zh} ${data.name_pinyin ? `(${data.name_pinyin})` : ''}</p>
+          </div>
+          <hr>
+          <div style="margin-top: 1rem; line-height: 1.6;">
+            <p><strong style="color: cadetblue; margin-right: 1rem;">🎗 Tông phái:</strong> ${data.sect?.join(', ') || '(Chưa rõ)'}</p>
+            <p><strong style="color: cadetblue; margin-right: 1rem;">🗣 Sư phụ:</strong> ${data.teachers?.join(', ') || '(Đang cập nhật)'}</p>
+            <p><strong style="color: cadetblue; margin-right: 1rem;">🗻 Nơi ở:</strong> ${data.place || '(Đang cập nhật)'}</p>
+            <p><strong style="color: cadetblue; margin-right: 1rem;">📝 Mô tả:</strong> ${data.description || '(Thông tin chi tiết về thiền sư đang được số hóa...)'}</p>
+            <p><strong style="color: cadetblue; margin-right: 1rem;">🔗 Link tham khảo:</strong> ${data.reference?.join(', ') || '(Đang cập nhật)'}</p>
+          </div>
+        `;
+        modal.style.display = "block";
+      });
+    });
+
+    closeBtn.onclick = () => modal.style.display = "none";
+    window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+  }
+
+  // Khởi tạo
+  initZenUI();
+  // Hỗ trợ Astro View Transitions nếu có dùng
+  document.addEventListener('astro:page-load', initZenUI);
+</script>

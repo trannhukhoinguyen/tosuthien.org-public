@@ -1,0 +1,295 @@
+---
+// 1. Import dữ liệu sự kiện từ file JSON ở Server-side
+import staticEvents from 'src/data/events/events.json';
+import CalendarTemplate from './CalendarTemplate.astro';
+---
+
+<CalendarTemplate />
+
+<script define:vars={{ staticEvents }}>
+  const eventsData = staticEvents || [];
+
+  // =========================================================================
+  // THUẬT TOÁN TÍNH ÂM LỊCH CHÍNH XÁC CAO (JEAN MEEUS / HỒ NGỌC ĐỨC CHUẨN UTC+7)
+  // =========================================================================
+  function getLunarDate(dd, mm, yyyy) {
+    const timeZone = 7.0;
+
+    function julianDay(d, m, y) {
+      let a = Math.floor((14 - m) / 12);
+      let y_ = y + 4800 - a;
+      let m_ = m + 12 * a - 3;
+      return d + Math.floor((153 * m_ + 2) / 5) + 365 * y_ + Math.floor(y_ / 4) - Math.floor(y_ / 100) + Math.floor(y_ / 400) - 32045;
+    }
+
+    function getNewMoonDay(k, tz = 7.0) {
+      let T = k / 1236.85;
+      let T2 = T * T;
+      let T3 = T2 * T;
+      let dr = Math.PI / 180.0;
+
+      // Hệ số lệch tâm quỹ đạo Trái Đất (Eccentricity)
+      let E = 1 - 0.002516 * T - 0.0000074 * T2;
+
+      let Jd1 = 2451549.59201 + 29.530588853 * k + 0.0001337 * T2 - 0.00000015 * T3;
+      let M   = 2.5534 + 29.10535669 * k - 0.0000218 * T2 - 0.00000011 * T3;
+      let Mpr = 201.5643 + 385.81693528 * k + 0.0107438 * T2 + 0.00001239 * T3;
+      let F   = 160.7108 + 390.67050274 * k - 0.0016341 * T2 - 0.00000227 * T3;
+      let Omega = 124.7746 - 1.56375580 * k + 0.0020691 * T2 + 0.00000215 * T3;
+
+      // Chuỗi nhiễu động thiên văn chuẩn 17 thành phần (Jean Meeus Chapter 49)
+      let C = (-0.40720 * Math.sin(Mpr * dr)
+        + 0.17241 * E * Math.sin(M * dr)
+        + 0.01608 * Math.sin(2 * Mpr * dr)
+        + 0.01039 * Math.sin(2 * F * dr)
+        + 0.00739 * E * Math.sin((Mpr - M) * dr)
+        - 0.00514 * E * Math.sin((Mpr + M) * dr)
+        + 0.00208 * E * E * Math.sin(2 * M * dr)
+        - 0.00111 * Math.sin((Mpr - 2 * F) * dr)
+        - 0.00057 * Math.sin((Mpr + 2 * F) * dr)
+        + 0.00056 * E * Math.sin((2 * Mpr + M) * dr)
+        - 0.00042 * Math.sin(3 * Mpr * dr)
+        + 0.00042 * E * Math.sin((Mpr + 2 * M) * dr)
+        + 0.00038 * E * Math.sin((Mpr - 2 * M) * dr)
+        - 0.00024 * E * Math.sin((2 * Mpr - M) * dr)
+        - 0.00017 * Math.sin(Omega * dr)
+        + 0.00013 * E * Math.sin((Mpr - M - 2 * F) * dr)
+        + 0.00011 * Math.sin((Mpr + M - 2 * F) * dr));
+
+      let JdNew = Jd1 + C;
+      return Math.floor(JdNew + 0.5 + tz / 24.0);
+    }
+
+    function getSunLongitude(jdn, tz = 7.0) {
+      let T = (jdn - 2451545.0 - tz / 24.0) / 36525.0;
+      let T2 = T * T;
+      let dr = Math.PI / 180.0;
+      let L0 = 280.46645 + 36000.76983 * T + 0.0003032 * T2;
+      let M = 357.52910 + 35999.05030 * T - 0.0001559 * T2 - 0.00000048 * T * T2;
+      let C = (1.914600 - 0.004817 * T - 0.000014 * T2) * Math.sin(M * dr) +
+        (0.019993 - 0.000101 * T) * Math.sin(2 * M * dr) +
+        0.000290 * Math.sin(3 * M * dr);
+      let DL = L0 + C;
+      DL = DL % 360;
+      if (DL < 0) DL += 360;
+      return Math.floor(DL / 30.0);
+    }
+
+    function getLunarMonth11(yy, tz = 7.0) {
+      let off = julianDay(31, 12, yy) - 2451545;
+      let k = Math.floor(off / 29.5305888);
+      let nm = getNewMoonDay(k, tz);
+      let sunLong = getSunLongitude(nm, tz);
+      if (sunLong >= 9) {
+        nm = getNewMoonDay(k - 1, tz);
+      }
+      return nm;
+    }
+
+    let dayNumber = julianDay(dd, mm, yyyy);
+    let k = Math.floor((dayNumber - 2451545) / 29.5305888);
+    let monthStart = getNewMoonDay(k, timeZone);
+    if (monthStart > dayNumber) {
+      monthStart = getNewMoonDay(k - 1, timeZone);
+    }
+
+    let a11 = getLunarMonth11(yyyy, timeZone);
+    let yearOfA11 = yyyy;
+    if (a11 >= dayNumber) {
+      yearOfA11 = yyyy - 1;
+      a11 = getLunarMonth11(yearOfA11, timeZone);
+    }
+
+    let a11Next = getLunarMonth11(yearOfA11 + 1, timeZone);
+    let lunarDay = dayNumber - monthStart + 1;
+    let diff = Math.floor((monthStart - a11) / 29.0);
+    let leapMonthDiff = 0;
+    let isLeapMonth = false;
+
+    if (Math.floor((a11Next - a11) / 29.0) > 12) {
+      let leapIndex = 0;
+      let kStart = Math.floor((a11 - 2451545) / 29.5305888);
+      for (let i = 1; i <= 13; i++) {
+        let nm1 = getNewMoonDay(kStart + i - 1, timeZone);
+        let nm2 = getNewMoonDay(kStart + i, timeZone);
+        let sl1 = getSunLongitude(nm1, timeZone);
+        let sl2 = getSunLongitude(nm2, timeZone);
+        if (sl1 === sl2) {
+          leapIndex = i - 1;
+          break;
+        }
+      }
+      if (leapIndex > 0) {
+        if (diff === leapIndex) {
+          isLeapMonth = true;
+        }
+        if (diff >= leapIndex) {
+          leapMonthDiff = 1;
+        }
+      }
+    }
+
+    let lunarMonth = diff - leapMonthDiff + 11;
+    if (lunarMonth > 12) lunarMonth -= 12;
+    if (lunarMonth > 12) lunarMonth -= 12;
+
+    return { day: lunarDay, month: lunarMonth, leap: isLeapMonth };
+  }
+
+  // =========================================================================
+  // LOGIC HIỂN THỊ LỊCH
+  // =========================================================================
+  let currentDate = new Date();
+
+  const titleEl = document.getElementById('calendar-title');
+  const gridEl = document.getElementById('calendar-grid');
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+  const modal = document.getElementById('event-modal');
+  const modalDate = document.getElementById('modal-date');
+  const modalLunar = document.getElementById('modal-lunar');
+  const modalList = document.getElementById('modal-events-list');
+
+  function renderCalendar() {
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+
+    const today = new Date();
+    const realYear = today.getFullYear();
+    const realMonth = today.getMonth();
+    const realDay = today.getDate();
+
+    titleEl.textContent = `THÁNG ${month + 1}, ${year}`;
+
+    const firstDayIndex = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const startingPoint = firstDayIndex === 0 ? 6 : firstDayIndex - 1;
+
+    gridEl.innerHTML = '';
+
+    for (let i = 0; i < startingPoint; i++) {
+      const emptyCell = document.createElement('div');
+      emptyCell.className = 'day-cell empty';
+      gridEl.appendChild(emptyCell);
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const monthStr = String(month + 1).padStart(2, '0');
+      const dayStr = String(day).padStart(2, '0');
+      const dateFormatted = `${year}-${monthStr}-${dayStr}`;
+
+      const isToday = day === realDay && month === realMonth && year === realYear;
+
+      const lunar = getLunarDate(day, month + 1, year);
+      const lunarText = lunar.day === 1 ? `${lunar.day}/${lunar.month}` : `${lunar.day}`;
+
+      const dayEvents = eventsData.filter((evt) => {
+        if (evt.lunar) {
+          if (evt.recurring === 'monthly' && evt.lunarDays) {
+            return evt.lunarDays.includes(lunar.day);
+          }
+          if (evt.lunarMonth === lunar.month && evt.lunarDay === lunar.day) {
+            return true;
+          }
+          return false;
+        }
+        return evt.date === dateFormatted;
+      });
+
+      const cell = document.createElement('div');
+      cell.className = `day-cell${isToday ? ' today' : ''}`;
+
+      cell.innerHTML = `
+        <div class="day-header">
+          <span class="solar-day" title="ngày Dương">${day}</span>
+          <span class="lunar-day" title="ngày Âm">${lunarText}</span>
+        </div>
+        <div class="events-preview">
+          ${dayEvents.map(evt => `<span class="badge ${evt.type}">${evt.title}</span>`).join('')}
+        </div>
+      `;
+
+      cell.addEventListener('click', () => {
+        document.querySelectorAll('.day-cell').forEach(c => c.classList.remove('selected'));
+        cell.classList.add('selected');
+
+        modalDate.textContent = `DƯƠNG LỊCH: ${dayStr}/${monthStr}/${year}`;
+        modalLunar.textContent = `Âm lịch: Ngày ${lunar.day} tháng ${lunar.month}${lunar.leap ? ' (Nhuận)' : ''}`;
+
+        modalList.innerHTML = dayEvents.length
+          ? dayEvents.map(e => `<li><b>[${e.type.toUpperCase()}]</b> ${e.title}</li>`).join('')
+          : '<li>Không có sự kiện</li>';
+
+        modal.classList.remove('hidden');
+      });
+
+      gridEl.appendChild(cell);
+    }
+  }
+
+  btnPrev.addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    renderCalendar();
+    modal.classList.add('hidden');
+  });
+
+  btnNext.addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    renderCalendar();
+    modal.classList.add('hidden');
+  });
+
+  renderCalendar();
+
+  // =========================================================================
+  // APP BADGE PWA & ANCHOR SCROLL
+  // =========================================================================
+  async function updateAppBadge() {
+    if (!('setAppBadge' in navigator)) return;
+
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth() + 1;
+    const day = today.getDate();
+    const dateFormatted = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+
+    const lunar = getLunarDate(day, month, year);
+
+    const todayEvents = eventsData.filter((evt) => {
+      if (evt.lunar) {
+        if (evt.recurring === 'monthly' && evt.lunarDays) {
+          return evt.lunarDays.includes(lunar.day);
+        }
+        return evt.lunarMonth === lunar.month && evt.lunarDay === lunar.day;
+      }
+      return evt.date === dateFormatted;
+    });
+
+    try {
+      if (todayEvents.length > 0) {
+        await navigator.setAppBadge(todayEvents.length);
+      } else {
+        await navigator.clearAppBadge();
+      }
+    } catch (error) {
+      console.error('Lỗi khi set App Badge:', error);
+    }
+  }
+
+  updateAppBadge();
+
+  function handleAnchorScroll() {
+    if (window.location.hash === '#calendar') {
+      const calendarEl = document.querySelector('.calendar-container');
+      calendarEl?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    handleAnchorScroll();
+  } else {
+    document.addEventListener('DOMContentLoaded', handleAnchorScroll);
+  }
+
+  document.addEventListener('astro:page-load', handleAnchorScroll);
+</script>

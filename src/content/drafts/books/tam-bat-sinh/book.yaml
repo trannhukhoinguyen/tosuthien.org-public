@@ -1,0 +1,17 @@
+title: TÂM BẤT SINH
+author: Peter Haskel
+translator: Thích Nữ Trí Hải dịch Việt
+category: Sách
+tags:
+  - TS.Bàn Khuê Vĩnh Trác
+  - Kể chuyện
+parts:
+  - title: Quyển I
+    chapters:
+      - slug: quyen-1
+        title: Quyển 1
+  - title: Quyển II
+    chapters:
+      - slug: quyen-2
+        title: Quyển 2
+

@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PostImage from "@/components/post/PostImage.astro";
+
+
+const title = "Vở kịch nhiều Kiếp";
+const description = "Bạn muốn thoát ra khỏi vai trò Diễn viên trong đó thì phải tức khắc Khai ngộ!!!";
+
+const imageUrl1 = "https://img.magnific.com/free-vector/theatre-template-design_23-2151125647.jpg";
+const imageUrl2 = "https://img.magnific.com/free-vector/hand-drawn-theater-show-landing-page_23-2151177069.jpg";
+
+const posterUrl1 = "https://videocdn.cdnpk.net/videos/c9fc1481-7f82-515d-a495-969141553bb3/horizontal/thumbnails/large.jpg?item_id=9474371&amp;w=740&amp;q=80" ;
+const videoUrl1 = "https://videocdn.cdnpk.net/videos/c9fc1481-7f82-515d-a495-969141553bb3/horizontal/previews/magnific_watermarked/large.mp4";
+---
+
+<Layout
+    title={title}
+    description={description}
+    showSidebar={false}
+>
+  <div class="landing-page">
+
+
+    <!-- Image Section -->
+    <section class="image-area">
+      <PostImage imageUrl={imageUrl1} imageAlt={description} />
+    </section>
+
+    <section class="image-area">
+      <PostImage imageUrl={imageUrl2} imageAlt={description} />
+    </section>
+
+<!--
+    <section class="video-area">
+      <video controls="" controlslist="nodownload" playsinline="" autoplay="" muted="" loop=""
+             poster={posterUrl1}
+             class="video-item">
+      >
+        <source src={videoUrl1} type="video/mp4">
+      </video>
+    </section>
+-->
+
+  </div>
+</Layout>
+
+<style>
+  .landing-page {
+    width: 100%;
+  }
+
+  .image-area {
+    text-align: center;
+    padding: calc(var(--grid-unit) * 1) 0 calc(var(--grid-unit) * 1);
+    background: transparent;
+  }
+
+  .video-area {
+    text-align: center;
+    padding: calc(var(--grid-unit) * 1) 0 calc(var(--grid-unit) * 1);
+    background: transparent;
+    max-width: 768px;
+  }
+
+  .video-item {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    object-fit: contain;
+    border-radius: 0.75rem;    /* rounded-xl (12px) */
+  }
+</style>

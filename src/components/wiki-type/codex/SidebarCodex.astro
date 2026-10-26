@@ -1,0 +1,240 @@
+---
+import { getCodicesByCategory, getCodexSlug, getCodexUrl } from "src/utils/codices.ts";
+
+const categories = await getCodicesByCategory();
+const categoryOrder = [
+    "Basic",
+    "Email Piping",
+    "Integration",
+    "Knowledge Base",
+    "FAQs",
+];
+const sortedCategoryNames = Object.keys(categories).sort((a, b) => {
+    const aIndex = categoryOrder.indexOf(a);
+    const bIndex = categoryOrder.indexOf(b);
+    const normalizedA = aIndex === -1 ? Number.MAX_SAFE_INTEGER : aIndex;
+    const normalizedB = bIndex === -1 ? Number.MAX_SAFE_INTEGER : bIndex;
+    if (normalizedA === normalizedB) return a.localeCompare(b);
+    return normalizedA - normalizedB;
+});
+
+interface Props {
+    currentSlug?: string;
+}
+
+const { currentSlug } = Astro.props;
+const activeCategory = sortedCategoryNames.find((category) =>
+    categories[category].some((doc) => getCodexSlug(doc) === currentSlug),
+);
+---
+
+<div class="sidebar-card">
+  <nav class="sidebar-nav">
+    {
+      sortedCategoryNames.map((category, index) => {
+        const docs = categories[category];
+        const isOpen = activeCategory
+          ? activeCategory === category
+          : index === 0;
+
+        return (
+          <details class="category-item" open={isOpen}>
+            <summary class="category-header">
+                            <span class="category-info">
+                                <svg
+                                  class="category-icon"
+                                  viewBox="0 0 20 20"
+                                  fill="none"
+                                  aria-hidden="true"
+                                >
+                                    <path
+                                      d="M7 5L12 10L7 15"
+                                      stroke="currentColor"
+                                      stroke-width="1.8"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                </svg>
+                                <span class="category-title">
+                                    {category}
+                                </span>
+                            </span>
+              <span class="category-badge">
+                                {docs.length}
+                            </span>
+            </summary>
+
+            <ul class="doc-list">
+              {
+                docs.map((doc) => {
+                  const isActive = currentSlug === getCodexSlug(doc);
+                  return (
+                    <li>
+                      <a
+                        href={getCodexUrl(doc)}
+                        class={`doc-link ${isActive ? 'active' : ''}`}
+                      >
+                        {doc.data.title}
+                      </a>
+                    </li>
+                  );
+                })
+              }
+            </ul>
+          </details>
+        );
+      })
+    }
+  </nav>
+</div>
+
+<style>
+  /* Container chính */
+  .sidebar-card {
+    width: 100%;
+    border-radius: 1rem;
+    border: 1px solid var(--sgkb-border-soft-muted);
+    background-color: #ffffff;
+    overflow: hidden;
+    box-shadow: var(--sgkb-shadow-xs);
+  }
+
+  /* Nav & Thanh cuộn */
+  .sidebar-nav {
+    max-height: calc(100vh - 11rem);
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .sidebar-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .sidebar-nav {
+      scrollbar-width: thin;
+    }
+
+    .sidebar-nav::-webkit-scrollbar {
+      display: block;
+      width: 4px;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-thumb {
+      background: var(--color-brand-gray-200, #e5e7eb);
+      border-radius: 10px;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-thumb:hover {
+      background: var(--color-brand-gray-300, #d1d5db);
+    }
+  }
+
+  /* Accordion Details/Summary */
+  .category-item {
+    border-bottom: 1px solid var(--sgkb-border-soft);
+  }
+
+  .category-item:last-child {
+    border-bottom: 0;
+  }
+
+  .category-header {
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    color: var(--color-brand-gray-700, #374151);
+    transition: background-color 0.15s ease;
+  }
+
+  .category-header::-webkit-details-marker {
+    display: none;
+  }
+
+  .category-header:hover {
+    background-color: var(--color-brand-gray-50, #f9fafb);
+  }
+
+  .category-info {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    min-width: 0;
+  }
+
+  /* Xoay icon khi mở details */
+  .category-icon {
+    width: 1rem;
+    height: 1rem;
+    color: var(--color-brand-gray-400, #9ca3af);
+    flex-shrink: 0;
+    transition: transform 0.15s ease;
+  }
+
+  .category-item[open] .category-icon {
+    transform: rotate(90deg);
+  }
+
+  .category-title {
+    font-size: 16px;
+    line-height: 1.35;
+    font-weight: 600;
+    color: var(--color-brand-gray-700, #374151);
+  }
+
+  /* Badge đếm số lượng */
+  .category-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+    height: 30px;
+    padding: 0 0.5rem;
+    border-radius: 10px;
+    background-color: var(--color-brand-gray-100, #f3f4f6);
+    color: var(--color-brand-gray-400, #9ca3af);
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  /* Danh sách link bài viết */
+  .doc-list {
+    margin: 0;
+    padding: 0.25rem 0;
+    list-style: none;
+    background-color: var(--sgkb-surface-subtle);
+  }
+
+  .doc-link {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--color-brand-gray-700, #374151);
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .doc-link:hover {
+    color: var(--color-primary, #0066cc);
+  }
+
+  .doc-link.active {
+    background-color: var(--sgkb-surface-active);
+    color: var(--color-primary, #0066cc);
+    border-left-color: var(--color-primary, #0066cc);
+    padding-left: 17px;
+    font-weight: 600;
+  }
+</style>

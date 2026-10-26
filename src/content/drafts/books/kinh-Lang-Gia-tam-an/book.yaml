@@ -1,0 +1,39 @@
+title: KINH LĂNG GIÀ TÂM ẤN
+author: TS.Hàm Thị sớ giải
+translator: HT. Thích Thanh Từ
+category: Sách
+tags:
+  - TS.Hàm Thị
+  - Kinh Lăng Già
+  - Duy Thức Học
+parts:
+  - title: PHẦN TỰA
+    chapters:
+      - slug: duyen-khoi
+        title: DUYÊN KHỞI LĂNG-GIÀ TÂM ẤN
+      - slug: gioi-thieu
+        title: LĂNG-GIÀ A-BẠT-ĐA-LA BẢO KINH TÂM ẤN
+  - title: PHẦN I
+    chapters:
+      - slug: pham-nhat-thiet-phat-ngu-tam
+        title: PHẨM NHẤT THIẾT PHẬT NGỮ TÂM
+      - slug: phan-tu
+        title: PHẦN TỰ
+  - title: PHẦN II- PHẦN CHÁNH TÔNG
+    chapters:
+      - slug: a-chi-thang-phap-mon-de-nhat-nghia-rong-lon-vi-dieu-lia-noi-bat-chung
+        title: A- CHỈ PHÁP MÔN ĐỆ NHẤT NGHĨA RỘNG LỚN VI DIỆU LÌA NÓI BẶT CHỨNG
+      - slug: b-chi-nam-phap-tu-tanh-vo-nga-gian-biet-nhi-thua-ngoai-dao-de-ro-nhan-qua-cua-chanh-phap
+        title: B- CHỈ NĂM PHÁP, TỰ TÁNH, VÔ NGÃ, GIẢN BIỆT NHỊ THỪA NGOẠI ĐẠO, ĐỂ RÕ NHÂN QUẢ CỦA CHÁNH PHÁP
+      - slug: c-chi-nhu-lai-tang-sieu-qua-vong-tuong-ngon-thuyet-cua-pham-ngu-va-ngoai-dao-thanh-tuu-cac-dia-cuu-kinh-qua-hai
+        title: C- CHỈ NHƯ LAI TÀNG SIÊU QUÁ VỌNG TƯỞNG NGÔN THUYẾT CỦA PHÀM NGU VÀ NGOẠI ĐẠO THÀNH TỰU CÁC ĐỊA CỨU KÍNH QUẢ
+      - slug: d-chi-tu-giac-nhat-thua-soi-sang-cac-dia-kheo-doan-cac-lau-vien-man-than-phat-chang-roi-vao-co-khong
+        title: D- CHỈ TỰ GIÁC NHẤT THỪA SOI SÁNG CÁC ĐỊA, KHÉO ĐOẠN CÁC LẬU, VIÊN MÃN THÂN PHẬT, CHẲNG RƠI VÀO CÓ KHÔNG
+      - slug: e-chi-tong-thuyet-hai-deu-thong-de-ranh-ve-dung-ngu-nghia-thuc-tri-gian-biet-ngu-ngoai-giup-tien-minh-nguoi-chanh-phap-giai-thoa
+        title: E- CHỈ TÔNG THUYẾT HAI ĐỀU THÔNG ĐỂ RÀNH VỀ DỤNG NGỮ NGHĨA THỨC TRÍ, GIẢN BIỆT NGU NGOẠI, GIÚP TIẾN MÌNH NGƯỜI, CHÁNH PHÁP GIẢI THỎA
+      - slug: f-chi-chanh-giac-chang-phai-phap-nhan-qua-noi-lia-sanh-diet-hien-bay-chan-thuong-khong-cau-chong-vuot-cac-dia
+        title: F- CHỈ CHÁNH GIÁC CHẲNG PHẢI PHÁP NHÂN QUẢ, NÓI LÌA SANH DIỆT, HIỂN BÀY CHÂN THƯỜNG KHÔNG CẤU, CHÓNG VƯỢT CÁC ĐỊA
+      - slug: g-chi-tam-thuc-nam-phap-ba-tu-tanh-hai-vo-nga-cuu-kinh-dai-thua-thanh-de-nhat-nghia
+        title: G - CHỈ TÁM THỨC NĂM PHÁP BA TỰ TÁNH HAI VÔ NGÃ CỨU KÍNH ĐẠI THỪA THÀNH ĐỆ NHẤT NGHĨA
+      - slug: h-che-phap-than-ba-doi-nhu-lai-qua-cho-nghi-ngoi-cua-the-gian-chang-phai-nghia-sat-na-truoc-sau-khong-loi-thanh-tinh-vo-lau
+        title: H- CHỈ PHÁP THÂN BA ĐỜI NHƯ LAI QUÁ CHỖ NGHĨ NGỢI CỦA THẾ GIAN, CHẲNG PHẢI NGHĨA SÁT-NA, TRƯỚC SAU KHÔNG LỖI THANH TỊNH VÔ LẬU

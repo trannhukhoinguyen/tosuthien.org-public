@@ -1,0 +1,17 @@
+---
+interface Props {
+  href?: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a href={href} target="_blank" title={"[Giác giả] " + href?.split('=')[1]} class="link-to-post">✒️</a>
+
+<style>
+  .link-to-post {
+    &:hover {
+      color: var(--color-accent-gold);
+    }
+  }
+</style>

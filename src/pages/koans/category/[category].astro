@@ -1,0 +1,256 @@
+---
+import "@/styles/wiki-type/category.wiki.css"
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/wiki-type/Layout.astro";
+import Search from "../../../components/wiki-type/koan/SearchKoan.astro";
+import { getKoanUrl } from "@/utils/koan.ts";
+import { getTimeAgo } from "@/utils/dateUtils";
+
+export async function getStaticPaths() {
+    const allKoans = await getCollection("koans");
+
+    // Hàm chuẩn hóa category: loại bỏ khoảng trắng thừa ở đầu/cuối
+    const getNormalizedCategory = (item: any) => {
+      const cat = item.data.category;
+      return cat ? cat.trim() : "Chưa phân loại";
+    };
+
+    const categoryOrder = [
+      "Công án",
+      "Chưa phân loại",
+    ];
+    const categories = [
+        ...new Set(allKoans.map((koan) => getNormalizedCategory(koan))),
+    ].sort((a, b) => {
+        const ai = categoryOrder.indexOf(a);
+        const bi = categoryOrder.indexOf(b);
+        const an = ai === -1 ? Number.MAX_SAFE_INTEGER : ai;
+        const bn = bi === -1 ? Number.MAX_SAFE_INTEGER : bi;
+        if (an === bn) return a.localeCompare(b);
+        return an - bn;
+    });
+    const categoryCounts = categories.reduce(
+        (acc, cat) => {
+            acc[cat] = allKoans.filter(
+                (koan) => getNormalizedCategory(koan) === cat,
+            ).length;
+            return acc;
+        },
+        {} as Record<string, number>,
+    );
+
+    return categories.map((category) => {
+        const slug = category?.toLowerCase().replace(/\s+/g, "-");
+        const categoryKoans = allKoans.filter(
+            (koan) => getNormalizedCategory(koan) === category,
+        );
+        return {
+            params: { category: slug },
+            props: {
+                category,
+                koans: categoryKoans,
+                allKoans,
+                allCategories: categories,
+                categoryCounts,
+            },
+        };
+    });
+}
+
+const { category, koans: koansToDisplay, allKoans, allCategories, categoryCounts } = Astro.props;
+
+const catDescription = `Khám phá các công án chi tiết`;
+
+// Sort by date or title
+const sortedKoans = koansToDisplay.sort((a, b) =>
+  (a.data.order ?? 0) - (b.data.order ?? 0)
+  // b.data.title.localeCompare(a.data.title),
+);
+
+// Get other categories for the sidebar
+const categoriesWithCounts = allCategories.map((cat) => {
+    return {
+        name: cat,
+        slug: cat.toLowerCase().replace(/\s+/g, "-"),
+        count: categoryCounts?.[cat] || 0,
+    };
+});
+---
+
+<Layout title={`${category} - Tổ Sư Thiền`}>
+  <header class="page-header">
+    <div class="page-header__overlay"></div>
+    <div class="container-wide page-header__container">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <ol class="breadcrumb__list">
+          <li class="breadcrumb__item">
+            <a href="/" class="breadcrumb__link">Home</a>
+          </li>
+          <li class="breadcrumb__item">
+            <span class="breadcrumb__separator">/</span>
+            <a href="/koans" class="breadcrumb__link">Công án</a>
+          </li>
+          <li class="breadcrumb__item">
+            <span class="breadcrumb__separator">/</span>
+            <span class="breadcrumb__current">{category}</span>
+          </li>
+        </ol>
+      </nav>
+
+      <h1 class="page-header__title">{category}</h1>
+      <p class="page-header__desc">
+        {`${catDescription}  ${category}.`}
+      </p>
+      <div class="page-header__meta">{koansToDisplay.length} công án</div>
+
+      <div class="page-header__search">
+        <Search />
+      </div>
+    </div>
+  </header>
+
+  <div class="content-section">
+    <div class="container-wide">
+      <div class="content-layout">
+        <!-- Sidebar:  -->
+        <aside class="sidebar">
+          <div class="sidebar-card">
+            <h4 class="sidebar-card__title">Các danh mục liên quan</h4>
+            <nav class="category-nav">
+              {categoriesWithCounts.map((cat) => (
+                <a
+                  href={`/koans/category/${cat.slug}`}
+                  class:list={[
+                    "category-nav__item",
+                    cat.name === category && "category-nav__item--active"
+                  ]}
+                >
+                  <span class="category-nav__main">
+                    <span class="category-nav__dot"></span>
+                    <span class="category-nav__text">{cat.name}</span>
+                  </span>
+                  <span class="category-nav__badge">{cat.count}</span>
+                </a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <!-- Article List -->
+        <main
+          class="article-main"
+          x-data={`{
+            currentPage: 1,
+            perPage: 10,
+            totalItems: ${sortedKoans.length},
+            get totalPages() { return Math.max(1, Math.ceil(this.totalItems / this.perPage)); },
+            get startIndex() { return (this.currentPage - 1) * this.perPage + 1; },
+            get endIndex() { return Math.min(this.currentPage * this.perPage, this.totalItems); },
+            goToPage(page) { this.currentPage = Math.min(Math.max(page, 1), this.totalPages); },
+            isVisible(index) {
+              const start = (this.currentPage - 1) * this.perPage;
+              const end = this.currentPage * this.perPage;
+              return index >= start && index < end;
+            }
+          }`}
+        >
+          <div class="article-header">
+            <h3 class="article-header__title">Công án</h3>
+            <span
+              class="article-header__count"
+              x-text="`Hiển thị ${startIndex}-${endIndex} của ${totalItems} công án`"
+            ></span>
+          </div>
+
+          <div class="article-list">
+            {sortedKoans.map((koan, index) => (
+              <article
+                x-show={`isVisible(${index})`}
+                class="article-card"
+                data-pagefind-body
+                data-pagefind-filter={`category:${category}`}
+              >
+                <div class="article-card__header">
+                  <h4 class="article-card__title">
+                    <a href={getKoanUrl(koan)} class="article-card__link">
+                      {koan.data.title}
+                    </a>
+                    <span class="article-card__extra">{koan.data.category}</span>
+                  </h4>
+                  <span class="article-card__date">
+                    {koan.data.lastUpdated && getTimeAgo(koan.data.lastUpdated)}
+                  </span>
+                </div>
+                <p class="article-card__desc">
+                  {koan.data.description || "..."}
+                </p>
+                <div class="featured-card__badge-list">
+                  {koan.data.tags?.map((tag, index) => (<span class="featured-card__badge">{tag}</span>))}
+                </div>
+                <a href={getKoanUrl(koan)} class="article-card__cta">
+                  Đọc công án
+                  <span class="article-card__cta-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </span>
+                </a>
+              </article>
+            ))}
+          </div>
+
+          <!-- Simple Pagination -->
+          <div class="pagination" x-show="totalPages > 1">
+            <button
+              type="button"
+              @click="goToPage(currentPage - 1)"
+              :disabled="currentPage === 1"
+              class="pagination__btn"
+              aria-label="Previous page"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </button>
+
+            <template x-for="page in totalPages" :key="page">
+              <button
+                type="button"
+                @click="goToPage(page)"
+                :class="currentPage === page ? 'pagination__page--active' : 'pagination__page--inactive'"
+                class="pagination__btn pagination__page"
+                x-text="page"
+              ></button>
+            </template>
+
+            <button
+              type="button"
+              @click="goToPage(currentPage + 1)"
+              :disabled="currentPage === totalPages"
+              class="pagination__btn"
+              aria-label="Next page"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12H19M19 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </button>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .featured-card__badge_list {
+    display: inline-flex;
+    justify-content: end;
+    align-items: center;
+  }
+  .featured-card__badge {
+    float: right;
+    margin-right: 1rem;
+    padding: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 9999px;
+    color: white;
+    background-color: var(--color-accent-teal);
+  }
+</style>

@@ -1,0 +1,96 @@
+---
+import "@/styles/wiki-type/slug.wiki.css"
+import { getCollection, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import Layout from "@/layouts/wiki-type/EnlightenerLayout.astro";
+import { getEnlightenerSlug, getEnlightenerUrl } from "@/utils/enlighteners.ts";
+
+export async function getStaticPaths() {
+  const enlighteners = await getCollection("enlighteners");
+  return enlighteners.map((entry) => ({
+    params: { slug: getEnlightenerSlug(entry) },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<"enlighteners">;
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+const allEnlighteners = await getCollection("enlighteners");
+
+const wordCount = entry.body ? entry.body.trim().split(/\s+/).filter(Boolean).length : 0;
+const readTimeMinutes = Math.max(1, Math.ceil(wordCount / 200));
+
+// Logic tính toán navigation, related articles... (giữ nguyên như cũ)
+const enlightenersForNavigation = allEnlighteners
+  .filter((enlightener) => entry.data.category ? enlightener.data.category === entry.data.category : true)
+  .map((enlightener, indexEnlightener) => ({ ...enlightener, order: indexEnlightener }))
+  .sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0) || a.data.title.localeCompare(b.data.title));
+
+const entrySlug = getEnlightenerSlug(entry);
+const currentIndex = enlightenersForNavigation.findIndex((e) => getEnlightenerSlug(e) === entrySlug);
+const previousEnlightener = currentIndex > 0 ? enlightenersForNavigation[currentIndex - 1] : undefined;
+const nextEnlightener = currentIndex >= 0 && currentIndex < enlightenersForNavigation.length - 1 ? enlightenersForNavigation[currentIndex + 1] : undefined;
+
+const relatedArticles = allEnlighteners
+  .filter((e) => getEnlightenerSlug(e) !== entrySlug)
+  .filter((e) => e.data.category === entry.data.category)
+  .slice(0, 5)
+  .map((e) => ({
+    title: e.data.title,
+    description: e.data.description || `Tìm hiểu thêm về ${e.data.title}`,
+    href: getEnlightenerUrl(e),
+  }));
+
+// Kiểm tra nội dung bài viết có thực sự chứa các tab con này không
+const hasDialogue = entry.body?.includes('class="tab-dialogue"') || false;
+const hasSermon = entry.body?.includes('class="tab-sermon"') || false;
+
+// Nếu YAML chưa khai báo tabLabels nhưng bài viết có import nội dung Dialogue/Sermon, ta tự động thêm vào
+let tabLabels = [...(entry.data.tabLabels || [])];
+
+if (tabLabels.length === 0) {
+  if (hasDialogue) tabLabels.push("dialogue");
+  if (hasSermon) tabLabels.push("sermon");
+} else {
+  // Nếu có khai báo, ta lọc lại để chắc chắn chỉ hiện tab nào thực sự có div tồn tại trong bài
+  tabLabels = tabLabels.filter(label => {
+    const slug = label.toLowerCase().trim();
+    if (slug === 'dialogue') return hasDialogue;
+    if (slug === 'sermon') return hasSermon;
+    return true; // Các tab khác như mantra, story giữ nguyên
+  });
+}
+---
+
+<Layout
+  title={entry.data.title}
+  description={entry.data.description}
+  category={entry.data.category}
+  currentSlug={entrySlug}
+  headings={headings}
+  articleData={{
+    publishedTime: entry.data.publishedDate?.toISOString(),
+    modifiedTime: entry.data.lastUpdated?.toISOString(),
+    birthDeath: entry.data.birthDeath,
+    extraNames: entry.data.extraNames,
+    zenSchool: entry.data.zenSchool,
+    teachers: entry.data.teachers,
+    places: entry.data.places,
+    tags: entry.data.tags,
+    readTimeMinutes,
+  }}
+  navigationData={{
+    previous: previousEnlightener ? { title: previousEnlightener.data.title, href: getEnlightenerUrl(previousEnlightener) } : undefined,
+    next: nextEnlightener ? { title: nextEnlightener.data.title, href: getEnlightenerUrl(nextEnlightener) } : undefined,
+  }}
+  relatedArticles={relatedArticles}
+  tabLabels={tabLabels}
+  videoIds={entry.data.videoIds}
+  activeTab="main"
+>
+  <Content />
+</Layout>

@@ -1,0 +1,236 @@
+﻿---
+interface Props {
+    title: string;
+    description: string;
+    icon: string;
+    count: number;
+    href: string;
+    articles: { title: string; href: string }[];
+}
+
+const { title, description, icon: _icon, count, href, articles } = Astro.props;
+---
+
+<div class="category-card">
+  <div class="category-card__header">
+    <div class="category-card__icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M9 12H15M9 16H15M17 21H7C5.89543 21 5 20.1046 5 19V5C5 3.89543 5.89543 3 7 3H12.5858C12.851 3 13.1054 3.10536 13.2929 3.29289L18.7071 8.70711C18.8946 8.89464 19 9.149 19 9.41421V19C19 20.1046 18.1046 21 17 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </div>
+    <div class="category-card__info">
+      <h3 class="category-card__title">
+        <a href={href} class="category-card__title-link">{title}</a>
+      </h3>
+      <span class="category-card__count">{count} articles</span>
+    </div>
+  </div>
+
+  <p class="category-card__description">{description}</p>
+
+  <div class="category-card__articles">
+    {articles.map((article) => (
+      <a href={article.href} class="article-link">
+        <span class="article-link__arrow">&rarr;</span>
+        <span class="article-link__title">{article.title}</span>
+      </a>
+    ))}
+  </div>
+
+  <a href={href} class="category-card__view-all">
+    Xem tất cả bài viết
+    <span class="category-card__view-all-arrow">&rarr;</span>
+  </a>
+</div>
+
+<style>
+  /* ==========================================================================
+   CSS Variables & Tokens
+   ========================================================================== */
+  :root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --sgkb-primary-soft: rgba(37, 99, 235, 0.15);
+    --sgkb-border-soft: #f3f4f6;
+    --sgkb-shadow-primary-soft: 0 10px 25px -5px rgba(37, 99, 235, 0.1);
+    --sgkb-text-quaternary: #9ca3af;
+    --brand-gray-400: #9ca3af;
+    --brand-gray-500: #6b7280;
+    --brand-gray-900: #111827;
+  }
+
+  /* ==========================================================================
+     Category Card Component
+     ========================================================================== */
+  .category-card {
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+    border-radius: 1rem; /* rounded-2xl */
+    border: 1px solid var(--sgkb-border-soft);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s ease;
+  }
+
+  /* Pseudo-element Top Border Animation */
+  .category-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 4px;
+    background-color: var(--primary);
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .category-card:hover {
+    border-color: var(--sgkb-primary-soft);
+    transform: translateY(-1px);
+    box-shadow: var(--sgkb-shadow-primary-soft);
+  }
+
+  .category-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  /* Header & Icon */
+  .category-card__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem; /* gap-3.5 */
+    margin-bottom: 1.25rem;
+  }
+
+  .category-card__icon {
+    width: 42px;
+    height: 42px;
+    background-color: var(--primary);
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    flex-shrink: 0;
+    transition: transform 0.2s ease-out;
+  }
+
+  .category-card:hover .category-card__icon {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  .category-card__title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--brand-gray-900);
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  .category-card__title-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .category-card__title-link:hover {
+    color: var(--primary);
+  }
+
+  .category-card__count {
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 400;
+    color: var(--brand-gray-400);
+  }
+
+  /* Description */
+  .category-card__description {
+    font-size: 14px;
+    color: var(--brand-gray-500);
+    line-height: 1.55;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+
+    /* Line clamp 4 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Article Items List */
+  .category-card__articles {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    flex-grow: 1;
+  }
+
+  .article-link {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 14px;
+    color: var(--brand-gray-500);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .article-link:hover {
+    color: var(--primary);
+  }
+
+  .article-link__arrow {
+    color: var(--sgkb-text-quaternary);
+    margin-top: 1px;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+
+  .article-link:hover .article-link__arrow {
+    color: var(--primary);
+    transform: translateX(3px);
+  }
+
+  .article-link__title {
+    line-height: 1.4;
+
+    /* Line clamp 2 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Footer Link (View All) */
+  .category-card__view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin-top: 1.5rem;
+    padding-top: 0.25rem;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .category-card__view-all:hover {
+    color: var(--primary-dark);
+    transform: translateX(3px);
+  }
+
+  .category-card__view-all-arrow {
+    transition: transform 0.2s ease;
+  }
+
+  .category-card__view-all:hover .category-card__view-all-arrow {
+    transform: translateX(2px);
+  }
+</style>
