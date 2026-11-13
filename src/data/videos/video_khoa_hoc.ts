@@ -7,6 +7,12 @@ export interface video {
 
 const VIDEO_SCIENCE_VIDS: video[] = [
   {
+    id: "BaGhStLH8vM",
+    title: "Bản chất Thực tại và Ý thức",
+    url: "https://www.youtube.com/watch?v=BaGhStLH8vM",
+    thumbnail: "https://i.ytimg.com/vi/BaGhStLH8vM/mqdefault.jpg",
+  },
+  {
     id: "kIAyKblFluM",
     title: "Vạn Pháp Duy Thức",
     url: "https://www.youtube.com/watch?v=kIAyKblFluM",

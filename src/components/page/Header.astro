@@ -1,19 +1,33 @@
 ---
 import { config } from '@/config.ts';
 import ThemeSwitcher from "@/components/ui/button/ThemeSwitcher.astro";
+import ThemeSelector from '@/components/ui/minrock-style/ThemeSelector.astro';
 import SearchMobile from "@/components/ui/search/SearchMobile.astro";
 import Search from "@/components/ui/search/Search.astro";
+import SearchMinrock from "@/components/ui/minrock-style/SearchMinrock.astro";
 import SearchPF from "@/components/ui/search/SearchPageFind.astro";
-import LanguageSwitcher from "@/components/page/LanguageSwitcher.astro";
+import LanguageSwitcher from "@/components/ui/button/LanguageSwitcher.astro";
 import SearchPFMobile from "@/components/ui/search/SearchPageFindMobile.astro";
-import Wordpress from "~/images/wordpress-logo.png";
-import IconReshare from "~/images/reshare-logo.png";
+import Wordpress from "~/images/logos/wordpress-logo.png";
+import IconReshare from "~/images/logos/reshare-logo.png";
+import IconNNL from "~/images/logos/nnl-logo.png";
+import IconCNYT from "~/images/logos/cnyt-logo.png";
 import WorkBuddy from "~/icons/ai-agent.gif";
 import ZenMarrow from "~/images/website-logos/zenmarrow.com.png";
-import WallpaperPicker from '../ui/button/WallpaperPicker.astro';
+import WallpaperPicker from '@/components/ui/button/WallpaperPicker.astro';
 import { l } from "@/utils/constants.ts";
 
+// Lấy param [lang] từ URL động của Astro (mặc định là 'vi' nếu không khớp)
+const { lang = 'vi' } = Astro.params;
+
 const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: '' };
+
+const showSearch = config.showSearch !== false;
+const showSearchMinrock = config.showSearchMinrock !== false;
+const showThemeSwitcher = config.showThemeSwitcher !== false;
+const showThemeSelector = config.showThemeSelector !== false;
+const showWallpaperPicker = config.showWallpaperPicker !== false;
+const showLanguageSwitcher = config.showLanguageSwitcher !== false;
 ---
 
 <header class="site-header">
@@ -52,16 +66,18 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
             <ul class="dropdown-menu">
               <li>
                 <a href={"https://tosuthien.net/"} target="_blank" class="dropdown-nav-link with-icon">
-                  <img src={WorkBuddy.src} alt={"HỎI ĐÁP VỚI AI"} width="32" class="nav-icon" />
-                  HỎI ĐÁP VỚI AI
+                  <img src={WorkBuddy.src} alt={"Hỏi đáp với AI"} width="32" class="nav-icon" />
+                  Hỏi đáp với AI
                 </a>
               </li>
-              <li>
-                <a href={"https://zenmarrow.com/search"} target="_blank" class="dropdown-nav-link with-icon">
-                  <img src={ZenMarrow.src} alt={"Search Zen Words"} width="32" class="nav-icon" />
-                  Search Zen Words
-                </a>
-              </li>
+              {
+                lang === 'en' && (<li>
+                  <a href={"https://zenmarrow.com/search"} target="_blank" class="dropdown-nav-link with-icon">
+                    <img src={ZenMarrow.src} alt={"Search Zen Words"} width="32" class="nav-icon" />
+                    Search Zen Words
+                  </a>
+                </li>)
+              }
               <li><a href={base + "faqs"} class="dropdown-nav-link">🙋🏻‍♂️ HỎI ĐÁP</a></li>
               <li><a href={base + "symptoms/trieu-chung-tot-muc-luc"} class="dropdown-nav-link">✅ TRIỆU CHỨNG TỐT </a></li>
               <li><a href={base + "symptoms/thien-benh-muc-luc"} class="dropdown-nav-link">❌ THIỀN BỆNH</a></li>
@@ -123,7 +139,16 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
               <li><a href={base + "films"} class="dropdown-nav-link">📺 Phim Phật Giáo</a></li>
               <li><a href={base + "health"} title="Thuốc nam">🌿️ Sức khoẻ</a></li>
               <li><a href={"https://tram.reshare.vn/"} class="dropdown-nav-link with-icon" target="_blank">
-                <img src={IconReshare.src} alt="tram.Reshare.vn" class="nav-icon" />
+                <img src={IconReshare.src} alt="Trạm Xanh Reshare" class="nav-icon" />
+                Trạm Xanh Reshare
+              </a></li>
+              <li><a href={"https://www.facebook.com/nhanhieula.7122020/"} class="dropdown-nav-link with-icon" target="_blank">
+                <img src={IconNNL.src} alt="Nhà Nhiều Lá" class="nav-icon" />
+                Nhà Nhiều Lá
+              </a></li>
+              <li><a href={"https://chunhatyeuthuong.org/"} class="dropdown-nav-link with-icon" target="_blank">
+                <img src={IconCNYT.src} alt="Chủ Nhật Yêu Thương" class="nav-icon" />
+                Chủ Nhật Yêu Thương
               </a></li>
             </ul>
           </li>
@@ -132,13 +157,18 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
 
       <!-- Mobile controls group - RSS and Search on right -->
       <div class="mobile-controls">
-        <ThemeSwitcher />
+        {showThemeSwitcher && <ThemeSwitcher />}
 
-        <!--<WallpaperPicker />-->
+        {showThemeSelector && <ThemeSelector />}
+
+        {showWallpaperPicker && <WallpaperPicker />}
+
         <SearchMobile />
         <!--<SearchPFMobile />-->
 
-        <!--<LanguageSwitcher />-->
+        <!--{showSearchMinrock && <SearchMinrock />}-->
+
+        {showLanguageSwitcher && <LanguageSwitcher />}
       </div>
     </div>
   </div>
@@ -172,12 +202,14 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
         HỎI ĐÁP VỚI AI
       </a>
     </li>
-    <li>
-      <a href={"https://zenmarrow.com/search"} target="_blank" class="mobile-nav-link with-icon">
-        <img src={ZenMarrow.src} alt={"Search Zen Words"} width="32" style="border: none; margin-right: 4px" class="nav-icon" />
-        Search Zen Words
-      </a>
-    </li>
+    {
+      lang === 'en' && (<li>
+        <a href={"https://zenmarrow.com/search"} target="_blank" class="mobile-nav-link with-icon">
+          <img src={ZenMarrow.src} alt={"Search Zen Words"} width="32" style="border: none; margin-right: 4px" class="nav-icon" />
+          Search Zen Words
+        </a>
+      </li>)
+    }
     <li><a href={base + "faqs"} class="mobile-nav-link">🙋🏻‍♂️ HỎI ĐÁP</a></li>
     <li><a href={base + "blogs"} class="mobile-nav-link" title="Blog">📜 BLOG</a></li>
     <li><a href={base + "youth"} class="mobile-nav-link" title="Tổ Sư Thiền và Tuổi Trẻ">🧘🏻 TỔ SƯ THIỀN VÀ TUỔI TRẺ</a></li>
@@ -187,17 +219,28 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
     <li><a href={base + "tags"} class="mobile-nav-link">🎏 TAG</a></li>
     <li><a href={base + "authors"} class="mobile-nav-link">🖋 TÁC GIẢ</a></li>
     <li><a href={base + "films"} class="mobile-nav-link">📺 PHIM PHẬT GIÁO</a></li>
-    <li><a href={base + "health"} class="mobile-nav-link">🌿️ SỨC KHOẺ</a></li>
     <li><a href={base + "codices"} class="mobile-nav-link">🌿️ DƯỢC ĐIỂN</a></li>
     <li><a href={base + "offering"} class="mobile-nav-link">🎁️ CÚNG DƯỜNG</a></li>
-    <li><a href={"https://tram.reshare.vn/"} class="mobile-nav-link with-icon" target="_blank"><img src={IconReshare.src} alt="tram.Reshare.vn" style="height: 30px" class="nav-icon" /></a></li>
+    <li><a href={"https://tram.reshare.vn/"} class="mobile-nav-link with-icon" target="_blank">
+      <img src={IconReshare.src} alt="Trạm Xanh Reshare" class="nav-icon" />
+      Trạm Xanh Reshare
+    </a></li>
+    <li><a href={"https://www.facebook.com/nhanhieula.7122020/"} class="mobile-nav-link with-icon" target="_blank">
+      <img src={IconNNL.src} alt="Nhà Nhiều Lá" class="nav-icon" />
+      Nhà Nhiều Lá
+    </a></li>
+    <li><a href={"https://chunhatyeuthuong.org/"} class="mobile-nav-link with-icon" target="_blank">
+      <img src={IconCNYT.src} alt="Chủ Nhật Yêu Thương" class="nav-icon" />
+      Chủ Nhật Yêu Thương
+    </a></li>
   </ul>
 </nav>
 
-<Search />
+
+{showSearch && <Search />}
 <!--<SearchPF />-->
 
-<style>
+<style scoped>
   .site-header {
     background-color: var(--color-surface);
     border-bottom: 2px solid var(--color-border);
@@ -821,17 +864,6 @@ const { base = '' } = Astro.site ? { base: import.meta.env.BASE_URL } : { base: 
     display: flex;
     align-items: center;
     margin-block: 8px
-  }
-
-  .with-icon {
-    display: flex;
-    align-items: center;
-  }
-
-  .nav-icon {
-    border: none;
-    margin-right: 8px;
-    height: 30px;
   }
 </style>
 

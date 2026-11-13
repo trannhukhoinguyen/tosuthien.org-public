@@ -74,7 +74,7 @@
     margin: 0 0 1.25rem;
     line-height: 1.25;
     max-width: 64rem;
-    font-family: var(--font-serif, "Lora", "Merriweather", Georgia, serif);
+    font-family: var(--font-serif, "Lora", "Merriweather", Georgia, serif), serif;
 }
 
 .article-meta {
@@ -282,7 +282,7 @@
     gap: 0.625rem;
     min-width: max-content;
     padding-bottom: 0.5rem;
-    font-family: var(--font-serif, "Lora", "Merriweather", Georgia, serif);
+    font-family: var(--font-serif, "Lora", "Merriweather", Georgia, serif), serif;
 }
 
 /* Nút Tab: Tương phản rõ ràng cho người mắt kém */
@@ -323,6 +323,7 @@
     border-color: var(--sgkb-border-strong);
     transform: translateY(-2px);
     box-shadow: 0 3px 6px rgb(0 0 0 / 8%);
+    text-decoration: none;
 }
 
 .zen-tab-btn:hover .zen-tab-icon,
@@ -402,29 +403,62 @@
 }
 
 /* Tab Panels Logic */
+.tab-panels-wrapper[data-active-tab="main"] .tab-hanh-trang,
+.tab-panels-wrapper[data-active-tab="main"] .tab-expedient-means,
+.tab-panels-wrapper[data-active-tab="main"] .tab-story,
+.tab-panels-wrapper[data-active-tab="main"] .tab-mantra,
 .tab-panels-wrapper[data-active-tab="main"] .tab-dialogue,
 .tab-panels-wrapper[data-active-tab="main"] .tab-sermon {
     display: none !important;
 }
 
-/* Khi chọn Tab Dialogue: Chỉ hiển thị Tab Dialogue, bỏ qua các thành phần chân trang chung */
-.tab-panels-wrapper[data-active-tab="dialogue"] article > *:not(.tab-dialogue, .footnotes, .blog-rule, h2) {
+/* Khi chọn 1 Tab: Chỉ hiển thị Tab đó, bỏ qua các thành phần chân trang chung */
+.tab-panels-wrapper[data-active-tab="doi-thoai"] article > *:not(.tab-dialogue, .footnotes, .blog-rule) {
     display: none !important;
 }
-
-.tab-panels-wrapper[data-active-tab="dialogue"] article > .tab-dialogue {
+.tab-panels-wrapper[data-active-tab="doi-thoai"] article > .tab-dialogue {
     display: block !important;
 }
 
-/* Khi chọn Tab Sermon: Chỉ hiển thị Tab Sermon, bỏ qua các thành phần chân trang chung */
-.tab-panels-wrapper[data-active-tab="sermon"] article > *:not(.tab-sermon, .footnotes, .blog-rule, h2) {
+/* Khi chọn 1 Tab: Chỉ hiển thị Tab đó, bỏ qua các thành phần chân trang chung */
+.tab-panels-wrapper[data-active-tab="bai-giang"] article > *:not(.tab-sermon, .footnotes, .blog-rule) {
     display: none !important;
 }
-
-.tab-panels-wrapper[data-active-tab="sermon"] article > .tab-sermon {
+.tab-panels-wrapper[data-active-tab="bai-giang"] article > .tab-sermon {
     display: block !important;
 }
 
+/* Khi chọn 1 Tab: Chỉ hiển thị Tab đó, bỏ qua các thành phần chân trang chung */
+.tab-panels-wrapper[data-active-tab="chan-ngon"] article > *:not(.tab-mantra, .footnotes, .blog-rule) {
+    display: none !important;
+}
+.tab-panels-wrapper[data-active-tab="chan-ngon"] article > .tab-mantra {
+    display: block !important;
+}
+
+/* Khi chọn 1 Tab: Chỉ hiển thị Tab đó, bỏ qua các thành phần chân trang chung */
+.tab-panels-wrapper[data-active-tab="cau-chuyen"] article > *:not(.tab-story, .footnotes, .blog-rule) {
+    display: none !important;
+}
+.tab-panels-wrapper[data-active-tab="cau-chuyen"] article > .tab-story {
+    display: block !important;
+}
+
+/* Khi chọn 1 Tab: Chỉ hiển thị Tab đó, bỏ qua các thành phần chân trang chung */
+.tab-panels-wrapper[data-active-tab="phuong-tien-khai-thi"] article > *:not(.tab-expedient-means, .footnotes, .blog-rule) {
+    display: none !important;
+}
+.tab-panels-wrapper[data-active-tab="phuong-tien-khai-thi"] article > .tab-expedient-means {
+    display: block !important;
+}
+
+/* Khi chọn 1 Tab: Chỉ hiển thị Tab đó, bỏ qua các thành phần chân trang chung */
+.tab-panels-wrapper[data-active-tab="hanh-trang"] article > *:not(.tab-hanh-trang, .footnotes, .blog-rule) {
+    display: none !important;
+}
+.tab-panels-wrapper[data-active-tab="hanh-trang"] article > .tab-hanh-trang {
+    display: block !important;
+}
 
 /* ==========================================
    6. Footer, Pagination & Related Cards
@@ -534,7 +568,7 @@
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--sgkb-text-main);
-    font-family: var(--font-serif, "Lora", "Merriweather", Georgia, serif);
+    font-family: var(--font-serif, "Lora", "Merriweather", Georgia, serif), serif;
 }
 
 .related-grid {
@@ -686,9 +720,11 @@ body,
 }
 
 /* 4. TỰ ĐỘNG HIỂN THỊ khối tab con tương ứng với giá trị của data-active-tab */
+.tab-panels-wrapper[data-active-tab="hanh-trang"] article > .tab-hanh-trang,
+.tab-panels-wrapper[data-active-tab="expedient-means"] article > .tab-expedient-means,
 .tab-panels-wrapper[data-active-tab="mantra"] article > .tab-mantra,
 .tab-panels-wrapper[data-active-tab="story"] article > .tab-story,
-.tab-panels-wrapper[data-active-tab="dialogue"] article > .tab-dialogue,
+.tab-panels-wrapper[data-active-tab="doi-thoai"] article > .tab-dialogue,
 .tab-panels-wrapper[data-active-tab="sermon"] article > .tab-sermon {
     display: block !important;
 }
@@ -726,4 +762,106 @@ article:not(.has-footer-content) .blog-rule.footer ~ * {
     transform: translateY(-2px);
     border-color: var(--color-accent-gold);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================
+   Tree Archive Layout for Expedient Means
+   ========================================== */
+.means-archive-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--sgkb-text-main);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-serif, "Lora", Georgia, serif);
+}
+
+.means-archive-desc {
+    font-size: 0.925rem;
+    color: var(--sgkb-text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.tree-archive-container {
+    background-color: var(--sgkb-bg-gray);
+    border: 1px solid var(--sgkb-border);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+}
+
+.tree-archive-root,
+.tree-archive-sub {
+    list-style: none;
+    padding-left: 1.25rem;
+    margin: 0;
+    position: relative;
+}
+
+.tree-archive-root {
+    padding-left: 0;
+}
+
+/* Các nét vẽ nhánh cây */
+.tree-archive-sub::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0.75rem;
+    left: 0.5rem;
+    width: 2px;
+    background-color: var(--sgkb-border);
+}
+
+.tree-node {
+    position: relative;
+    margin-bottom: 0.75rem;
+}
+
+.tree-node.child-node::before {
+    content: '';
+    position: absolute;
+    top: 0.85rem;
+    left: -0.75rem;
+    width: 0.75rem;
+    height: 2px;
+    background-color: var(--sgkb-border);
+}
+
+.tree-node-content {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.625rem 0.875rem;
+    background-color: var(--sgkb-bg-card);
+    border: 1px solid var(--sgkb-border);
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.tree-node-content:hover {
+    border-color: var(--sgkb-primary);
+    transform: translateX(3px);
+    box-shadow: var(--sgkb-shadow-xs-soft);
+}
+
+.tree-node-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: var(--sgkb-text-main);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.tree-node-link:hover .node-title {
+    color: var(--sgkb-primary);
+}
+
+.node-badge {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 0.25rem;
+    background-color: var(--sgkb-primary-soft);
+    color: var(--sgkb-primary);
+    border: 1px solid var(--sgkb-primary-border);
 }

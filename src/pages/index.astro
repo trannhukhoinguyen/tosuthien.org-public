@@ -11,7 +11,7 @@ import HTTDL from "@/components/htmlData/HTTDL.astro";
 import LANKA_SUTRA_IMPORTANCE from "../components/htmlData/LANKA_SUTRA_IMPORTANCE.astro";
 import InstallPWA from "@/components/ui/InstallPWA.astro";
 import PWAPopup from "@/components/ui/PWAPopup.astro";
-import YouTubePlaylist from "@/components/ui/media/YouTubePlaylist.astro";
+import YouTubePlaylistFullWidth from "@/components/ui/media/YouTubePlaylistFullWidth.astro";
 import SeeAllBtn from '@/components/ui/button/SeeAllBtn.astro';
 import WorkBuddy from "~/icons/ai-agent.gif";
 // import Calendar from '@/components/ui/calendar/Calendar.astro';
@@ -116,7 +116,7 @@ const { lang = 'vi' } = Astro.params;
 
 <!-- Image Section -->
     <section class="image-area">
-      <PostImage imageUrl={'/images/books/covers/Thang-Man-phu-nhan-phat-nguyen.jpg'} imageAlt={'Thiền định của Phật - Tổ Sư Thiền'} />
+      <PostImage imageUrl={'/images/remind/Gaofeng-Yuanmiao-words.png'} imageAlt={'Cao Phong Nguyên Diệu thiền sư ngữ lục - Tổ Sư Thiền'} />
       <p class="tag-line-accent">{tagLine5}</p>
     </section>
 
@@ -138,7 +138,7 @@ const { lang = 'vi' } = Astro.params;
     <p class="tag-line-accent mt-6">{tagLine5}</p>
     <div>
       <!-- ✅ Youtube Video Playlist, Audio -->
-      <YouTubePlaylist videos={[
+      <YouTubePlaylistFullWidth videos={[
           ...AI_ENHANCED_YTB_VIDS,
           ...YTB_VIDS,
           ...FAQ_YTB_VIDS,
@@ -157,7 +157,7 @@ const { lang = 'vi' } = Astro.params;
     <h2>VIDEO KHOA HỌC GIẢI THÍCH VỀ THẾ GIỚI DUY THỨC</h2>
     <div>
       <!-- ✅ Youtube Video Playlist, Audio -->
-      <YouTubePlaylist videos={[
+      <YouTubePlaylistFullWidth videos={[
         ...VIDEO_SCIENCE_VIDS,
       ]} />
     </div>
@@ -306,7 +306,6 @@ const { lang = 'vi' } = Astro.params;
         </div>
       </div>
     </section>-->
-
   </div>
 </Layout>
 

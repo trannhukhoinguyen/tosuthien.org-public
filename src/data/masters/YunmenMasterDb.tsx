@@ -11,7 +11,6 @@ const YunmenMasterDb = [
     place: "",
     teachers: ["Yunmen Wenyan"],
     disciples: ["Zhimen Guangzuo"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [
       "https://vi.wikipedia.org/wiki/H%C6%B0%C6%A1ng_L%C3%A2m_Tr%E1%BB%ABng_Vi%E1%BB%85n",
     ],

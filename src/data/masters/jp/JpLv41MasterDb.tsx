@@ -2,7 +2,7 @@ const JpLv41MasterDb = [
   {
     id: '74.41.50',
     name_en: '',
-    name_pinyin: '',
+    name_py: '',
     name_ja: 'Inzan Ien',
     name_zh: '隱山惟琰',
     name_vi: '',

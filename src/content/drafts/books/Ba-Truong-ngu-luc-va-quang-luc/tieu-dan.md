@@ -26,7 +26,7 @@ Kiếm dụng cụ không được thì ngày đó không ăn, cho nên mới c�
 Vì thế mới biết được gia phong của Sư chân thật như thế nào, thật đáng làm mô phạm cho muôn đời.
 
 
-Ngày 17 tháng giêng năm Nguyên Hoà thứ chín đời nhà Đường (CN 814), Sư thị tịch, thọ 95 tuổi, đệ tử được phó pháp là QUY SƠN LINH HỰU Thiền sư, HOÀNG BÁ HY VẬN Thiền sư vv.. tất cả có hai mươi tám người, hết thảy đều là môn đồ xuất sắc, kỳ lân, phụng hoàng trong Phật pháp.
+Ngày 17 tháng giêng năm Nguyên Hoà thứ chín đời nhà Đường (CN 814), Sư thị tịch, thọ 95 tuổi, đệ tử được phó pháp là QUY SƠN LINH HỰU Thiền sư, HOÀNG BÁ HI VẬN Thiền sư vv.. tất cả có hai mươi tám người, hết thảy đều là môn đồ xuất sắc, kỳ lân, phụng hoàng trong Phật pháp.
 
 
 Ngoài tác phẩm này ra còn có: Bá Trượng Thanh Quy (hai quyển). Năm Trường Khánh thứ nhất đời Đường Mục Tông, được sắc ban là Đại Trí Thiền Sư, tháp hiệu là Đại Bảo Thắng Luân.

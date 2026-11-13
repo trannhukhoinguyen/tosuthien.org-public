@@ -67,7 +67,7 @@ const { lang = 'vi' } = Astro.params;
       return (
         <article
           class="master-card"
-          data-search={(`${m?.name_en} ${m?.name_vi} ${m?.name_zh} ${m?.name_pinyin || ''}`).toLowerCase()}
+          data-search={(`${m?.name_en} ${m?.name_vi} ${m?.name_zh} ${m?.name_py || ''}`).toLowerCase()}
           data-sect={m?.sect?.join(',').toLowerCase()}
           data-master={JSON.stringify(m)}
         >
@@ -78,7 +78,7 @@ const { lang = 'vi' } = Astro.params;
               <h2 class="name-en" title={m?.name_vi}>{m?.name_en}</h2>
               <p class="name-zh-pinyin" title={m?.name_vi}>
                 <span class="zh">{m?.name_zh}</span>
-                {m?.name_pinyin && <span class="pinyin">({m?.name_pinyin})</span>}
+                {m?.name_py && <span class="pinyin">({m?.name_py})</span>}
               </p>
             </div>
             {
@@ -390,7 +390,7 @@ const { lang = 'vi' } = Astro.params;
             <h2 style="color: darkgoldenrod; margin-top: 1rem;">
               ${data.name_en}
             </h2>
-            <p>${data.name_zh} ${data.name_pinyin ? `(${data.name_pinyin})` : ''}</p>
+            <p>${data.name_zh} ${data.name_py ? `(${data.name_py})` : ''}</p>
           </div>
           <hr>
           <div style="margin-top: 1rem; line-height: 1.6;">

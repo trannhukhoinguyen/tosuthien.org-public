@@ -1,12 +1,18 @@
 ---
 import "@/styles/wiki-type/layout.wiki.css"
 import Layout from "./Layout.astro";
-import Sidebar from "../../components/wiki-type/enlightener/SidebarEnlightener.astro";
+import Sidebar from "@/components/wiki-type/enlightener/SidebarEnlightener.astro";
+import EnlightenerMeanTree from "@/components/wiki-type/enlightener/EnlightenerMeanTree.astro";
+import EnlightenerMantraTree from "@/components/wiki-type/enlightener/EnlightenerMantraTree.astro";
+import EnlightenerDiscipleTree from "@/components/wiki-type/enlightener/EnlightenerDiscipleTree.astro";
 import TableOfContents from "@/components/wiki-type/TableOfContents.astro";
 import { config } from "@/config.ts";
 import schema from "@/data/schema.astro";
 import SEO from "@/components/page/SEO.astro";
 import { l } from "@/utils/constants.ts";
+import { getCollection, z } from "astro:content";
+import JourneyTimeline from "@/components/atlas/JourneyTimeline.astro";
+import AudioPlayer from "@/components/ui/minrock-style/AudioPlayer.astro";
 
 interface Props {
   title: string;
@@ -28,6 +34,11 @@ interface Props {
     zenSchool?: string[];
     teachers?: string[];
     places?: string[];
+    koans?: {
+      title: string;
+      slug: string;
+      shortTitle: string;
+    }[];
   };
   navigationData?: {
       previous?: { title: string; href: string };
@@ -40,7 +51,22 @@ interface Props {
   }[];
   tabLabels?: string[] | [];
   videoIds?: string[] | [];
+  mantras?: string[];
+  means?: {
+    title: string;
+    slug?: string;
+    description?: string;
+  }[];
+  disciples?: {
+    name_vi: string;
+    slug?: string;
+    name_en?: string,
+    name_zh?: string,
+    name_jp?: string,
+    name_kr?: string,
+  }[];
   activeTab?: string;
+  showThisAudio?: Boolean;
 }
 
 const {
@@ -54,7 +80,11 @@ const {
   relatedArticles = [],
   tabLabels = [],
   videoIds = [],
+  means = [],
+  mantras = [],
+  disciples = [],
   activeTab = 'main', // <--- Lấy giá trị activeTab truyền vào (mặc định là 'main')
+  showThisAudio = true,
 } = Astro.props;
 
 const breadcrumbItems: { label: string; href?: string }[] = [
@@ -83,9 +113,11 @@ const defaultImage = "/images/backgrounds/Buddha-zen.avif";
 
 // Lấy param [lang] từ URL động của Astro (mặc định là 'vi' nếu không khớp)
 const { lang = 'vi' } = Astro.params;
+const showAudio = config.showAudio !== false;
 ---
 
-<Layout title={title} description={description} articleData={articleData}>
+<Layout title={title} description={description}>
+
   <header class="article-header">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -137,13 +169,21 @@ const { lang = 'vi' } = Astro.params;
       </h1>
       <div class="article-meta">
         {
+          articleData?.koans?.length
+            ? (<div class="meta-item">{
+              articleData?.koans?.map(koan => (<span class="meta-sub-item">👤</span><a href={`/koans/${koan.slug}`} target="_blank" title={koan.title}>{koan.shortTitle}</a>))
+            }</div>)
+            : ''
+        }
+
+        {
           articleData?.birthDeath
             ? (<div class="meta-item" title="Năm Sinh - Năm Mất"><span class="meta-sub-item">📆</span><span>{articleData?.birthDeath}</span></div>)
             : ''
         }
         {
           articleData?.extraNames
-            ? (<div class="meta-item" title="Tên Pinyin - Tên Trung - Tên Nhật"><span class="meta-sub-item">📛</span><span>{articleData?.extraNames}</span></div>)
+            ? (<div class="meta-item" title="Tên Pinyin - Tên Trung - Tên Nhật"><span>{articleData?.extraNames}</span></div>)
             : ''
         }
         {
@@ -159,7 +199,7 @@ const { lang = 'vi' } = Astro.params;
         {
           articleData?.teachers?.length
             ? (<div class="meta-item" title="Sư phụ">{
-              articleData?.teachers?.map(teacher => (<span class="meta-sub-item">👤</span><a href={`/enlighteners?keyword=${teacher}`} target="_blank">{teacher}</a>))
+              articleData?.teachers?.map(teacher => (<span class="meta-sub-item">👤</span><a href={`/enlighteners/${teacher.split(' ').join('-')}`} target="_blank">{teacher}</a>))
             }</div>)
             : ''
         }
@@ -310,6 +350,8 @@ const { lang = 'vi' } = Astro.params;
       <!-- Main Content Area with Dynamic Tabs & Anchor URL Sync -->
       <main
         class="main-content"
+        data-pagefind-body
+        data-pagefind-filter={`category:${category}`}
         x-data={`{
           activeTab: '${activeTab}',
           init() {
@@ -342,8 +384,7 @@ const { lang = 'vi' } = Astro.params;
               class="zen-tab-btn"
               class:list={{ 'active': activeTab === 'main' }}
             >
-              📖
-              <span>Tiểu Sử & Tổng Quan</span>
+              <span title="Tổng Quan">📖</span>
             </a>
 
             {
@@ -351,20 +392,26 @@ const { lang = 'vi' } = Astro.params;
                 const lowerLabel = label.toLowerCase().trim();
                 const tabSlug = lowerLabel.replace(/\s+/g, "-");
                 let icon = "💬";
-                let longLabel = "Đối Thoại Căn Cơ";
+                let longLabel = "Đối Thoại";
 
-                if (lowerLabel.includes("dialogue")) {
+                if (lowerLabel.includes("hanh-trang")) {
+                  icon = "🚩";
+                  longLabel = "Hành trạng";
+                } else if (lowerLabel.includes("doi-thoai")) {
                   icon = "💬";
-                  longLabel = "Đối Thoại Căn Cơ";
-                } else if (lowerLabel.includes("sermon")) {
+                  longLabel = "Đối Thoại";
+                } else if (lowerLabel.includes("bai-giang")) {
                   icon = "💡";
-                  longLabel = "Bài Giảng Khai Thị";
-                } else if (lowerLabel.includes("mantra")) {
+                  longLabel = "Bài Giảng";
+                } else if (lowerLabel.includes("chan-ngon")) {
                   icon = "📿";
                   longLabel = "Chân Ngôn";
-                } else if (lowerLabel.includes("story")) {
-                  icon = "📝";
+                } else if (lowerLabel.includes("cau-chuyen")) {
+                  icon = "💫";
                   longLabel = "Kể Chuyện";
+                } else if (lowerLabel.includes("phuong-tien-khai-thi")) {
+                  icon = "📚";
+                  longLabel = "Phương tiện khai thị";
                 }
 
                 return (
@@ -372,9 +419,9 @@ const { lang = 'vi' } = Astro.params;
                     href={`/enlighteners/${currentSlug}/${tabSlug}`}
                     class="zen-tab-btn"
                     class:list={{ 'active': activeTab === tabSlug }}
+                    title={longLabel}
                   >
                     {icon}
-                    <span title={longLabel}>{label.toUpperCase()}</span>
                   </a>
                 );
               })
@@ -382,15 +429,50 @@ const { lang = 'vi' } = Astro.params;
           </nav>
         </div>
 
+        <!-- 🔊 Accessible Audio Player (Text-to-Speech) -->
+        {showAudio && showThisAudio && (
+          <AudioPlayer selector=".tab-panels-wrapper" title={title} label="Nghe nội dung" />
+        )}
+
         <!-- Content Container -->
         <div class="tab-panels-wrapper" :data-active-tab="activeTab" id="tab-content">
+
+          <!-- Nội dung chính (Tab 1 / Tổng quan) -->
           <article
             class={"prose prose-lg prose-sg"}
-            data-pagefind-body
-            data-pagefind-filter={`category:${category}`}
           >
-            <!-- Nội dung chính (Tab 1) -->
+            <!-- Nội dung tab Phương tiện khai thị (Hiển thị dạng cây Archive) -->
+            {
+              activeTab === 'phuong-tien-khai-thi' && means.length > 0 && (
+                <div class="tab-expedient-means">
+                  <EnlightenerMeanTree currentSlug={currentSlug} means={means} />
+                </div>
+              )
+            }
+            {
+              activeTab === 'chan-ngon' && means.length > 0 && (
+                <div class="tab-mantra" id="chan-ngon">
+                  <EnlightenerMantraTree mantras={mantras} />
+                </div>
+              )
+            }
+            {
+              activeTab === 'main' && disciples.length > 0 && (
+                <section>
+                  <EnlightenerDiscipleTree disciples={disciples} />
+                </section>
+              )
+            }
+
             <slot />
+
+            {
+              activeTab === 'hanh-trang' && (
+                <div class="tab-hanh-trang" id="hanh-trang">
+                  <JourneyTimeline memories={undefined} />
+                </div>
+              )
+            }
           </article>
         </div>
 
@@ -500,11 +582,11 @@ const { lang = 'vi' } = Astro.params;
                     {article.description}
                   </p>
                   <span class="related-card-action">
-                                        Đọc thêm
-                                        <span class="related-card-arrow">
-                                            &rarr;
-                                        </span>
-                                    </span>
+                      Đọc thêm
+                      <span class="related-card-arrow">
+                          &rarr;
+                      </span>
+                  </span>
                 </a>
               </article>
             ))}
@@ -513,7 +595,56 @@ const { lang = 'vi' } = Astro.params;
       </section>
     )
   }
+
+  <!-- Thanh Tab Bar cố định dưới đáy chỉ hiện trên màn hình Mobile -->
+  <nav class="mobile-bottom-dock">
+    <!-- Tab Main (Trang chính) -->
+    <a href={`/enlighteners/${currentSlug}`} class={`dock-item ${activeTab === 'main' ? 'active' : ''}`}>
+      <span class="dock-icon">📖</span>
+      <span class="dock-label">Tổng Quan</span>
+    </a>
+
+    <!-- Các Tab Con động (Mantra, Dialogue, Sermon, Story...) -->
+    {
+      tabLabels.map((label) => {
+        const lowerLabel = label.toLowerCase().trim();
+        const tabSlug = lowerLabel.replace(/\s+/g, "-");
+        const isActive = activeTab === tabSlug;
+
+        let icon = "💬";
+        let longLabel = "Đối Thoại";
+
+        if (lowerLabel.includes("hanh-trang")) {
+          icon = "🚩";
+          longLabel = "Hành trạng";
+        } else if (lowerLabel.includes("doi-thoai")) {
+          icon = "💬";
+          longLabel = "Đối Thoại";
+        } else if (lowerLabel.includes("bai-giang")) {
+          icon = "💡";
+          longLabel = "Bài Giảng";
+        } else if (lowerLabel.includes("chan-ngon")) {
+          icon = "📿";
+          longLabel = "Chân Ngôn";
+        } else if (lowerLabel.includes("cau-chuyen")) {
+          icon = "💫";
+          longLabel = "Kể Chuyện";
+        } else if (lowerLabel.includes("phuong-tien-khai-thi")) {
+          icon = "📚";
+          longLabel = "Phương tiện khai thị";
+        }
+
+        return (
+          <a href={`/enlighteners/${currentSlug}/${tabSlug}`} class={`dock-item ${isActive ? 'active' : ''}`}>
+            <span class="dock-icon">{icon}</span>
+            <span class="dock-label">{longLabel}</span>
+          </a>
+        );
+      })
+    }
+  </nav>
 </Layout>
+
 
 <script>
   document.querySelectorAll('.zen-tab-btn, .tab-btn').forEach(btn => {
@@ -540,18 +671,20 @@ const { lang = 'vi' } = Astro.params;
     if (!refElement) return;
 
     // Tìm xem thẻ sup/ref này đang nằm ở tab nào
-    const parentTabContent = refElement.closest('.tab-mantra, .tab-story, .tab-dialogue, .tab-sermon');
+    const parentTabContent = refElement.closest('.tab-expedient-means, .tab-mantra, .tab-story, .tab-dialogue, .tab-sermon');
     let targetTab = 'main';
 
     if (parentTabContent) {
       if (parentTabContent.classList.contains('tab-dialogue')) {
-        targetTab = 'dialogue';
+        targetTab = 'doi-thoai';
       } else if (parentTabContent.classList.contains('tab-sermon')) {
-        targetTab = 'sermon';
+        targetTab = 'bai-giang';
       } else if (parentTabContent.classList.contains('tab-mantra')) {
-        targetTab = 'mantra';
+        targetTab = 'chan-ngon';
       } else if (parentTabContent.classList.contains('tab-story')) {
-        targetTab = 'story';
+        targetTab = 'cau-chuyen';
+      } else if (parentTabContent.classList.contains('tab-expedient-means')) {
+        targetTab = 'phuong-tien-khai-thi';
       }
     }
 
@@ -586,3 +719,64 @@ const { lang = 'vi' } = Astro.params;
     }
   });
 </script>
+
+<style>
+  /* --- Mobile Bottom Navigation Bar (Dock) --- */
+  .mobile-bottom-dock {
+    display: none; /* Mặc định ẩn trên Desktop / Tablet lớn */
+  }
+
+  /* Chỉ kích hoạt khi màn hình dưới 768px (Mobile) */
+  @media screen and (max-width: 768px) {
+    .mobile-bottom-dock {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: var(--sgkb-bg, #ffffff);
+      border-top: 1px solid var(--sgkb-border, #eaeaea);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(10px);
+      padding-bottom: env(safe-area-inset-bottom); /* Hỗ trợ tai thỏ iPhone */
+    }
+
+    .dock-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--sgkb-text-muted, #888);
+      flex: 1;
+      height: 100%;
+      transition: color 0.2s ease;
+    }
+
+    .dock-icon {
+      font-size: 1.25rem;
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+
+    .dock-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* Trạng thái khi đang Active (đang ở tab đó) */
+    .dock-item.active {
+      color: var(--sgkb-primary, #b22222); /* Màu chủ đạo của trang */
+    }
+
+    /* Thêm khoảng trống phía dưới body để nội dung không bị thanh dock che mất */
+    body {
+      padding-bottom: 70px;
+    }
+  }
+</style>

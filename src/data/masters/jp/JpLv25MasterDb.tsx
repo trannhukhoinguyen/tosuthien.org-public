@@ -2,7 +2,7 @@ const JpLv25MasterDb = [
   {
     id: '58.25.50',
     name_en: 'Shouweng Zongbì',
-    name_pinyin: 'Shòuwēng Zōngbì',
+    name_py: 'Shòuwēng Zōngbì',
     name_ja: 'Juō Sōhitsu',
     name_zh: '授翁宗弼',
     name_vi: 'Thụ Ông Tông Bật',
@@ -20,7 +20,7 @@ const JpLv25MasterDb = [
   {
     id: '58.25.51',
     name_en: 'Yanwai Zongzhong',
-    name_pinyin: 'Yánwài Zōngzhōng',
+    name_py: 'Yánwài Zōngzhōng',
     name_ja: 'Gongai Sōchū',
     name_zh: '言外宗忠',
     name_vi: 'Ngôn Ngoại Tông Trung',

@@ -12,7 +12,6 @@ const CnLv45MasterDb = [
     country: '🇨🇳',
     place: '',
     teachers: ['Yuehui Liaochan'],
-    successors: ['Jiehang Daxu'],
     disciples: ['Jiehang Daxu'],
     image: '/images/buddha-zen-circle-with-unknown-zen-master.avif',
     reference: ['https://terebess.hu/zen/mesterek/shengyen.html'],

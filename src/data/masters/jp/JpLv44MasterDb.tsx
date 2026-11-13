@@ -2,7 +2,7 @@ const JpLv44MasterDb = [
   {
     id: '77.44.50',
     name_en: '',
-    name_pinyin: '',
+    name_py: '',
     name_ja: 'Kōsen Sōon',
     other_name_ja: '今北 Imakita',
     name_zh: '洪川宗温',

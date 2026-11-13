@@ -12,7 +12,6 @@ const CnLv52MasterDb = [
     country: '🇨🇳',
     place: '',
     teachers: ['Zhiguang Wenjue'],
-    successors: ['Huikong Shengyen'],
     disciples: ['Huikong Shengyen', 'Mingshan Chuanxin'],
     image: '/images/buddha-zen-circle-with-unknown-zen-master.avif',
     reference: [

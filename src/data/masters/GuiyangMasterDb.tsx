@@ -3,7 +3,7 @@ const GuiyangMasterDb = [
     id: "41.8.12",
     name_en: "Guizhen Deshao",
     other_name_en: "Baoci Guizhen Deshao",
-    name_pinyin: "Guīzhēn Désháo",
+    name_py: "Guīzhēn Désháo",
     name_ja: "きしん とくしょう Kishin Tokushō",
     name_kr: "귀진 덕소 Gwijin Deokso",
     name_zh: "归真德韶",
@@ -15,7 +15,6 @@ const GuiyangMasterDb = [
     place: "chùa Báo Ân Quy Chân ở Đàm Châu",
     teachers: ["Zifu Rubao"],
     disciples: ["Sanjiao Zhiqian"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [
       "https://pl.wikipedia.org/wiki/Guizhen_Deshao",
       "https://thuvienhoasen.org/a22387/duong-phat-di-2",

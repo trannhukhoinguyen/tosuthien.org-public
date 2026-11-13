@@ -2,7 +2,7 @@ const JpLv40MasterDb = [
   {
     id: '73.40.50',
     name_en: '',
-    name_pinyin: '',
+    name_py: '',
     name_ja: 'Gasan Jitō',
     name_zh: '峨山慈棹',
     name_vi: '',

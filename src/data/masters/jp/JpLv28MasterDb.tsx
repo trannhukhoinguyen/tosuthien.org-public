@@ -2,7 +2,7 @@ const JpLv28MasterDb = [
   {
     id: '61.28.50',
     name_en: 'Yitian Xuanzhao',
-    name_pinyin: 'Yìtiān Xuánzhào',
+    name_py: 'Yìtiān Xuánzhào',
     name_ja: 'Giten Genshō',
     name_zh: '義天玄詔',
     name_vi: 'Nghĩa Thiên Huyền Chiếu',
@@ -21,7 +21,7 @@ const JpLv28MasterDb = [
   {
     id: '61.28.51',
     name_en: 'Xiaotang Mozhai',
-    name_pinyin: 'Xiàotáng Mòzhāi',
+    name_py: 'Xiàotáng Mòzhāi',
     name_ja: 'Shōtō Bokusai',
     name_zh: '笑堂墨斎',
     name_vi: 'Tiếu Đường Mặc Trai',

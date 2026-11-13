@@ -12,7 +12,6 @@ const CnLv50MasterDb = [
     country: '🇨🇳',
     place: '',
     teachers: ['Dejun Zijue'],
-    successors: ['Zhiguang Wenjue'],
     disciples: ['Zhiguang Wenjue'],
     image: '/images/buddha-zen-circle-with-unknown-zen-master.avif',
     reference: [

@@ -2,7 +2,7 @@ const JpLv36MasterDb = [
     {
         id: '69.36.200',
         name_en: 'Nanjing Zongyue',
-        name_pinyin: 'Nánjǐng Zōngyuè',
+        name_py: 'Nánjǐng Zōngyuè',
         name_ja: 'Nankei Sōgaku',
         name_zh: '南景宗嶽',
         name_vi: 'Nam Cảnh Tông Nhạc',
@@ -21,7 +21,7 @@ const JpLv36MasterDb = [
     {
         id: '69.36.201',
         name_en: 'Longtan Yanshu',
-        name_pinyin: 'Lóngtán Yuánshù',
+        name_py: 'Lóngtán Yuánshù',
         name_ja: 'Ryūtan Genjo',
         name_zh: '龍潭元恕',
         name_vi: 'Long Đàm Nguyên Thứ',

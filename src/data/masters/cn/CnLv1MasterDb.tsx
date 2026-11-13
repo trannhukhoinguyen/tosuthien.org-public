@@ -2,7 +2,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.1",
     name_en: "Qingyuan Xingsi",
-    name_pinyin: "Qīngyuán Xìngsī",
+    name_py: "Qīngyuán Xìngsī",
     name_ja: "Seigen Gyōshi",
     name_kr: "청원행사 Ch'ŏngwŏn Haengsa",
     name_zh: "青原行思",
@@ -15,7 +15,6 @@ const CnLv1MasterDb = [
     country: "🇨🇳",
     place: "Qingyuan mountain, near Quanzhou, Fujian",
     teachers: ["Dajian Huineng"],
-    successors: ["Shitou Xiqian"],
     disciples: ["Shitou Xiqian"],
     image:
       "https://upload.wikimedia.org/wikipedia/commons/0/01/Qingyuan_Xingsi.jpg",
@@ -24,7 +23,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.2",
     name_en: "Nanyang Huizhong",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Nan'yō Echū",
     name_kr: "",
     name_zh: "南陽慧忠",
@@ -37,7 +36,6 @@ const CnLv1MasterDb = [
     country: "🇨🇳",
     place: "Nantai Temple, Nanyue Heng mountain, Hunan",
     teachers: ["Dajian Huineng"],
-    successors: ["Danyuan Yingzhen"],
     disciples: [
       "Danyuan Yingzhen",
       "Suzong - (vua Túc Tông - Lý Hanh)",
@@ -56,7 +54,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.3",
     name_en: "Nanyue Huairang",
-    name_pinyin: "Nányuè Huáiràng",
+    name_py: "Nányuè Huáiràng",
     name_ja: "Nangaku Ejõ",
     name_zh: "南嶽懷讓",
     other_name_zh: "南嶽懐譲",
@@ -67,7 +65,6 @@ const CnLv1MasterDb = [
     country: "🇨🇳",
     place: "",
     teachers: ["Dajian Huineng"],
-    successors: ["Mazu Daoyi"],
     disciples: [
       "Mazu Daoyi",
       "Nam Nhạc Thường Hoạt",
@@ -86,7 +83,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.4",
     name_en: "Heze Shenhui",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Kataku Jinne",
     name_zh: "荷澤神會",
     name_vi: "Hà Trạch Thần Hội",
@@ -96,7 +93,6 @@ const CnLv1MasterDb = [
     country: "🇨🇳",
     place: "Heze temple, Luoyang, Hénán",
     teachers: ["Dajian Huineng"],
-    successors: ["Cizhou Faru"],
     disciples: [
       "Cizhou Faru",
       "Wutai Wuming",
@@ -132,7 +128,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.5",
     name_en: "Shaozhou Fahai",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "韶州法海",
     name_vi: "Thiều Châu Pháp Hải",
@@ -149,7 +145,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.8",
     name_en: "Jizhou Zhicheng",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "吉州志誠",
     name_vi: "Cát Châu Chí Thành",
@@ -165,7 +161,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.9",
     name_en: "Jiangxi Zhiche",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "江西志徹",
     name_vi: "Giang Tây Chí Triệt",
@@ -182,7 +178,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.10",
     name_en: "Biandan Xiaoliao",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Hentan Goryo",
     name_zh: "匾擔曉了",
     name_vi: "Biển Đam Hiểu Liễu",
@@ -203,7 +199,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.11",
     name_en: "Hebei Zhihuang",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "河北智隍",
     name_vi: "Hà Bắc Trí Hoàng",
@@ -219,7 +215,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.12",
     name_en: "Hongzhou Fada",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "洪州法达",
     name_vi: "Hồng Châu Pháp Đạt",
@@ -235,7 +231,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.13",
     name_en: "Shouzhou Zhitong",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "壽州智通",
     name_vi: "Thọ Châu Trí Thông",
@@ -252,7 +248,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.14",
     name_en: "Xinzhou Zhichang",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "信州智常",
     name_vi: "Tín Châu Trí Thường",
@@ -269,7 +265,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.15",
     name_en: "Guangzhou Zhidao",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "廣州志道",
     name_vi: "Quảng Châu Chí Đạo",
@@ -286,7 +282,7 @@ const CnLv1MasterDb = [
     id: "34.1.16",
     name_en: "Faxing Yinzong",
     other_name_en: "Guangzhou Yinzong",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "法性印宗",
     name_vi: "Pháp Tánh Ấn Tông",
@@ -303,7 +299,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.17",
     name_en: "Wuzhou Xuance",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "婺州玄策",
     name_vi: "Vụ Châu Huyền Sách",
@@ -319,7 +315,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.18",
     name_en: "Daixiao Lingtao",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "曹谿令韜",
     name_vi: "Tào Khê Linh Thao",
@@ -335,10 +331,11 @@ const CnLv1MasterDb = [
   {
     id: "34.1.42",
     name_en: "Zhongshan Tancui",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "鐘山曇璀",
     name_vi: "Chung Sơn Đàm Thôi",
+    other_name_vi: "Kim Lăng Đàm Thôi",
     birth_death_time: ["631", "693"],
     epoch: "thế kỷ VII - VIII",
     sect: [],
@@ -353,7 +350,7 @@ const CnLv1MasterDb = [
     id: "34.1.44",
     name_en: "Jingzhao Yifu",
     other_name_en: "Laoshan Yifu?",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Rōzan Gifuku",
     name_zh: "京兆義福",
     other_name_zh: "京兆義福, 崂山義福",
@@ -365,7 +362,6 @@ const CnLv1MasterDb = [
     country: "🇨🇳",
     place: "",
     teachers: ["Yuquan Shenxiu"],
-    successors: ["Huiyun"],
     disciples: ["Huiyun"],
     reference: [
       "https://pl.wikipedia.org/wiki/Laoshan_Yifu",
@@ -375,7 +371,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.45",
     name_en: "Songshan Puji",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Sûzan Fujaku",
     name_zh: "嵩山普寂",
     name_vi: "Tung Sơn Phổ Tịch",
@@ -405,7 +401,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.46",
     name_en: "Songyue Daoliang",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "嵩嶽道量",
     name_vi: "Tung Nhạc Đạo Lượng",
@@ -421,7 +417,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.47",
     name_en: "Songyue Pozao Duo",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "嵩嶽破灶墮",
     name_vi: "Tung Nhạc Phá Táo Đọa",
@@ -431,14 +427,13 @@ const CnLv1MasterDb = [
     country: "🇨🇳",
     place: "Tung Nhạc, Hà Nam",
     teachers: ["Songyue Huian"],
-    successors: ["Songshan Junjí"],
     disciples: ["Songshan Junjí"],
     reference: [""],
   },
   {
     id: "34.1.57",
     name_en: "Songyue Yuangui",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "嵩嶽元珪",
     name_vi: "Tung Nhạc Nguyên Khuê",
@@ -458,7 +453,7 @@ const CnLv1MasterDb = [
     id: "34.1.48",
     name_en: "Zizhou Chuji",
     other_name_en: "Jingzhong Zhixian",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Shishū Shojaku",
     name_zh: "淄州處寂",
     name_vi: "Tư Châu Xử Tịch",
@@ -469,7 +464,6 @@ const CnLv1MasterDb = [
     country: "🇨🇳",
     place: "",
     teachers: ["Zizhou Zhishen"],
-    successors: ["Jingzhong Wuxiang"],
     disciples: ["Jingzhong Wuxiang", "Chengyuan (712-802)"],
     reference: [
       "https://ngulucthien.com/thien-su-xu-tich/",
@@ -479,7 +473,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.49",
     name_en: "Niutou Huifang",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Gozu Huifang",
     name_zh: "牛頭慧方",
     name_vi: "Ngưu Đầu Huệ Phương",
@@ -490,7 +484,6 @@ const CnLv1MasterDb = [
     country: "🇨🇳",
     place: "",
     teachers: ["Niutou Zhiyan"],
-    successors: ["Niutou Fazhi"],
     disciples: ["Niutou Fazhi"],
     reference: [""],
   },
@@ -498,7 +491,7 @@ const CnLv1MasterDb = [
     id: "34.1.50",
     name_en: "Mengshan Daoming",
     other_name_en: "Huiming",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Myo",
     name_zh: "蒙山道明",
     name_vi: "Mông Sơn Đạo Minh",
@@ -515,7 +508,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.52",
     name_en: "Dingzhou",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "定州",
     name_vi: "Định Châu",
@@ -531,7 +524,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.53",
     name_en: "Sikong Benjing",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Shikū Honjō",
     name_zh: "司空本净",
     name_vi: "Tư Không Bổn Tịnh",
@@ -547,7 +540,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.54",
     name_en: "Songshan Jingxian",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Sūzan Keigen",
     name_zh: "嵩山景賢",
     other_name_zh: "敬賢",
@@ -566,7 +559,7 @@ const CnLv1MasterDb = [
     id: "34.1.55",
     name_en: "Jiangmo Zang",
     other_name_en: "Xiangmo Zang, Xiang Mozang",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Kōma Sō",
     name_zh: "降魔藏",
     name_vi: "Hàng Ma Tạng",
@@ -576,7 +569,6 @@ const CnLv1MasterDb = [
     country: "🇨🇳",
     place: "Thái Sơn, Duyện Châu / Duyên Châu",
     teachers: ["Yuquan Shenxiu"],
-    successors: ["Moheyan Tybet"],
     disciples: ["Moheyan Tybet"],
     reference: [
       "https://pl.wikipedia.org/wiki/Xiangmo_Zang",
@@ -586,7 +578,7 @@ const CnLv1MasterDb = [
   {
     id: "34.1.56",
     name_en: "Duliang Quanzhi",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "都梁全植",
     name_vi: "Đô Lương Toàn Thực",

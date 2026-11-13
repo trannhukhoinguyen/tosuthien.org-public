@@ -11,7 +11,6 @@ const CaodongMasterDb = [
     place: "",
     teachers: ["Tongan Daopi"],
     disciples: ["Liangshan Yuanguan"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [
       "https://en.wikipedia.org/wiki/Tongan_Guanzhi",
       "https://vi.wikipedia.org/wiki/%C4%90%E1%BB%93ng_An_Qu%C3%A1n_Ch%C3%AD",

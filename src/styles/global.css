@@ -51,7 +51,6 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.12em;
   color: var(--color-accent-gold);
   margin-bottom: calc(var(--grid-unit) * 2);
-
   scroll-margin-top: 80px;
 }
 
@@ -309,4 +308,41 @@ hr {
   color: var(--color-accent-springgreen);
   font-weight: 300;
   font-style: oblique;
+}
+
+.section-list {
+  padding: calc(var(--grid-unit) * 2) 0 calc(var(--grid-unit) * 4);
+}
+
+
+.with-icon {
+  display: flex;
+  align-items: center;
+}
+
+.nav-icon {
+  border: none;
+  margin-right: 8px;
+  height: 30px;
+}
+
+/* Dark Mode Callout Refinements (Slate & Midnight) */
+[data-theme="white"] .html {
+  color: var(--text);
+  background-color: var(--bg);
+}
+
+[data-theme="cream"] .html {
+  color: var(--text);
+  background-color: var(--bg);
+}
+
+[data-theme="slate"] .html {
+  color: var(--text);
+  background-color: var(--bg);
+}
+
+[data-theme="midnight"] .html {
+  color: var(--text);
+  background-color: var(--bg);
 }

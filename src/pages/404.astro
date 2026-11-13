@@ -1,45 +1,100 @@
 ---
-import Layout from "@/layouts/grid-items/Layout.astro";
-import { l } from "@/utils/grid-items/labels.ts";
+import BaseLayout from '@/layouts/Layout.astro';
 ---
 
-<Layout title={l("404.title")}>
-  <div class="not-found">
-    <h1>404</h1>
-    <p>{l("404.description")}</p>
-    <a href="/books">{l("404.home")}</a>
+<BaseLayout title="404 — Page Not Found" description="The page you are looking for does not exist.">
+  <div class="not-found-container">
+    <div class="not-found-badge">404</div>
+    <h1 class="not-found-title">Page Not Found</h1>
+    <p class="not-found-text">
+      <!--The note or article you are trying to access has been moved, renamed, or no longer exists in this vault.-->
+    </p>
+    <div class="not-found-actions">
+      <a href="/" class="btn-primary">Trở về Trang chủ</a>
+      <a href="/enlighteners" class="btn-secondary">Xem tất cả Giác giả</a>
+    </div>
   </div>
-</Layout>
+</BaseLayout>
 
 <style>
-  .not-found {
+  .not-found-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 80vh;
     text-align: center;
-    gap: 0.5rem;
+    padding: 6rem 1rem;
   }
 
-  h1 {
-    font-size: 4rem;
+  .not-found-badge {
+    font-family: var(--font-mono),serif;
+    font-size: 5rem;
     font-weight: 800;
+    line-height: 1;
+    color: var(--color-accent-gold);
+    margin-bottom: 1rem;
+    letter-spacing: -0.05em;
+  }
+
+  .not-found-title {
+    margin: 0 0 1rem 0;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .not-found-text {
+    max-width: 480px;
     color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0 0 2.5rem 0;
   }
 
-  p {
-    font-size: 0.9rem;
-    color: var(--text-muted);
+  .not-found-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  a {
-    margin-top: 1rem;
-    font-size: 0.85rem;
-    color: var(--accent);
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.65rem 1.25rem;
+    background-color: var(--accent);
+    color: var(--color-text-muted);
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+    text-shadow: var(--accent);
   }
 
-  a:hover {
-    text-decoration: underline;
+  .btn-primary:hover {
+    opacity: 0.9;
+    color: #ffffff;
+    background-color: var(--color-accent-goldenrod);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.65rem 1.25rem;
+    background-color: var(--bg-surface);
+    color: var(--color-text-muted);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-accent-goldenrod);
+    border-color: var(--accent);
+    color: var(--text);
+    text-shadow: var(--accent);
   }
 </style>

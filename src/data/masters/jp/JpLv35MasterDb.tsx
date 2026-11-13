@@ -2,7 +2,7 @@ const JpLv35MasterDb = [
   {
     id: '68.35.50',
     name_en: 'Dongjian Zongzhen',
-    name_pinyin: 'Dōngjiàn Zōngzhèn',
+    name_py: 'Dōngjiàn Zōngzhèn',
     name_ja: 'Tōzen Sōshin',
     name_zh: '東漸宗震',
     name_vi: 'Đông Tiệm Tông Chấn',
@@ -21,7 +21,7 @@ const JpLv35MasterDb = [
   {
     id: '68.35.51',
     name_en: 'Shuoxin Zongxuan',
-    name_pinyin: 'Shuōxīn Zōngxuān',
+    name_py: 'Shuōxīn Zōngxuān',
     name_ja: 'Zeishin Sōgi',
     name_zh: '說心宗宣',
     name_vi: 'Thuyết Tâm Tông Tuyên',

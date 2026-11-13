@@ -2,7 +2,7 @@ const JpLv37MasterDb = [
   {
     id: '70.37.50',
     name_en: 'Yunfu Quanxiang',
-    name_pinyin: 'Yúnfǔ Quánxiáng',
+    name_py: 'Yúnfǔ Quánxiáng',
     name_ja: 'Unpō Zenshō',
     name_zh: '雲甫全祥',
     name_vi: 'Vân Phủ Toàn Tường',
@@ -21,7 +21,7 @@ const JpLv37MasterDb = [
   {
     id: '70.37.51',
     name_en: 'Daduan Zongyu',
-    name_pinyin: 'Dàduān Zōngyù',
+    name_py: 'Dàduān Zōngyù',
     name_ja: 'Daitan Sōiku',
     name_zh: '大端宗育',
     name_vi: 'Đại Đoan Tông Dục',

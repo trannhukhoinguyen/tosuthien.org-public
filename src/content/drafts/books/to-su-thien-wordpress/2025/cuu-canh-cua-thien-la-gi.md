@@ -55,7 +55,7 @@ Có rất nhiều người nghĩ rằng Thiền quá khó hiểu hoặc không t
 
 Chúng ta hãy xem lại một vài phát biểu của các Thiền sư danh tiếng.
 
-Tổ Hoàng Bá Hy Vận黃蘖希運 (?-850CN) nói :
+Tổ Hoàng Bá Hi Vận黃蘖希運 (?-850CN) nói :
 
 ```
 一切世間事  Nhất thiết thế gian sự     Tất cả việc thế gian

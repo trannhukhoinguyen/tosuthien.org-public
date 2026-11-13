@@ -2,7 +2,7 @@ const JpLv31MasterDb = [
   {
     id: '64.31.50',
     name_en: 'Daya Zhuankuang',
-    name_pinyin: 'Dàyǎ Zhuānkuāng',
+    name_py: 'Dàyǎ Zhuānkuāng',
     name_ja: 'Taiga Tankyō',
     name_zh: '大雅耑匡',
     name_vi: 'Đại Nhã Đoan Khuông',
@@ -21,7 +21,7 @@ const JpLv31MasterDb = [
   {
     id: '64.31.51',
     name_en: 'Daxiu Zongxiu',
-    name_pinyin: 'Dàxiū Zōngxiū',
+    name_py: 'Dàxiū Zōngxiū',
     name_ja: 'Daikyū Sōkyū',
     name_zh: '大休宗休',
     name_vi: 'Đại Hưu Tông Hưu',

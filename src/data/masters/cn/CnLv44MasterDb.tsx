@@ -12,7 +12,6 @@ const CnLv44MasterDb = [
     country: '🇨🇳',
     place: '',
     teachers: ['Moxi Haiyin'],
-    successors: ['Liuchang Wuchun'],
     disciples: ['Liuchang Wuchun'],
     image: '/images/buddha-zen-circle-with-unknown-zen-master.avif',
     reference: ['https://terebess.hu/zen/mesterek/shengyen.html'],

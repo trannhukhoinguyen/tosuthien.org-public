@@ -2,7 +2,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.1",
     name_en: "Jingnan Weizhong",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "荊南惟忠",
     name_vi: "Kinh Nam Duy Trung",
@@ -12,14 +12,13 @@ const CnLv3MasterDb = [
     country: "🇨🇳",
     place: "Kinh Nam",
     teachers: ["Cizhou Faru"],
-    successors: ["Toại Châu Đạo Viên"],
     disciples: ["Toại Châu Đạo Viên"],
     reference: ["https://ngulucthien.com/thien-su-duy-trung/"],
   },
   {
     id: "36.3.2",
     name_en: "Yaoshan Weiyan",
-    name_pinyin: "Yàoshān Wéiyǎn",
+    name_py: "Yàoshān Wéiyǎn",
     name_ja: "Yakusan Igen",
     name_kr: "약산유엄 Yaksan Yuam",
     name_zh: "藥山惟儼",
@@ -48,7 +47,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.3",
     name_en: "Tianhuang Daowu",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Tennō Dōgō",
     name_zh: "天皇道悟",
     name_vi: "Thiên Hoàng Đạo Ngộ",
@@ -60,14 +59,13 @@ const CnLv3MasterDb = [
     country: "🇨🇳",
     place: "Chùa Thiên Hoàng, Kinh Châu",
     teachers: ["Shitou Xiqian", "Jingshan Faqin"],
-    successors: ["Longtan Chongxin"],
     disciples: ["Longtan Chongxin"],
     reference: ["https://ngulucthien.com/thien-su-dao-ngo-747-806/"],
   },
   {
     id: "36.3.4",
     name_en: "Dadian Baotong",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Daiten Hōtsū",
     name_zh: "大顛寶通",
     name_vi: "Đại Điên Bảo Thông",
@@ -79,7 +77,6 @@ const CnLv3MasterDb = [
     country: "🇨🇳",
     place: "",
     teachers: ["Shitou Xiqian"],
-    successors: ["Sanping Yizhong"],
     disciples: ["Sanping Yizhong"],
     reference: [
       "https://ngulucthien.com/thien-su-baothong-dai-dien-732-824/",
@@ -92,7 +89,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.5",
     name_en: "Danxia Tianran",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Ranka Rennen",
     other_name_ja: "Tanka Tennen",
     name_zh: "丹霞天然",
@@ -105,7 +102,6 @@ const CnLv3MasterDb = [
     country: "🇨🇳",
     place: "",
     teachers: ["Shitou Xiqian", "Mazu Daoyi"],
-    successors: ["Cuiwei Wuxue"],
     disciples: ["Cuiwei Wuxue"],
     reference: [
       "https://vi.wikipedia.org/wiki/%C4%90an_H%C3%A0_Thi%C3%AAn_Nhi%C3%AAn",
@@ -118,7 +114,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.6",
     name_en: "Baizhang Huaihai",
-    name_pinyin: "Bǎizhàng Huáihǎi",
+    name_py: "Bǎizhàng Huáihǎi",
     name_ja: "Hyakujō Ekai",
     name_kr: "백장회해 Paekchang Hoehae",
     name_zh: "百丈懷海",
@@ -126,21 +122,43 @@ const CnLv3MasterDb = [
     other_name_vi: "Bá Trượng Hoài Hải",
     posthumous_title: "Ðại Trí Đại Sư (大師)",
     stupa_name: "",
-    birth_death_time: ["720", "814"],
+    birth_death_time: ["720/724", "814"],
     epoch: "thế kỷ VIII - IX",
-    sect: [],
+    sect: ["Hồng Châu tông"],
     country: "🇨🇳",
-    place: "",
+    place: "núi Đại Hùng, Hồng Châu, Trung Quốc",
     teachers: ["Mazu Daoyi"],
-    successors: ["Huangbo Xiyun"],
     disciples: [
       "Huangbo Xiyun",
       "Guishan Lingyou",
-      "Baizhang Niepan / Fazheng",
+      "Baizhang Niepan",
       "Guishan Da’an",
       "Wufeng Changguan",
       "Guling Shencan",
       "Guannan Daochang",
+      "Daci Huanzhong",
+      "Pingtian Pu’an",
+      "Shishuang Xingkong",
+      /*
+9.172 Chan Master Tanzhou Shishuang Shan Xingkong
+9.173 Chan Master Fuzhou Da’an
+9.174 Chan Master Fuzhou Guling Shenzan
+9.175 Chan Master Guangzhou He’an Si Tong
+9.176 Chan Master Jiangzhou Longyun Tai
+9.177 Chan Master Jingzhao Weiguo Yuandao
+9.178 The Venerable Zhengzhou Wansui
+9.179 The Venerable Hongzhou Dongshan Hui
+9.180 The Venerable Qingtian
+9.181 The Venerable Dayu
+9.182 Chan Master Qianzhou Chuwei
+9.183 Chan Master Shouzhou Liangsui
+9.184 Chan Master Jizhou Shushan Huizhao
+9.185 Chan Master Jingzhao Dajian Fu Si Hongbian
+9.186 Chan Master Fuzhou Guishan Zhizhen
+9.187 Chan Master Langzhou Dongyi Huaizheng
+9.188 Chan Master Jinzhou Cao
+9.189 The Venerable Langzhou Guti
+9.190 The Venerable Hezhong Gongji         * */
     ],
     reference: [
       "https://vi.wikipedia.org/wiki/B%C3%A1ch_Tr%C6%B0%E1%BB%A3ng_Ho%C3%A0i_H%E1%BA%A3i",
@@ -151,7 +169,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.7",
     name_en: "Baotang Wuzhu",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Hotō Mujū",
     name_zh: "保唐无住",
     name_vi: "Bảo Đường Vô Trụ",
@@ -175,7 +193,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.8",
     name_en: "Songshan Zhìzhen",
-    name_pinyin: "Songshan Zhìzhen",
+    name_py: "Songshan Zhìzhen",
     name_ja: "",
     name_zh: "嵩山志眞",
     name_vi: "Tung Sơn Chí Chân",
@@ -191,7 +209,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.9",
     name_en: "Ziyu Daotong",
-    name_pinyin: "Zǐyù Dàotōng",
+    name_py: "Zǐyù Dàotōng",
     name_ja: "Shigyoku Dōtsū（しぎょく どうつう）",
     name_zh: "紫玉道通",
     name_vi: "Tử Ngọc Đạo Thông",
@@ -207,7 +225,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.10",
     name_en: "Niutou Zhiwei",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Gozu",
     name_zh: "牛頭智威",
     name_vi: "Ngưu Đầu Trí Oai",
@@ -217,7 +235,6 @@ const CnLv3MasterDb = [
     country: "🇨🇳",
     place: "",
     teachers: ["Niutou Fazhi"],
-    successors: ["Helin Xuansu"],
     disciples: [
       "Niutou Huizhong",
       "Helin Xuansu",
@@ -229,7 +246,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.11",
     name_en: "Ehu Dayi",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Goko Daigi",
     other_name_ja: "Gako Taigi",
     name_zh: "鵝湖大義",
@@ -249,7 +266,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.12",
     name_en: "Damei Fachang",
-    name_pinyin: "Dàméi Fǎcháng",
+    name_py: "Dàméi Fǎcháng",
     name_ja: "Daibai Hōjō",
     name_zh: "大梅法常",
     name_vi: "Đại Mai Pháp Thường",
@@ -268,7 +285,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.13",
     name_en: "Dazhu Huihai",
-    name_pinyin: "Dàzhū Huìhǎi",
+    name_py: "Dàzhū Huìhǎi",
     name_ja: "Daishū Ekai",
     name_zh: "大珠慧海",
     name_vi: "Đại Châu Huệ Hải",
@@ -290,7 +307,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.14",
     name_en: "Xitang Zhizang",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Seidô Chizô",
     name_zh: "西堂智藏",
     name_vi: "Tây Đường Trí Tạng",
@@ -310,14 +327,16 @@ const CnLv3MasterDb = [
   {
     id: "36.3.15",
     name_en: "Nanquan Puyuan",
-    name_pinyin: "",
+    name_py: "Nánquán Pǔyuàn",
     nickname_en: "Wang laoshi",
     name_ja: "Nansen Fugan",
-    name_zh: "南泉普願",
+    name_kr: "남천보원 Namcheon Bowon",
+    name_zh: "南泉普愿 (🍃)",
+    other_name_zh: "南泉普願 (🍂)",
     nickname_zh: "王老師",
     name_vi: "Nam Tuyền Phổ Nguyện",
     nickname_vi: "Vương Lão Sư",
-    birth_death_time: ["748/749", "835"],
+    birth_death_time: ["738/748/749", "834/835/842"],
     eepoch: "thế kỷ VIII - IX",
     sect: [],
     country: "🇨🇳",
@@ -349,7 +368,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.16",
     name_en: "Fenzhou Wuye",
-    name_pinyin: "Fénzhōu Wúyè",
+    name_py: "Fénzhōu Wúyè",
     name_ja: "Funshū Mugyō",
     name_zh: "汾州無業",
     name_vi: "Phần Châu Vô Nghiệp",
@@ -368,7 +387,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.18",
     name_en: "Jingzhong Shenhui",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "淨衆神會",
     name_vi: "Tĩnh Trung Thần Hội",
@@ -379,7 +398,6 @@ const CnLv3MasterDb = [
     country: "🇨🇳",
     place: "",
     teachers: ["Jingzhong Wuxiang"],
-    successors: ["Shengshou Nanyin"],
     disciples: ["Shengshou Nanyin"],
     reference: [
       "https://www.degruyter.com/document/doi/10.1515/9780824896461-006/pdf?licenseType=restricted",
@@ -389,7 +407,7 @@ const CnLv3MasterDb = [
     id: "36.3.19",
     name_en: "Wujiu Youxuan",
     other_name_en: "Wujiu Dingzhou",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Ukyu Yugen",
     name_zh: "無救有玄",
     name_vi: "Ô Cựu Hữu Huyền",
@@ -410,7 +428,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.21",
     name_en: "Zhangjing Huaihui",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Shōkei Eki",
     name_zh: "章敬懷暉",
     name_vi: "Chương Kính Hoài Huy",
@@ -431,7 +449,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.22",
     name_en: "Panshan Baoji",
-    name_pinyin: "Pánshān Bǎojī",
+    name_py: "Pánshān Bǎojī",
     name_ja: "Banzan Hōshaku",
     name_zh: "盤山寳積",
     name_vi: "Bàn Sơn Bảo Tích",
@@ -453,7 +471,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.23",
     name_en: "Guizong Zhichang",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Kisu Chijô",
     name_zh: "归宗智常",
     name_vi: "Quy Tông Trí Thường",
@@ -465,7 +483,6 @@ const CnLv3MasterDb = [
     country: "🇨🇳",
     place: "Lushan (Lô Sơn / Lư Sơn)",
     teachers: ["Mazu Daoyi"],
-    successors: ["Gaoan Dayu"],
     disciples: ["Gaoan Dayu"],
     reference: [
       "https://nigioikhatsi.net/thien/quy-tong-chem-ran.html",
@@ -477,7 +494,7 @@ const CnLv3MasterDb = [
     id: "36.3.24",
     name_en: "Gushan Lingjiao",
     other_name_en: "Hongzhou Lingjiao",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Gushan Lingjiao",
     name_zh: "古山 靈嶠",
     name_vi: "Cổ Sơn Linh Kiệu",
@@ -494,7 +511,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.25",
     name_en: "Tanzhou Dachuan",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "潭州大川",
     name_vi: "Đàm Châu Đại Xuyên",
@@ -510,12 +527,15 @@ const CnLv3MasterDb = [
   {
     id: "36.3.26",
     name_en: "Pangyun jushi",
-    name_pinyin: "",
+    other_name_en: "Layman Pang",
+    name_py: "Páng Yùn",
     name_ja: "Hōun koji",
+    other_name_ja: "Hōkoji",
+    name_kr: "방온 (Bang-on)",
     name_zh: "龐蘊居士",
-    other_name_zh: "龐居士",
+    other_name_zh: "庞蕴, 龐居士",
     name_vi: "Bàng Uẩn Cư Sĩ",
-    other_name_vi: "Bàng Long Uẩn, Bàng Cư Sĩ",
+    other_name_vi: "Bàng Cư Sĩ",
     birth_death_time: ["740", "808"],
     epoch: "thế kỷ VIII - IX",
     sect: [],
@@ -532,7 +552,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.27",
     name_en: "Yanguan Qi’an",
-    name_pinyin: "Yōnguān Qí'ān",
+    name_py: "Yōnguān Qí'ān",
     name_ja: "Engan Saian",
     other_name_ja: "Enkan Seian",
     name_kr: "염관제안 Yŏmgwan Ch’ean",
@@ -540,14 +560,19 @@ const CnLv3MasterDb = [
     name_vi: "Diêm Quan Tề An",
     posthumous_title: "Ngộ Không Đại Sư (悟空大師)",
     stupa_name: "",
-    birth_death_time: ["750", "22/12/842"],
+    birth_death_time: ["750/752", "22-12-842/843"],
     epoch: "thế kỷ VIII - IX",
     sect: [],
     country: "🇨🇳",
     place:
       "Pháp Lạc Tự (法樂寺) thuộc Tiêu Sơn (蕭山), Việt Châu (越州), Chiết Giang ➡️ viện Hải Xương, Diêm Quan, Trấn Quốc, Hàng Châu, Trung Quốc",
     teachers: ["Mazu Daoyi"],
-    disciples: ["Pháp Hân (法昕)"],
+    disciples: [
+      "Pháp Hân (法昕)",
+      "37/10/1. Chingam Hyejo (773–850) (także Hyeso) Korea" +
+        "37/10/1. T’onghyo Pŏmil (810–889) Korea. Szkoła sagul" +
+        "37/10/1. Yikong (jap. Gikū) Japonia",
+    ],
     reference: [
       "https://phatgiao.org.vn/tu-dien-phat-hoc-online/diem-quan-te-an-k587.html",
       "https://phatgiao.org.vn/tu-dien-phat-hoc-online/diem-quan-te-an-k3692.html",
@@ -559,7 +584,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.28",
     name_en: "Shigong Huicang",
-    name_pinyin: "Shígǒng Huìzàng",
+    name_py: "Shígǒng Huìzàng",
     name_ja: "Sakkyō Ezō",
     name_zh: "石鞏慧藏",
     name_vi: "Thạch Củng Huệ Tạng",
@@ -581,7 +606,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.29",
     name_en: "Magu Baoche",
-    name_pinyin: "Mágǔ Bǎochè",
+    name_py: "Mágǔ Bǎochè",
     other_name_en: "Mayu Baoche",
     name_ja: "Mayoku Hōtetsu",
     name_zh: "麻谷寶徹",
@@ -602,7 +627,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.30",
     name_en: "Luzu Baoyun",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "Roso Hōun",
     name_zh: "魯祖寳雲",
     name_vi: "Lỗ Tổ Bảo Vân",
@@ -618,7 +643,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.31",
     name_en: "Bai Ling",
-    name_pinyin: "Bǎi Líng",
+    name_py: "Bǎi Líng",
     name_ja: "Hyakurei",
     name_zh: "百靈",
     name_vi: "Bách Linh",
@@ -634,7 +659,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.32",
     name_en: "Anfeng Huaikong",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "An Phong Hoài Không",
@@ -650,7 +675,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.33",
     name_en: "Baiyan Mingzhe",
-    name_pinyin: "Bǎiyán Míngzhé",
+    name_py: "Bǎiyán Míngzhé",
     name_ja: "Hakugan Meitetsu",
     name_zh: "柏巖明哲",
     name_vi: "Bách Nham Minh Triết",
@@ -666,7 +691,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.34",
     name_en: "Baihu Faxuan",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Bạch Hổ Pháp Tuyên",
@@ -682,7 +707,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.35",
     name_en: "Benxi",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Bản Khê",
@@ -698,7 +723,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.36",
     name_en: "Ganquan Zhixian",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Cam Tuyền Chí Hiền",
@@ -714,7 +739,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.37",
     name_en: "Qianyuan Hui",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Càn Nguyên Huy",
@@ -730,7 +755,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.38",
     name_en: "Kunshan Dingju",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Côn Sơn Định Giác",
@@ -746,7 +771,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.39",
     name_en: "Gusi",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Cổ Tự",
@@ -763,8 +788,8 @@ const CnLv3MasterDb = [
     id: "36.3.40",
     name_en: "Qiling Zhitong",
     other_name_en: "Yangzhou Zhitong",
-    name_pinyin: "Qīlíng Zhìtōng",
-    other_name_pinyin: "Yángzhōu Zhìtōng",
+    name_py: "Qīlíng Zhìtōng",
+    other_name_py: "Yángzhōu Zhìtōng",
     name_ja: "",
     name_zh: "棲靈智通",
     other_name_zh: "揚州智通",
@@ -782,7 +807,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.41",
     name_en: "Lizhou Zhitong",
-    name_pinyin: "Lǐzhōu Zhìtōng",
+    name_py: "Lǐzhōu Zhìtōng",
     name_ja: "",
     name_zh: "澧州智通",
     name_vi: "Lễ Châu Trí Thông",
@@ -798,7 +823,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.42",
     name_en: "Yangqi Zhenshu",
-    name_pinyin: "Yángqí Zhēnshū",
+    name_py: "Yángqí Zhēnshū",
     name_ja: "Yōgi Shinshuku",
     name_zh: "楊岐甄叔",
     name_vi: "Dương Kỳ Chân Thúc",
@@ -814,7 +839,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.43",
     name_en: "Baiyan Changche",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Bách Nham Thường Triệt",
@@ -830,7 +855,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.44",
     name_en: "Dayang Xiding",
-    name_pinyin: "Dàyáng",
+    name_py: "Dàyáng",
     name_ja: "Taiyō",
     name_zh: "大陽",
     name_vi: "Đại Dương Hy Hạng",
@@ -846,7 +871,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.45",
     name_en: "Dahui Daowu",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Đại Hội Đạo Ngộ",
@@ -862,7 +887,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.46",
     name_en: "Zhongyi Hong’en",
-    name_pinyin: "Zhōngyì Hóng’ēn",
+    name_py: "Zhōngyì Hóng’ēn",
     name_ja: "Chūyū Kōn",
     name_zh: "中邑洪恩",
     name_vi: "Trung Ấp Hồng Ân",
@@ -878,7 +903,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.47",
     name_en: "Dong’an",
-    name_pinyin: "Dòng’ān",
+    name_py: "Dòng’ān",
     name_ja: "Dōan",
     name_zh: "洞安",
     name_vi: "Động An",
@@ -894,7 +919,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.48",
     name_en: "Jiangxi Bishou",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Giang Tây Bề Thọ",
@@ -910,7 +935,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.49",
     name_en: "Jiangxi Rang Beilan",
-    name_pinyin: "Jiāngxī Ràng Běilán",
+    name_py: "Jiāngxī Ràng Běilán",
     name_ja: "Kōzai Jō Hokuran",
     name_zh: "江西讓北蘭",
     name_vi: "Giang Tây Nhượng Bắc Lan",
@@ -926,7 +951,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.50",
     name_en: "Xianshan Dingqing",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Hiện Sơn Định Khánh",
@@ -942,7 +967,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.51",
     name_en: "Fuqi Ce",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Hoa Châu Sách",
@@ -958,7 +983,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.52",
     name_en: "Hualin Shanjue",
-    name_pinyin: "Huálín Shànjué",
+    name_py: "Huálín Shànjué",
     name_ja: "Kerin Zenkaku",
     name_zh: "華林善覺",
     name_vi: "Hoa Lâm Thiện Giác",
@@ -974,7 +999,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.53",
     name_en: "Hezhong Baoqing",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Hà Trung Bảo Khánh",
@@ -990,7 +1015,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.54",
     name_en: "Hezhong Huaize",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Hà Trung Hoài Tắc",
@@ -1006,7 +1031,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.55",
     name_en: "Hangzhou Zhizang",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Hàng Châu Trí Tạng",
@@ -1022,7 +1047,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.56",
     name_en: "Hangzhou Ziman",
-    name_pinyin: "Hángzhōu Zìmǎn",
+    name_py: "Hángzhōu Zìmǎn",
     name_ja: "",
     name_zh: "杭州自滿",
     name_vi: "Hàng Châu Tự Mãn",
@@ -1038,7 +1063,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.57",
     name_en: "Hangzhou Dadi",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Hàng Châu Đả Địa",
@@ -1054,7 +1079,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.58",
     name_en: "Hannan Liangxin",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Hán Nam Lương Tân",
@@ -1070,7 +1095,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.59",
     name_en: "Xingping",
-    name_pinyin: "Xīngpíng",
+    name_py: "Xīngpíng",
     name_ja: "Kōhyō",
     name_zh: "興平",
     name_vi: "Hưng Bình",
@@ -1086,7 +1111,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.60",
     name_en: "Haozhi",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Hạo Anh",
@@ -1102,7 +1127,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.61",
     name_en: "Hailing Qingyun",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Hải Lăng Khánh Vân",
@@ -1118,7 +1143,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.62",
     name_en: "Hunan Ruhui",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Hồ Nam Như Hội",
@@ -1137,7 +1162,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.63",
     name_en: "Hongzhou Xuanxu",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Hồng Châu Huyền Hư",
@@ -1153,7 +1178,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.64",
     name_en: "Hongluoshan",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Hồng Loa Sơn",
@@ -1169,7 +1194,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.65",
     name_en: "Zhenzhou Jinniu",
-    name_pinyin: "Jīnniú",
+    name_py: "Jīnniú",
     name_ja: "",
     name_zh: "",
     name_vi: "Trấn Châu Kim Ngưu",
@@ -1185,7 +1210,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.66",
     name_en: "Jinku Weizhi",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Kim Quật Duy Trực",
@@ -1201,7 +1226,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.67",
     name_en: "Jingzhou Lingru",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "",
     name_vi: "Kinh Châu Linh Nhu",
@@ -1217,7 +1242,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.68",
     name_en: "Jingzhou Caotang",
-    name_pinyin: "Jīngzhōu Cǎotáng",
+    name_py: "Jīngzhōu Cǎotáng",
     name_ja: "",
     name_zh: "荊州草堂",
     name_vi: "Kinh Châu Thảo Đường",
@@ -1233,7 +1258,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.69",
     name_en: "Letan Fahui",
-    name_pinyin: "Lètán Fǎhuì",
+    name_py: "Lètán Fǎhuì",
     name_ja: "Rokutan Hōe",
     name_zh: "泐潭法會",
     name_vi: "Lặc Đàm Pháp Hội",
@@ -1249,7 +1274,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.70",
     name_en: "Shanshan Zhijian",
-    name_pinyin: "Shānshān Zhìjiān",
+    name_py: "Shānshān Zhìjiān",
     name_ja: "Sugiyama Chiken",
     name_zh: "杉山智堅",
     name_vi: "Sam Sơn Trí Kiên",
@@ -1265,7 +1290,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.71",
     name_en: "Letan Weijian",
-    name_pinyin: "Lètán Wéijiàn",
+    name_py: "Lètán Wéijiàn",
     name_ja: "Rokutan Iken",
     name_zh: "泐潭惟建",
     name_vi: "Lặc Đàm Duy Kiến",
@@ -1281,7 +1306,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.72",
     name_en: "Letan Changxing",
-    name_pinyin: "Lètán Chángxīng",
+    name_py: "Lètán Chángxīng",
     name_ja: "Rokutan Jōkō",
     name_zh: "泐潭常興",
     name_vi: "Lặc Đàm Thường Hưng",
@@ -1297,7 +1322,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.73",
     name_en: "Mingxi Daoheng",
-    name_pinyin: "Míngxī Dàohéng",
+    name_py: "Míngxī Dàohéng",
     name_ja: "Meikei Dōgō",
     name_zh: "明谿道行",
     name_vi: "Minh Khê Đạo Hạnh",
@@ -1313,7 +1338,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.74",
     name_en: "Nanyuan Daoming",
-    name_pinyin: "Nányuán Dàomíng",
+    name_py: "Nányuán Dàomíng",
     name_ja: "Nangen Dōmyō",
     name_zh: "南源道明",
     name_vi: "Nam Nguyên Đạo Minh",
@@ -1329,7 +1354,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.75",
     name_en: "Fucun Ziman",
-    name_pinyin: "Fūcūn Zìmǎn",
+    name_py: "Fūcūn Zìmǎn",
     name_ja: "Fuson Juman",
     name_zh: "柎村自滿",
     name_vi: "Phu Thôn Tự Mãn",
@@ -1345,7 +1370,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.76",
     name_en: "Sanjiao Zongyin",
-    name_pinyin: "Sānjiǎo Zǒngyìn",
+    name_py: "Sānjiǎo Zǒngyìn",
     name_ja: "Sankaku Sōin",
     name_zh: "三角總印",
     name_vi: "Tam Giác Tổng Ấn",
@@ -1361,7 +1386,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.77",
     name_en: "Funiu Zizai",
-    name_pinyin: "Fúniú Zìzài",
+    name_py: "Fúniú Zìzài",
     name_ja: "Fukuyū Jizai",
     name_zh: "伏牛自在",
     name_vi: "Phục Ngưu Tự Tại",
@@ -1379,7 +1404,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.78",
     name_en: "Furong Dayu",
-    name_pinyin: "Fúróng Dàyù",
+    name_py: "Fúróng Dàyù",
     name_ja: "Fuyō Daiku",
     name_zh: "芙蓉大昱",
     name_vi: "Phù Dung Đại Dục",
@@ -1396,7 +1421,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.79",
     name_en: "Wuxie Lingmo",
-    name_pinyin: "Wǔxiè Língmò",
+    name_py: "Wǔxiè Língmò",
     name_ja: "Gosetsu Reimoku",
     name_zh: "五洩靈默",
     name_vi: "Ngũ Tiết Linh Mặc",
@@ -1415,7 +1440,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.80",
     name_en: "Xingshan Weikuan",
-    name_pinyin: "Xīngshàn Wéikuān",
+    name_py: "Xīngshàn Wéikuān",
     name_ja: "Kōzen Ikan",
     name_zh: "興善惟寬",
     name_vi: "Hưng Thiện Duy Khoan",
@@ -1432,7 +1457,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.81",
     name_en: "Hunan Ruhui",
-    name_pinyin: "Húnán Rúhuì",
+    name_py: "Húnán Rúhuì",
     name_ja: "Konan Nyoe",
     name_zh: "湖南如會",
     name_vi: "Hồ Nam Như Hội",
@@ -1448,7 +1473,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.82",
     name_en: "Ezhou Wudeng",
-    name_pinyin: "Èzhōu Wúděng",
+    name_py: "Èzhōu Wúděng",
     name_ja: "Gakushū Mudō",
     name_zh: "鄂州無等",
     name_vi: "Ngạc Châu Vô Đẳng",
@@ -1464,7 +1489,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.83",
     name_en: "Guangcheng Datong",
-    name_pinyin: "Guǎngchéng Dàtóng",
+    name_py: "Guǎngchéng Dàtóng",
     name_ja: "Kōchō Daidō",
     name_zh: "廣澄大同",
     name_vi: "Quảng Trừng Đại Đồng",
@@ -1480,7 +1505,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.84",
     name_en: "Shuilao",
-    name_pinyin: "Shuǐlǎo",
+    name_py: "Shuǐlǎo",
     name_ja: "Suirō",
     name_zh: "水潦",
     name_vi: "Thủy Lão",
@@ -1496,7 +1521,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.85",
     name_en: "Shishuang Dashan",
-    name_pinyin: "Shíshuāng Dàshàn",
+    name_py: "Shíshuāng Dàshàn",
     name_ja: "Sekisō Daizen",
     name_zh: "石霜大善",
     name_vi: "Thạch Sương Đại Thiện",
@@ -1512,7 +1537,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.86",
     name_en: "Guiyang Wuliao",
-    name_pinyin: "Guīyáng Wúliǎo",
+    name_py: "Guīyáng Wúliǎo",
     name_ja: "Kiyō Muryō",
     name_zh: "歸陽無了",
     name_vi: "Qui Dương Vô Liễu",
@@ -1528,7 +1553,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.87",
     name_en: "Xiyuan Tanzang",
-    name_pinyin: "Xīyuán Tánzàng",
+    name_py: "Xīyuán Tánzàng",
     name_ja: "Saien Donz",
     name_zh: "西園曇藏",
     name_vi: "Tây Viên Đàm Tạng",
@@ -1544,7 +1569,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.88",
     name_en: "Hualín Shanjue",
-    name_pinyin: "Huálín Shànjué",
+    name_py: "Huálín Shànjué",
     name_ja: "Kerin Zenkaku",
     name_zh: "華林善覺",
     name_vi: "Huê Lâm Thiện Giác",
@@ -1560,7 +1585,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.89",
     name_en: "Wutai Deng Yinfeng",
-    name_pinyin: "Wǔtái Dèng Yǐnfēng",
+    name_py: "Wǔtái Dèng Yǐnfēng",
     name_ja: "Godai Tō Inpō",
     name_zh: "五臺鄧隱峰",
     name_vi: "Ngũ Đài Đặng Ẩn Phong",
@@ -1576,7 +1601,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.90",
     name_en: "Xishan Liang",
-    name_pinyin: "Xīshān Liàng",
+    name_py: "Xīshān Liàng",
     name_ja: "Seizan Ryō",
     name_zh: "西山亮座主",
     name_vi: "Tây Sơn Lượng tòa chủ",
@@ -1592,7 +1617,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.91",
     name_en: "Tingzhou Shuitang",
-    name_pinyin: "Tīngzhōu Shuǐtáng",
+    name_py: "Tīngzhōu Shuǐtáng",
     name_ja: "Teishū Suitō",
     name_zh: "汀州水塘",
     name_vi: "Đinh Châu Thủy Đường",
@@ -1609,7 +1634,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.92",
     name_en: "Bishu",
-    name_pinyin: "Bìshù",
+    name_py: "Bìshù",
     name_ja: "Hyōju",
     name_zh: "椑樹",
     name_vi: "Bại Thọ",
@@ -1625,7 +1650,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.93",
     name_en: "Heijian",
-    name_pinyin: "Hēijiàn",
+    name_py: "Hēijiàn",
     name_ja: "Kokukan",
     name_zh: "黑澗",
     name_vi: "Hắc Giản",
@@ -1641,7 +1666,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.94",
     name_en: "Longshan",
-    name_pinyin: "Lóngshān",
+    name_py: "Lóngshān",
     name_ja: "Ryūzan",
     name_zh: "龍山",
     name_vi: "Long Sơn",
@@ -1657,7 +1682,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.95",
     name_en: "Fo’ao",
-    name_pinyin: "Fó’ào",
+    name_py: "Fó’ào",
     name_ja: "Butsuō",
     name_zh: "佛奧",
     name_vi: "Phật Áo",
@@ -1673,7 +1698,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.96",
     name_en: "Fo’ao",
-    name_pinyin: "Fó’ào",
+    name_py: "Fó’ào",
     name_ja: "Rǔyuán",
     name_zh: "乳源",
     name_vi: "Nhũ Nguyên",
@@ -1689,7 +1714,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.97",
     name_en: "Jinniu",
-    name_pinyin: "Jīnniú",
+    name_py: "Jīnniú",
     name_ja: "Kingyū",
     name_zh: "金牛",
     name_vi: "Kim Ngưu",
@@ -1705,7 +1730,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.98",
     name_en: "Dadi",
-    name_pinyin: "Dǎdì",
+    name_py: "Dǎdì",
     name_ja: "Tachi",
     name_zh: "打地",
     name_vi: "Đả Địa",
@@ -1721,7 +1746,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.99",
     name_en: "Xiuxi",
-    name_pinyin: "Xiùxī",
+    name_py: "Xiùxī",
     name_ja: "Shūkei",
     name_zh: "秀溪",
     name_vi: "Tú Khê",
@@ -1737,7 +1762,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.100",
     name_en: "Hēirěn",
-    name_pinyin: "Hēirěn",
+    name_py: "Hēirěn",
     name_ja: "Kokunin",
     name_zh: "黑忍",
     name_vi: "Hắc Nhẫn",
@@ -1753,7 +1778,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.101",
     name_en: "Miling",
-    name_pinyin: "Mǐlǐng",
+    name_py: "Mǐlǐng",
     name_ja: "Beirei",
     name_zh: "米嶺",
     name_vi: "Mễ Lĩnh",
@@ -1769,7 +1794,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.102",
     name_en: "Hóngluó shān",
-    name_pinyin: "Mǎtóu Shénzàng",
+    name_py: "Mǎtóu Shénzàng",
     name_ja: "Kura-san",
     name_zh: "紅螺山",
     name_vi: "Hồng Loa Sơn",
@@ -1785,7 +1810,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.103",
     name_en: "Cóngshān",
-    name_pinyin: "Cóngshān",
+    name_py: "Cóngshān",
     name_ja: "Shōzan",
     name_zh: "樅山",
     name_vi: "Tòng Sơn",
@@ -1801,7 +1826,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.104",
     name_en: "Zechuan",
-    name_pinyin: "Zéchuān",
+    name_py: "Zéchuān",
     name_ja: "Sokusen",
     name_zh: "則川",
     name_vi: "Tắc Xuyên",
@@ -1817,7 +1842,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.105",
     name_en: "Lishan",
-    name_pinyin: "Lìshān",
+    name_py: "Lìshān",
     name_ja: "Rizan",
     name_zh: "利山",
     name_vi: "Lợi Sơn",
@@ -1833,7 +1858,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.106",
     name_en: "Shijiu",
-    name_pinyin: "Shíjiù",
+    name_py: "Shíjiù",
     name_ja: "Sekikyū",
     name_zh: "石臼",
     name_vi: "Thạch Cữu",
@@ -1849,7 +1874,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.107",
     name_en: "Běnxī",
-    name_pinyin: "Běnxī",
+    name_py: "Běnxī",
     name_ja: "Honkei",
     name_zh: "本谿",
     name_vi: "Bổn Khê",
@@ -1865,7 +1890,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.108",
     name_en: "Shilin",
-    name_pinyin: "Shílín",
+    name_py: "Shílín",
     name_ja: "Sekirin",
     name_zh: "石林",
     name_vi: "Thạch Lâm",
@@ -1881,7 +1906,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.109",
     name_en: "Niaojiu",
-    name_pinyin: "Niǎojiù",
+    name_py: "Niǎojiù",
     name_ja: "Chōkyū",
     name_zh: "鳥臼",
     name_vi: "Điểu Cữu",
@@ -1897,7 +1922,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.110",
     name_en: "Fubei",
-    name_pinyin: "Fúbēi",
+    name_py: "Fúbēi",
     name_ja: "Fuhai",
     name_zh: "鳧盃",
     name_vi: "Phù Bôi",
@@ -1913,7 +1938,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.111",
     name_en: "Xiaoyao",
-    name_pinyin: "Xiāoyáo",
+    name_py: "Xiāoyáo",
     name_ja: "Shōyō",
     name_zh: "逍遙",
     name_vi: "Tiêu Diêu",
@@ -1929,7 +1954,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.112",
     name_en: "Fuxi",
-    name_pinyin: "Fúxī",
+    name_py: "Fúxī",
     name_ja: "Fukkei",
     name_zh: "福谿",
     name_vi: "Phước Khê",
@@ -1945,7 +1970,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.113",
     name_en: "Mengxi",
-    name_pinyin: "Méngxī",
+    name_py: "Méngxī",
     name_ja: "Mōkei",
     name_zh: "蒙谿",
     name_vi: "Mông Khê",
@@ -1961,7 +1986,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.114",
     name_en: "Gusi",
-    name_pinyin: "Gǔsì",
+    name_py: "Gǔsì",
     name_ja: "Koji",
     name_zh: "古寺",
     name_vi: "Cổ Tự",
@@ -1977,7 +2002,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.115",
     name_en: "Chuzhou Fazang",
-    name_pinyin: "Chǔzhōu Fǎzàng",
+    name_py: "Chǔzhōu Fǎzàng",
     name_ja: "Joshū Hōzō",
     name_zh: "處州法藏",
     name_vi: "Xứ Châu Pháp Tạng",
@@ -1993,7 +2018,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.116",
     name_en: "Hezhong Fazang",
-    name_pinyin: "Hézhōng Fǎzàng",
+    name_py: "Hézhōng Fǎzàng",
     name_ja: "Kachū Hōzō",
     name_zh: "河中法藏",
     name_vi: "Hà Trung Pháp Tạng",
@@ -2009,7 +2034,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.117",
     name_en: "Zhaoti Huilang",
-    name_pinyin: "Zhāotí Huìlǎng",
+    name_py: "Zhāotí Huìlǎng",
     name_ja: "Shōdai Erō",
     name_zh: "招提慧朗",
     name_vi: "Chiêu Đề Tuệ Lãng",
@@ -2025,7 +2050,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.118",
     name_en: "Xingguo Zhenlang",
-    name_pinyin: "Xīngguó Zhènlǎng",
+    name_py: "Xīngguó Zhènlǎng",
     name_ja: "Kōkoku Shinrō",
     name_zh: "興國振朗",
     name_vi: "Hưng Quốc Chấn Lãng",
@@ -2041,7 +2066,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.119",
     name_en: "Jangzhao Shili",
-    name_pinyin: "Jīngzhào Shīlì",
+    name_py: "Jīngzhào Shīlì",
     name_ja: "Keijō Shiri",
     name_zh: "京兆尸利",
     name_vi: "Kinh Triệu Thi Lợi",
@@ -2057,7 +2082,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.120",
     name_en: "Fenzhou Shiti",
-    name_pinyin: "Fénzhōu WShítī",
+    name_py: "Fénzhōu WShítī",
     name_ja: "Funshū Sekitei",
     name_zh: "汾州石梯",
     name_vi: "Phần Châu Thạch Thê",
@@ -2073,7 +2098,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.121",
     name_en: "Fengxiang Fotuo",
-    name_pinyin: "Fèngxiáng Fótuó",
+    name_py: "Fèngxiáng Fótuó",
     name_ja: "Hōshō Butsu-da",
     name_zh: "鳳翔佛陀",
     name_vi: "Phụng Tường Phật Đà",
@@ -2090,7 +2115,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.122",
     name_en: "Tanzhou Hualin",
-    name_pinyin: "Tánzhōu Huálín",
+    name_py: "Tánzhōu Huálín",
     name_ja: "Tanshū Kerin",
     name_zh: "潭州華林",
     name_vi: "Đàm Châu Hoa Lâm",
@@ -2106,7 +2131,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.123",
     name_en: "Tanzhou Changzi Kuang",
-    name_pinyin: "Tǎnzhōu Chángzī Kuàng",
+    name_py: "Tǎnzhōu Chángzī Kuàng",
     name_ja: "Chōshi Kō",
     name_zh: "潭州長髭曠",
     name_vi: "Đàm Châu Trường Tỳ Khoáng",
@@ -2122,7 +2147,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.124",
     name_en: "Shuikong",
-    name_pinyin: "Shuǐkōng",
+    name_py: "Shuǐkōng",
     name_ja: "Suikū",
     name_zh: "水空",
     name_vi: "Thủy Không",
@@ -2138,7 +2163,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.125",
     name_en: "Hailing Dabian",
-    name_pinyin: "Hǎilíng Dàbiàn",
+    name_py: "Hǎilíng Dàbiàn",
     name_ja: "Kairyō Daiben",
     name_zh: "海陵大辨",
     name_vi: "Hải Lăng Đại Biện",
@@ -2154,7 +2179,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.126",
     name_en: "Zhugong",
-    name_pinyin: "Zhǔgōng",
+    name_py: "Zhǔgōng",
     name_ja: "Shokū",
     name_zh: "渚宮",
     name_vi: "Chử Kinh",
@@ -2170,7 +2195,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.127",
     name_en: "Hengzhou Daoxian",
-    name_pinyin: "Héngzhōu Dàoxiān",
+    name_py: "Héngzhōu Dàoxiān",
     name_ja: "Kōshū Dōsen",
     name_zh: "衡州道鮮",
     name_vi: "Hành Châu Đạo Tiên",
@@ -2186,7 +2211,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.128",
     name_en: "Hanzhou Changqing",
-    name_pinyin: "Hànzhōu Chángqīng",
+    name_py: "Hànzhōu Chángqīng",
     name_ja: "Kanshū Jōsei",
     name_zh: "漢州常清",
     name_vi: "Hán Châu Thường Thanh",
@@ -2202,7 +2227,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.129",
     name_en: "Fuzhou Suishí",
-    name_pinyin: "Fúzhōu Suìshí",
+    name_py: "Fúzhōu Suìshí",
     name_ja: "Fukushū Saishi",
     name_zh: "福州碎石",
     name_vi: "Phúc Châu Toái Thạch",
@@ -2218,7 +2243,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.130",
     name_en: "Cangzhou Cangling",
-    name_pinyin: "Cāngzhōu Cānglǐng",
+    name_py: "Cāngzhōu Cānglǐng",
     name_ja: "Sōshū Sōrei",
     name_zh: "滄州蒼嶺",
     name_vi: "Thương Châu Thương Lãnh",
@@ -2234,7 +2259,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.131",
     name_en: "Changzhou Yixing",
-    name_pinyin: "Chángzhōu Yìxīng",
+    name_py: "Chángzhōu Yìxīng",
     name_ja: "Jōshū Gishō",
     name_zh: "常州義興",
     name_vi: "Thường Châu Nghĩa Hưng",
@@ -2250,7 +2275,7 @@ const CnLv3MasterDb = [
   {
     id: "36.3.132",
     name_en: "Chaozhou Dadian",
-    name_pinyin: "Cháozhōu Dàdiān",
+    name_py: "Cháozhōu Dàdiān",
     name_ja: "Chōshū Daiden",
     name_zh: "潮州大顛",
     name_vi: "Triều Châu Đại Điên",

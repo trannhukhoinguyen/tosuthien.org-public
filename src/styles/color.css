@@ -167,7 +167,7 @@
   --color-background-toc: var(--color-accent-goldenrod);
   --color-background-footer: var(--color-white);
   --color-surface: var(--color-light-gray);
-  --color-text-primary: var(--color-black);
+  --color-text-primary: var(--color-white);
   --color-text-title: var(--color-black);
   --color-text-pagination: var(--color-black);
   --color-text-toc: var(--color-white);
@@ -192,9 +192,29 @@
   --sgkb-text-main: #1f1a17;         /* Nâu đen mực tàu */
   --sgkb-text-muted: #65584d;        /* Xám vỏ trà */
   --sgkb-text-inverse: #fff;
+  --sgkb-text-secondary: #9b7705;
+  --sgkb-text-quaternary: #9ca3af;
+  --sgkb-text-tertiary: 0 10px 25px -5px rgb(37 99 235 / 10%);
   --sgkb-shadow-xs-soft: 0 1px 3px rgb(0 0 0 / 8%);
   --sgkb-shadow-active: 0 3px 8px rgb(179 57 25 / 18%);
   --sgkb-header-bg: linear-gradient(135deg, #2c221e 0%, #4a3528 100%);
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --sgkb-primary-new: #1d4ed8;
+  --sgkb-search-focus-shadow: #1d4ed8;
+  --sgkb-border-soft: #f3f4f6;
+  --sgkb-shadow-primary-soft: 0 10px 25px -5px rgb(37 99 235 / 10%);
+  --color-brand-gray-50: #e0e6f1;
+  --color-brand-gray-100: #dadde2;
+  --color-brand-gray-200: #b5bbc5;
+  --color-brand-gray-300: #a0a7b2;
+  --color-brand-gray-400: #9ca3af;
+  --brand-gray-400: #9ca3af;
+  --color-brand-gray-500: #6b7280;
+  --brand-gray-500: #6b7280;
+  --color-brand-gray-600: #525865;
+  --color-brand-gray-900: #111827;
+  --brand-gray-900: #111827;
 }
 
 :root,
@@ -205,6 +225,7 @@ html[data-theme="light"] {
   --gallery-muted: #bbc789;
   --gallery-border: #7cadff;
   --color-text-secondary: white;
+  --sgkb-text-tertiary: 0 10px 25px -5px rgb(37 99 235 / 10%);
 }
 
 html[data-theme="dark"] {
@@ -213,6 +234,7 @@ html[data-theme="dark"] {
   --gallery-accent: #008fec;
   --gallery-muted: #212f3f;
   --gallery-border: #2264e3;
+  --sgkb-text-tertiary: 0 10px 25px -5px rgb(37 99 235 / 10%);
 }
 
 /* Color Variables */
@@ -224,7 +246,6 @@ html[data-theme="dark"] {
   --color-background-toc: var(--color-white);
   --color-background-footer: var(--color-white);
   --color-surface: #1a1a1a;
-  --color-text-primary: var(--color-black);
   --color-text-title: gold;
   --color-text-pagination: var(--color-black);
   --color-text-toc: var(--color-black);
@@ -244,7 +265,6 @@ html[data-theme="dark"] {
   --color-background-toc: var(--color-white);
   --color-background-footer: var(--color-white);
   --color-surface: #1a1a1a;
-  --color-text-primary: #f5f5f5;
   --color-text-title: gold;
   --color-text-pagination: #ecf2f8;
   --color-text-toc: var(--color-black);
@@ -275,6 +295,70 @@ html[data-theme="dark"] {
   --sgkb-shadow-xs-soft: 0 1px 3px rgb(0 0 0 / 40%);
   --sgkb-shadow-active: 0 3px 10px rgb(229 107 67 / 25%);
   --sgkb-header-bg: linear-gradient(135deg, #120e0c 0%, #221a15 100%);
+}
+
+/* White Theme */
+[data-theme="white"] {
+  /* Clean White */
+  --bg: #f7f4ea;
+  --bg-surface: #fffdf8;
+  --bg-subtle: #eee7d5;
+  --text: #292524;
+  --text-muted: #57534e;
+  --border: #e5dac1;
+  --accent: #92400e;
+  --accent-hover: #78350f;
+  --code-bg: #292524;
+  --code-text: #f5f5f4;
+  --selection: #fde68a;
+}
+
+/* Cream Theme */
+[data-theme="cream"] {
+  /* Warm Paper (Long Reading Comfort) */
+  --bg: #f7f4ea;
+  --bg-surface: #fffdf8;
+  --bg-subtle: #eee7d5;
+  --text: #292524;
+  --text-muted: #57534e;
+  --border: #e5dac1;
+  --accent: #92400e;
+  --accent-hover: #78350f;
+  --code-bg: #292524;
+  --code-text: #f5f5f4;
+  --selection: #fde68a;
+}
+
+/* Slate Theme */
+[data-theme="slate"] {
+  /* Slate Navy (Modern Dark - Linear/Vercel style) */
+  --bg: #0b1120;
+  --bg-surface: #1e293b;
+  --bg-subtle: #334155;
+  --text: #f8fafc;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --accent: #38bdf8;
+  --accent-hover: #7dd3fc;
+  --code-bg: #030712;
+  --code-text: #f3f4f6;
+  --selection: #1e3a8a;
+}
+
+/* Midnight Theme */
+[data-theme="midnight"] {
+  /* Midnight OLED (Pure Dark with Neon Glow) */
+  --bg: #000000;
+  --bg-surface: #0a0e14;
+  --bg-subtle: #161b22;
+  --text: #f0f6fc;
+  --text-muted: #8b949e;
+  --border: #30363d;
+  --accent: #58a6ff;
+  --accent-hover: #79c0ff;
+  --code-bg: #0d1117;
+  --code-text: #c9d1d9;
+  --selection: #21262d;
 }
 
 /* Tự động kích hoạt Dark Mode theo OS nếu không set attribute */

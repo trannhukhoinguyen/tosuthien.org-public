@@ -23,7 +23,7 @@ export const bookViDb: book[] = [
     cover: "https://i.ytimg.com/vi/RFhGmMxOP6I/maxresdefault.jpg",
     title: "BÁ TRƯỢNG NGỮ LỤC",
     type: "speech",
-    author: "TS.BÁCH TRƯỢNG HOÀI HẢI",
+    author: "TS. BÁCH TRƯỢNG HOÀI HẢI",
     description: "Việt Dịch @ HT. THÍCH DUY LỰC",
     info: "",
     link: "http://tosuthien.info/kinh_sach_storage/ba%20truong%20ngu%20luc.pdf",

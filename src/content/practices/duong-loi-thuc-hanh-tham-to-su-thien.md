@@ -46,7 +46,7 @@ Cái sát na lìa ý thức đó gọi là Kiến tánh thành Phật, tức là
 - Đạo Thiền này từ Sơ tổ Đạt Ma Đại Sư khi Ngài đến Trung Quốc:
   - ➡️ Nhị tổ Huệ Khả ➡️ Tam tổ Tăng Xán ➡️ Tứ tổ Đạo Tín ➡️ Ngũ tổ Hoằng nhẫn ➡️ Đại Giám Huệ Năng là Lục tổ
   - Lục Tổ ➡️ Thanh Nguyên Hành Tư (? - 740) ➡️ Thạch Đầu Hi Thiên (700 - 790) ➡️ Dược Sơn Duy Nghiễm (745  -  828)
-  - ➡️ Vân nham Đàm Thạnh (782 - 814) ➡️ Động Sơn Lương Giới (807 - 869) ➡️ Tào Sơn Bổn tịch (890 - 901) là tổ tông Tào Động.
+  - ➡️ Vân Nham Đàm Thịnh (782 - 814) ➡️ Động Sơn Lương Giới (807 - 869) ➡️ Tào Sơn Bổn tịch (890 - 901) là tổ tông Tào Động.
 
 <hr class="blog-rule footer" />
 

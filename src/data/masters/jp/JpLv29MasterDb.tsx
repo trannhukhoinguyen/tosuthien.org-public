@@ -2,7 +2,7 @@ const JpLv29MasterDb = [
   {
     id: '62.29.50',
     name_en: 'Xuejiang Zongshen',
-    name_pinyin: 'Xuějiāng Zōngshēn',
+    name_py: 'Xuějiāng Zōngshēn',
     name_ja: 'Sekkō Sōshin',
     other_name_ja: 'Tozen',
     name_zh: '雪江宗深',

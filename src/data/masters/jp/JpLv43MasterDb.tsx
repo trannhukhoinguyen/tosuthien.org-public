@@ -2,7 +2,7 @@ const JpLv43MasterDb = [
   {
     id: '76.43.50',
     name_en: '',
-    name_pinyin: '',
+    name_py: '',
     name_ja: 'Gisan Zenrai',
     other_name_ja: 'Gisan Zenrai',
     name_zh: '儀山善來',

@@ -2,7 +2,7 @@ const JpLv30MasterDb = [
   {
     id: '63.30.50',
     name_en: 'Dongyang Yingchao',
-    name_pinyin: 'Dōngyáng Yīngcháo',
+    name_py: 'Dōngyáng Yīngcháo',
     name_ja: 'Tōyō Eichō',
     name_zh: '東陽英朝',
     name_vi: 'Đông Dương Anh Triều',
@@ -21,7 +21,7 @@ const JpLv30MasterDb = [
   {
     id: '63.30.51',
     name_en: 'Tefang Chanjie',
-    name_pinyin: 'Tèfāng Chánjié',
+    name_py: 'Tèfāng Chánjié',
     name_ja: 'Tokuhō Zenketsu',
     name_zh: '特芳禪傑',
     name_vi: 'Đặc Phương Thiền Kiệt',
@@ -40,7 +40,7 @@ const JpLv30MasterDb = [
   {
     id: '63.30.52',
     name_en: 'Jingchuan Zonglong',
-    name_pinyin: 'Jǐngchuān Zōnglóng',
+    name_py: 'Jǐngchuān Zōnglóng',
     name_ja: 'Keisen Sōryū',
     name_zh: '景川宗隆',
     name_vi: 'Cảnh Xuyên Tông Long',
@@ -59,7 +59,7 @@ const JpLv30MasterDb = [
   {
     id: '63.30.53',
     name_en: 'Wuxi Zongdun',
-    name_pinyin: 'Wùxī Zōngdùn',
+    name_py: 'Wùxī Zōngdùn',
     name_ja: 'Gokei Sōton',
     name_zh: '悟渓宗頓',
     name_vi: 'Ngộ Khê Tông Đốn',

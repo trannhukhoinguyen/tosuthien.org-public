@@ -2,7 +2,7 @@ const JpLv27MasterDb = [
     {
         id: '60.27.50',
         name_en: 'Rifeng Zongshun',
-        name_pinyin: 'Rìfēng Zōngshùn',
+        name_py: 'Rìfēng Zōngshùn',
         name_ja: 'Nippō Shōshun',
         name_zh: '日峰宗舜',
         name_vi: 'Nhật Phong Tông Thuấn',
@@ -21,7 +21,7 @@ const JpLv27MasterDb = [
     {
         id: '60.27.51',
         name_en: 'Yixiu Zongchun',
-        name_pinyin: 'Yīxiū Zōngchún',
+        name_py: 'Yīxiū Zōngchún',
         name_ja: 'Ikkyū Sōjun',
         name_zh: '一休宗純',
         name_vi: 'Nhất Hưu Tông Thuần',

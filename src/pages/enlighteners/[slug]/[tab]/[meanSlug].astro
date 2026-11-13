@@ -1,0 +1,169 @@
+---
+import "@/styles/wiki-type/slug.wiki.css";
+import "@/styles/wiki-type/tab.wiki.css";
+import { getCollection, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import Layout from "@/layouts/wiki-type/EnlightenerLayout.astro";
+import { getEnlightenerSlug, getEnlightenerUrl } from "@/utils/enlighteners.ts";
+import EnlightenerMeanTree from "../../../../components/wiki-type/enlightener/EnlightenerMeanTree.js";
+import AllMasters from "@/data/masters/AllMasterDb.tsx";
+import CopyCode from '@/components/ui/minrock-style/CopyCode.astro';
+import RelatedPostList from "@/components/postList/RelatedPostList.astro";
+
+export async function getStaticPaths() {
+  const enlighteners = await getCollection("enlighteners");
+  const paths = [];
+
+  for (const entry of enlighteners) {
+    const slug = getEnlightenerSlug(entry);
+
+    const rawTabLabels = entry.data.tabLabels && entry.data.tabLabels.length > 0
+      ? entry.data.tabLabels
+      : ["doi-thoai", "bai-giang"];
+
+    const meanSlugs = entry.data.means?.map(mean => mean.slug) || [];
+
+    for (const tab of rawTabLabels) {
+      const tabSlug = tab.toLowerCase().trim().replace(/\s+/g, "-");
+      for (const meanSlug of meanSlugs) {
+        if (!meanSlug) continue;
+        const mean = meanSlug.trim().replace(/\s+/g, "-");
+
+        // Pre-render cả dạng chữ hoa lẫn chữ thường để chống lỗi 404 khi bấm link
+        const uniqueMeanSlugs = Array.from(new Set([mean, mean.toLowerCase()]));
+
+        for (const mSlug of uniqueMeanSlugs) {
+          paths.push({
+            params: { slug, tab: tabSlug, meanSlug: mSlug },
+            props: { entry, currentTab: tabSlug, currentMeanSlug: mSlug },
+          });
+        }
+      }
+    }
+  }
+
+  return paths;
+}
+
+interface Props {
+  entry: CollectionEntry<"enlighteners">;
+  currentTab: string;
+  currentMeanSlug: string;
+}
+
+const { entry, currentTab, currentMeanSlug } = Astro.props;
+const showThisAudio = entry.data.audio;
+
+// 1. Lấy toàn bộ nội dung từ collection means
+const meanEntries = await getCollection("means");
+const enlightenerSlug = getEnlightenerSlug(entry);
+
+// 2. Lọc các file trong means (Ép hết về lowercase để triệt tiêu lỗi lệch chữ hoa/thường)
+const matchedMeanEntries = meanEntries.filter(item => {
+  const normalizedId = item.id.replace(/\\/g, "/").toLowerCase();
+  return normalizedId.startsWith(`${enlightenerSlug.toLowerCase()}/`);
+});
+
+// 3. Tìm chính xác file khớp với currentMeanSlug (cũng ép lowercase)
+const currentMeanEntry = matchedMeanEntries.find(item => {
+  const normalizedId = item.id.replace(/\\/g, "/").toLowerCase();
+  const searchSlug = currentMeanSlug.toLowerCase();
+
+  return normalizedId.includes(`/${searchSlug}`);
+});
+
+// Render nội dung từ file mean tìm được
+let MeanContent = null;
+let meanHeadings = [];
+if (currentMeanEntry) {
+  const rendered = await render(currentMeanEntry);
+  MeanContent = rendered.Content;
+  meanHeadings = rendered.headings;
+}
+
+const allEnlighteners = await getCollection("enlighteners");
+
+const wordCount = entry.body ? entry.body.trim().split(/\s+/).filter(Boolean).length : 0;
+const readTimeMinutes = Math.max(1, Math.ceil(wordCount / 200));
+
+const entrySlug = getEnlightenerSlug(entry);
+
+const hasDialogue = entry.body?.includes('class="tab-dialogue"') && entry.body?.includes('id="dialogue"') || false;
+const hasSermon = entry.body?.includes('class="tab-sermon"') && entry.body?.includes('id="sermon"') || false;
+
+let means = [...(entry.data.means || [])];
+let disciples = [...(entry.data.disciples || [])];
+
+let tabLabels = [...(entry.data.tabLabels || [])];
+
+if (tabLabels.length === 0) {
+  if (hasDialogue) tabLabels.push("doi-thoai");
+  if (hasSermon) tabLabels.push("bai-giang");
+} else {
+  tabLabels = tabLabels.filter(label => {
+    const slug = label.toLowerCase().trim();
+    if (slug === 'doi-thoai') return hasDialogue;
+    if (slug === 'bai-giang') return hasSermon;
+    return true;
+  });
+}
+
+const enlightenersForNavigation = allEnlighteners
+  .filter((e) => entry.data.category ? e.data.category === entry.data.category : true)
+  .map((e, idx) => ({ ...e, order: idx }));
+
+const currentIndex = enlightenersForNavigation.findIndex((e) => getEnlightenerSlug(e) === entrySlug);
+const previousEnlightener = currentIndex > 0 ? enlightenersForNavigation[currentIndex - 1] : undefined;
+const nextEnlightener = currentIndex >= 0 && currentIndex < enlightenersForNavigation.length - 1 ? enlightenersForNavigation[currentIndex + 1] : undefined;
+
+const relatedArticles = allEnlighteners
+  .filter((e) => getEnlightenerSlug(e) !== entrySlug)
+  .filter((e) => e.data.category === entry.data.category)
+  .slice(0, 5)
+  .map((e) => ({
+    title: e.data.title,
+    description: e.data.description || `Tìm hiểu thêm về ${e.data.title}`,
+    href: getEnlightenerUrl(e),
+  }));
+
+const { Content, headings } = await render(entry);
+---
+
+<Layout
+  title={entry.data.title}
+  description={entry.data.description}
+  category={entry.data.category}
+  currentSlug={entrySlug}
+  headings={meanHeadings.length > 0 ? meanHeadings : headings}
+  articleData={{
+    publishedTime: entry.data.publishedDate?.toISOString(),
+    modifiedTime: entry.data.lastUpdated?.toISOString(),
+    birthDeath: entry.data.birthDeath,
+    extraNames: entry.data.extraNames,
+    zenSchool: entry.data.zenSchool,
+    teachers: entry.data.teachers,
+    places: entry.data.places,
+    tags: entry.data.tags,
+    readTimeMinutes,
+  }}
+  navigationData={{
+    previous: previousEnlightener ? { title: previousEnlightener.data.title, href: getEnlightenerUrl(previousEnlightener) } : undefined,
+    next: nextEnlightener ? { title: nextEnlightener.data.title, href: getEnlightenerUrl(nextEnlightener) } : undefined,
+  }}
+  relatedArticles={relatedArticles}
+  tabLabels={tabLabels}
+  means={means}
+  disciples={disciples}
+  activeTab={currentTab}
+  showThisAudio={showThisAudio}
+>
+  {MeanContent ? (
+    <div class="tab-expedient-means">
+      <MeanContent />
+    </div>
+  ) : (
+    <Content />
+  )}
+
+  <CopyCode />
+</Layout>

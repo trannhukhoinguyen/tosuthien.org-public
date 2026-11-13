@@ -1,0 +1,58 @@
+---
+import { config } from '@/config.ts';
+
+interface Props {
+  type?: 'website' | 'article';
+  title?: string;
+  description?: string;
+  datePublished?: Date;
+  dateModified?: Date;
+  tags?: string[];
+  url?: string;
+}
+
+const {
+  type = 'website',
+  title = config.title,
+  description = config.description,
+  datePublished,
+  dateModified,
+  tags = [],
+  url = config.siteUrl,
+} = Astro.props;
+
+const schema =
+  type === 'article'
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: title,
+        description: description,
+        url: url,
+        datePublished: datePublished?.toISOString(),
+        dateModified: (dateModified || datePublished)?.toISOString(),
+        author: {
+          '@type': 'Person',
+          name: config.author,
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: config.title,
+          url: config.siteUrl,
+        },
+        keywords: tags.join(', '),
+      }
+    : {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: config.title,
+        description: config.description,
+        url: config.siteUrl,
+        author: {
+          '@type': 'Person',
+          name: config.author,
+        },
+      };
+---
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />

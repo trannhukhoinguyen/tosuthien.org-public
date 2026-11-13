@@ -12,7 +12,6 @@ const CnLv49MasterDb = [
     country: '🇨🇳',
     place: '',
     teachers: ['Fenping Zhaoci'],
-    successors: ['Jitang Jiatai'],
     disciples: ['Jitang Jiatai'],
     image: '/images/buddha-zen-circle-with-unknown-zen-master.avif',
     reference: ['https://terebess.hu/zen/mesterek/shengyen.html'],

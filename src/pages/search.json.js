@@ -1,10 +1,8 @@
 import { collections } from "@/utils/getMarkdownContent";
 
 const globMapLazy = {
-  health: import.meta.glob("../content/health/**/*.{md,mdx}"),
   blogs: import.meta.glob("../content/blogs/!**!/!*.{md,mdx}"),
   merits: import.meta.glob("../content/merits/!**!/!*.{md,mdx}"),
-  books: import.meta.glob("../content/books/!**!/!*.{md,mdx}"),
   symptoms: import.meta.glob("../content/symptoms/!**!/!*.{md,mdx}"),
 
   eatery: import.meta.glob("../content/eatery/!**!/!*.{md,mdx}"),
@@ -18,10 +16,10 @@ const globMapLazy = {
   precepts: import.meta.glob("../content/precepts/!**!/!*.{md,mdx}"),
   films: import.meta.glob("../content/films/!**!/!*.{md,mdx}"),
 
-  enlighteners: import.meta.glob("../content/enlighteners/!**!/!*.{md,mdx}"), // get masters from enlighteners
-  codices: import.meta.glob("../content/codices/!**!/!*.{md,mdx}"), // get masters from enlighteners
-  compendia: import.meta.glob("../content/compendia/!**!/!*.{md,mdx}"), // get masters from enlighteners
-  languages: import.meta.glob("../content/languages/!**!/!*.{md,mdx}"), // get masters from enlighteners
+  enlighteners: import.meta.glob("../content/enlighteners/!**!/!*.{md,mdx}"),
+  koans: import.meta.glob("../content/koans/!**!/!*.{md,mdx}"),
+  codices: import.meta.glob("../content/codices/!**!/!*.{md,mdx}"),
+  means: import.meta.glob("../content/means/!**!/!*.{md,mdx}"),
 
   kings: import.meta.glob("../content/kings/!**!/!*.{md,mdx}"),
 
@@ -43,8 +41,9 @@ export async function GET() {
 
             searchData.push({
               title: post.frontmatter?.title || "Untitled",
+              extraNames: post.frontmatter?.extraNames || "",
               url,
-              type, // ✅ thêm collection type (blog, book, sutra, ...)
+              type, // ✅ thêm collection type
               date: post.frontmatter?.date || new Date().toISOString(),
               description: post.frontmatter?.description || "",
               category: post.frontmatter?.category || "",

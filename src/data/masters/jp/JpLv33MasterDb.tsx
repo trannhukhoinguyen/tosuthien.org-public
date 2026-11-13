@@ -2,7 +2,7 @@ const JpLv33MasterDb = [
   {
     id: '66.33.50',
     name_en: 'Xianzhao Ruichu',
-    name_pinyin: 'Xiānzhào Ruìchū',
+    name_py: 'Xiānzhào Ruìchū',
     name_ja: 'Senshō Zuisho',
     name_zh: '先照瑞初',
     name_vi: 'Tiên Chiếu Thụy Sơ',
@@ -21,7 +21,7 @@ const JpLv33MasterDb = [
   {
     id: '66.33.51',
     name_en: 'Donggu Zonggao',
-    name_pinyin: 'Dōnggǔ Zōnggǎo',
+    name_py: 'Dōnggǔ Zōnggǎo',
     name_ja: 'Tōkoku Sōkō',
     name_zh: '東谷宗杲',
     name_vi: 'Đông Cốc Tông Cảo',

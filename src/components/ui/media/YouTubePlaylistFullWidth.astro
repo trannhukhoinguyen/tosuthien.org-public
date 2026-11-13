@@ -1,0 +1,136 @@
+---
+// YouTubePlaylistHybrid.astro
+interface Video {
+  id: string;
+  title: string;
+  thumbnail: string;
+}
+
+interface Props {
+  videos?: Video[];
+}
+
+const { videos = [] } = Astro.props;
+---
+
+<!-- Bọc toàn bộ trong một container duy nhất -->
+<div class="yt-playlist-wrapper">
+  <div class="player">
+    <iframe
+      class="yt-player"
+      src={videos?.length ? `https://www.youtube.com/embed/${videos[0]?.id}` : ''}
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <div class="playlist">
+    {videos?.length > 1 && videos?.map((video, index) => (
+      <div
+        class={`item ${index === 0 ? 'active' : ''}`}
+        data-id={video?.id}
+      >
+        <img src={video?.thumbnail} alt={video?.title} />
+        <div class="meta">
+          <div class="title">{video?.title}</div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script>
+  // Hàm này sẽ tìm và khởi tạo riêng biệt từng `.yt-playlist-wrapper` trên trang
+  function initYouTubePlaylists() {
+    const containers = document.querySelectorAll('.yt-playlist-wrapper');
+
+    containers.forEach((container) => {
+      // Loại bỏ trường hợp bị addEventListener lặp lại
+      if (container.hasAttribute('data-initialized')) return;
+      container.setAttribute('data-initialized', 'true');
+
+      // Scoped selector: Chỉ tìm player và items nằm BÊN TRONG container hiện tại
+      const player = container.querySelector('.yt-player') as HTMLIFrameElement;
+      const items = container.querySelectorAll('.item');
+
+      if (!player || !items.length) return;
+
+      items.forEach((item) => {
+        item.addEventListener('click', () => {
+          const videoId = (item as HTMLElement).dataset.id;
+          if (!videoId) return;
+
+          // Update UI active state trong phạm vi container hiện tại
+          items.forEach((i) => i.classList.remove('active'));
+          item.classList.add('active');
+
+          // Thay đổi src iframe
+          player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        });
+      });
+    });
+  }
+
+  // Chạy khi DOM ready (hỗ trợ cả khi dùng Astro View Transitions nếu có)
+  initYouTubePlaylists();
+  document.addEventListener('astro:page-load', initYouTubePlaylists);
+</script>
+
+<style>
+  .player iframe {
+    width: 100%;
+    height: 420px;
+    border-radius: 12px;
+  }
+
+  .playlist {
+    max-height: 420px;
+    overflow-y: auto;
+  }
+
+  .item {
+    display: flex;
+    gap: 10px;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+  .item:hover {
+    background: var(--color-text-secondary, #f0f0f0);
+  }
+
+  .item.active {
+    background: var(--color-accent-goldenrod, #ffd700);
+  }
+
+  .item img {
+    width: 120px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .meta {
+    flex: 1;
+  }
+
+  .title {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .yt-playlist-wrapper {
+      grid-template-columns: 1fr;
+    }
+
+    .player iframe {
+      height: 220px;
+    }
+
+    .playlist {
+      max-height: none;
+    }
+  }
+</style>

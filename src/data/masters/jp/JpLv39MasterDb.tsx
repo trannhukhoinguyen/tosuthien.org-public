@@ -2,7 +2,7 @@ const JpLv39MasterDb = [
   {
     id: '72.39.50',
     name_en: 'Baiyin Huihe',
-    name_pinyin: 'Báiyǐn Huìhè',
+    name_py: 'Báiyǐn Huìhè',
     name_ja: 'Hakuin Ekaku',
     name_zh: '白隠慧鶴',
     name_vi: 'Bạch Ẩn Huệ Hạc',
@@ -31,7 +31,7 @@ const JpLv39MasterDb = [
   {
     id: '72.39.51',
     name_en: 'Panggui Yongzhuo',
-    name_pinyin: 'Pángguī Yǒngzhuó',
+    name_py: 'Pángguī Yǒngzhuó',
     other_name_en: 'Bankei kokushi',
     name_ja: 'Bankei Yōtaku',
     other_name_ja: 'Bankei Eitaku',
@@ -64,7 +64,7 @@ const JpLv39MasterDb = [
   {
     id: '72.39.52',
     name_en: 'Danling Zuchuan',
-    name_pinyin: 'Dānlǐng Zǔchuán',
+    name_py: 'Dānlǐng Zǔchuán',
     name_ja: 'Tanrei Sōden',
     name_zh: '單嶺祖傳',
     name_vi: 'Đơn Lĩnh Tổ Truyền',

@@ -1,5 +1,7 @@
 ---
 const {
+  title,
+  icon,
   type="sutra",
   iconTop,
   iconBottom,
@@ -9,8 +11,8 @@ const {
 ---
 
 <fieldset style="margin-block: 8px">
-    <legend><h4>{ iconTop } <span class="buddha-icon" title={type === "sutra" ? "KINH" : type === "mantra" ? "CHÂN NGÔN" : ""}>
-      {type === "sutra" ? buddhaIcon : type === "mantra" ? "📿" : ""}
+    <legend><h4>{ iconTop } <span class="buddha-icon" title={type === "sutra" ? "KINH" : type === "mantra" ? "CHÂN NGÔN" : title}>
+      {type === "sutra" ? buddhaIcon : type === "mantra" ? "📿" : icon}
     </span></h4></legend>
     <div class="buddha-speech-container">
         <div class="buddha-speech">
@@ -18,8 +20,8 @@ const {
         </div>
     </div>
 </fieldset>
-{
-  explainTitle ? <h5>{ iconBottom } { explainTitle }</h5> : null
+  {
+    explainTitle ? <h5>{ iconBottom } { explainTitle }</h5> : null
   }
 
 <style scoped>

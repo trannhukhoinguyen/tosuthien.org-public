@@ -16,6 +16,9 @@ import PostTags from "@/components/post/PostTags.astro";
 import ItemReadAll from "@/components/post/ItemReadAll.astro";
 import PostImage from "@/components/post/PostImage.astro";
 import RelatedPostList from "@/components/postList/RelatedPostList.astro";
+import { config } from '@/config.ts';
+import AudioPlayer from "@/components/ui/minrock-style/AudioPlayer.astro";
+import CopyCode from '@/components/ui/minrock-style/CopyCode.astro';
 
 export async function getStaticPaths() {
   return Object.entries(CONTENT_MAP).flatMap(([collection, data]) =>
@@ -34,6 +37,8 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 const { post, collection } = Astro.props;
 const { frontmatter, Content } = post as any;
+const showAudio = config.showAudio !== false;
+const showThisAudio = !post.frontmatter.audio || post.frontmatter.audio !== false;
 ---
 
 <Layout
@@ -48,37 +53,42 @@ const { frontmatter, Content } = post as any;
 
   {
     <article class="blog-post">
-          <!-- ✅ PostHeader included PDF Viewer -->
-          <PostHeader post={post} />
+      <!-- ✅ PostHeader included PDF Viewer -->
+      <PostHeader post={post} />
 
-          <!-- Image Section -->
-          {
-            post.frontmatter.image
-              ?  <section class="image-area">
-                    <PostImage imageUrl={post.frontmatter.image} imageAlt={post.frontmatter.title} />
-                 </section>
-              :  ""
-          }
+      <!-- 🔊 Accessible Audio Player (Text-to-Speech) -->
+      {showAudio && showThisAudio && (
+        <AudioPlayer selector=".post-content" title={post.frontmatter.title} label="Nghe nội dung" />
+      )}
 
-          <!-- ✅ TOC -->
-          <TOC post={post} />
-          <FloatingTOC post={post} />
+      <!-- Image Section -->
+      {
+        post.frontmatter.image
+          ?  <section class="image-area">
+                <PostImage imageUrl={post.frontmatter.image} imageAlt={post.frontmatter.title} />
+             </section>
+          :  ""
+      }
 
-          <div class="post-content">
-            <!-- ✅ Content -->
-            <Content />
-          </div>
+      <!-- ✅ TOC -->
+      <TOC post={post} />
+      <FloatingTOC post={post} />
 
-          <div>
-            <!-- ✅ Youtube Video Playlist, Audio -->
-            <MediaArea frontmatter={frontmatter} />
-          </div>
+      <div class="post-content">
+        <!-- ✅ Content -->
+        <Content />
+      </div>
 
-          <div>
-            <!-- ✅ Youtube Videos -->
-            <YoutubeLayout frontmatter={frontmatter} />
-          </div>
-        </article>
+      <div>
+        <!-- ✅ Youtube Video Playlist, Audio -->
+        <MediaArea frontmatter={frontmatter} />
+      </div>
+
+      <div>
+        <!-- ✅ Youtube Videos -->
+        <YoutubeLayout frontmatter={frontmatter} />
+      </div>
+    </article>
   }
 
   <footer class="post-footer">
@@ -90,6 +100,8 @@ const { frontmatter, Content } = post as any;
 
 <!-- Related Post List Section -->
   <RelatedPostList tags={frontmatter.tags} notIncludedPostTitle={frontmatter.title} type={frontmatter.type} />
+
+  <CopyCode />
 </Layout>
 
 <style>

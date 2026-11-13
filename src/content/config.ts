@@ -4,11 +4,12 @@ import { glob } from "astro/loaders";
 const TODAY = () => new Date();
 
 export const IMAGE_DEFAULT_PATH = "/images/unknown-zen-master.jpg";
+export const LANGUAGE_PATH = "src/content/languages";
 export const GALLERY_PATH = "src/content/galleries";
 export const ENLIGHTENER_PATH = "src/content/enlighteners";
 export const CODEX_PATH = "src/content/codices";
-export const COMPENDIUM_PATH = "src/content/compendia";
 export const KOAN_PATH = "src/content/koans";
+export const MEAN_PATH = "src/content/means";
 
 // ==================== CÁC HÀM FACTORY TẠO SCHEMA ====================
 
@@ -21,16 +22,18 @@ const standardSchema = (
   z.object({
     type: z.string().default(type),
     schemaType: z.string().default(schemaType),
-    title: z.string().default(defaultTitle),
+    title: z.string().default(defaultTitle).optional(),
     description: z.string().optional(),
     category: z.string().optional(),
-    tags: z.array(z.string()).default([]),
+    tags: z.array(z.string()).default([]).optional(),
     image: z.string().optional(),
-    videoIds: z.array(z.string()).default([]),
+    videoIds: z.array(z.string()).default([]).optional(),
+    audio: z.boolean().default(true),
+    emoji: z.string().default("🪨"),
   });
 
 // 2. Schema dạng tài liệu / học thuật (Koans, Enlighteners, Codices, Compendia...)
-const docLikeSchema = (schemaType = "Book") =>
+const docLikeSchema = (schemaType = "Person") =>
   z.object({
     schemaType: z.string().default(schemaType),
     title: z.string(),
@@ -41,15 +44,26 @@ const docLikeSchema = (schemaType = "Book") =>
     lastUpdated: z.coerce.date().optional(),
     tags: z.array(z.string()).default([]).optional(),
     tabLabels: z.array(z.string()).default([]).optional(),
+    audio: z.boolean().default(true),
+    journeys: z
+      .array(
+        z.object({
+          title: z.string(),
+          description: z.string().optional(),
+          year: z.string().optional(),
+          age: z.string().optional() || z.number().optional(),
+          location: z.string().optional(),
+        }),
+      )
+      .optional(),
     image: z.string().optional(),
-    videoIds: z.array(z.string()).default([]),
     tableOfContents: z.boolean().default(true),
     birthDeath: z.string().optional(),
     extraNames: z.string().optional(),
+    nameEn: z.string().optional(),
     zenSchool: z.array(z.string()).optional(),
     places: z.array(z.string()).optional(),
     teachers: z.array(z.string()).optional(),
-    disciples: z.array(z.string()).optional(),
     koanScroll: z.string().optional(),
     extraKoanScrolls: z.array(z.string()).optional(),
   });
@@ -57,15 +71,7 @@ const docLikeSchema = (schemaType = "Book") =>
 // ==================== KHAI BÁO COLLECTIONS ====================
 
 export const collections = {
-  // Nhóm Standard Posts & Books
-  books: defineCollection({
-    loader: glob({
-      pattern: "**!/[^_]*.{md,mdx}",
-      base: "./src/content/books",
-    }),
-    schema: standardSchema("books", "Book", "Sách"),
-  }),
-
+  // Nhóm Posts
   blogs: defineCollection({
     loader: glob({
       pattern: "**!/[^_]*.{md,mdx}",
@@ -127,7 +133,7 @@ export const collections = {
       pattern: "**!/[^_]*.{md,mdx}",
       base: "./src/content/pagodas",
     }),
-    schema: standardSchema("pagodas", "Place", "Thiền đường"),
+    schema: standardSchema("pagodas", "Place", "Thiền viện"),
   }),
 
   places: defineCollection({
@@ -167,7 +173,11 @@ export const collections = {
     schema: standardSchema("kings", "Person", "Vua"),
   }),
 
-  // Nhóm tài liệu / Docs (dùng chung docLikeSchema)
+  // Nhóm Docs (dùng chung docLikeSchema)
+  languages: defineCollection({
+    loader: glob({ pattern: "**/*.{md,mdx}", base: `./${LANGUAGE_PATH}` }),
+    schema: docLikeSchema("Article"),
+  }),
   enlighteners: defineCollection({
     loader: glob({ pattern: "**/*.{md,mdx}", base: `./${ENLIGHTENER_PATH}` }),
     schema: docLikeSchema("Person"),
@@ -176,12 +186,12 @@ export const collections = {
     loader: glob({ pattern: "**/*.{md,mdx}", base: `./${CODEX_PATH}` }),
     schema: docLikeSchema("Book"),
   }),
-  compendia: defineCollection({
-    loader: glob({ pattern: "**/*.{md,mdx}", base: `./${COMPENDIUM_PATH}` }),
-    schema: docLikeSchema("Book"),
-  }),
   koans: defineCollection({
     loader: glob({ pattern: "**/*.{md,mdx}", base: `./${KOAN_PATH}` }),
+    schema: docLikeSchema("CreativeWork"),
+  }),
+  means: defineCollection({
+    loader: glob({ pattern: "**/*.{md,mdx}", base: `./${MEAN_PATH}` }),
     schema: docLikeSchema("CreativeWork"),
   }),
 

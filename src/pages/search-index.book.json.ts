@@ -1,6 +1,6 @@
 import { getCollection } from "astro:content";
 import type { APIRoute } from "astro";
-import { getBookUrl } from "@/utils/grid-items/books.ts";
+import { getBookUrl } from "@/utils/books.ts";
 
 export const prerender = true;
 

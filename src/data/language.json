@@ -5,11 +5,6 @@
     "contentDir": "en"
   },
   {
-    "languageName": "🇯🇵 日本語",
-    "languageCode": "ja",
-    "contentDir": "ja"
-  },
-  {
     "languageName": "🇨🇳 中文",
     "languageCode": "zh",
     "contentDir": "zh"

@@ -2,7 +2,7 @@ const JpLv46MasterDb = [
   {
     id: '79.46.50',
     name_en: '',
-    name_pinyin: '',
+    name_py: '',
     name_ja: 'Chōro Nyogen',
     other_name_ja: '千崎 Senzaki',
     name_zh: '朝露如幻',

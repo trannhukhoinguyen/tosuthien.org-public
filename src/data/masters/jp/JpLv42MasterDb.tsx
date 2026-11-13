@@ -2,7 +2,7 @@ const JpLv42MasterDb = [
   {
     id: '75.42.50',
     name_en: '',
-    name_pinyin: '',
+    name_py: '',
     name_ja: 'Taigen Shigen',
     name_zh: '太元孜元',
     name_vi: '',

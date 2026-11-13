@@ -1,0 +1,114 @@
+---
+import "@/styles/wiki-type/slug.wiki.css"
+import { getCollection, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import Layout from "@/layouts/wiki-type/LanguageLayout.astro";
+import { getLanguageSlug, getLanguageUrl } from "@/utils/language.ts";
+
+export async function getStaticPaths() {
+    const languages = await getCollection("languages");
+    return languages.map((entry) => ({
+        params: { slug: getLanguageSlug(entry) },
+        props: { entry },
+    }));
+}
+
+interface Props {
+    entry: CollectionEntry<"languages">;
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+const allLanguages = await getCollection("languages");
+
+const wordCount = entry.body
+    ? entry.body.trim().split(/\s+/).filter(Boolean).length
+    : 0;
+const readTimeMinutes = Math.max(1, Math.ceil(wordCount / 200));
+
+const languagesForNavigation = allLanguages
+    .filter((doc) =>
+        entry.data.category ? doc.data.category === entry.data.category : true,
+    )
+    .map((doc, indexLanguage) => ({
+      ...doc,
+      order: indexLanguage,
+    }))
+    .sort((a, b) => {
+        const orderA = a.data.order ?? Number.MAX_SAFE_INTEGER;
+        const orderB = b.data.order ?? Number.MAX_SAFE_INTEGER;
+        if (orderA !== orderB) return orderA - orderB;
+        return a.data.title.localeCompare(b.data.title);
+    });
+
+const entrySlug = getLanguageSlug(entry);
+
+const currentIndex = languagesForNavigation.findIndex((doc) => getLanguageSlug(doc) === entrySlug);
+const previousLanguage = currentIndex > 0 ? languagesForNavigation[currentIndex - 1] : undefined;
+const nextLanguage =
+    currentIndex >= 0 && currentIndex < languagesForNavigation.length - 1
+        ? languagesForNavigation[currentIndex + 1]
+        : undefined;
+
+const relatedSameCategory = allLanguages
+    .filter(
+        (doc) =>
+            getLanguageSlug(doc) !== entrySlug &&
+            (entry.data.category ? doc.data.category === entry.data.category : false),
+    )
+    .sort((a, b) => {
+        const updatedA = a.data.lastUpdated?.getTime() ?? 0;
+        const updatedB = b.data.lastUpdated?.getTime() ?? 0;
+        return updatedB - updatedA;
+    });
+
+const relatedFallback = allLanguages
+    .filter(
+        (doc) =>
+            getLanguageSlug(doc) !== entrySlug &&
+            !relatedSameCategory.some((sameLanguage) => getLanguageSlug(sameLanguage) === getLanguageSlug(doc)),
+    )
+    .sort((a, b) => {
+        const updatedA = a.data.lastUpdated?.getTime() ?? 0;
+        const updatedB = b.data.lastUpdated?.getTime() ?? 0;
+        return updatedB - updatedA;
+    });
+
+const relatedArticles = [...relatedSameCategory, ...relatedFallback]
+  .filter((e) => getLanguageSlug(e) !== entrySlug)
+  .filter((e) => e.data.category === entry.data.category)
+    .slice(0, 5)
+    .map((doc) => ({
+        title: doc.data.title,
+        description:
+            doc.data.description || `Tìm hiểu thêm về ${doc.data.title} trong hướng dẫn này.`,
+        href: getLanguageUrl(doc),
+    }));
+---
+
+<Layout
+    title={entry.data.title}
+    description={entry.data.description}
+    category={entry.data.category}
+    currentSlug={entrySlug}
+    headings={headings}
+    articleData={{
+        publishedTime: entry.data.publishedDate?.toISOString(),
+        modifiedTime: entry.data.lastUpdated?.toISOString(),
+        author: "Sưu tầm",
+        tags: entry.data.tags,
+        readTimeMinutes,
+    }}
+    navigationData={{
+        previous: previousLanguage
+            ? { title: previousLanguage.data.title, href: getLanguageUrl(previousLanguage) }
+            : undefined,
+        next: nextLanguage
+            ? { title: nextLanguage.data.title, href: getLanguageUrl(nextLanguage) }
+            : undefined,
+    }}
+    relatedArticles={relatedArticles}
+    videoIds={{ videoIds: entry.data.videoIds || [] }}
+>
+    <Content />
+</Layout>

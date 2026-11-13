@@ -21,7 +21,6 @@ const FayanMasterDb = [
       "Tianbing Congyi",
       "Qingqi Hongjin",
     ],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [
       "https://terebess.hu/zen/luohan.html",
       "https://quangduc.com/p156a69697/52/thien-su-la-han-que-sam-867-928-vi-thien-su-dat-nen-mong-cho-thien-phai-phap-nhan",
@@ -97,7 +96,7 @@ export default FayanMasterDb;
 9/ Hòa thượng Bản Tính Tịnh Huệ (zh. 本性净慧 Benxing Jinghui, 1933–2013)
 9/ Hòa thượng Linh Ý Tịch Chiếu (zh. 灵意寂照 Lingyi Jizhao, 1926-?)
 2/ Thiền sư Thiên Thai Đức Thiều (zh. 天台德韶, 891-972)
-3/ Thiền sư Hoa Nghiêm Chí Phùng (zh. 五雲志逢, 910-986)
+3/ Thiền sư Hoa Nghiêm Chí Phùng / Ngũ Vân Chí Phùng (zh. 五雲志逢, 910-986)
 3/ Thiền sư Vĩnh An Đạo Nguyên (zh. 永安道原)
 3/ Thiền sư Vĩnh Minh Diên Thọ (zh. 永明延壽, 904-975)
 4/ Thiền sư Triều Minh Viện Tân (zh. 朝明院津)

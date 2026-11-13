@@ -5,6 +5,8 @@ import { getCollection, render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import Layout from "@/layouts/wiki-type/KoanLayout.astro";
 import { getKoanSlug, getKoanUrl } from "@/utils/koan.ts";
+import CopyCode from '@/components/ui/minrock-style/CopyCode.astro';
+import RelatedPostList from "@/components/postList/RelatedPostList.astro";
 
 export async function getStaticPaths() {
   const koans = await getCollection("koans");
@@ -112,4 +114,6 @@ const relatedArticles = allKoans
   activeTab={currentTab}
 >
   <Content />
+
+  <CopyCode />
 </Layout>

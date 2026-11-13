@@ -2,7 +2,7 @@ const JpLv32MasterDb = [
   {
     id: '65.32.50',
     name_en: 'Gongfu Xuanxun',
-    name_pinyin: 'Gōngfǔ Xuánxūn',
+    name_py: 'Gōngfǔ Xuánxūn',
     name_ja: 'Kōhō Genkun',
     name_zh: '功甫玄勲',
     name_vi: 'Công Phủ Huyền Huân',
@@ -21,7 +21,7 @@ const JpLv32MasterDb = [
   {
     id: '65.32.51',
     name_en: 'Taiyuan Chongfu',
-    name_pinyin: 'Tàiyuán Chóngfú',
+    name_py: 'Tàiyuán Chóngfú',
     name_ja: 'Taigen Sūfu',
     name_zh: '太原崇孚',
     name_vi: 'Thái Nguyên Sùng Phu',

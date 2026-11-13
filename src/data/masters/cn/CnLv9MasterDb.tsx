@@ -3,7 +3,9 @@ const CnLv9MasterDb = [
     id: "42.9.1",
     name_en: "Shoushan Xingnian",
     other_name_en: "Shoushan Shengnian",
-    name_ja: "Kōke Zonshō",
+    name_py: "Shǒushān Shěngniàn",
+    name_ja: "Shūzan Shōnen",
+    name_kr: "수산성념 Susan Sŏngnyŏm",
     name_zh: "首山省念",
     name_vi: "Thủ Sơn Tỉnh Niệm",
     birth_death_time: ["926", "993"],
@@ -25,7 +27,6 @@ const CnLv9MasterDb = [
       "Hồi Hãn ở Trí môn",
       "Sơn chủ Tuệ Chiêu ở Lộc môn",
       "Cư sĩ Thừa tướng Vương Tùy",
-
       "Trọng Mật ở Huỳnh nghiệt",
       "Thiện Thao ở Phước Thánh",
       "Khế Khoáng ở Nam đài",
@@ -40,11 +41,15 @@ const CnLv9MasterDb = [
   {
     id: "42.9.2",
     name_en: "Fayan Wenyi",
+    other_name_en: "Qingliang Wenyi",
+    name_py: "Fǎyǎn Wényì",
     name_ja: "Hōgen Buneki",
+    name_kr: "법안문익 Pŏban Munik",
     name_zh: "法眼文益",
     name_vi: "Pháp Nhãn Văn Ích",
-    other_name_vi: "",
-    nickname_vi: "Thanh Lương, Tuệ Tịch",
+    other_name_vi: "Thanh Lương Văn Ích",
+    posthumous_title: "Đại Pháp Nhãn Thiền sư",
+    stupa_name: "Vô Tướng",
     birth_death_time: ["885", "958"],
     epoch: "",
     sect: ["Fayan"],
@@ -53,7 +58,7 @@ const CnLv9MasterDb = [
     teachers: ["Luohan Guichen"],
     disciples: [
       "Tiantai Deshao",
-      "Quy Tông Nghĩa Nhu (Guizong Yirou, 歸宗義柔)",
+      "Qui Tông Nghĩa Nhu (Guizong Yirou, 歸宗義柔)",
       "Chongshou Qichou",
       "Baizhang Daoheng - Bách Trượng Đạo Hằng (百丈道恆,?-991/992)",
       "Guizong Xuance",
@@ -110,6 +115,7 @@ const CnLv9MasterDb = [
     ],
     reference: [
       "https://vi.wikipedia.org/wiki/Ph%C3%A1p_Nh%C3%A3n_V%C4%83n_%C3%8Dch",
+      "https://pl.wikipedia.org/wiki/Fayan_Wenyi",
     ],
   },
   {
@@ -184,7 +190,9 @@ const CnLv9MasterDb = [
   {
     id: "42.9.7",
     name_en: "Liangshan Yuanguan",
+    name_py: "",
     name_ja: "Ryōzan Enkan",
+    name_kr: "",
     name_zh: "梁山緣觀",
     name_vi: "Lương Sơn Duyên Quán",
     other_name_vi: "",
@@ -215,7 +223,7 @@ const CnLv9MasterDb = [
     place:
       "Wuzushan (五祖山) (Phùng mậu sơn, Đông Sơn), Hoàng Mai district (黃梅), Hubei province) & Đại Ngu Sơn (大愚山), Cao An district (高安縣, Jiangxi province)",
     teachers: ["Shuangquan Shikuang"],
-    disciples: ["Dongshan Zibao", "Letan Huaicheng (泐潭懷澄)"],
+    disciples: ["Dongshan Zibao", "Letan Huaicheng"],
     reference: [
       "https://phatgiao.org.vn/tu-dien-phat-hoc-online/ngu-to-su-gioi-k4692.html",
     ],
@@ -258,7 +266,7 @@ const CnLv9MasterDb = [
   {
     id: "42.9.11",
     name_en: "Sanjiao Zhiqian",
-    name_pinyin: "Sānjiǎo Zhìqiān",
+    name_py: "Sānjiǎo Zhìqiān",
     name_ja: "さんかく しけん Sankaku Shiken",
     name_kr: "삼각 지겸 Samgak Jigyeom",
     name_zh: "三角志謙",
@@ -277,7 +285,7 @@ const CnLv9MasterDb = [
     id: "42.9.12",
     name_en: "Qingxi Hongjin",
     other_name_en: "Qingqi Hongjin",
-    name_pinyin: "Qīngxī Hóngjìn",
+    name_py: "Qīngxī Hóngjìn",
     name_ja: "Shōkei Kōjin",
     name_kr: "청계홍진 Ch'ŏnggye Hongjin",
     name_zh: "清溪洪進",

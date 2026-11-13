@@ -2,7 +2,7 @@ const JpLv4MasterDb = [
   {
     id: '71.38.50',
     name_en: 'Daojing Huiduan',
-    name_pinyin: 'Dàojìng Huìduān',
+    name_py: 'Dàojìng Huìduān',
     name_ja: 'Dōkyō Etan',
     nickname_ja: 'Shōju Rōjin',
     name_zh: '道鏡慧端',
@@ -22,7 +22,7 @@ const JpLv4MasterDb = [
   {
     id: '71.38.51',
     name_en: 'Shishun Zushun',
-    name_pinyin: 'Shīshùn Zǔshùn',
+    name_py: 'Shīshùn Zǔshùn',
     name_ja: 'Shitsujun Sōjun',
     name_zh: '失順祖順',
     name_vi: 'Thất Thuận Tổ Thuận',
@@ -39,7 +39,7 @@ const JpLv4MasterDb = [
   {
     id: '71.38.52',
     name_en: 'Muweng Zuniu',
-    name_pinyin: 'Mùwēng Zǔniú',
+    name_py: 'Mùwēng Zǔniú',
     name_ja: 'Boku’ō Sogyū',
     name_zh: '牧翁祖牛',
     name_vi: 'Mục Ông Tổ Ngưu',

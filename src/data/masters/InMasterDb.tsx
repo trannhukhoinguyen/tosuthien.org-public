@@ -1,11 +1,11 @@
-import type { MasterInfo } from "@/types.js";
+import type { EnlightenerInfo } from "@/types.js";
 
-const InMasterDb: MasterInfo[] = [
+const InMasterDb: EnlightenerInfo[] = [
   {
     id: "1",
     name_en: "Mahakasyapa 1",
-    name_pinyin: "Mahākāśyapa",
-    name_ja: "Makakashō",
+    name_py: "Mahākāśyapā",
+    name_ja: "Makkakashō",
     name_zh: "摩訶迦葉 (Móhējiāyè)",
     name_vi: "Ma-Ha-Ca-Diếp",
     other_name_vi: "Ẩm Quang",
@@ -22,8 +22,8 @@ const InMasterDb: MasterInfo[] = [
   {
     id: "2",
     name_en: "Ananda 2",
-    name_pinyin: "Ānanda",
-    name_ja: "Ananda",
+    name_py: "Ānanda",
+    name_ja: "Anan",
     name_zh: "阿難陀 (阿難) (Ānántuó (Ānán))",
     name_vi: "A-Nan",
     other_name_vi: "Khánh Hỷ",
@@ -40,7 +40,7 @@ const InMasterDb: MasterInfo[] = [
   {
     id: "3",
     name_en: "Sanakavas 3",
-    name_pinyin: "Śānavāsa",
+    name_py: "Śānavāsa",
     name_ja: "Shōnawashu",
     name_zh: "商那和修 (Shāngnàhéxiū)",
     name_vi: "Thương-Na-Hòa-Tu",
@@ -156,7 +156,7 @@ const InMasterDb: MasterInfo[] = [
   {
     id: "10",
     name_en: "Parsvika 10",
-    name_pinyin: "Pārśva",
+    name_py: "Pārśva",
     name_ja: "Barishiba",
     other_name_ja: "Kyōsonja",
     name_zh: "波栗濕縛, 婆栗濕婆 (Bōlìshīfú / Pólìshīpó)",
@@ -600,19 +600,23 @@ const InMasterDb: MasterInfo[] = [
   },
   {
     id: "28.1",
-    name_en: "Bodhidharma 28",
-    name_pinyin: "Pútí Dámó",
-    other_name_en: "Bodaidaruma, Dharmayana",
-    name_sk: "",
-    name_ja: "Bodaidaruma（ぼだいだるま)",
+    name_en: "Bodhidharma",
+    other_name_en: "Bodhidharma 28",
+    name_py: "Pútí Dámó",
+    name_sk: "बोधिधर्म",
+    name_ja: "Bodai Daruma（ぼだいだるま)",
     other_name_ja: "Daruma（だるま)",
-    name_zh: "菩提達磨 Ta Mo",
+    name_zh: "菩提达摩, 菩提達磨",
+    other_name_zh: "菩提達磨多羅, 達磨多羅, 菩提多羅, 達磨",
     name_vi: "Bồ-Đề-Đạt-Ma",
-    name_ko: "Tal Ma /보리달마 / Poridalma",
+    other_name_vi:
+      "Tổ 28, Bồ-đề-đạt-ma-đa-la, Đạt-ma-đa-la, Bồ-đề-đa-la, Đạt-ma",
+    name_ko: "Tal Ma /보리달마 / Pori Dalma",
     birth_death_time: ["?", "?"],
     sect: [],
     country: "🇮🇳",
-    place: "Shaolin Temple, Songshan mountain, Dengfeng, Zhengzhou, Henan, 🇨🇳",
+    place:
+      "Nam Thiên Trúc (Nam Ấn Độ), là con trai thứ ba của một vị vua nước Pallava Tamil hay vua Hương Chí (Simhavarman) tại Kanchipuram (nay thuộc bang Tamil Nadu, miền Nam Ấn Độ) ➡️ Shaolin Temple, Songshan mountain, Dengfeng, Zhengzhou, Henan, 🇨🇳",
     teachers: ["Prajnatara"],
     disciples: [
       "Dazu Huike",
@@ -638,7 +642,6 @@ const InMasterDb: MasterInfo[] = [
     place: "",
     teachers: ["Prajnatara"],
     disciples: ["Shengzhao Thịnh Chiếu"],
-    image: "",
     reference: [""],
   },
   {

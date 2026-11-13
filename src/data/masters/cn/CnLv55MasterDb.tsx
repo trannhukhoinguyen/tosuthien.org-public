@@ -12,7 +12,6 @@ const CnLv55MasterDb = [
     country: '🇨🇳',
     place: 'Gaomin Temple/Monastery (高旻寺), Hanjiang District, Yangzhou, 🇨🇳',
     teachers: [''],
-    successors: ['Yuelang Quanding'],
     disciples: ['Yuelang Quanding', 'Chuchan Quanzhen'],
     image: '/images/buddha-zen-circle-with-unknown-zen-master.avif',
     reference: [''],

@@ -10,16 +10,30 @@ Việt dch: Tỳ Kheo Thích Duy Lực
 Từ Ân Thiền Đường Hoa Kỳ Xuất Bản 1992
 
 TIỂU SỬ
-Tác giả húy Hoài Hải, họ Vương, người Trướng Lạc, Phước Châu. Thuở bé theo mẹ vào chùa lễ Phật, chỉ tượng Phật hỏi mẹ: "Đây là ai". Mẹ nói: "Là Phật". Sư nói: "Hình dạng Phật với người chẳng khác, tôi sau nầy cũng sẽ làm Phật".
 
-Sư xuất gia từ thở thiếu thời, tam học đều thông, ham thích thiền đốn ngộ, nghe thiền sư Mã Tổ Đạo Nhật khai hóa ở Nam Khang (nay là núi Mã Tổ ở Giang Tây), Sư bèn hết lòng y chỉ. Sau khi nối pháp Mã Tổ, Sư được đàn tín thỉnh trụ trì Đại Trí Thọ Thánh thiền tự ở núi Đại Hùng thuộc Hồng Châu, núi cao chót vót, nước suối Ngô Nguyên bay xuống ngàn thước, nên có tên là núi Bá Trượng. Sư trụ trì chưa đầy một tháng, người bốn phương đến tham học vân tập hơn một nghìn, trong đó Qui Sơn và Hoàng Bá làm thượng thủ. Từ đó pháp môn càng ngày càng hưng thạnh, tông phong lừng lẫy, Sư bèn quyết ý lập ra thiền viện đầu tiên. Trước kia các tự viện thiền tông đều nhờ vào chùa của luật tông, từ nay mới được lập riêng. Sư là người khởi sáng cho thiền tự được độc lập, soạn định chế độ tòng lâm, gọi là Bá Trượng thanh quy, nên cũng được tôn xưng là Tổ Trung Hưng của thiền tông.
+Tác giả húy Hoài Hải, họ Vương, người Trướng Lạc, Phước Châu. Thuở bé theo mẹ vào chùa lễ Phật, chỉ tượng Phật hỏi mẹ: "Đây là ai". Mẹ nói: "Là Phật". 
 
-Sư là người siêng năng làm việc, mỗi khi có việc nhà chùa đều tự mình làm trước cả đại chung; người chủ sự lén dấu dụng cụ canh tác của Sư, mời Sư nghỉ ngơi, Sư nói: "Đức ta không đủ, đâu dám trút sự lao động của mình cho người khác!". Kiếm dụng cụ không được thì ngày đó không ăn, cho nên mới có câu: "Nhất nhật bất tác, nhất nhật bất thực" (Một ngày không làm, một ngày không ăn). Vì thế mới biết được gia phong của Sư chân thật như thế nào, thật đáng làm mô phạm cho muôn đời.
+Sư nói: "Hình dạng Phật với người chẳng khác, tôi sau nầy cũng sẽ làm Phật".
 
-Ngày 17 tháng giêng năm Nguyên Hòa thứ 9 đời nhà Đường (CN 8l4) Sư thị tịch, thọ 9l tuổi, đệ tử được phó pháp là Qui Sơn Linh Hựu thiền sư, Hoàng Bá Hy Vận thiền sư, v.v... tất cả có 28 người, hết thảy đều là môn đồ xuất sắc, kỳ lân, phụng hoàng trong Phật pháp. Ngoài tác phẩm này ra còn có Bá Trượng Thanh Qui 2 quyển. Năm Trường Khánh thứ nhất đời Đường Mục Tông, được sắc ban là Đại Trí Thiền Sư, tháp hiệu là Đại Bảo Thắng Luân.
+Sư xuất gia từ thở thiếu thời, tam học đều thông, ham thích thiền đốn ngộ, nghe thiền sư Mã Tổ Đạo Nhật khai hóa ở Nam Khang (nay là núi Mã Tổ ở Giang Tây), Sư bèn hết lòng y chỉ. 
 
+Sau khi nối pháp Mã Tổ, Sư được đàn tín thỉnh trụ trì Đại Trí Thọ Thánh thiền tự ở núi Đại Hùng thuộc Hồng Châu, núi cao chót vót, nước suối Ngô Nguyên bay xuống ngàn thước, nên có tên là núi Bá Trượng. 
 
-<center>🌳🌲🌵</center>
+Sư trụ trì chưa đầy một tháng, người bốn phương đến tham học vân tập hơn một nghìn, trong đó Qui Sơn và Hoàng Bá làm thượng thủ. 
+
+Từ đó pháp môn càng ngày càng hưng thạnh, tông phong lừng lẫy, Sư bèn quyết ý lập ra thiền viện đầu tiên. 
+
+Trước kia các tự viện thiền tông đều nhờ vào chùa của luật tông, từ nay mới được lập riêng. 
+
+Sư là người khởi sáng cho thiền tự được độc lập, soạn định chế độ tòng lâm, gọi là Bá Trượng thanh quy, nên cũng được tôn xưng là Tổ Trung Hưng của thiền tông.
+
+Sư là người siêng năng làm việc, mỗi khi có việc nhà chùa đều tự mình làm trước cả đại chung; người chủ sự lén dấu dụng cụ canh tác của Sư, mời Sư nghỉ ngơi, Sư nói: "Đức ta không đủ, đâu dám trút sự lao động của mình cho người khác!". 
+
+Kiếm dụng cụ không được thì ngày đó không ăn, cho nên mới có câu: "Nhất nhật bất tác, nhất nhật bất thực" (Một ngày không làm, một ngày không ăn). Vì thế mới biết được gia phong của Sư chân thật như thế nào, thật đáng làm mô phạm cho muôn đời.
+
+Ngày 17 tháng giêng năm Nguyên Hòa thứ 9 đời nhà Đường (CN 8l4) Sư thị tịch, thọ 9l tuổi, đệ tử được phó pháp là Qui Sơn Linh Hựu thiền sư, Hoàng Bá Hi Vận thiền sư, v.v... tất cả có 28 người, hết thảy đều là môn đồ xuất sắc, kỳ lân, phụng hoàng trong Phật pháp. 
+
+Ngoài tác phẩm này ra còn có Bá Trượng Thanh Qui 2 quyển. Năm Trường Khánh thứ nhất đời Đường Mục Tông, được sắc ban là Đại Trí Thiền Sư, tháp hiệu là Đại Bảo Thắng Luân.
 
 Sư làm thị giả cho Mã Tổ, mỗi khi thí chủ cúng dường trai phạn Mã Tổ, Sư vừa mở nắp đậy đồ ăn thì Mã Tổ liền lấy một miếng bánh thị chúng rằng: "Là cái gì?". Mỗi mỗi như thế trải qua ba năm.
 
@@ -47,79 +61,55 @@ Tổ nói: "Về sau ông làm sao mở miệng dạy bảo người?".
 
 Sư lấy cái phất trần đưa lên.
 
-Tổ nói:
+Tổ nói: "Tức dụng nầy, lìa dụng nầy". 
 
-"Tức dụng nầy, lìa dụng nầy". - Sư treo phất trần về chỗ cũ. Tổ bèn oai hùng hét mạnh lên một tiếng làm sư bị điếc tai luôn ba ngày.
+Sư treo phất trần về chỗ cũ. Tổ bèn oai hùng hét mạnh lên một tiếng làm sư bị điếc tai luôn ba ngày.
 
 <center>🌳🌲🌵</center>
 
-Một hôm, Hoàng Bá vào phòng Sư thưa rằng:
-
-"Con muốn đi lễ bái Mã Tổ"
+Một hôm, Hoàng Bá vào phòng Sư thưa rằng: "Con muốn đi lễ bái Mã Tổ"
 
 Sư nói:"Mã Tổ đã tịch rồi".
 
-Bá nói:
+Bá nói: "Chưa rõ Mã Tổ có để lại lời nào chăng?"
 
-"Chưa rõ Mã Tổ có để lại lời nào chăng?"
-
-Sư bèn kể lại nhân duyên tái tham với Mã Tổ mà nói rằng:
-
-"Phật pháp không phải là việc nhỏ đâu, lão tăng lúc ấy vì cái hét của Mã Tổ mà bị điếc tai luôn ba ngày".
+Sư bèn kể lại nhân duyên tái tham với Mã Tổ mà nói rằng: "Phật pháp không phải là việc nhỏ đâu, lão tăng lúc ấy vì cái hét của Mã Tổ mà bị điếc tai luôn ba ngày".
 
 Bá nghe kể đến đây bất giác lè lưỡi.
 
-Sư nói:
+Sư nói: "Ông về sau có nối pháp Mã Tổ không?"
 
-"Ông về sau có nối pháp Mã Tổ không?"
+Bá nói: "Không, hôm nay nhờ Hòa Thượng kể lại mới được thấy đại cơ đại dụng của Mã Tổ, nhưng không biết mặt Mã Tổ, mà nếu nối pháp của Mã Tổ thì sau nầy sẽ làm mất con cháu ta".
 
-Bá nói:
-
-"Không, hôm nay nhờ Hòa Thượng kể lại mới được thấy đại cơ đại dụng của Mã Tổ, nhưng không biết mặt Mã Tổ, mà nếu nối pháp của Mã Tổ thì sau nầy sẽ làm mất con cháu ta".
-Sư nói:
-
-Đúng thế, đúng thế,. Cái thấy bằng với thầy thì kém phân nửa đức của thầy. Cái thấy hơn thầy thì mới đủ tư cách truyền thụ. Ông thực có cái thấy siêu việt hơn thầy.
+Sư nói: Đúng thế, đúng thế. Cái thấy bằng với thầy thì kém phân nửa đức của thầy. Cái thấy hơn thầy thì mới đủ tư cách truyền thụ. Ông thực có cái thấy siêu việt hơn thầy.
 
 Bá liền lễ bái.
 
 <center>🌳🌲🌵</center>
 
-Về sau Qui Sơn hỏi Ngưỡng Sơn:
+Về sau Qui Sơn hỏi Ngưỡng Sơn: "Cái nhân duyên đưa phất trần lên của Bá Trượng tái tham Mã Tổ, ý chỉ của hai vị tôn túc nầy như thế nào?".
 
-"Cái nhân duyên đưa phất trần lên của Bá Trượng tái tham Mã Tổ, ý chỉ của hai vị tôn túc nầy như thế nào?".
+Ngưỡng Sơn nói: "Đó là hiển bày đại cơ đại dụng".
 
-Ngưỡng Sơn nói:
+Qui Sơn nói: "Dưới Mã Tổ có 84 người đắc pháp là đại thiện tri thức xuất sắc mấy người đắc đại cơ mấy người đắc đại dụng?".
 
-"Đó là hiển bày đại cơ đại dụng".
+Ngưỡng Sơn nói: "Bá Trượng đắc đại cơ, Hoàng Bá đắc đại dụng, còn lại đều là thầy giảng đạo".
 
-Qui Sơn nói:
-
-"Dưới Mã Tổ có 84 người đắc pháp là đại thiện tri thức xuất sắc mấy người đắc đại cơ mấy người đắc đại dụng?".
-
-Ngưỡng Sơn nói:
-
-"Bá Trượng đắc đại cơ, Hoàng Bá đắc đại dụng, còn lại đều là thầy giảng đạo".
-
-Qui Sơn nói:
-
-"Đúng thế, đúng thế.
+Qui Sơn nói: "Đúng thế, đúng thế.
 
 <center>🌳🌲🌵</center>
 
-Mã Tổ sai người đem thư và ba hũ tương cho Sư, Sư bảo đem xếp trước pháp đường rồi thăng tòa. Chúng vừa vân tập thì Sư lấy gậy chỉ vào ba hũ tương rằng:
+Mã Tổ sai người đem thư và ba hũ tương cho Sư, Sư bảo đem xếp trước pháp đường rồi thăng tòa. 
 
-"Nói được thì không đập bể, nói không được thì đập bể".
+Chúng vừa vân tập thì Sư lấy gậy chỉ vào ba hũ tương rằng: "Nói được thì không đập bể, nói không được thì đập bể".
 
 Chúng lặng thinh.
 
 Sư bèn đập bể rồi trở về phương trượng.
 
-
 <center>🌳🌲🌵</center>
 
-Một hôm Mã Tổ hỏi Sư:
-
-"Từ đâu đến?"
+Một hôm Mã Tổ hỏi Sư: "Từ đâu đến?"
 
 Sư nói
 

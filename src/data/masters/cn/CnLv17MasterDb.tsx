@@ -3,8 +3,8 @@ const CnLv17MasterDb = [
     id: "50.17.1",
     name_en: "Yingan Tanhua",
     other_name_en: "Ying'an Tanhua",
-    name_pinyin: "",
-    other_name_pinyin: "",
+    name_py: "",
+    other_name_py: "",
     name_ja: "Ōan Donge",
     name_zh: "應菴曇華",
     name_vi: "Ứng Am Đàm Hoa",
@@ -16,7 +16,6 @@ const CnLv17MasterDb = [
     place: "chùa Thiên Đồng",
     teachers: ["Huqiu Shaolong"],
     disciples: ["Mian Xianjie", "Hòa Sơn Tâm Giám"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [
       "https://vi.wikipedia.org/wiki/%E1%BB%A8ng_Am_%C4%90%C3%A0m_Hoa",
       "https://terebess.hu/zen/mesterek/YinganTanhua.html",
@@ -36,7 +35,6 @@ const CnLv17MasterDb = [
     place: "Trấn Giang Phủ Tiêu Sơn",
     teachers: ["Huguo Jingyuan"],
     disciples: [],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [
       "https://terebess.hu/zen/entangling.html",
       "https://www.bachduongky.net/danh-muc/huyen-quan-tu-tri-quan/3",
@@ -53,6 +51,9 @@ const CnLv17MasterDb = [
     name_vi: "Chuyết Am Đức Quang",
     other_name_vi: "",
     nickname_vi: "Phật Chiếu",
+    nickname_en: "Fozhao",
+    posthumous_title: "Phổ Tuệ Tông Giác Đại Thiền Sư",
+    stupa_name: "",
     birth_death_time: ["1121", "1203"],
     epoch: "",
     sect: ["Linji", "Yangqi"],
@@ -60,12 +61,11 @@ const CnLv17MasterDb = [
     place: "chùa Dục Vương",
     teachers: ["Dahui Zonggao"],
     disciples: [
-      "Jingshan Ruyan (-1225)",
-      "Pojian Jujian/Bojian Jujian - Bắc Nhàn Cư Giản (1164-1246)",
-      "Triết Ông Như Diễm",
-      "Wuji Liaopai - Vô Tế Liễu Phái (1149-1224)",
+      "Jingshan Ruyan",
+      "Pojian Jujian/Bojian Jujian - Bắc Giản Cư Giản (1164-1246)",
+      "Wuji Liaopai",
+      "Dainichi Nōnin",
     ],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [
       "https://vi.m.wikipedia.org/wiki/Chuy%E1%BA%BFt_Am_%C4%90%E1%BB%A9c_Quang",
     ],
@@ -74,7 +74,7 @@ const CnLv17MasterDb = [
     id: "50.17.4",
     name_en: "Jigong Daoji",
     other_name_en: "Lingyin Daoji",
-    name_pinyin: "",
+    name_py: "",
     name_ja: "",
     name_zh: "濟公道濟",
     other_name_zh: "灵隐道濟",
@@ -115,7 +115,6 @@ const CnLv17MasterDb = [
     place: "",
     teachers: ["Lingyan Sengbao"],
     disciples: ["Xueyan Huiman"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -132,7 +131,6 @@ const CnLv17MasterDb = [
     place: "Giáo Trung",
     teachers: ["Dahui Zonggao"],
     disciples: [],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -149,7 +147,6 @@ const CnLv17MasterDb = [
     place: "Đông Lâm",
     teachers: ["Dahui Zonggao"],
     disciples: [],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -166,7 +163,6 @@ const CnLv17MasterDb = [
     place: "chùa Tây Thiền",
     teachers: ["Dahui Zonggao"],
     disciples: [],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -183,7 +179,6 @@ const CnLv17MasterDb = [
     place: "chùa Tây Thiền",
     teachers: ["Dahui Zonggao"],
     disciples: [],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -200,7 +195,6 @@ const CnLv17MasterDb = [
     place: "",
     teachers: ["Dahui Zonggao"],
     disciples: [],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -217,7 +211,6 @@ const CnLv17MasterDb = [
     place: "Cảnh Sơn",
     teachers: ["Dahui Zonggao"],
     disciples: [],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -234,7 +227,6 @@ const CnLv17MasterDb = [
     place: "",
     teachers: ["Dahui Zonggao"],
     disciples: [],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [
       "https://vi.m.wikipedia.org/wiki/Di%E1%BB%87u_T%E1%BB%95ng_V%C3%B4_Tr%C6%B0%E1%BB%9Bc",
     ],
@@ -256,7 +248,6 @@ const CnLv17MasterDb = [
     place: "",
     teachers: ["Wushi Jiechen"],
     disciples: ["Xue’an Congjin"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: ["https://terebess.hu/zen/mesterek/WannianTanguan.html"],
   },
   {
@@ -274,7 +265,6 @@ const CnLv17MasterDb = [
     place: "trụ trì Hoa Tạng Tự - Thường Châu, Giang Tô",
     teachers: ["Zhide Huihui"],
     disciples: ["Donggu Miaoguang"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [""],
   },
   {
@@ -313,7 +303,6 @@ const CnLv17MasterDb = [
     place: "",
     teachers: ["Yue’an Shanguo"],
     disciples: ["Yuelin Shiguan"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [
       "https://vi.wikipedia.org/wiki/Ph%E1%BA%ADt_gi%C3%A1o_h%E1%BB%87_ph%E1%BA%A3",
     ],

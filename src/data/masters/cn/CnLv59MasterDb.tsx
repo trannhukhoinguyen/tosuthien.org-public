@@ -20,7 +20,7 @@ const CnLv59MasterDb = [
   {
     id: "92.59.2",
     name_en: "Wuyong Xiankuan",
-    name_pinyin: "Wúyòng Xiánkuān",
+    name_py: "Wúyòng Xiánkuān",
     name_ja: "Muyō Kenkan",
     name_kr: "무용현관 Muyong Hyeon-gwan",
     name_zh: "无用贤宽",

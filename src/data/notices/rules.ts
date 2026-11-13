@@ -24,7 +24,7 @@ const rules: rule[] = [
   {
     id: 3,
     title: "CHẲNG CHO KHỞI BIỆT NIỆM",
-    description: "Ngoài nghi tình ra không cho khởi niệm khác, không cho đè nén vọng tưởng, không cho buông bỏ vọng tưởng, cũng không cho trừ vọng tưởng, vọng tưởng khởi lên bao nhiêu cũng mặc kệ không cần biết tới có vọng tưởng hay không có vọng tưởng, vì nghi tình chính là cây chỗi automatic, không cần sự tác ý, tự nó quét sạch tất cả. Vó vọng tưởng cũng quét, không có vọng tưởng nó cũng quét. Nếu nghi tình được miên mật thì tất nhiên vọng tưởng không có kẽ hở mà nổi lên, hễ có khởi lên một niệm khác tức là đã có kẽ hở rồi."
+    description: "Ngoài nghi tình ra không cho khởi niệm khác, không cho đè nén vọng tưởng, không cho buông bỏ vọng tưởng, cũng không cho trừ vọng tưởng, vọng tưởng khởi lên bao nhiêu cũng mặc kệ không cần biết tới có vọng tưởng hay không có vọng tưởng, vì nghi tình chính là cây chổi automatic, không cần sự tác ý, tự nó quét sạch tất cả. Vó vọng tưởng cũng quét, không có vọng tưởng nó cũng quét. Nếu nghi tình được miên mật thì tất nhiên vọng tưởng không có kẽ hở mà nổi lên, hễ có khởi lên một niệm khác tức là đã có kẽ hở rồi."
   },
   {
     id: 4,

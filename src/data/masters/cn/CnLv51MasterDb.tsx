@@ -12,7 +12,6 @@ const CnLv51MasterDb = [
     country: '🇨🇳',
     place: '',
     teachers: ['Jitang Jiatai'],
-    successors: ['Dongchu Denglang'],
     disciples: ['Dongchu Denglang'],
     image: '/images/buddha-zen-circle-with-unknown-zen-master.avif',
     reference: [

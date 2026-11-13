@@ -2,7 +2,7 @@ const JpLv45MasterDb = [
   {
     id: '78.45.50',
     name_en: '',
-    name_pinyin: '',
+    name_py: '',
     name_ja: 'Kōgaku Sōen',
     other_name_ja: '釋 / 釈 Shaku',
     name_zh: '洪岳宗演',

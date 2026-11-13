@@ -1,11 +1,11 @@
 ---
-title: "100 NGÀY ĐỘC CƯ"
+title: 100 NGÀY ĐỘC CƯ
 description: ""
 showInHomepage: true
 category: "Thực hành"
 tags:
   - Độc Cư
-author: "JANE DOBISZ"
+author: JANE DOBISZ
 pdfUrls: 
   - /pdfs/practices/100-ngay-doc-cu.pdf
 videoPlaylist: PLA9UBIkBn5ulzhiOrsOTUBo4xV2RhQZC1

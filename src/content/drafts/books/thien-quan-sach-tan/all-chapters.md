@@ -7,7 +7,7 @@ sections:
 
 I. Rút Gọn Lời Dạy Chư Tổ  
 
-1. Hoàng Bá Hy Vận Thiền sư dạy Chúng  
+1. Hoàng Bá Hi Vận Thiền sư dạy Chúng  
 2. Triệu Châu Tùng Thẩm Thiền sư dạy Chúng  
 3. Huyền Sa Bị Thiền sư dạy Chúng  
 4. Đại Nghĩa Thiền sư răn dạy  

@@ -2,7 +2,7 @@ const CnLv2MasterDb = [
   {
     id: "35.2.1",
     name_en: "Shitou Xiqian",
-    name_pinyin: "Shítóu Xīqiān",
+    name_py: "Shítóu Xīqiān",
     name_ja: "Sekitō Kisen",
     name_kr: "석두희천 Sŏktu Hŭich'ŏn",
     name_zh: "石頭希遷",
@@ -16,7 +16,6 @@ const CnLv2MasterDb = [
     country: "🇨🇳",
     place: "Nantai Temple, Nanyue Heng mountain, Hunan",
     teachers: ["Dajian Huineng", "Qingyuan Xingsi"],
-    successors: ["Yaoshan Weiyan"],
     disciples: [
       "Yaoshan Weiyan",
       "Tanzhou Dachuan",
@@ -50,7 +49,7 @@ const CnLv2MasterDb = [
   {
     id: "35.2.2",
     name_en: "Mazu Daoyi",
-    name_pinyin: "Mǎzǔ Dàoyī",
+    name_py: "Mǎzǔ Dàoyī",
     name_ja: "Baso Dōitsu",
     name_zh: "馬祖道一",
     name_vi: "Mã Tổ Đạo Nhất",
@@ -63,7 +62,6 @@ const CnLv2MasterDb = [
     place:
       "chùa Khai Nguyên (开元寺), Chung Lăng, tỉnh Giang Tây, Trung Quốc (ngày nay tương ứng với huyện Tiến Hiền, thành phố Nam Xương, tỉnh Giang Tây - Gonggong mountain, Nankang, Ganzhou, southern Jiangxi",
     teachers: ["Nanyue Huairang"],
-    successors: ["Baizhang Huaihai"],
     disciples: [
       "Anfeng Huaikong",
       "Baihu Faxuan",
@@ -233,7 +231,6 @@ const CnLv2MasterDb = [
     country: "🇨🇳",
     place: "",
     teachers: ["Heze Shenhui"],
-    successors: ["Jingnan Weizhong"],
     disciples: ["Jingnan Weizhong"],
     reference: [""],
   },
@@ -254,7 +251,7 @@ const CnLv2MasterDb = [
   {
     id: "35.2.6",
     name_en: "Daoxuan",
-    name_pinyin: "Dàoxuán",
+    name_py: "Dàoxuán",
     name_ja: "Dōsen",
     name_zh: "道宣",
     other_name_zh: "道璿",
@@ -264,7 +261,6 @@ const CnLv2MasterDb = [
     country: "🇨🇳",
     place: "",
     teachers: ["Songshan Puji"],
-    successors: ["Gyōhyō"],
     disciples: ["Gyōhyō"],
     reference: [
       "https://pl.wikipedia.org/wiki/Daoxuan",
@@ -311,7 +307,6 @@ const CnLv2MasterDb = [
     country: "🇨🇳",
     place: "",
     teachers: ["Niutou Huifang"],
-    successors: ["Niutou Zhiwei"],
     disciples: ["Niutou Zhiwei"],
     reference: ["https://pl.wikipedia.org/wiki/Niutou_Fazhi"],
   },
@@ -326,7 +321,6 @@ const CnLv2MasterDb = [
     country: "🇨🇳",
     place: "Núi Thái Nhất xưa gọi là Chung Nam",
     teachers: ["Songshan Puji"],
-    successors: ["Songshan Zhìzhen"],
     disciples: ["Songshan Zhìzhen"],
     reference: ["https://ngulucthien.com/thien-su-duy-chinh/"],
   },
@@ -343,7 +337,6 @@ const CnLv2MasterDb = [
     country: "🇰🇷",
     place: "",
     teachers: ["Zizhou Chuji"],
-    successors: ["Baotang Wuzhu"],
     disciples: [
       "Jingzhong Shenhui",
       "Baotang Wuzhu",

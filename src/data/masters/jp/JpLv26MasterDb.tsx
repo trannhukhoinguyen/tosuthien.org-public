@@ -2,7 +2,7 @@ const JpLv26MasterDb = [
   {
     id: '59.26.50',
     name_en: 'Wuyin Zongyin',
-    name_pinyin: 'Wúyīn Zōngyīn',
+    name_py: 'Wúyīn Zōngyīn',
     name_ja: 'Muin Sōin',
     name_zh: '無因宗因',
     name_vi: 'Vô Nhân Tông Nhân',
@@ -21,7 +21,7 @@ const JpLv26MasterDb = [
   {
     id: '59.26.51',
     name_en: 'Huasou Zongtan',
-    name_pinyin: 'Huásǒu Zōngtán',
+    name_py: 'Huásǒu Zōngtán',
     name_ja: 'Kesō Sōdon',
     name_zh: '華叟宗曇',
     name_vi: 'Hoa Tẩu Tông Đàm',

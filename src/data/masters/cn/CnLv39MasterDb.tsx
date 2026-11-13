@@ -2,7 +2,7 @@ const CnLv39MasterDb = [
   {
     id: '72.39.1',
     name_en: 'Biyan Xiangjie',
-    name_pinyin: '',
+    name_py: '',
     name_ja: '',
     name_zh: '碧岩祥潔',
     name_vi: 'Bích Nham Tường Khiết',

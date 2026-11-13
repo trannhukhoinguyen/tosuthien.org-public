@@ -11,7 +11,6 @@ const LinjiMasterDb = [
     place: "",
     teachers: ["Nanyuan Huiyong"],
     disciples: ["Shoushan Xingnian"],
-    image: "/images/buddha-zen-circle-with-unknown-zen-master.avif",
     reference: [
       "https://vi.wikipedia.org/wiki/Phong_Huy%E1%BB%87t_Di%C3%AAn_Chi%E1%BB%83u",
       "https://pl.wikipedia.org/wiki/Fengxue_Yanzhao",
@@ -32,6 +31,7 @@ export default LinjiMasterDb;
 5/ Thiền sư Thủ Sơn Tỉnh Niệm (zh. 首山省念, 926-993)
 6/ Thiền sư Diệp Huyện Quy Tỉnh (zh. 葉縣歸省, tk. 10-11)
 7/ Thiền sư Phù Sơn Pháp Viễn (zh. 浮山法遠, 991-1067)
+*
 6/ Thiền sư Phần Dương Thiện Chiêu (zh. 汾陽善昭, 947-1024)
 7/ Thiền sư Lang Da Huệ Giác (zh. 瑯琊慧覺)
 7/ Thiền sư Thạch Sương Sở Viên (zh. 石霜楚圓, 986-1039)
@@ -39,9 +39,11 @@ export default LinjiMasterDb;
 9/ Thiền sư Chân Tịnh Khắc Văn (zh. 眞淨克文, 1025-1102)
 10/ Thiền sư Giác Phạm Huệ Hồng (zh. 覺範慧洪, 1071-1128)
 10/ Thiền sư Đâu Suất Tùng Duyệt (zh. 兜率從悦, 1044-1091)
+*
 9/ Thiền sư Hối Đường Tổ Tâm (zh. 晦堂祖心, 1025-1100)
 10/ Thiền sư Tử Tâm Ngộ Tân (zh. 黄龍悟新, 1043-1114)
 11/ Thiền sư Siêu Tông Huệ Phương (zh. 超宗慧方, 1073-1129)
+*
 10/ Thiền sư Linh Nguyên Duy Thanh (zh. 靈源惟清, ?-1117)
 11/ Thiền sư Trường Linh Thủ Trác (zh. 長靈守卓, 1066-1124)
 12/ Thiền sư Dục Vương Giới Kham (zh. 育王介諶, 1080-1148)
@@ -49,6 +51,7 @@ export default LinjiMasterDb;
 14/ Thiền sư Tuyết Am Tùng Cẩn (zh. 雪庵從瑾, 1117-1200)
 15/ Thiền sư Hư Am Hoài sưởng (zh. 虛庵懷敞)
 16/ Thiền sư Minh Am Vinh Tây (zh. 明菴榮西, 1141-1215), truyền Hoàng Long phái vào Nhật Bản.
+*
 8/ Thiền sư Dương Kì Phương Hội (zh. 楊岐方會, 992-1049), tổ sáng lập Dương Kì phái.
 9/ Thiền sư Bạch Vân Thủ Đoan (zh. 白雲守端, 1025-1072)
 10/ Thiền sư Ngũ Tổ Pháp Diễn (zh. 五祖法演, 1024-1104)
@@ -57,14 +60,16 @@ export default LinjiMasterDb;
 13/ Thiền sư Đại Hồng Tổ Chứng (zh. 大洪祖證)
 14/ Thiền sư Nguyệt Lâm Sư Quán (zh. 月溪師觀, 1143-1217)
 15/ Thiền sư Vô Môn Huệ Khai (zh. 無門慧開, 1183-1260)
-16/ Thiền sư Tâm Địa Giác Tâm (zh. 心地覺心, 1207-1298), truyền Lâm Tế tông vào Nhật Bản.
+16/ Thiền sư Tâm Địa Giác Tâm (zh. 心地覺心, 1207-1298), truyền Lâm Tế tông vào Nhật Bản
+*
 11/ Thiền sư Phật Nhãn Thanh Viễn (zh. 佛眼清遠, 1067-1120)
 11/ Thiền sư Phật Giám Huệ Cần (zh. 佛鑑慧懃, 1059-1117)
 11/ Thiền sư Viên Ngộ Khắc Cần (zh. 圜悟克勤, 1063-1135)
 12/ Thiền sư Hạt Đường Huệ Viễn (zh. 瞎堂慧遠, 1103-1175)
-13/ Thiền sư Duệ Sơn Giác A (zh. 叡山覺阿), người đầu tiên truyền Lâm Tế tông vào Nhật Bản.
+13/ Thiền sư Duệ Sơn Giác A (zh. 叡山覺阿), người đầu tiên truyền Lâm Tế tông vào Nhật Bản
 13/ Thiền sư Tế Điên Đạo Tế (zh. 濟顛道濟, 1149-1209, Hòa thượng Tế Công)
-12/ Thiền sư Đại Huệ Tông Cảo (zh. 大慧宗杲, 1088–1163), tổ sáng lập phái Đại Huệ - một trong hai nhánh chính của phái Dương Kì.
+*
+12/ Thiền sư Đại Huệ Tông Cảo (zh. 大慧宗杲, 1088–1163), tổ sáng lập phái Đại Huệ - một trong hai nhánh chính của phái Dương Kì
 13/ Thiền sư Chuyết Am Đức Quang (zh. 拙庵德光, 1121-1203)
 14/ Thiền sư Vô Tế Liễu Phái (zh. 無濟了派)
 14/ Thiền sư Chiết Ông Như Diễm (zh. 浙翁如琰, 1151-1225)
@@ -73,22 +78,27 @@ export default LinjiMasterDb;
 15/ Thiền sư Yển Khê Quảng Văn (zh. 偃溪廣聞, 1189-1263)
 16/ Thiền sư Vân Phong Diệu Cao (zh. 雲峰妙高, 1219-1293)
 16/ Thiền sư Khô Nhai Viên Ngộ (zh. 枯崖圓悟)
+*
 14/ Thiền sư Bắc Giản Cư Giản (zh. 北礀居簡, 1164-1253)
 15/Thiền sư Vật Sơ Đại Quán (zh. 物初大觀, tk.13)
 16/ Thiền sư Hối Cơ Nguyên Hi (zh. 晦機元熙, 1238-1319)
 17/ Thiền sư Đông Dương Đức Huy (zh. 東陽德輝)
-18/ Thiền sư Trung Nham Viên Nguyệt (ja. Chuugan Engetsu), truyền Lâm Tế Tông vào Nhật Bản.
+18/ Thiền sư Trung Nham Viên Nguyệt (ja. Chuugan Engetsu), truyền Lâm Tế Tông vào Nhật Bản
+*
 17/ Thiền sư Tiếu Ẩn Đại Hân (zh. 笑隱大訢, 1284-1344)
 18/ Thiền sư Quý Đàm Tông Lặc (zh. 季潭宗泐, 1318-1391)
 18/ Thiền sư Đông Truyền Chính Tổ (ja. Tôden Seiso), truyền Lâm Tế Tông vào Nhật Bản.
 18/ Thiền sư Giác Nguyên Huệ Đàm (zh. 覺原慧曇, 1304-1371)
 19/ Thiền sư Bảo Nham Tịnh Giới (zh. 定巖淨戒)
+*
 14/ Thiền sư Tàng Tẩu Thiện Trân (zh. 藏叟善珍)
 15/ Thiền sư Nguyên Tẩu Hành Đoan (zh. 元叟行端)
 16/ Thiền sư Sở Thạch Phạm Kỳ (zh. 楚石梵琦, 1296-1370)
 16/ Thiền sư Mộng Đường Đàm Ngạc (zh. 夢堂曇噩, 1285-1373)
 17/ Thiền sư Đại Tông Tâm Thái (zh. 岱宗心泰, 1327-1415)
+*
 16/ Thiền sư Ngu Am Trí Cập (zh. 愚庵智及, 1311-1378)
+*
 13/ Thiền sư Lại Am Đỉnh Nhu (zh. 懶菴需, 1092-1153)
 14/ Thiền sư Mộc Am An Vĩnh (zh. 木庵安永, ?-1173)
 15/ Thiền sư Hối Ông Ngộ Minh (zh. 晦翁悟明)
@@ -107,6 +117,7 @@ export default LinjiMasterDb;
 27/ Thiền sư Tam Sơn Đăng Lai (zh. 三山燈來, 1614 - 1685)
 28/ Thiền sư Hựu Sơn Tính Chứng (zh. 又山性証)
 28/ Thiền sư Biệt Am Tính Thống (zh. 別庵性統, hậu bán tk.17)
+*
 12/ Thiền sư Hổ Khâu Thiệu Long (zh. 虎丘紹隆, 1077-1136), tổ sáng lập phái Hổ Khâu - một trong hai nhánh chính của phái Dương Kì.
 13/ Thiền sư Ứng Am Đàm Hoa (zh. 應庵曇華, 1103-1163)
 14/ Thiền sư Hòa Sơn Tâm Giám (zh. 禾山心鑒)
@@ -115,15 +126,19 @@ export default LinjiMasterDb;
 16/ Thiền sư Diệt Ông Văn Lễ (zh. 滅翁文禮, 1167/1168-1250)
 17/ Thiền sư Hoành Xuyên Như Củng (zh. 橫川如珙, 1222/1223-1289)
 18/ Thiền sư Cổ Lâm Thanh Mậu (zh. 古林清茂, 1262-1329)
+*
 16/ Thiền sư Vô Minh Huệ Tính (zh. 無明慧性, 1162-1237)
 17/ Thiền sư Lan Khê Đạo Long (zh. 蘭谿道隆, 1213/1214-1278), truyền tông Lâm Tế sang Nhật Bản.
+*
 16/ Thiền sư Vân Am Phổ Nham (zh. 運庵普巖, 1156/1157-1226)
 17/ Thiền sư Hư Đường Trí Ngu (zh. 虗堂智愚, 1185-1269)
 18/ Thiền sư Nam Phố Thiệu Minh (zh. 南浦紹明, 1235-1308/1309), truyền tông Lâm Tế vào Nhật Bản, đây là dòng truyền thừa Lâm Tế lớn nhất tại Nhật Bản hiện nay.
+*
 15/ Thiền sư Tào Nguyên Đạo Sinh (zh. 曹源道生, ?-1198/1199), tổ khai sáng phái Tào Nguyên - một trong ba nhánh của phái Hổ Khâu.
 16/ Thiền sư Si Tuyệt Đạo Trùng (zh. 癡絕道冲, 1169-1250)
 17/ Thiền sư Ngoan Cực Hành Di (zh. 頑極行彌)
 18/ Thiền sư Nhất Sơn Nhất Ninh (zh. 一山一寧, 1247-1317/1318), truyền tông Lâm Tế sang Nhật.
+*
 15/ Thiền sư Phá Am Tổ Tiên (zh. 破庵祖先, 1136-1211), tổ khai sáng phái Phá Am - một trong ba nhánh của phái Hổ Khâu.
 16/ Thiền sư Vô Chuẩn Sư Phạm (zh. 無準師範, 1174-1249)
 17/ Thiền sư Đoạn Kiều Diệu Luân (zh. 斷橋妙倫, 1201-1261), tổ khai sơn phái Đoạn Kiều - một nhánh của phái Phá Am.
@@ -138,17 +153,21 @@ export default LinjiMasterDb;
 26/ Thiền sư Thiên Ninh Đạo Tế (zh. 天寧道濟, 1487-1560/1561)
 27/ Thiền sư Vân Cốc Pháp Hội (zh. 雲谷法會, 1501-1575)
 28/ Thiền sư Hám Sơn Đức Thanh (zh. 憨山德清, 1546-1623, Hám Sơn Đại sư)
+*
 17/ Thiền sư Vô Học Tổ Nguyên (zh. 無學祖元, 1226-1286), truyền tông Lâm Tế sang Nhật.
 17/ Thiền sư Ngột Am Phổ Ninh (zh. 兀庵普寧, 1197-1276), truyền tông Lâm Tế sang Nhật.
 17/ Thiền sư Hoàn Khê Duy Nhất (zh. 環溪惟一, 1202-1281)
 18/ Thiền sư Kính Đường Giác Viên (zh. 鏡堂覺圓, 1244-1306), truyền tông Lâm Tế sang Nhật.
+*
 17/ Thiền sư Tuyết Nham Tổ Khâm (zh. 雪巖祖欽, ?-1287)
 18/ Thiền sư Cập Am Tông Tín (zh. 及庵宗信)
 19/ Thiền sư Thạch Ốc Thanh Củng (zh. 石屋清珙, 1272-1352)
 20/ Thiền sư Thái Cổ Phổ Ngu (zh. 太古普愚, 1301-1382), truyền Lâm Tế tông vào Triều Tiên.
 20/ Thiền sư Bạch Vân Cảnh Nhàn (zh. 白雲景閑, 1298-1374), truyền Lâm Tế Tông vào Triều Tiên.
+*
 19/ Thiền sư Bình Sơn Sử Lâm (zh. 平山處林, 1279-1361)
 20/ Thiền sư Lãn Ông Huệ Cần (zh. 懶翁惠勤, 1320/1321-1376), truyền Lâm Tế Tông vào Triều Tiên.
+*
 18/ Thiền sư Cao Phong Nguyên Diệu (zh. 高峰元妙, 1238-1295)
 19/ Thiền sư Trung Phong Minh Bản (zh. 中峰明本, 1263-1323), tổ khai sơn phái Huyễn Trụ - một nhánh của phái Phá Am.
 20/ Thiền sư Thiên Như Duy Tắc (zh. 天如惟則, ?-1354)
@@ -167,21 +186,26 @@ export default LinjiMasterDb;
 31/ Thiền sư Lâm Dã Thông Kỳ (zh. 林野通奇, 1595-1652)
 32/ Thiền sư Hương Nghiêm Đạo An (zh. 香嚴道安, 1612-1689)
 33/ Thiền sư Tế Luân Siêu Vĩnh (zh. 霽崙超永)
+*
 31/ Thiền sư Phí Ẩn Thông Dung (zh. 費隱通容, 1593-1661)
 32/ Thiền sư Ẩn Nguyên Long Kì (zh. 隱元隆琦, 1592-1673), tổ sáng lập Hoàng Bá tông tại Nhật Bản.
+*
 31/ Thiền sư Mộc Trần Đạo Mân (zh. 木陳道忞, 1596-1674)
 32/ Thiền sư Tuyết Hữu Chân Phác
 33/ Thiền sư Đại Xa Như Trường
 34/ Thiền sư Minh Hoằng Tử Dung (zh. 明弘, tk. 17), truyền tông Lâm Tế vào Miền Trung Việt Nam.
 35/ Thiền sư Liễu Quán Thiệt Diệu (zh. 了觀, 1667-1742), tổ sáng lập dòng Thiền Liễu Quán tại Việt Nam.
+*
 30/ Thiền sư Ngữ Phong Viên Tín (zh. 雪嶠圓信, 1571-1647)
 31/ Thiền sư Dụng Chu Thủy Nguyệt (zh. 用周水月, 1614-1677)
+*
 30/ Thiền sư Thiên Ẩn Viên Tu (zh. 天隱圓修禪師, 1575-1635), người lập ra phái Khánh Sơn - nhánh con của phái Vạn Phong.
 31/ Thiền sư Nhược Am Thông Vấn (zh. 箬菴通問, 1604-1655)
 32/ Thiền sư Tiệt Lưu Hành Sách (zh. 截流行策, 1628-1682, Hành Sách Đại Sư)
 32/ Thiền sư Thiên Trúc Hành Trân (zh. 天竺行珍, 1624-1694/1695)
 33/ Thiền sư Vô Am Siêu Cách (zh. 夢菴超格, 1639-1708)
 34/ Thiền sư Già Lăng Tính Âm (zh. 迦陵性音, 1671-1726)
+*
 31/ Quốc sư Ngọc Lâm Thông Tú (zh. 玉林通琇, 1614-1675)
 32/ Thiền sư Ngưỡng Khê Hành Sâm (zh. 茆溪行森, 1614-1677)
 33/ Thiền sư Hình Sơn Siêu Bảo (zh. 形山超寶, 1635-1709)
@@ -496,7 +520,7 @@ Trung Quang Nhất Hạnh Thích Nhất Hạnh
 54/27. Xueyan Huilang (Zuqin) (1216–1287)
 55/28. Ji’an Zongxin) (bd)
 56/29. Shiwu Qinggong (1272–1352)
-;* 57/30/1. T’aego Poŭ (1301–1382) Hàn Quốc. trường Imje.
+57/30/1. T’aego Poŭ (1301–1382) Hàn Quốc. trường Imje.
 55/28. Gaofeng Yuanmiao (12381295)
 56/29. Zhongfeng Mingben (1263–1323)
 57/30/1. Kosen Ingen (1295–1374) Nhật Bản. Trường Rinzai.
@@ -528,10 +552,10 @@ Trung Quang Nhất Hạnh Thích Nhất Hạnh
 66/39. Xingshan Huiguang (1576–1620)
 67/40. Puming Deyong (1587–1642)
 68/41. Gao’an Yuanqing (bd)
-69/42. Benzhi Mingjue (bd)
-70/43. Zibo Zhenke (1543–1603)
-71/44. Duanxu Ruhong (bd)
-72/45. Chunjie Xingkui (bd)
+69/42. Benzhi Mingjue (bd) ➡️ Zibo Zhenke
+70/43. Zibo Zhenke (1543–1603) ➡️ 71/44. Mizang Daokai (zm. ok. 1593) 71/44. Dongwen (zm. 1623) 71/44. Huanyu (bd) 71/44. 'Danju (1561-1621) 71/44. Nianyun (1558-1628) 71/44. Duanxu Ruhong (bd)
+71/44. Duanxu Ruhong (bd) ➡️ 72/45. Chunjie Xingkui (bd)
+72/45. Chunjie Xingkui (bd) ➡️ 73/46. Ciyun Haijun (bd)
 73/46. Ciyun Haijun (bd)
 74/47. Zhisheng Jiwen (bd)
 75/48. Duanyuan Zhaohua (bd)

@@ -6,7 +6,6 @@ export const GALLERY_PATH = "src/content/galleries";
 export const DOCS_PATH = "src/content/docs";
 export const MASTER_IMAGE_DEFAULT_PATH = "/images/unknown-zen-master.jpg";
 export const OTHER_IMAGE_DEFAULT_PATH = "/images/zen/gate-3.jpg";
-export const HERO_PATH = "src/content/heroes";
 export const ENLIGHTENER_PATH = "src/content/enlighteners";
 export const CODEX_PATH = "src/content/codices";
 export const COMPENDIUM_PATH = "src/content/compendia";
@@ -172,18 +171,6 @@ const health = defineCollection({
     category: z.string(),
     tags: z.array(z.string()).default([]),
   }),
-});
-
-const heroes = defineCollection({
-  loader: glob({ pattern: "**!/[^_]*.{md,mdx}", base: `./${HERO_PATH}` }),
-  schema: ({ image }) =>
-    z.object({
-      title: z.string(),
-      description: z.string(),
-      draft: z.boolean().optional(),
-      cover: image().optional(),
-      tags: z.array(z.string()).default([]),
-    }),
 });
 
 const kings = defineCollection({
@@ -361,6 +348,4 @@ export const collections = {
   enlighteners,
   codices,
   compendia,
-
-  heroes,
 };

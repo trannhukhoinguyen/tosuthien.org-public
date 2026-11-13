@@ -6,6 +6,9 @@ import YoutubeSVG from "../svg/YoutubeSVG.astro";
 import BookCaseSVG from "../svg/BookCaseSVG.astro";
 import SiteSVG from "../svg/SiteSVG.astro";
 import PersonSVG from "../svg/PersonSVG.astro";
+import IconReshare from "~/images/logos/reshare-logo.png";
+import IconNNL from "~/images/logos/nnl-logo.png";
+import IconCNYT from "~/images/logos/cnyt-logo.png";
 
 // Lấy param [lang] từ URL động của Astro (mặc định là 'vi' nếu không khớp)
 const { lang = 'vi' } = Astro.params;
@@ -43,31 +46,26 @@ const { lang = 'vi' } = Astro.params;
           <YoutubeSVG />
         </a>
       )}
+    </div>
 
-<!--      {config.social.bookcase && (
-        <a href={config.social.bookcase} target="_blank" rel="noopener" aria-label="Bookcase" class="social-link" title="Tủ sách Tổ Sư Thiền">
-          <BookCaseSVG />
-        </a>
-      )}-->
-
-<!--      {config.social.bookcase2 && (
-        <a href={config.social.bookcase2} target="_blank" rel="noopener" aria-label="Bookcase" class="social-link" title="Tủ sách Tổ Sư Thiền">
-          &lt;!&ndash;<BookCaseSVG />&ndash;&gt;
-          <img src="/images/svg/bookshelf-color.svg" alt="Tủ sách Tổ Sư Thiền"/>
-        </a>
-      )}-->
-
-<!--      {config.social.tosuthien1 && (
-        <a href={config.social.tosuthien1} target="_blank" rel="noopener" aria-label="Bookcase" class="social-link" title="Web Tổ Sư Thiền khác">
-          <SiteSVG />
+    <div class="social-links">
+      {config.charity.reshare && (
+        <a href={config.charity.reshare} target="_blank" rel="noopener" aria-label="reshare" class="social-link" title="Trạm Xanh Reshare">
+          <img src={IconReshare.src} alt="Trạm Xanh Reshare" class="nav-icon" />
         </a>
       )}
 
-      {config.social.masterSite && (
-        <a href={config.social.masterSite} target="_blank" rel="noopener" aria-label="Bookcase" class="social-link" title="Thiền sư Ngữ lục">
-          <PersonSVG />
+      {config.charity.nnl && (
+        <a href={config.charity.nnl} target="_blank" rel="noopener" aria-label="nnl" class="social-link" title="Nhà Nhiều Lá">
+          <img src={IconNNL.src} alt="Nhà Nhiều Lá" class="nav-icon" />
         </a>
-      )}-->
+      )}
+
+      {config.charity.cnyt && (
+        <a href={config.charity.cnyt} target="_blank" rel="noopener" aria-label="cnyt" class="social-link" title="Chủ Nhật Yêu Thương">
+          <img src={IconCNYT.src} alt="Chủ Nhật Yêu Thương" class="nav-icon" />
+        </a>
+      )}
     </div>
   </div>
 </footer>

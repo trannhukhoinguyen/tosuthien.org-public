@@ -7,6 +7,7 @@ import { config } from "@/config.ts";
 import schema from "@/data/schema.astro";
 import SEO from "@/components/page/SEO.astro";
 import { l } from "@/utils/constants.ts";
+import AudioPlayer from "@/components/ui/minrock-style/AudioPlayer.astro";
 
 interface Props {
   title: string;
@@ -37,6 +38,7 @@ interface Props {
   tabLabels?: string[] | [];
   videoIds?: string[] | [];
   activeTab?: string;
+  showThisAudio?: Boolean;
 }
 
 const {
@@ -51,6 +53,7 @@ const {
   tabLabels = [],
   videoIds = [],
   activeTab = 'main', // <--- Lấy giá trị activeTab truyền vào (mặc định là 'main')
+  showThisAudio = true,
 } = Astro.props;
 
 const breadcrumbItems: { label: string; href?: string }[] = [
@@ -79,9 +82,10 @@ const defaultImage = "/images/backgrounds/Buddha-zen.avif";
 
 // Lấy param [lang] từ URL động của Astro (mặc định là 'vi' nếu không khớp)
 const { lang = 'vi' } = Astro.params;
+const showAudio = config.showAudio !== false;
 ---
 
-<Layout title={title} description={description} articleData={articleData}>
+<Layout title={title} description={description}>
   <header class="article-header">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -314,6 +318,11 @@ const { lang = 'vi' } = Astro.params;
           }
         }`}
       >
+        <!-- 🔊 Accessible Audio Player (Text-to-Speech) -->
+        {showAudio && showThisAudio && (
+          <AudioPlayer selector=".post-content" title={title} label="Listen to Article" />
+        )}
+
         <!-- Navigation Tabs -->
         <div class="wiki-type-tabs-wrapper">
           <nav class="wiki-type-tabs" aria-label="Tiêu đề Nội dung">
@@ -363,8 +372,14 @@ const { lang = 'vi' } = Astro.params;
           </nav>
         </div>
 
+        <!-- 🔊 Accessible Audio Player (Text-to-Speech) -->
+        {showAudio && showThisAudio && (
+          <AudioPlayer selector=".tab-panels-wrapper" title={title} label="Nghe nội dung" />
+        )}
+
         <!-- Content Container -->
         <div class="tab-panels-wrapper" :data-active-tab="activeTab" id="tab-content">
+
           <article
             class={"prose prose-lg prose-sg"}
             data-pagefind-body

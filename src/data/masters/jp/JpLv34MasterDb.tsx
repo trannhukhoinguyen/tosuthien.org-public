@@ -2,7 +2,7 @@ const JpLv34MasterDb = [
   {
     id: '67.34.50',
     name_en: 'Yi’an Zhitai',
-    name_pinyin: 'Yǐ’ān Zhìtài',
+    name_py: 'Yǐ’ān Zhìtài',
     name_ja: 'Ian Chisatsu',
     name_zh: '以安智泰',
     name_vi: 'Dĩ An Trí Thái',
@@ -21,7 +21,7 @@ const JpLv34MasterDb = [
   {
     id: '67.34.51',
     name_en: 'Dahui Xiangxian',
-    name_pinyin: 'Dàhuī Xiángxiān',
+    name_py: 'Dàhuī Xiángxiān',
     name_ja: 'Daiki Jōsen',
     name_zh: '大輝祥暹',
     name_vi: 'Đại Huy Tường Tiêm',

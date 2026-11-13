@@ -47,7 +47,6 @@ const CnLv58MasterDb = [
     country: "🇨🇳",
     place: "Gaomin Temple/Monastery (高旻寺), Hanjiang District, Yangzhou, 🇨🇳",
     teachers: ["Mingxuan Xirui"],
-    successors: ["Gaomin Delin"],
     disciples: ["Gaomin Delin"],
     reference: [
       "https://dmcb.dila.edu.tw/dmcb/Laiguo_%E4%BE%86%E6%9E%9C",
@@ -76,7 +75,7 @@ const CnLv58MasterDb = [
   {
     id: "91.58.4",
     name_en: "Yefu Jinniu",
-    name_pinyin: "Yěfù Jīnniú",
+    name_py: "Yěfù Jīnniú",
     name_ja: "Yafu Kingū",
     name_kr: "야부금우 Yabu Geum-u",
     name_zh: "冶父金牛",
