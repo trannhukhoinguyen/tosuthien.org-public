@@ -1,6 +1,6 @@
 ---
 title: THIỀN ĐỊNH VÀ KHOA HỌC THẦN KINH - KHÍA CẠNH KHOA HỌC VÀ Y HỌC
-description: "Từ tiếng Pháp "méditation" lấy gốc từ tiếng La tinh "meditatio", bao hàm hành động suy nghĩ, tư duy sâu xa về một đề tài, trầm tư trong một suy nghĩ thâm sâu."
+description: ""
 category: "Nghiên cứu"
 tags:
   - THIỀN ĐỊNH
